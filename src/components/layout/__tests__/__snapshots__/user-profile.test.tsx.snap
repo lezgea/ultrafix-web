@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserProfile Component should render the skeleton when loading 1`] = `
+<DocumentFragment>
+  <div
+    class="flex items-center justify-end h-full"
+    data-testid="user-profile-skeleton"
+  >
+    <div
+      class="flex items-center space-x-3"
+    >
+      <div
+        class="w-[80px] h-[20px] bg-gray-200 rounded-full"
+      />
+       
+      <div
+        class="relative w-[40px] h-[40px] rounded-full bg-gray-200 overflow-hidden"
+      />
+       
+    </div>
+  </div>
+</DocumentFragment>
+`;
