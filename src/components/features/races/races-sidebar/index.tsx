@@ -2,7 +2,6 @@ import Divider from '@components/shared/divider';
 import { RootState } from '@store/store';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import DragAndDropSection from '../drag-drop-section';
 
 
 interface IRacesSidebarProps {
@@ -64,11 +63,6 @@ export const RacesSidebar: React.FC<IRacesSidebarProps> = ({ visible, setSidebar
                             }
                         }}
                     />
-
-                    {
-                        visible &&
-                        <DragAndDropSection onClose={() => setSidebarOpen(false)} />
-                    }
                 </div>
             </div>
         </div>

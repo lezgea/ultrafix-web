@@ -33,9 +33,9 @@ export default function RootLayout({
           <ToastProvider>
             <Header />
             <div className="min-h-screen">
-              {/* {children} */}
+              {children}
             </div>
-            <Footer />
+            {/* <Footer /> */}
           </ToastProvider>
         </ReduxProvider>
       </body>

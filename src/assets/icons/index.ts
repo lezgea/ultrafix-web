@@ -1,4 +1,3 @@
-import DataraceLogo from './datarace-logo.svg';
 import RaceIcon from './races.svg';
 import ArrowStyledIcon from './arrow_styled.svg';
 import DropIcon from './drop.svg';
@@ -41,12 +40,13 @@ import ZipIcon from './zip.svg';
 import CheckIcon from './check.svg';
 import DownloadIcon from './download.svg';
 import CheckFilledIcon from './checkfilled.svg';
+import UltrafixLogo from './ultrafix-logo.svg';
 
 
 
 export {
     // logos
-    DataraceLogo,
+    UltrafixLogo,
     LogoWhite,
 
     // illustrations
