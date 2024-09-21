@@ -27,6 +27,7 @@ export default function RootLayout({
       <head>
         {/* Link to the favicon */}
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preload" href="/img/houston_car.webp" as="image" />
       </head>
       <body className={`${inter.className} ${poppins.className}`}>
         <ReduxProvider>
