@@ -1,18 +1,18 @@
 "use client";
 
 import SectionLayout from '@components/layout/section-layout';
-import { ABOUT_US_IMAGES } from 'constants/about-us';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { CarouselProps } from 'react-responsive-carousel';
+import { BRANDS } from 'constants/brands';
 
 // Dynamically import the Carousel to avoid SSR issues
 const Carousel = dynamic(() => import("react-responsive-carousel").then(mod => mod.Carousel), {
     ssr: false, // Disable server-side rendering for this component
 });
 
-export const AboutUsSection: React.FC = () => {
+export const BrandsSection: React.FC = () => {
     const [isMounted, setIsMounted] = useState(false);
 
     // This ensures the component only runs on the client
@@ -32,14 +32,13 @@ export const AboutUsSection: React.FC = () => {
 
     return (
         <SectionLayout
-            scrollId="about_us"
-            title="About Us"
-            description="Our pledge is to establish lasting relationships with our customers by exceeding their expectations and gaining their trust through exceptional performance by each member of our service team. We have been providing top service! See just how our UltraFix Appliance Repair Service can better your life today!"
+            scrollId="brands"
+            title="Brands We Repair"
         >
             {isMounted && (
-                <div className="rounded-3xl overflow-hidden">
+                <div className="rounded-3xl overflow-hidden max-h-[120px] flex items-center">
                     <Carousel {...(carouselProps as CarouselProps)}>
-                        {ABOUT_US_IMAGES.map(({ url, alt }, i) => (
+                        {BRANDS.map(({ url, alt }, i) => (
                             <Image
                                 key={i} // Add key for each image
                                 src={url}

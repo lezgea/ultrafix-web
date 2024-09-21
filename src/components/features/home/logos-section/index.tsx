@@ -25,11 +25,11 @@ const TOP_SERVICES = [
         url: "https://www.yelp.com/biz/ultrafix-appliance-repair-houston",
         src: "/img/logos/yelp-logo.webp",
     },
-    // {
-    //     alt: "Thumbtack",
-    //     url: "https://www.thumbtack.com/tx/houston/appliance-repair/ultrafix-appliance-repair-llc/service/428552679308009500?utm_medium=web&utm_source=txt&surface=sp",
-    //     src: "/img/logos/thumbtack-logo.webp",
-    // },
+    {
+        alt: "Thumbtack",
+        url: "https://www.thumbtack.com/tx/houston/appliance-repair/ultrafix-appliance-repair-llc/service/428552679308009500?utm_medium=web&utm_source=txt&surface=sp",
+        src: "/img/logos/thumbtack-logo.webp",
+    },
 ]
 
 export const LogosSection: React.FC = () => {

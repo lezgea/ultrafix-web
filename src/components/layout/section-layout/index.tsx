@@ -20,7 +20,7 @@ const SectionLayout: FC<ISectionLayout> = ({
 
     return (
         <section id={scrollId} className={`w-full ${noYPadding ? '' : 'py-20'} px-10`}>
-            <div className="relative w-full flex flex-col container mx-auto max-w-[1200px] space-y-20">
+            <div className="relative w-full flex flex-col container mx-auto max-w-[1200px] space-y-10">
                 {
                     (!!title || !!description) &&
                     <div className='space-y-2'>
@@ -31,7 +31,7 @@ const SectionLayout: FC<ISectionLayout> = ({
                         )}
                         {
                             !!description &&
-                            <p className="text-md text-center text-gray-400 px-20">{description}</p>
+                            <p className="text-md font-light text-center text-gray-500 px-20">{description}</p>
                         }
                     </div>
                 }

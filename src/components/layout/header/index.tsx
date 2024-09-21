@@ -13,7 +13,7 @@ const NAV_ROUTES: { id: string; label: string }[] = [
     { id: 'about_us', label: 'About Us' },
     { id: 'brands', label: 'Brands' },
     { id: 'reviews', label: 'Reviews' },
-    { id: 'contact-us', label: 'Why Us' },
+    { id: 'why_us', label: 'Why Us' },
 ];
 
 
