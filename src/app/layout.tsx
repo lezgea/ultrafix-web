@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
-import '../styles/global.css';
 import { Footer, Header, Loader } from "components";
 import ReduxProvider from "providers/redux-provider";
 import ToastProvider from "@providers/toast-provider";
+
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import '../styles/global.css';
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({ subsets: ["latin"], weight: ["200", "300", "400", "500", "600", "700", "800", "900"] }); // Specify weights if needed

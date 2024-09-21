@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import PageLayout from '@components/layout/page-layout';
-import { BannerSection, LogosSection, ServicesSection } from '@components/features/home';
+import { AboutUsSection, BannerSection, LogosSection, ServicesSection } from '@components/features/home';
 
 
 export const metadata: Metadata = {
@@ -62,6 +62,7 @@ const Home: React.FC = () => {
             <BannerSection />
             <LogosSection />
             <ServicesSection />
+            <AboutUsSection />
         </PageLayout>
     );
 };

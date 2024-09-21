@@ -7,6 +7,7 @@ import React from 'react';
 export const ServicesSection: React.FC = () => {
     return (
         <SectionLayout
+            scrollId="services"
             title="Our Services"
             description="We have been providing top service! See just how our UltraFix Appliance Repair Service can better your life today!"
         >

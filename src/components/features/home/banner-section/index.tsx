@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-
 export const BannerSection: React.FC = () => {
     return (
         <SectionLayout>
@@ -27,10 +26,10 @@ export const BannerSection: React.FC = () => {
                     src="/img/houston_car.webp"
                     width={500}
                     height={300}
-                    className="w-auto"
+                    className="w-auto h-auto"
                     alt="UltraFix Car Image"
                     loading="lazy"
-                    sizes="(max-width: 1200px) 100vw, 1000px"
+                    sizes="(max-width: 1200px) 100vw, (min-width: 1200px) 1000px"
                 />
             </div>
         </SectionLayout>

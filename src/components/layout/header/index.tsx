@@ -7,36 +7,45 @@ import { CloseIcon, HamburgerIcon, UltrafixLogo } from '@assets/icons';
 import { Sidebar } from '../sidebar';
 
 
-const NAV_ROUTES: { route: string; label: string }[] = [
-    { route: '/#services', label: 'Services' },
-    // { route: '/#locations', label: 'Locations' },
-    { route: '/#about-us', label: 'About Us' },
-    { route: '/#brands', label: 'Brands' },
-    { route: '/#reviews', label: 'Reviews' },
-    { route: '/#contact-us', label: 'Why Us' },
+const NAV_ROUTES: { id: string; label: string }[] = [
+    { id: 'services', label: 'Services' },
+    { id: 'locations', label: 'Locations' },
+    { id: 'about_us', label: 'About Us' },
+    { id: 'brands', label: 'Brands' },
+    { id: 'reviews', label: 'Reviews' },
+    { id: 'contact-us', label: 'Why Us' },
 ];
 
 
 export const Header: React.FC = () => {
     const pathname = usePathname();
     const params = useSearchParams();
-    const [isSidebarOpen, setSidebarOpen] = React.useState(false);
+    const [isSidebarOpen, setSidebarOpen] = React.useState<boolean>(false);
+    const [selectedId, setSelectedId] = React.useState<string>()
 
     const hideHeaderRoutes = React.useMemo(() => ["/apply"], []);
     const shouldHideHeader = hideHeaderRoutes.includes(pathname);
 
+    const handleScroll = (sectionId: string) => {
+        setSelectedId(sectionId)
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     const navLinks = React.useMemo(() => {
         return NAV_ROUTES.map((item, i) => (
-            <li key={i} className="relative flex items-center space-x-3">
-                {pathname === item.route && (
+            <li key={i} className="relative flex items-center space-x-3 cursor-pointer" onClick={() => handleScroll(item.id)}>
+                {(item.id === selectedId) && (
                     <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
                 )}
-                <Link href={item.route} className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${pathname === item.route ? 'font-medium' : ''}`}>
+                <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
                     {item.label}
-                </Link>
+                </div>
             </li>
         ));
-    }, [pathname]);
+    }, [selectedId]);
 
     const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
 
