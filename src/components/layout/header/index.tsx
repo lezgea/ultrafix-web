@@ -9,7 +9,7 @@ import { Sidebar } from '../sidebar';
 
 const NAV_ROUTES: { route: string; label: string }[] = [
     { route: '/#services', label: 'Services' },
-    { route: '/#locations', label: 'Locations' },
+    // { route: '/#locations', label: 'Locations' },
     { route: '/#about-us', label: 'About Us' },
     { route: '/#brands', label: 'Brands' },
     { route: '/#reviews', label: 'Reviews' },
@@ -20,7 +20,6 @@ const NAV_ROUTES: { route: string; label: string }[] = [
 export const Header: React.FC = () => {
     const pathname = usePathname();
     const params = useSearchParams();
-    console.log('@@@@', params)
     const [isSidebarOpen, setSidebarOpen] = React.useState(false);
 
     const hideHeaderRoutes = React.useMemo(() => ["/apply"], []);
@@ -45,7 +44,7 @@ export const Header: React.FC = () => {
 
     return (
         <>
-            <header className="backdrop-blur-xl bg-white/60 w-full fixed z-30 h-[65px] border-b border-gray-200 select-none">
+            <header className="backdrop-blur-xl bg-white/60 w-full fixed z-30 h-[65px] border-b border-gray-100 select-none">
                 <nav role="navigation" aria-label="Main navigation" className="container w-full max-w-[1200px] mx-auto flex justify-between items-center px-3 py-0 h-full space-x-5 md:px-0">
                     <div className="flex items-center cursor-pointer lg:w-[20%] space-x-3 lg:space-x-0">
                         <div className="w-[30px] ml-3 flex lg:hidden">

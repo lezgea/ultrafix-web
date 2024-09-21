@@ -41,7 +41,18 @@ import CheckIcon from './check.svg';
 import DownloadIcon from './download.svg';
 import CheckFilledIcon from './checkfilled.svg';
 import UltrafixLogo from './ultrafix-logo.svg';
-
+import RefrigeratorIcon from './refregerator.svg';
+import IceMachineIcon from './ice_machine.svg';
+import WasherIcon from './washer.svg';
+import DryerIcon from './dryer.svg';
+import DishwasherIcon from './dishwasher.svg';
+import OvenIcon from './oven.svg';
+import CooktopIcon from './cooktop.svg';
+import MicrowaveIcon from './microwave.svg';
+import WineCoolerIcon from './wine_cooler.svg';
+import FreezerIcon from './freezer.svg';
+import VentHoodIcon from './vent_hood.svg';
+import GarbageDisposalIcon from './garbage_disposal.svg';
 
 
 export {
@@ -58,6 +69,18 @@ export {
     RaceFlag,
 
     // icons
+    GarbageDisposalIcon,
+    VentHoodIcon,
+    FreezerIcon,
+    WineCoolerIcon,
+    MicrowaveIcon,
+    CooktopIcon,
+    OvenIcon,
+    DishwasherIcon,
+    WasherIcon,
+    DryerIcon,
+    IceMachineIcon,
+    RefrigeratorIcon,
     CheckFilledIcon,
     DownloadIcon,
     CheckIcon,
