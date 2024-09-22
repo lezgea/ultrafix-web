@@ -24,7 +24,7 @@ const config: Config = {
         primaryExtra: '#EDF6F0',
         primaryLight: '#2CA67B',
         primary: '#2b7de2',
-        primaryDark: '#1C644A',
+        primaryDark: '#003168',
         customBlue: {
           50: '#ebf5ff',
           100: '#e1effe',
@@ -97,6 +97,10 @@ const config: Config = {
           '50%': { transform: 'scale(1.1)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
         },
+        rotate360: {
+          '0%': { transform: 'rotateY(0deg)' },
+          '100%': { transform: 'rotateY(360deg)' },
+        },
       },
       animation: {
         'main-label': 'mainLabelAnimation 0.5s ease-in-out',
@@ -106,6 +110,7 @@ const config: Config = {
         'right-svg': 'rightSvgAnimation 1s ease-in-out',
         'star': 'starAnimation 1.5s ease-in-out',
         'opacity': 'opacityAnimation 0.3s ease-in-out',
+        rotate360: 'rotate360 0.4s ease-in-out',
       },
     },
   },

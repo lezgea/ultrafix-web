@@ -8,9 +8,9 @@ import { Loader } from '@components/shared';
 const NotFoundPage = () => {
     const router = useRouter();
 
-    React.useEffect(() => {
-        router.replace('/');
-    }, [router]);
+    // React.useEffect(() => {
+    //     router.replace('/');
+    // }, [router]);
 
     return <Loader />;
 };

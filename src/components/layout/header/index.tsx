@@ -13,6 +13,7 @@ const NAV_ROUTES: { id: string; label: string }[] = [
     { id: 'about_us', label: 'About Us' },
     { id: 'brands', label: 'Brands' },
     { id: 'reviews', label: 'Reviews' },
+    { id: 'apply_now', label: 'Apply Now' },
     { id: 'why_us', label: 'Why Us' },
 ];
 
@@ -75,7 +76,7 @@ export const Header: React.FC = () => {
                     <div className="flex items-center justify-end lg:w-[20%] h-full">
                         <Link href="/apply">
                             <button type="button" className="hidden md:inline-flex w-auto text-center items-center px-4 py-2 text-white transition-all bg-primary rounded-lg sm:w-auto hover:text-white shadow-neutral-300 hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:shadow-none">
-                                Apply Now
+                                (888) 998-6263
                             </button>
                         </Link>
                     </div>

@@ -26,7 +26,7 @@ export const BrandsSection: React.FC = () => {
         autoPlay: true,
         showThumbs: false,
         transitionTime: 1000,
-        interval: 3000,
+        interval: 2000,
         infiniteLoop: true,
     };
 

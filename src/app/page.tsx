@@ -58,7 +58,7 @@ export const metadata: Metadata = {
 
 const Home: React.FC = () => {
     return (
-        <PageLayout title="Make Appliances Great Again !">
+        <PageLayout title="dsjkjksdfjksdjk">
             <BannerSection />
             <LogosSection />
             <ServicesSection />

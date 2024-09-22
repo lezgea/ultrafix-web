@@ -53,6 +53,7 @@ import WineCoolerIcon from './wine_cooler.svg';
 import FreezerIcon from './freezer.svg';
 import VentHoodIcon from './vent_hood.svg';
 import GarbageDisposalIcon from './garbage_disposal.svg';
+import CallIcon from './call.svg';
 
 
 export {
@@ -69,6 +70,7 @@ export {
     RaceFlag,
 
     // icons
+    CallIcon,
     GarbageDisposalIcon,
     VentHoodIcon,
     FreezerIcon,
