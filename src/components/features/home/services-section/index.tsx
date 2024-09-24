@@ -1,6 +1,6 @@
 import SectionLayout from '@components/layout/section-layout';
 import { ServiceButton } from '@components/shared/service-button';
-import { SERVICES } from 'constants/services';
+import { SERVICES, SERVICES_LIST } from 'constants/services';
 import React from 'react';
 
 
@@ -13,7 +13,7 @@ export const ServicesSection: React.FC = () => {
         >
             <div className='flex flex-wrap gap-10 items-center justify-center'>
                 {
-                    SERVICES.map((item, i) =>
+                    SERVICES_LIST.map((item, i) =>
                         <ServiceButton key={i} {...item} />
                     )
                 }

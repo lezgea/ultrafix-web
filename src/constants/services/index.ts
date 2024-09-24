@@ -1,5 +1,68 @@
-export const SERVICES = [
+export const SERVICES_LIST = [
     {
+        id: 1,
+        title: 'Refrigerator',
+        value: 'refrigerator',
+    },
+    {
+        id: 2,
+        title: 'Ice Machine',
+        value: 'ice_machine',
+    },
+    {
+        id: 3,
+        title: 'Washer',
+        value: 'washer',
+    },
+    {
+        id: 4,
+        title: 'Dryer',
+        value: 'dryer',
+    },
+    {
+        id: 5,
+        title: 'Dishwasher',
+        value: 'dishwasher',
+    },
+    {
+        id: 6,
+        title: 'Oven',
+        value: 'oven',
+    },
+    {
+        id: 7,
+        title: 'Cooktop',
+        value: 'cooktop',
+    },
+    {
+        id: 8,
+        title: 'Microwave',
+        value: 'microwave',
+    },
+    {
+        id: 9,
+        title: 'Wine Cooler',
+        value: 'wine_cooler',
+    },
+    {
+        id: 10,
+        title: 'Freezer',
+        value: 'freezer',
+    },
+    {
+        id: 11,
+        title: 'Vent Hood',
+        value: 'vent_hood',
+    },
+    {
+        id: 12,
+        title: 'Garbage Disposal',
+        value: 'garbage_disposal',
+    },
+];
+
+export const SERVICES = {
+    refrigerator: {
         id: 1,
         title: 'Refrigerator',
         value: 'refrigerator',
@@ -17,7 +80,7 @@ export const SERVICES = [
         note:
             'If we are unable to complete a refrigerator repair on the first visit, we can order part to get the job done.',
     },
-    {
+    ice_machine: {
         id: 2,
         title: 'Ice Machine',
         value: 'ice_machine',
@@ -34,7 +97,7 @@ export const SERVICES = [
         note:
             'If we are unable to complete a ice machine repair on the first visit, we can order part to get the job done.',
     },
-    {
+    washer: {
         id: 3,
         title: 'Washer',
         value: 'washer',
@@ -49,7 +112,7 @@ export const SERVICES = [
         note:
             'If we are unable to complete a washer repair on the first visit, we can order part to get the job done.',
     },
-    {
+    dryer: {
         id: 4,
         title: 'Dryer',
         value: 'dryer',
@@ -66,7 +129,7 @@ export const SERVICES = [
         note:
             'If we are unable to complete a dryer repair on the first visit, we can order part to get the job done.',
     },
-    {
+    dishwasher: {
         id: 5,
         title: 'Dishwasher',
         value: 'dishwasher',
@@ -83,7 +146,7 @@ export const SERVICES = [
         note:
             'If we are unable to complete a dishwasher repair on the first visit, we can order part to get the job done.',
     },
-    {
+    oven: {
         id: 6,
         title: 'Oven',
         value: 'oven',
@@ -99,7 +162,7 @@ export const SERVICES = [
         note:
             'If we are unable to complete a oven repair on the first visit, we can order part to get the job done.',
     },
-    {
+    cooktop: {
         id: 7,
         title: 'Cooktop',
         value: 'cooktop',
@@ -116,7 +179,7 @@ export const SERVICES = [
         note:
             'If we are unable to complete a cooktop repair on the first visit, we can order part to get the job done.',
     },
-    {
+    microwave: {
         id: 8,
         title: 'Microwave',
         value: 'microwave',
@@ -131,7 +194,7 @@ export const SERVICES = [
         note:
             'If we are unable to complete a microwave repair on the first visit, we can order part to get the job done.',
     },
-    {
+    wine_cooler: {
         id: 9,
         title: 'Wine Cooler',
         value: 'wine_cooler',
@@ -146,7 +209,7 @@ export const SERVICES = [
         note:
             'If we are unable to complete a wine cooler repair on the first visit, we can order part to get the job done.',
     },
-    {
+    freezer: {
         id: 10,
         title: 'Freezer',
         value: 'freezer',
@@ -161,7 +224,7 @@ export const SERVICES = [
         note:
             'If we are unable to complete a freezer repair on the first visit, we can order part to get the job done.',
     },
-    {
+    vent_hood: {
         id: 11,
         title: 'Vent Hood',
         value: 'vent_hood',
@@ -176,7 +239,7 @@ export const SERVICES = [
         note:
             'If we are unable to complete a vent hood repair on the first visit, we can order part to get the job done.',
     },
-    {
+    garbage_disposal: {
         id: 12,
         title: 'Garbage Disposal',
         value: 'garbage_disposal',
@@ -192,4 +255,4 @@ export const SERVICES = [
         note:
             'If we are unable to complete a garbage disposal repair on the first visit, we can order part to get the job done.',
     },
-];
+}

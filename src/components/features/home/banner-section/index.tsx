@@ -8,8 +8,8 @@ export const BannerSection: React.FC = () => {
     return (
         <SectionLayout>
             <div className="flex flex-col w-full absolute space-y-5 text-end justify-end items-end" >
-                <h2 className="text-[4rem] leading-[5rem] max-w-[60%] font-semibold text-gray-800">
-                    Make Appliances Great Again !
+                <h2 className="text-[4rem] leading-[5rem] max-w-[60%] font-semibold text-primaryDark">
+                    <span className='text-primary'>Make</span> Appliances <span className='text-primary'>Great</span> Again !
                 </h2>
                 {/* <div className='flex items-center justify-center gap-2'>
                     <CallIcon className='fill-gray-400 h-[40px]' />
@@ -18,7 +18,7 @@ export const BannerSection: React.FC = () => {
                 <p className="text-2xl font-light text-gray-500">Call now and book your service technician</p>
                 <Link
                     href="/"
-                    className="inline-flex w-auto text-center items-center px-6 py-3 text-white transition-all bg-primary rounded-xl sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
+                    className="inline-flex w-auto text-center items-center px-6 py-[12px] text-lg text-white transition-all bg-primary rounded-xl sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
                     aria-label="See our races"
                 >
                     Book a Service

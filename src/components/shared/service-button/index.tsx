@@ -7,10 +7,6 @@ interface IServiceProps {
     id: number,
     title: string,
     value: string,
-    price: string,
-    subTitle: string,
-    description: string,
-    note: string,
 }
 
 
@@ -26,7 +22,7 @@ export const ServiceButton: React.FC<IServiceProps> = (props) => {
                 value={service}
                 className='fill-gray-400 group-hover:fill-white h-20 w-20 transform transition-transform duration-300 ease-in-out group-hover:scale-110 active:scale-100'
             />
-            <span className='absolute bottom-0 bg-[#fdfdfd] px-4 py-1 w-full h-[20px] text-gray-400'>{title}</span>
+            <span className='absolute bottom-0 bg-[#fff] px-4 py-1 w-full h-[20px] text-gray-400'>{title}</span>
         </Link>
     )
 }

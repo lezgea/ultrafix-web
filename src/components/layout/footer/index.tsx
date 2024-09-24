@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
             <div className="container mx-auto w-full max-w-[1200px] py-[50px] px-20 md:px-0 space-y-7">
                 <section className="grid gap-10 grid-cols-1 md:grid-cols-[3fr_3fr_2fr] text-white text-center md:text-start">
                     <div className="space-y-6 flex flex-col items-center md:items-start md:pr-40">
-                        <LogoWhite className="h-auto w-[200px]" />
+                        <LogoWhite className="h-auto w-[150px]" />
                         <p className="font-light text-sm">
                             Our business model is built on respect, promptness, honesty, and taking pride in our work. When you choose us for your appliance repair, you learn how closely we hold to these values.
                         </p>
