@@ -8,3 +8,4 @@ export * from './modal';
 export * from './confirmation-modal';
 export * from './service-button';
 export * from './service-icon';
+export * from './location-service-button';

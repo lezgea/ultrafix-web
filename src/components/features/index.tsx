@@ -1,4 +1,4 @@
-export * from './profile';
+export * from './locations';
 export * from './service';
 export * from './sign-up';
 export * from './faq';
