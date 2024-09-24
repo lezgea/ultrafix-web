@@ -1,45 +1,5 @@
 const locationsMenu = [
     {
-        state: 'California',
-        cities: [
-            { city: 'Sacramento', route: '/locations/ca/sacramento' },
-            { city: 'San Jose', route: '/locations/ca/sanjose' },
-        ],
-    },
-    {
-        state: 'Florida',
-        cities: [
-            { city: 'Jacksonville', route: '/locations/fl/jacksonville' },
-            { city: 'Miami', route: '/locations/fl/miami' },
-            { city: 'Orlando', route: '/locations/fl/orlando' },
-            { city: 'Tampa', route: '/locations/fl/tampa' },
-        ],
-    },
-    {
-        state: 'Georgia',
-        cities: [
-            { city: 'Atlanta', route: '/locations/ga/atlanta' },
-        ],
-    },
-    {
-        state: 'Illinois',
-        cities: [
-            { city: 'Chicago', route: '/locations/il/chicago' },
-        ],
-    },
-    {
-        state: 'Massachusetts',
-        cities: [
-            { city: 'Boston', route: '/locations/ma/boston' },
-        ],
-    },
-    {
-        state: 'Maryland',
-        cities: [
-            { city: 'Baltimore', route: '/locations/md/baltimore' },
-        ],
-    },
-    {
         state: 'Missouri',
         cities: [
             { city: 'St. Louis', route: '/locations/mo/stlouis' },
@@ -103,4 +63,30 @@ const STATES_LIST = [
     { id: 11, title: 'North Carolina', value: 'NC' },
 ]
 
-const CITITES_LIST = []
+const CITITES_LIST = {
+    CA: [
+        { id: 'CA1', title: 'Sacramento', value: 'sacramento' },
+        { id: 'CA2', title: 'San Jose', value: 'san_jose' },
+    ],
+    FL: [
+        { id: 'FL1', title: 'Jacksonville', value: 'jacksonville' },
+        { id: 'FL2', title: 'Miami', value: 'miami' },
+        { id: 'FL3', title: 'Orlando', value: 'orlando' },
+        { id: 'FL4', title: 'Tampa', value: 'tampa' },
+    ],
+    GA: [
+        { id: 'GA1', title: 'Atlanta', value: 'atlanta' },
+    ],
+    IL: [
+        { id: 'IL1', title: 'Chicago', value: 'chicago' },
+    ],
+    MA: [
+        { id: 'MA1', title: 'Boston', value: 'boston' },
+    ],
+    MD: [
+        { id: 'MD1', title: 'Baltimore', value: 'baltimore' },
+    ],
+    MO: [
+        { id: 'MO1', title: 'St. Louis', value: 'st_louis' },
+    ],
+}
