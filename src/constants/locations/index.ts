@@ -74,6 +74,8 @@ export const STATES = {
 export const CITIES = {
     ca_sacramento: {
         id: 'CA1',
+        stateShort: 'CA',
+        state: 'California',
         title: 'Sacramento',
         value: 'sacramento',
         address: '3631 Truxel Road #1193 Sacramento, CA 95834',
@@ -83,6 +85,8 @@ export const CITIES = {
     },
     ca_san_jose: {
         id: 'CA2',
+        stateShort: 'CA',
+        state: 'California',
         title: 'San Jose',
         value: 'san_jose',
         address: '760 Newhall Drive #1164 San Jose, CA 95110',
@@ -92,6 +96,8 @@ export const CITIES = {
     },
     fl_jacksonville: {
         id: 'FL1',
+        stateShort: 'FL',
+        state: 'Florida',
         title: 'Jacksonville',
         value: 'jacksonville',
         address: '2695 Post St #1177 Jacksonville, FL 32204',
@@ -101,6 +107,8 @@ export const CITIES = {
     },
     fl_miami: {
         id: 'FL2',
+        stateShort: 'FL',
+        state: 'Florida',
         title: 'Miami',
         value: 'miami',
         address: '1065 SW 8th St #2078 Miami, FL 33130',
@@ -110,6 +118,8 @@ export const CITIES = {
     },
     fl_orlando: {
         id: 'FL3',
+        stateShort: 'FL',
+        state: 'Florida',
         title: 'Orlando',
         value: 'orlando',
         address: '4530 S. Orange Blossom Trail #790 Orlando, FL 32839',
@@ -119,6 +129,8 @@ export const CITIES = {
     },
     fl_tampa: {
         id: 'FL4',
+        stateShort: 'FL',
+        state: 'Florida',
         title: 'Tampa',
         value: 'tampa',
         address: '7901 4th St N #300, St Petersburg 33702',
@@ -128,6 +140,8 @@ export const CITIES = {
     },
     ga_atlanta: {
         id: 'GA1',
+        stateShort: 'GA',
+        state: 'Georgia',
         title: 'Atlanta',
         value: 'atlanta',
         address: '1954 Airport Road # 1384 Atlanta, GA 30341',
@@ -137,6 +151,8 @@ export const CITIES = {
     },
     il_chicago: {
         id: 'IL1',
+        stateShort: 'IL',
+        state: 'Illinois',
         title: 'Chicago',
         value: 'chicago',
         address: '1509 Waukegan Rd #1169, Glenview, IL 60025',
@@ -146,6 +162,8 @@ export const CITIES = {
     },
     ma_boston: {
         id: 'MA1',
+        stateShort: 'MA',
+        state: 'Massachusetts',
         title: 'Boston',
         value: 'boston',
         address: '160 Alewife Brook Pkwy #1328 Cambridge, MA 02138',
@@ -155,6 +173,8 @@ export const CITIES = {
     },
     md_baltimore: {
         id: 'MD1',
+        stateShort: 'MD',
+        state: 'Maryland',
         title: 'Baltimore',
         value: 'baltimore',
         address: '822 Guilford Avenue #2029 Baltimore, MD 21202',
@@ -164,6 +184,8 @@ export const CITIES = {
     },
     mo_st_louis: {
         id: 'MO1',
+        stateShort: 'MO',
+        state: 'Missouri',
         title: 'St. Louis',
         value: 'st_louis',
         address: '6907 Page Ave #1264 St Louis, MO 63133',
@@ -173,6 +195,8 @@ export const CITIES = {
     },
     pa_philadelphia: {
         id: 'PA1',
+        stateShort: 'PA',
+        state: 'Pennsylvania',
         title: 'Philadelphia',
         value: 'philadelphia',
         address: '7244 Castor Ave #1449 Philadelphia, PA 19149',
@@ -182,6 +206,8 @@ export const CITIES = {
     },
     pa_pittsburgh: {
         id: 'PA2',
+        stateShort: 'PA',
+        state: 'Pennsylvania',
         title: 'Pittsburgh',
         value: 'pittsburgh',
         address: '2515 Banksville Road #1049 Pittsburgh, PA 15216',
@@ -191,6 +217,8 @@ export const CITIES = {
     },
     tx_austin: {
         id: 'TX1',
+        stateShort: 'TX',
+        state: 'Texas',
         title: 'Austin',
         value: 'austin',
         address: '13359 N Hwy 183 #406-643, Austin, TX 78750',
@@ -200,6 +228,8 @@ export const CITIES = {
     },
     tx_dallas: {
         id: 'TX2',
+        stateShort: 'TX',
+        state: 'Texas',
         title: 'Dallas',
         value: 'dallas',
         address: '16817 Coit Rd #2304, Dallas, TX 75248',
@@ -209,6 +239,8 @@ export const CITIES = {
     },
     tx_fort_worth: {
         id: 'TX3',
+        stateShort: 'TX',
+        state: 'Texas',
         title: 'Fort Worth',
         value: 'fort_worth',
         address: '6313 Lake Worth Blvd. #1021 Lake Worth, TX 76135',
@@ -218,6 +250,8 @@ export const CITIES = {
     },
     tx_fulshear: {
         id: 'TX4',
+        stateShort: 'TX',
+        state: 'Texas',
         title: 'Fulshear',
         value: 'fulshear',
         address: '31602 Roldan Ln, Fulshear, TX 77441',
@@ -227,6 +261,8 @@ export const CITIES = {
     },
     tx_houston: {
         id: 'TX5',
+        stateShort: 'TX',
+        state: 'Texas',
         title: 'Houston',
         value: 'houston',
         address: '2742 Janetta St #722, Houston, TX 77063',
@@ -236,6 +272,8 @@ export const CITIES = {
     },
     tx_mckinney: {
         id: 'TX6',
+        stateShort: 'TX',
+        state: 'Texas',
         title: 'McKinney',
         value: 'mckinney',
         address: '5900 South Lake Forest, #300 McKinney, TX 75070',
@@ -245,6 +283,8 @@ export const CITIES = {
     },
     tx_pearland: {
         id: 'TX7',
+        stateShort: 'TX',
+        state: 'Texas',
         title: 'Pearland',
         value: 'pearland',
         address: '1853 Pearland Pkwy Ste 123 Pearland, TX 77581',
@@ -254,6 +294,8 @@ export const CITIES = {
     },
     tx_san_antonio: {
         id: 'TX8',
+        stateShort: 'TX',
+        state: 'Texas',
         title: 'San Antonio',
         value: 'san_antonio',
         address: '13423 Blanco Road #687, San Antonio, TX 78216',
@@ -263,6 +305,8 @@ export const CITIES = {
     },
     tx_spring: {
         id: 'TX9',
+        stateShort: 'TX',
+        state: 'Texas',
         title: 'Spring',
         value: 'spring',
         address: '22742 Cypresswood Drive #1154 Spring, TX 77373',
@@ -272,6 +316,8 @@ export const CITIES = {
     },
     tx_tomball: {
         id: 'TX10',
+        stateShort: 'TX',
+        state: 'Texas',
         title: 'Tomball',
         value: 'tomball',
         address: '27708 Tomball Parkway Tomball, TX 77375',
@@ -281,6 +327,8 @@ export const CITIES = {
     },
     tx_sugar_land: {
         id: 'TX11',
+        stateShort: 'TX',
+        state: 'Texas',
         title: 'Sugar Land',
         value: 'sugar_land',
         address: '5826 New Territory Boulevard #234, Sugar Land, TX 77479',
@@ -290,6 +338,8 @@ export const CITIES = {
     },
     tx_katy: {
         id: 'TX12',
+        stateShort: 'TX',
+        state: 'Texas',
         title: 'Katy',
         value: 'katy',
         address: '9722 Gaston Rd #150, Katy, TX 77494',
@@ -299,6 +349,8 @@ export const CITIES = {
     },
     tx_conroe: {
         id: 'TX13',
+        stateShort: 'TX',
+        state: 'Texas',
         title: 'Conroe',
         value: 'conroe',
         address: '2257 N Loop 336 W #140, Conroe, TX 77304',
@@ -308,6 +360,8 @@ export const CITIES = {
     },
     tx_cypress: {
         id: 'TX14',
+        stateShort: 'TX',
+        state: 'Texas',
         title: 'Cypress',
         value: 'cypress',
         address: '12320 Barker Cypress Rd #600, Cypress, TX 77429',
@@ -317,6 +371,8 @@ export const CITIES = {
     },
     tx_richmond: {
         id: 'TX15',
+        stateShort: 'TX',
+        state: 'Texas',
         title: 'Richmond',
         value: 'richmond',
         address: '19714 Lago Terrace Loop, Richmond, TX 77407',
@@ -326,6 +382,8 @@ export const CITIES = {
     },
     tx_irving: {
         id: 'TX16',
+        stateShort: 'TX',
+        state: 'Texas',
         title: 'Irving',
         value: 'irving',
         address: '4157 W Northgate Dr #1002, Irving, TX 75062',
@@ -335,6 +393,8 @@ export const CITIES = {
     },
     va_alexandria: {
         id: 'VA1',
+        stateShort: 'VA',
+        state: 'Virginia',
         title: 'Alexandria',
         value: 'alexandria',
         address: '3301 Richmond Hwy. #1333 Alexandria, VA 22305',
@@ -344,6 +404,8 @@ export const CITIES = {
     },
     va_richmond: {
         id: 'VA2',
+        stateShort: 'VA',
+        state: 'Virginia',
         title: 'Richmond',
         value: 'richmond',
         address: '1248 CarMia Way #1081 Richmond, VA 23235',
@@ -353,6 +415,8 @@ export const CITIES = {
     },
     nc_charlotte: {
         id: 'NC1',
+        stateShort: 'NC',
+        state: 'North Carolina',
         title: 'Charlotte',
         value: 'charlotte',
         address: '1235 East Blvd #3923 Charlotte, NC 28203',

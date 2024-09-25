@@ -18,7 +18,6 @@ interface ILocationProps {
 
 
 const LocationPage: React.FC<ILocationProps> = ({ params }) => {
-    console.log('@@@', params);
 
     return (
         <PageLayout title="">
