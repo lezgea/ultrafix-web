@@ -58,13 +58,13 @@ export const metadata: Metadata = {
 
 const Home: React.FC = () => {
     return (
-        <PageLayout title="dsjkjksdfjksdjk">
+        <PageLayout title="UltraFix Best Appliance Repair">
             <BannerSection />
             <LogosSection />
             <ServicesSection />
-            <AboutUsSection />
+            {/* <AboutUsSection />
             <BrandsSection />
-            <WhyUsSection />
+            <WhyUsSection /> */}
         </PageLayout>
     );
 };

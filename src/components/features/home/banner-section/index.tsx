@@ -1,8 +1,8 @@
-import { CallIcon } from '@assets/icons';
+import React from 'react';
 import SectionLayout from '@components/layout/section-layout';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+
 
 export const BannerSection: React.FC = () => {
     return (
@@ -11,10 +11,6 @@ export const BannerSection: React.FC = () => {
                 <h2 className="text-[4rem] leading-[5rem] max-w-[60%] font-semibold text-primaryDark">
                     <span className='text-primary'>Make</span> Appliances <span className='text-primary'>Great</span> Again !
                 </h2>
-                {/* <div className='flex items-center justify-center gap-2'>
-                    <CallIcon className='fill-gray-400 h-[40px]' />
-                    <span className='text-[2rem] font-regmed text-primaryDark'>(888) 998-6263</span>
-                </div> */}
                 <p className="text-2xl font-light text-gray-500">Call now and book your service technician</p>
                 <Link
                     href="/"
@@ -27,14 +23,15 @@ export const BannerSection: React.FC = () => {
             <div className="flex -ml-[120px] animate-left-svg">
                 <Image
                     src="/img/houston_car.webp"
-                    width={500}
-                    height={300}
-                    className="w-auto h-auto"
+                    width={700}
+                    height={700}
+                    className="w-auto h-[700px]"
                     alt="UltraFix Car Image"
                     loading="lazy"
+                    // placeholder="blur"
                     sizes="(max-width: 1200px) 100vw, (min-width: 1200px) 1000px"
                 />
             </div>
         </SectionLayout>
     )
-}
+};
