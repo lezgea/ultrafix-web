@@ -30,16 +30,24 @@ export const Dropdown: React.FC<IDropdownProps> = ({ content, children }) => {
 
     return (
         <div className="relative inline-block text-left" ref={dropdownRef}>
-            <div onClick={toggleDropdown} aria-expanded={isOpen} role="button" tabIndex={0} onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') toggleDropdown();
-            }}>
+            <div
+                onClick={toggleDropdown}
+                aria-expanded={isOpen}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') toggleDropdown();
+                }}
+            >
                 {children} {/* Renders children element */}
             </div>
-            {isOpen && (
-                <div onClick={toggleDropdown} className={`origin-top-center absolute mt-2 -left-[100%] rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-2 transition-all duration-500 transform ${isOpen ? 'scale-100 opacity-100' : 'scale-10 opacity-0'}`}>
-                    {content}
-                </div>
-            )}
+            <div
+                className={`origin-top-center absolute mt-5 -left-[100%] rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-2 transition-all duration-300 ease-out transform 
+                ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'} pointer-events-none`}
+                style={{ pointerEvents: isOpen ? 'auto' : 'none' }}
+            >
+                {content}
+            </div>
         </div>
     );
 };

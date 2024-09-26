@@ -1,9 +1,10 @@
 "use client";
 
 import React from 'react';
-import { usePathname } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import { CITIES } from 'constants/locations';
 
 const InstagramIcon = dynamic(() => import('@assets/icons').then(mod => mod.InstagramIcon), { ssr: false });
 const TwitterIcon = dynamic(() => import('@assets/icons').then(mod => mod.TwitterIcon), { ssr: false });
@@ -14,6 +15,11 @@ const LogoWhite = dynamic(() => import('@assets/icons').then(mod => mod.LogoWhit
 
 export const Footer: React.FC = () => {
     const pathname = usePathname();
+
+    const { state, city, service } = useParams();
+
+    const cityKey = `${state}_${city}` as keyof typeof CITIES;
+    const cityData = CITIES[cityKey];
 
     const hideHeaderRoutes = React.useMemo(() => ["/apply"], []);
     const shouldHideFooter = React.useMemo(() => hideHeaderRoutes.includes(pathname), [pathname]);
@@ -51,13 +57,41 @@ export const Footer: React.FC = () => {
                         <h2 className="font-semibold">Contact us</h2>
                         <ul className="text-sm font-light space-y-4">
                             <li>
-                                <Link href="#" className="hover:text-primary"><strong className='font-medium'>E-mail:</strong> <span className='ml-2'>info@ultrafix.com</span></Link>
+                                <Link href="mailto:info@ultrafixappliance.com" className="hover:text-primary">
+                                    <strong className='font-medium'>E-mail:</strong>
+                                    <span className='ml-2'>info@ultrafixappliance.com</span>
+                                </Link>
                             </li>
                             <li>
-                                <Link href="#" className="hover:text-primary"><strong className='font-medium'>Phone:</strong> <span className='ml-2'>(888) 998-6263</span></Link>
+                                <Link href={`tel:${cityData?.phone ? cityData?.phone : '(888) 998-6263'}`} className="hover:text-primary">
+                                    <strong className='font-medium'>Phone:</strong>
+                                    <span className='ml-2'>
+                                        {cityData?.phone ? cityData?.phone : '(888) 998-6263'}
+                                    </span>
+                                </Link>
                             </li>
                             <li>
-                                <Link href="#" className="hover:text-primary">2742 Janetta St #722, Houston, TX 77063</Link>
+                                {
+                                    cityData?.address
+                                        ?
+                                        <Link
+                                            href={`https://www.google.com/maps?q=${encodeURIComponent(cityData.address)},${cityData.title},${cityData.state}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="hover:text-primary"
+                                        >
+                                            {cityData.address}
+                                        </Link>
+                                        :
+                                        <Link
+                                            href="https://www.google.com/maps?q=2742+Janetta+St+%23722,+Houston,+TX+77063"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="hover:text-primary"
+                                        >
+                                            2742 Janetta St #722, Houston, TX 77063
+                                        </Link>
+                                }
                             </li>
                         </ul>
                     </div>

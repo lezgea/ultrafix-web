@@ -72,12 +72,21 @@ export const Header: React.FC = () => {
         ));
     }, [selectedId]);
 
+    const onDeal = () => {
+        window.location.href = `tel:${cityData?.phone ? cityData?.phone : '(888) 998-6263'}`;
+    }
 
     const phoneButton = React.useMemo(() => (
-        <button type="button" className="hidden md:inline-flex w-auto text-center items-center px-4 py-2 text-white transition-all bg-primary rounded-lg sm:w-auto hover:text-white shadow-neutral-300 hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:shadow-none">
+        <button
+            type="button"
+            className="hidden md:inline-flex w-auto text-center items-center px-4 py-2 text-white transition-all bg-primary rounded-lg sm:w-auto hover:text-white shadow-neutral-300 hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px focus:shadow-none"
+            onClick={onDeal}
+        >
             {cityData?.phone ? cityData?.phone : '(888) 998-6263'}
         </button>
-    ), [cityKey, pathname])
+    ), [cityKey, pathname]);
+
+
 
 
     const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
@@ -147,7 +156,7 @@ const LocationsDropdownContent = () => {
                                         <div
                                             key={city.id}
                                             onClick={() => onNavigate(stateKey, city.value)}
-                                            className="text-sm text-gray-500 cursor-pointer hover:text-primary hover:underline"
+                                            className="text-sm text-gray-400 cursor-pointer hover:text-primary hover:underline"
                                         >
                                             {city.title}
                                         </div>
