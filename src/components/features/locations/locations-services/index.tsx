@@ -4,6 +4,8 @@ import { LocationServiceButton } from '@components/shared';
 import { SERVICES_LIST } from 'constants/services';
 
 
+const MemoizedLocationServiceButton = React.memo(LocationServiceButton)
+
 export const LocationsServices: React.FC = () => {
     return (
         <SectionLayout
@@ -14,10 +16,12 @@ export const LocationsServices: React.FC = () => {
             <div className='flex flex-wrap gap-10 items-center justify-center'>
                 {
                     SERVICES_LIST.map((item, i) =>
-                        <LocationServiceButton key={i} {...item} />
+                        <MemoizedLocationServiceButton key={item.id} {...item} />
                     )
                 }
             </div>
         </SectionLayout>
     )
 }
+
+LocationsServices.displayName = "Location Services"
