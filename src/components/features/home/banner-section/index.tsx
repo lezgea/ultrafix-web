@@ -22,7 +22,7 @@ export const BannerSection: React.FC = () => {
             </div >
             <div className="flex -ml-[120px] animate-left-svg">
                 <Image
-                    src="/img/houston_car.webp"
+                    src="/img/cars/houston_car.webp"
                     width={700}
                     height={700}
                     className="w-auto h-[700px]"

@@ -14,20 +14,20 @@ export const useAuthenticate = () => {
     });
 
     React.useEffect(() => {
-        if (token) {
-            if (!isLoading && !error) {
-                dispatch(
-                    setAuthState({ isAuthenticated: true, user: userData || null })
-                );
-                setLoading(false);
-            } else if (error) {
-                dispatch(setAuthState({ isAuthenticated: false, user: null }));
-                setLoading(false);
-            }
-        } else {
-            dispatch(setAuthState({ isAuthenticated: false, user: null }));
-            setLoading(false);
-        }
+        // if (token) {
+        //     if (!isLoading && !error) {
+        //         dispatch(
+        //             setAuthState({ isAuthenticated: true, user: userData || null })
+        //         );
+        //         setLoading(false);
+        //     } else if (error) {
+        //         dispatch(setAuthState({ isAuthenticated: false, user: null }));
+        //         setLoading(false);
+        //     }
+        // } else {
+        //     dispatch(setAuthState({ isAuthenticated: false, user: null }));
+        //     setLoading(false);
+        // }
     }, [dispatch, token, userData, error, isLoading]);
 
     React.useEffect(() => {

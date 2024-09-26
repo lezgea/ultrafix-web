@@ -82,6 +82,8 @@ export const CITIES = {
         phone: '(279) 300-3915',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/ca_sacramento_car.webp',
+        mapUrl: '/img/maps/ca_sacramento_map.webp',
     },
     ca_san_jose: {
         id: 'CA2',
@@ -93,6 +95,8 @@ export const CITIES = {
         phone: '(408) 239-4881',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/ca_san_jose_car.webp',
+        mapUrl: '/img/maps/ca_san_jose_map.webp',
     },
     fl_jacksonville: {
         id: 'FL1',
@@ -104,6 +108,8 @@ export const CITIES = {
         phone: '(904) 565-5638',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/fl_jacksonville_car.webp',
+        mapUrl: '/img/maps/fl_jacksonville_map.webp',
     },
     fl_miami: {
         id: 'FL2',
@@ -115,6 +121,8 @@ export const CITIES = {
         phone: '(305) 547-8157',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/fl_miami_car.webp',
+        mapUrl: '/img/maps/fl_miami_map.webp',
     },
     fl_orlando: {
         id: 'FL3',
@@ -126,6 +134,8 @@ export const CITIES = {
         phone: '(689) 267-3141',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/fl_orlando_car.webp',
+        mapUrl: '/img/maps/fl_orlando_map.webp',
     },
     fl_tampa: {
         id: 'FL4',
@@ -137,6 +147,8 @@ export const CITIES = {
         phone: '(813) 400-1003',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/fl_tampa_car.webp',
+        mapUrl: '/img/maps/fl_tampa_map.webp',
     },
     ga_atlanta: {
         id: 'GA1',
@@ -148,6 +160,8 @@ export const CITIES = {
         phone: '(470) 749-8889',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/ga_atlanta_car.webp',
+        mapUrl: '/img/maps/ga_atlanta_map.webp',
     },
     il_chicago: {
         id: 'IL1',
@@ -159,6 +173,8 @@ export const CITIES = {
         phone: '(224) 998-0811',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/il_chicago_car.webp',
+        mapUrl: '/img/maps/il_chicago_map.webp',
     },
     ma_boston: {
         id: 'MA1',
@@ -170,6 +186,8 @@ export const CITIES = {
         phone: '(857) 353-6048',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/ma_boston_car.webp',
+        mapUrl: '/img/maps/ma_boston_map.webp',
     },
     md_baltimore: {
         id: 'MD1',
@@ -181,6 +199,8 @@ export const CITIES = {
         phone: '(410) 753-2277',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/md_baltimore_car.webp',
+        mapUrl: '/img/maps/md_baltimore_map.webp',
     },
     mo_st_louis: {
         id: 'MO1',
@@ -192,6 +212,8 @@ export const CITIES = {
         phone: '(314) 219-1443',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/mo_st_louis_car.webp',
+        mapUrl: '/img/maps/mo_st_louis_map.webp',
     },
     pa_philadelphia: {
         id: 'PA1',
@@ -203,6 +225,8 @@ export const CITIES = {
         phone: '(267) 888-2078',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/pa_philadelphia_car.webp',
+        mapUrl: '/img/maps/pa_philadelphia_map.webp',
     },
     pa_pittsburgh: {
         id: 'PA2',
@@ -214,6 +238,8 @@ export const CITIES = {
         phone: '(412) 420-6315',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/pa_pittsburgh_car.webp',
+        mapUrl: '/img/maps/pa_pittsburgh_map.webp',
     },
     tx_austin: {
         id: 'TX1',
@@ -225,6 +251,8 @@ export const CITIES = {
         phone: '(737) 241-0883',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/tx_austin_car.webp',
+        mapUrl: '/img/maps/tx_austin_map.webp',
     },
     tx_dallas: {
         id: 'TX2',
@@ -236,6 +264,8 @@ export const CITIES = {
         phone: '(972) 666-0299',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/tx_dallas_car.webp',
+        mapUrl: '/img/maps/tx_dallas_map.webp',
     },
     tx_fort_worth: {
         id: 'TX3',
@@ -247,6 +277,8 @@ export const CITIES = {
         phone: '(817) 200-7005',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/tx_fort_worth_car.webp',
+        mapUrl: '/img/maps/tx_fort_worth_map.webp',
     },
     tx_fulshear: {
         id: 'TX4',
@@ -258,6 +290,8 @@ export const CITIES = {
         phone: '(713) 770-6055',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/tx_fulshear_car.webp',
+        mapUrl: '/img/maps/tx_fulshear_map.webp',
     },
     tx_houston: {
         id: 'TX5',
@@ -269,6 +303,8 @@ export const CITIES = {
         phone: '(832) 998-0886',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/tx_houston_car.webp',
+        mapUrl: '/img/maps/tx_houston_map.webp',
     },
     tx_mckinney: {
         id: 'TX6',
@@ -280,6 +316,8 @@ export const CITIES = {
         phone: '(469) 718-2442',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/tx_mckinney_car.webp',
+        mapUrl: '/img/maps/tx_mckinney_map.webp',
     },
     tx_pearland: {
         id: 'TX7',
@@ -291,6 +329,8 @@ export const CITIES = {
         phone: '(346) 547-4511',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/tx_pearland_car.webp',
+        mapUrl: '/img/maps/tx_pearland_map.webp',
     },
     tx_san_antonio: {
         id: 'TX8',
@@ -302,6 +342,8 @@ export const CITIES = {
         phone: '(726) 216-7575',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/tx_san_antonio_car.webp',
+        mapUrl: '/img/maps/tx_san_antonio_map.webp',
     },
     tx_spring: {
         id: 'TX9',
@@ -313,6 +355,8 @@ export const CITIES = {
         phone: '(346) 290-7544',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/tx_spring_car.webp',
+        mapUrl: '/img/maps/tx_spring_map.webp',
     },
     tx_tomball: {
         id: 'TX10',
@@ -324,6 +368,8 @@ export const CITIES = {
         phone: '(832) 665-2998',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/tx_tomball_car.webp',
+        mapUrl: '/img/maps/tx_tomball_map.webp',
     },
     tx_sugar_land: {
         id: 'TX11',
@@ -335,6 +381,8 @@ export const CITIES = {
         phone: '(832) 665-2955',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/tx_sugar_land_car.webp',
+        mapUrl: '/img/maps/tx_sugar_land_map.webp',
     },
     tx_katy: {
         id: 'TX12',
@@ -346,6 +394,8 @@ export const CITIES = {
         phone: '(832) 665-2936',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/tx_katy_car.webp',
+        mapUrl: '/img/maps/tx_katy_map.webp',
     },
     tx_conroe: {
         id: 'TX13',
@@ -357,6 +407,8 @@ export const CITIES = {
         phone: '(832) 249-2540',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/tx_conroe_car.webp',
+        mapUrl: '/img/maps/tx_conroe_map.webp',
     },
     tx_cypress: {
         id: 'TX14',
@@ -368,6 +420,8 @@ export const CITIES = {
         phone: '(832) 665-2921',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/tx_cypress_car.webp',
+        mapUrl: '/img/maps/tx_cypress_map.webp',
     },
     tx_richmond: {
         id: 'TX15',
@@ -379,6 +433,8 @@ export const CITIES = {
         phone: '(832) 665-2925',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/tx_richmond_car.webp',
+        mapUrl: '/img/maps/tx_richmond_map.webp',
     },
     tx_irving: {
         id: 'TX16',
@@ -390,6 +446,8 @@ export const CITIES = {
         phone: '(469) 613-3397',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/tx_irving_car.webp',
+        mapUrl: '/img/maps/tx_irving_map.webp',
     },
     va_alexandria: {
         id: 'VA1',
@@ -401,6 +459,8 @@ export const CITIES = {
         phone: '(571) 800-0980',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/va_alexandria_car.webp',
+        mapUrl: '/img/maps/va_alexandria_map.webp',
     },
     va_richmond: {
         id: 'VA2',
@@ -412,6 +472,8 @@ export const CITIES = {
         phone: '(804) 486-6280',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/va_richmond_car.webp',
+        mapUrl: '/img/maps/va_richmond_map.webp',
     },
     nc_charlotte: {
         id: 'NC1',
@@ -423,5 +485,7 @@ export const CITIES = {
         phone: '(980) 301-9636',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/nc_charlotte_car.webp',
+        mapUrl: '/img/maps/nc_charlotte_map.webp',
     },
 }
