@@ -62,9 +62,9 @@ const Home: React.FC = () => {
             <BannerSection />
             <LogosSection />
             <ServicesSection />
-            {/* <AboutUsSection />
+            <AboutUsSection />
             <BrandsSection />
-            <WhyUsSection /> */}
+            <WhyUsSection />  
         </PageLayout>
     );
 };
