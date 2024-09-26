@@ -24,10 +24,10 @@ const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        setAuthState: (state, action: PayloadAction<{ isAuthenticated: boolean, user: IUser | null }>) => {
-            state.isAuthenticated = action.payload.isAuthenticated;
-            state.user = action.payload.user;
-            state.loading = false;  // Loading is done once this action is dispatched
+        setAuthState: (state, action: PayloadAction<{ isAuthenticated?: boolean, user?: IUser | null, loading: boolean }>) => {
+            // state.isAuthenticated = action.payload.isAuthenticated;
+            // state.user = action.payload.user;
+            state.loading = action.payload.loading;  // Loading is done once this action is dispatched
         },
         logout: (state) => {
             state.isAuthenticated = false;

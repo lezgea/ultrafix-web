@@ -2,10 +2,11 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { useParams, usePathname, useSearchParams } from 'next/navigation';
+import { useParams, usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { CloseIcon, HamburgerIcon, UltrafixLogo } from '@assets/icons';
 import { Sidebar } from '../sidebar';
-import { CITIES } from 'constants/locations';
+import { CITIES, STATES, STATES_LIST } from 'constants/locations';
+import { Dropdown } from '@components/shared/dropdown';
 
 
 const NAV_ROUTES: { id: string; label: string }[] = [
@@ -41,21 +42,37 @@ export const Header: React.FC = () => {
         }
     };
 
-    console.log('###', cityData)
     const navLinks = React.useMemo(() => {
         return NAV_ROUTES.map((item, i) => (
-            <li key={i} className="relative flex items-center space-x-3 cursor-pointer" onClick={() => handleScroll(item.id)}>
-                {(item.id === selectedId) && (
-                    <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
-                )}
-                <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
-                    {item.label}
-                </div>
+            <li key={i} onClick={() => handleScroll(item.id)}>
+                {
+                    item.id === 'locations'
+                        ?
+                        <Dropdown content={<LocationsDropdownContent />}>
+                            <div className="relative flex items-center space-x-3 cursor-pointer">
+                                {(item.id === selectedId) && (
+                                    <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
+                                )}
+                                <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                                    {item.label}
+                                </div>
+                            </div>
+                        </Dropdown>
+                        :
+                        <div className="relative flex items-center space-x-3 cursor-pointer">
+                            {(item.id === selectedId) && (
+                                <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
+                            )}
+                            <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                                {item.label}
+                            </div>
+                        </div>
+                }
             </li>
         ));
     }, [selectedId]);
 
-    
+
     const phoneButton = React.useMemo(() => (
         <button type="button" className="hidden md:inline-flex w-auto text-center items-center px-4 py-2 text-white transition-all bg-primary rounded-lg sm:w-auto hover:text-white shadow-neutral-300 hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:shadow-none">
             {cityData?.phone ? cityData?.phone : '(888) 998-6263'}
@@ -104,3 +121,46 @@ export const Header: React.FC = () => {
         </>
     );
 };
+
+
+const LocationsDropdownContent = () => {
+    const { state, city, service } = useParams();
+
+    const router = useRouter();
+
+    const onNavigate = (stateKey: string, city: string): void => {
+        router.replace(`/locations/${stateKey.toLowerCase()}/${city.toLowerCase()}`);
+    }
+
+    return (
+        <div className="columns-3 max-h-[700px] p-4">
+            {
+                STATES_LIST.map((state) => {
+                    const stateKey = state.value as keyof typeof STATES;
+
+                    return (
+                        <div key={state.id} className="break-inside-avoid mb-4 w-[150px]">
+                            <div className="text-xs text-primary font-semibold mb-2">{state.title}</div>
+                            <div className="flex flex-col space-y-1">
+                                {
+                                    STATES[stateKey].map((city) =>
+                                        <div
+                                            key={city.id}
+                                            onClick={() => onNavigate(stateKey, city.value)}
+                                            className="text-sm text-gray-500 cursor-pointer hover:text-primary hover:underline"
+                                        >
+                                            {city.title}
+                                        </div>
+                                    )
+                                }
+                            </div>
+                        </div>
+                    )
+                })
+            }
+        </div >
+    );
+}
+
+
+
