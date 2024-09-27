@@ -42,6 +42,7 @@ export const Dropdown: React.FC<IDropdownProps> = ({ content, children }) => {
                 {children} {/* Renders children element */}
             </div>
             <div
+                onClick={() => setIsOpen(false)} // Close dropdown on content click
                 className={`origin-top-center absolute mt-5 -left-[100%] rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-2 transition-all duration-300 ease-out transform 
                 ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'} pointer-events-none`}
                 style={{ pointerEvents: isOpen ? 'auto' : 'none' }}
