@@ -156,7 +156,7 @@ const LocationsDropdownContent = () => {
                                         <div
                                             key={city.id}
                                             onClick={() => onNavigate(stateKey, city.value)}
-                                            className="text-sm text-gray-400 cursor-pointer hover:text-primary hover:underline"
+                                            className="text-sm font-light text-gray-500 cursor-pointer hover:text-primary hover:underline"
                                         >
                                             {city.title}
                                         </div>

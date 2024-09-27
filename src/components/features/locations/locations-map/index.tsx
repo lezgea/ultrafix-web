@@ -1,0 +1,76 @@
+"use client";
+
+import SectionLayout from '@components/layout/section-layout';
+import { ABOUT_US_IMAGES } from 'constants/about-us';
+import Image from 'next/image';
+import React, { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
+import { CarouselProps } from 'react-responsive-carousel';
+import { WHY_US_IMAGES } from 'constants/why-us';
+import { useParams } from 'next/navigation';
+import { CITIES } from 'constants/locations';
+
+// Dynamically import the Carousel to avoid SSR issues
+const Carousel = dynamic(() => import("react-responsive-carousel").then(mod => mod.Carousel), {
+    ssr: false, // Disable server-side rendering for this component
+});
+
+export const LocationsMap: React.FC = () => {
+    const [isMounted, setIsMounted] = useState(false);
+
+    const { state, city, service } = useParams();
+
+    const cityKey = `${state}_${city}` as keyof typeof CITIES;
+    const cityData = CITIES[cityKey];
+
+    // This ensures the component only runs on the client
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    const carouselProps: Partial<CarouselProps> = {
+        showIndicators: false,
+        showArrows: true,
+        autoPlay: true,
+        showThumbs: false,
+        transitionTime: 1000,
+        interval: 3000,
+        infiniteLoop: true,
+    };
+
+    return (
+        <SectionLayout
+            // scrollId="why_us"
+            title={`Service area in ${cityData?.title}, ${cityData?.stateShort}`}
+            description={`We are happy to help the people of ${cityData?.title}, ${cityData?.stateShort}, and nearby areas by fixing their appliances. We know that it can be a bother when an appliance stops working, so we make sure to fix them quickly and well. Our goal is to give fast and effective service to all our customers in ${cityData?.title}.`}
+        >
+            {isMounted && (
+                <div className="relative flex items-center">
+                    <div className="rounded-3xl overflow-hidden">
+                        <Image
+                            src={cityData?.mapUrl}
+                            width={1200} // Adjust width and height based on your layout
+                            height={400}
+                            className="w-full h-[600px] object-cover"
+                            alt={`${cityData?.title} location's map`}
+                            loading="lazy"
+                            sizes="(max-width: 1200px) 100vw, 1000px"
+                        />
+                    </div>
+                    <div className="backdrop-blur-xl bg-[rgba(255,255,255,0.7)] p-10 rounded-3xl absolute -right-20 max-w-[400px] space-y-3">
+                        <div>
+                            <div className="text-2xl font-medium text-primaryDark">UltraFix Appliance Repair</div>
+                            <div className="font-medium text-3xl text-primaryDark">in <span className="text-primary">{cityData?.title}, {cityData?.stateShort}</span></div>
+                            <div className="text-sm text-gray-500">{cityData?.address}</div>
+                        </div>
+                        <div>
+                            <div>{cityData?.phone}</div>
+                            <div>{cityData?.days}</div>
+                            <div>{cityData?.hours}</div>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </SectionLayout>
+    );
+};
