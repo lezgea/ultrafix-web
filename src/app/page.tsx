@@ -2,6 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import PageLayout from '@components/layout/page-layout';
 import { AboutUsSection, BannerSection, BrandsSection, LogosSection, ServicesSection, WhyUsSection } from '@components/features/home';
+import * as motion from "framer-motion/client"
 
 
 export const metadata: Metadata = {
@@ -55,17 +56,25 @@ export const metadata: Metadata = {
     },
 };
 
+const list = { hidden: { opacity: 0 } }
+const item = { hidden: { x: -10, opacity: 0 } }
 
 const Home: React.FC = () => {
     return (
         <PageLayout title="UltraFix Best Appliance Repair">
             <BannerSection />
-            <LogosSection />
+            <motion.div
+                initial={{ opacity: 0, x: 400 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3 }}
+            >
+                <LogosSection />
+            </motion.div>
             <ServicesSection />
             <AboutUsSection />
             <BrandsSection />
-            <WhyUsSection />  
-        </PageLayout>
+            <WhyUsSection />
+        </PageLayout >
     );
 };
 

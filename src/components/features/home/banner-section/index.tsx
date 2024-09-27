@@ -2,12 +2,13 @@ import React from 'react';
 import SectionLayout from '@components/layout/section-layout';
 import Image from 'next/image';
 import Link from 'next/link';
+import * as motion from "framer-motion/client";
 
 
 export const BannerSection: React.FC = () => {
     return (
         <SectionLayout>
-            <div className="flex flex-col w-full absolute space-y-5 text-end justify-end items-end" >
+            <div className="flex flex-col w-full absolute space-y-5 text-end justify-end items-end">
                 <h2 className="text-[4rem] leading-[5rem] max-w-[60%] font-semibold text-primaryDark">
                     <span className='text-primary'>Make</span> Appliances <span className='text-primary'>Great</span> Again !
                 </h2>
@@ -19,8 +20,13 @@ export const BannerSection: React.FC = () => {
                 >
                     Book a Service
                 </Link>
-            </div >
-            <div className="flex -ml-[120px] animate-left-svg">
+            </div>
+            <motion.div
+                initial={{ opacity: 0, x: -300 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3 }}
+                className="flex -ml-[120px]"
+            >
                 <Image
                     src="/img/cars/houston_car.webp"
                     width={700}
@@ -31,7 +37,8 @@ export const BannerSection: React.FC = () => {
                     // placeholder="blur"
                     sizes="(max-width: 1200px) 100vw, (min-width: 1200px) 1000px"
                 />
-            </div>
+            </motion.div>
+
         </SectionLayout>
     )
 };
