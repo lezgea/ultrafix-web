@@ -6,27 +6,27 @@ const TOP_SERVICES = [
     {
         alt: "Google",
         url: "https://www.google.com/search?q=ultrafix+appliance+repair",
-        src: "/img/logos/google-logo.webp",
+        src: "/img/logos/ul-google.webp",
     },
     {
         alt: "Best Business Bureau",
         url: "https://www.bbb.org/us/tx/houston/profile/appliance-repair/ultrafix-appliance-repair-0915-90064027",
-        src: "/img/logos/bbb-logo.webp",
+        src: "/img/logos/ul-bbb.webp",
     },
     {
         alt: "Best Pick Reports",
         url: "https://www.bestpickreports.com/appliance-repair/houston/ultrafix-appliance-repair",
-        src: "/img/logos/best-pick-logo.webp",
+        src: "/img/logos/ul-best-pick.webp",
     },
     {
         alt: "Yelp",
         url: "https://www.yelp.com/biz/ultrafix-appliance-repair-houston",
-        src: "/img/logos/yelp-logo.webp",
+        src: "/img/logos/ul-yelp.webp",
     },
     {
         alt: "Thumbtack",
         url: "https://www.thumbtack.com/tx/houston/appliance-repair/ultrafix-appliance-repair-llc/service/428552679308009500?utm_medium=web&utm_source=txt&surface=sp",
-        src: "/img/logos/thumbtack-logo.webp",
+        src: "/img/logos/ul-thumbtack.webp",
     },
 ];
 

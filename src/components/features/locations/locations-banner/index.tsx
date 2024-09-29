@@ -13,7 +13,7 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { motion } from 'framer-motion';
 
 
 interface ILocationBannerProps {
@@ -32,7 +32,7 @@ export const LocationsBanner: React.FC<ILocationBannerProps> = () => {
 
     return (
         <SectionLayout>
-            <div className="flex flex-col w-full absolute space-y-5 text-end justify-end items-end">
+            <div className="z-10 flex flex-col w-full absolute space-y-5 text-end justify-end items-end">
                 <h2 className="text-[3rem] leading-[3rem] font-semibold text-primaryDark">
                     <span className='text-primary'>Appliance</span> repair services
                 </h2>
@@ -51,18 +51,26 @@ export const LocationsBanner: React.FC<ILocationBannerProps> = () => {
                 </Link>
             </div>
 
-            <div className={`flex -ml-[120px] animate-left-svg`}>
+            <motion.div
+                initial={{ opacity: 0, x: -300 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{
+                    duration: 0.5,
+                    ease: [0, 0.71, 0.2, 1.01]
+                }}
+                className="flex -ml-[120px]"
+            >
                 <Image
                     src={cityData.carUrl}
-                    width={500}
-                    height={300}
-                    className="w-auto h-auto"
-                    alt={`Car Image`}
-                    loading='lazy'
+                    width={700}
+                    height={700}
+                    className="w-auto h-[700px]"
+                    alt="UltraFix Car Image"
+                    loading="lazy"
+                    // placeholder="blur"
                     sizes="(max-width: 1200px) 100vw, (min-width: 1200px) 1000px"
-                // onLoad={() => setLoading(false)}
                 />
-            </div>
+            </motion.div>
         </SectionLayout>
     );
 }

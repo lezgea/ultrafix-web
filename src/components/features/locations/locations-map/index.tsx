@@ -9,6 +9,7 @@ import { CarouselProps } from 'react-responsive-carousel';
 import { WHY_US_IMAGES } from 'constants/why-us';
 import { useParams } from 'next/navigation';
 import { CITIES } from 'constants/locations';
+import { AnimatePresence, motion } from 'framer-motion';
 
 // Dynamically import the Carousel to avoid SSR issues
 const Carousel = dynamic(() => import("react-responsive-carousel").then(mod => mod.Carousel), {
@@ -45,31 +46,44 @@ export const LocationsMap: React.FC = () => {
             description={`We are happy to help the people of ${cityData?.title}, ${cityData?.stateShort}, and nearby areas by fixing their appliances. We know that it can be a bother when an appliance stops working, so we make sure to fix them quickly and well. Our goal is to give fast and effective service to all our customers in ${cityData?.title}.`}
         >
             {isMounted && (
-                <div className="relative flex items-center">
-                    <div className="rounded-3xl overflow-hidden">
-                        <Image
-                            src={cityData?.mapUrl}
-                            width={1200} // Adjust width and height based on your layout
-                            height={400}
-                            className="w-full h-[600px] object-cover"
-                            alt={`${cityData?.title} location's map`}
-                            loading="lazy"
-                            sizes="(max-width: 1200px) 100vw, 1000px"
-                        />
+                <AnimatePresence mode="wait">
+                    <div className="relative flex items-center">
+                        <motion.div
+                            initial={{ opacity: 0, x: -400 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="rounded-3xl overflow-hidden"
+                        >
+                            <Image
+                                src={cityData?.mapUrl}
+                                width={1200} // Adjust width and height based on your layout
+                                height={400}
+                                className="w-full h-[600px] object-cover"
+                                alt={`${cityData?.title} location's map`}
+                                loading="lazy"
+                                sizes="(max-width: 1200px) 100vw, 1000px"
+                            />
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, x: 200 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="bg-white p-10 rounded-2xl shadow-2xl absolute -right-20 min-w-[400px] max-w-[400px] space-y-7"
+                        >
+                            <div>
+                                <div className="text-xl font-light text-primaryDark"><strong className="font-medium">UltraFix</strong> Appliance Repair</div>
+                                <div className="font-medium text-[2.2rem] leading-[2.5rem] text-primaryDark">in <span className="text-primary">{cityData?.title}, {cityData?.stateShort}</span></div>
+                                <div className="text-sm text-gray-500 mt-2">{cityData?.address}</div>
+                            </div>
+                            <div>
+                                <div className="text-2xl text-primaryDark font-medium mb-2">{cityData?.phone}</div>
+                                <div className='text-gray-500'>{cityData?.days}</div>
+                                <div className='text-gray-500'>{cityData?.hours}</div>
+                            </div>
+                        </motion.div>
                     </div>
-                    <div className="backdrop-blur-xl bg-[rgba(255,255,255,0.7)] p-10 rounded-3xl absolute -right-20 max-w-[400px] space-y-3">
-                        <div>
-                            <div className="text-2xl font-medium text-primaryDark">UltraFix Appliance Repair</div>
-                            <div className="font-medium text-3xl text-primaryDark">in <span className="text-primary">{cityData?.title}, {cityData?.stateShort}</span></div>
-                            <div className="text-sm text-gray-500">{cityData?.address}</div>
-                        </div>
-                        <div>
-                            <div>{cityData?.phone}</div>
-                            <div>{cityData?.days}</div>
-                            <div>{cityData?.hours}</div>
-                        </div>
-                    </div>
-                </div>
+                </AnimatePresence>
+
             )}
         </SectionLayout>
     );

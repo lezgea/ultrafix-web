@@ -7,6 +7,8 @@ import { CloseIcon, HamburgerIcon, UltrafixLogo } from '@assets/icons';
 import { Sidebar } from '../sidebar';
 import { CITIES, STATES, STATES_LIST } from 'constants/locations';
 import { Dropdown } from '@components/shared/dropdown';
+import { motion } from 'framer-motion';
+
 
 
 const NAV_ROUTES: { id: string; label: string }[] = [

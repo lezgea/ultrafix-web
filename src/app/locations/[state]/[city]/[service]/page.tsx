@@ -4,7 +4,7 @@ import React from 'react';
 import PageLayout from '@components/layout/page-layout';
 import { SERVICES } from 'constants/services';
 import SectionLayout from '@components/layout/section-layout';
-import { ServiceBanner, WhyUsSection } from '@components/features';
+import { LocationsServiceBanner, WhyUsSection } from '@components/features';
 import { useParams } from 'next/navigation';
 import { CITIES, STATES } from 'constants/locations';
 
@@ -18,7 +18,7 @@ interface ServiceProps {
 
 
 const ServiceDetailPage = ({ params }: ServiceProps) => {
-    const { state, city, service } = useParams(); 
+    const { state, city, service } = useParams();
 
     const serviceKey = service as keyof typeof SERVICES;
     const cityKey = `${state}_${city}` as keyof typeof CITIES;
@@ -27,7 +27,7 @@ const ServiceDetailPage = ({ params }: ServiceProps) => {
 
     return (
         <PageLayout title={`${SERVICES[serviceKey].title} repair in ${cityData?.title}`}>
-            <ServiceBanner service={serviceKey} />
+            <LocationsServiceBanner service={serviceKey} />
             <SectionLayout noYPadding>
                 <p className='text-gray-500 text-md font-light'>{SERVICES[serviceKey].description}</p>
                 <div className='py-5 px-10 border border-1 border-[#ceb5d9] rounded-full text-center bg-[#FDFCFE]'>

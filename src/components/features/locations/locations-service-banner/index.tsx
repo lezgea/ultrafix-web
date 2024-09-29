@@ -1,22 +1,37 @@
+"use client";
+
 import SectionLayout from '@components/layout/section-layout';
+import { CITIES } from 'constants/locations';
 import { SERVICES } from 'constants/services';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useParams } from 'next/navigation';
 import React from 'react';
-import * as motion from "framer-motion/client"
+import { motion } from 'framer-motion';
 
 
 interface IServiceBannerProps {
     service: keyof typeof SERVICES;
 }
 
-export const ServiceBanner: React.FC<IServiceBannerProps> = ({ service }) => {
+export const LocationsServiceBanner: React.FC<IServiceBannerProps> = ({ service }) => {
+    const { state, city } = useParams();
+
+    const serviceKey = service as keyof typeof SERVICES;
+    const cityKey = `${state}_${city}` as keyof typeof CITIES;
+    const cityData = CITIES[cityKey];
+
     return (
         <SectionLayout noYPadding>
             <div className='w-full flex flex-col lg:flex-row py-10'>
                 <div className='w-full relative flex flex-col justify-between py-20'>
                     <div className='space-y-4 z-10'>
-                        <h2 className='text-primaryDark text-5xl font-medium'><strong className='text-primary font-medium'>{SERVICES[service].title}</strong> repair</h2>
+                        <h2 className='text-primaryDark text-5xl font-medium'>
+                            <strong className='text-primary font-medium'>{SERVICES[service].title}</strong> repair
+                        </h2>
+                        <h3 className='text-primaryDark text-[4rem] leading-[4rem] font-medium'>
+                            in <span className="text-primary">{cityData?.title}, {cityData?.stateShort}</span>
+                        </h3>
                         <p className='text-gray-600 text-xl mb-10'>{SERVICES[service].subTitle}</p>
                     </div>
                     <motion.div
@@ -80,6 +95,6 @@ export const ServiceBanner: React.FC<IServiceBannerProps> = ({ service }) => {
                     />
                 </motion.div>
             </div>
-        </SectionLayout>
+        </SectionLayout >
     )
 }

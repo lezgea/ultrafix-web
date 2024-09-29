@@ -8,7 +8,7 @@ import * as motion from "framer-motion/client";
 export const BannerSection: React.FC = () => {
     return (
         <SectionLayout>
-            <div className="flex flex-col w-full absolute space-y-5 text-end justify-end items-end">
+            <div className="z-10 flex flex-col w-full absolute space-y-5 text-end justify-end items-end">
                 <h2 className="text-[4rem] leading-[5rem] max-w-[60%] font-semibold text-primaryDark">
                     <span className='text-primary'>Make</span> Appliances <span className='text-primary'>Great</span> Again !
                 </h2>
@@ -28,7 +28,7 @@ export const BannerSection: React.FC = () => {
                 className="flex -ml-[120px]"
             >
                 <Image
-                    src="/img/cars/houston_car.webp"
+                    src="/img/cars/tx_houston_car.webp"
                     width={700}
                     height={700}
                     className="w-auto h-[700px]"

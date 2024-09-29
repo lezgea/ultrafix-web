@@ -8,10 +8,9 @@ import {
     LogosSection,
     WhyUsSection
 } from '@components/features';
-import { useSelector } from 'react-redux';
-import { RootState } from '@store/store';
-import { Loader } from '@components/shared';
 import { Metadata } from 'next';
+import * as motion from "framer-motion/client";
+import { AnimatePresence } from 'framer-motion';
 
 
 export const metadata: Metadata = {
@@ -76,12 +75,23 @@ interface ILocationProps {
 const LocationPage: React.FC<ILocationProps> = ({ params }) => {
     return (
         <PageLayout title="">
-            <LocationsBanner />
-            <LogosSection />
-            <LocationsServices />
-            <LocationsMap />
-            <WhyUsSection />
-            <AboutUsSection />
+            <AnimatePresence mode="wait">
+                <LocationsBanner />
+                <motion.div
+                    initial={{ opacity: 0, x: 400 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{
+                        duration: 0.5,
+                        ease: [0, 0.71, 0.2, 1.01]
+                    }}
+                >
+                    <LogosSection />
+                </motion.div>
+                <LocationsServices />
+                <LocationsMap />
+                <WhyUsSection />
+                <AboutUsSection />
+            </AnimatePresence>
         </PageLayout >
     );
 };
