@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { useParams, usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useParams, usePathname, useRouter } from 'next/navigation';
 import { CloseIcon, HamburgerIcon, UltrafixLogo } from '@assets/icons';
 import { Sidebar } from '../sidebar';
 import { CITIES, STATES, STATES_LIST } from 'constants/locations';
@@ -27,7 +27,6 @@ export const Header: React.FC = () => {
     const [selectedId, setSelectedId] = React.useState<string>()
 
     const pathname = usePathname();
-    const params = useSearchParams();
     const { state, city, service } = useParams();
 
     const cityKey = `${state}_${city}` as keyof typeof CITIES;
