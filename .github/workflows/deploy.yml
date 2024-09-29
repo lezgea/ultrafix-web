@@ -1,4 +1,4 @@
-name: Deploy 
+name: Deploy
 
 on:
   push:
@@ -20,13 +20,32 @@ jobs:
 
       - name: Copy Files to Server
         run: |
-          rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./ root@167.172.227.121:/var/www/ultrafix-web-front/
+          rsync -avz -e "ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=5" ./ root@167.172.227.121:/var/www/ultrafix-web-front/
 
-      - name: Install dependencies and build project
+      - name: Install dependencies on Server
         run: |
-          ssh -o StrictHostKeyChecking=no root@167.172.227.121 << 'EOF'
+          ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=5 root@167.172.227.121 << 'EOF'
             cd /var/www/ultrafix-web-front
             npm install
+          EOF
+
+      - name: Build Project on Server
+        run: |
+          ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=5 root@167.172.227.121 << 'EOF'
+            cd /var/www/ultrafix-web-front
             npm run build
-            pm2 restart nextjs-app || pm2 start npm --name "ultrafix-web-front" -- start
+          EOF
+
+      - name: Start or Restart Application using PM2
+        run: |
+          ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=5 root@167.172.227.121 << 'EOF'
+            cd /var/www/ultrafix-web-front
+            pm2 restart ultrafix-web-front || pm2 start npm --name "ultrafix-web-front" -- start
+          EOF
+
+      - name: Clean Up Build Cache
+        run: |
+          ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=5 root@167.172.227.121 << 'EOF'
+            cd /var/www/ultrafix-web-front
+            npm cache clean --force
           EOF
