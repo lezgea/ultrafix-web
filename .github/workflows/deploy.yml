@@ -1,9 +1,9 @@
-name: Deploy to Render
+name: Deploy 
 
 on:
   push:
     branches:
-      - dev  # 
+      - dev
 
 jobs:
   deploy:
@@ -13,24 +13,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Install SSH Key
+        uses: webfactory/ssh-agent@v0.5.4
         with:
-          node-version: '22'  # Specify your Node.js version
+          ssh-private-key: ${{ secrets.RENDER }}
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
-        run: npm run build
-
-      - name: Deploy to Render
-        env:
-          RENDER_API_KEY: ${{ secrets.RENDER }}
+      - name: Copy Files to Server
         run: |
-          curl -X POST \
-            -H "Accept: application/json" \
-            -H "Authorization: Bearer $RENDER_API_KEY" \
-            -H "Content-Type: application/json" \
-            -d '{}' \
-            https://api.render.com/v1/services/srv-crso6fm8ii6s73efd29g/deploys
+          rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./ root@167.172.227.121:/var/www/ultrafix-web-front/
+
+      - name: Install dependencies and build project
+        run: |
+          ssh -o StrictHostKeyChecking=no root@167.172.227.121 << 'EOF'
+            cd /var/www/ultrafix-web-front
+            npm install
+            npm run build
+            pm2 restart nextjs-app || pm2 start npm --name "ultrafix-web-front" -- start
+          EOF
