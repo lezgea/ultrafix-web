@@ -71,7 +71,6 @@ interface ILocationProps {
     };
 }
 
-
 const LocationPage: React.FC<ILocationProps> = ({ params }) => {
     return (
         <PageLayout title="">
