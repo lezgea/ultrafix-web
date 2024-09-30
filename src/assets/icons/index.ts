@@ -55,6 +55,7 @@ import VentHoodIcon from './vent_hood.svg';
 import GarbageDisposalIcon from './garbage_disposal.svg';
 import CallIcon from './call.svg';
 import LogoIcon from './logo-icon.svg';
+import FacebookIcon from './facebook.svg';
 
 
 export {
@@ -71,6 +72,7 @@ export {
     RaceFlag,
 
     // icons
+    FacebookIcon,
     LogoIcon,
     CallIcon,
     GarbageDisposalIcon,

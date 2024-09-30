@@ -5,12 +5,7 @@ import { useParams, usePathname } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { CITIES } from 'constants/locations';
-
-const InstagramIcon = dynamic(() => import('@assets/icons').then(mod => mod.InstagramIcon), { ssr: false });
-const TwitterIcon = dynamic(() => import('@assets/icons').then(mod => mod.TwitterIcon), { ssr: false });
-const YoutubeIcon = dynamic(() => import('@assets/icons').then(mod => mod.YoutubeIcon), { ssr: false });
-const LinkedinIcon = dynamic(() => import('@assets/icons').then(mod => mod.LinkedinIcon), { ssr: false });
-const LogoWhite = dynamic(() => import('@assets/icons').then(mod => mod.LogoWhite), { ssr: false });
+import { FacebookIcon, InstagramIcon, LinkedinIcon, LogoWhite, YoutubeIcon } from '@assets/icons';
 
 
 export const Footer: React.FC = () => {
@@ -38,7 +33,7 @@ export const Footer: React.FC = () => {
             <div className="container mx-auto w-full max-w-[1200px] py-[50px] px-20 md:px-0 space-y-7">
                 <section className="grid gap-10 grid-cols-1 md:grid-cols-[3fr_3fr_2fr] text-white text-center md:text-start">
                     <div className="space-y-6 flex flex-col items-center md:items-start md:pr-40">
-                        <LogoWhite />
+                        <LogoWhite className="w-auto h-[40px]" />
                         <p className="font-light text-sm">
                             Our business model is built on respect, promptness, honesty, and taking pride in our work. When you choose us for your appliance repair, you learn how closely we hold to these values.
                         </p>
@@ -98,27 +93,26 @@ export const Footer: React.FC = () => {
                 </section>
 
                 <section className="flex flex-col items-center gap-10 md:flex-row md:justify-between">
-                    <span className="text-white">"UltraFix Appliance Repair" LLC</span>
+                    <span className="text-white">UltraFix Appliance Repair, LLC</span>
                     <div className="flex space-x-5 justify-center">
                         <Link href="https://www.instagram.com/ultrafixappliancerepair/" className="text-gray-400 hover:text-gray-900 dark:hover:text-white">
-                            <InstagramIcon />
+                            <InstagramIcon className="w-[30px] h-[30px]" />
                             <span className="sr-only" aria-label='Instagram page'>Instagram page</span>
                         </Link>
-                        <a href="#" className="text-gray-400 hover:text-gray-900 dark:hover:text-white">
-                            <TwitterIcon />
-                            <span className="sr-only" aria-label='Twitter page'>Twitter page</span>
+                        <a href="https://www.facebook.com/ultrafixappliance" className="text-gray-400 hover:text-gray-900 dark:hover:text-white">
+                            <FacebookIcon className="w-[30px] h-[30px]" />
+                            <span className="sr-only" aria-label='Twitter page'>Facebook page</span>
                         </a>
-                        <a href="#" className="text-gray-400 hover:text-gray-900 dark:hover:text-white">
-                            <YoutubeIcon />
+                        <a href="https://www.youtube.com/@ultrafixappliance" className="text-gray-400 hover:text-gray-900 dark:hover:text-white">
+                            <YoutubeIcon className="w-[30px] h-[30px]" />
                             <span className="sr-only" aria-label='YouTube page'>YouTube page</span>
                         </a>
-                        <a href="#" className="text-gray-400 hover:text-gray-900 dark:hover:text-white">
-                            <LinkedinIcon />
+                        <a href="https://www.linkedin.com/company/ultrafix-appliance-repair-llc/posts/?feedView=all" className="text-gray-400 hover:text-gray-900 dark:hover:text-white">
+                            <LinkedinIcon className="w-[30px] h-[30px]" />
                             <span className="sr-only" aria-label='LinkedIn page'>LinkedIn page</span>
                         </a>
                     </div>
                 </section>
-
             </div>
         </footer>
     );
