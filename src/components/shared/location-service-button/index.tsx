@@ -4,6 +4,7 @@ import { ServiceIcon } from '../service-icon';
 import * as motion from "framer-motion/client"
 
 
+
 interface IServiceProps {
     id: number,
     title: string,

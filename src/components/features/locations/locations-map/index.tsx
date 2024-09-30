@@ -83,7 +83,6 @@ export const LocationsMap: React.FC = () => {
                         </motion.div>
                     </div>
                 </AnimatePresence>
-
             )}
         </SectionLayout>
     );

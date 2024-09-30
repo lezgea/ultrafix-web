@@ -8,6 +8,7 @@ import { CITIES } from 'constants/locations';
 import { FacebookIcon, InstagramIcon, LinkedinIcon, LogoWhite, YoutubeIcon } from '@assets/icons';
 
 
+
 export const Footer: React.FC = () => {
     const pathname = usePathname();
 

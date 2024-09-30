@@ -19,7 +19,6 @@ interface ServiceProps {
 
 const ServiceDetailPage = ({ params }: ServiceProps) => {
     const { state, city, service } = useParams();
-
     const serviceKey = service as keyof typeof SERVICES;
     const cityKey = `${state}_${city}` as keyof typeof CITIES;
     const cityData = CITIES[cityKey];
