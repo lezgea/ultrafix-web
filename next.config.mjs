@@ -13,7 +13,14 @@ const nextConfig = {
         includePaths: [path.join(__dirname, 'src/styles')],
     },
     images: {
-        domains: ['ultrafix.com'],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'lezgea.com', // Replace with your image host domain
+                port: '',
+                pathname: '/**',
+            },
+        ],
     },
     webpack(config) {
         config.module.rules.push({
