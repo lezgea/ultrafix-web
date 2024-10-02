@@ -7,8 +7,6 @@ import { CloseIcon, HamburgerIcon, UltrafixLogo } from '@assets/icons';
 import { Sidebar } from '../sidebar';
 import { CITIES, STATES, STATES_LIST } from 'constants/locations';
 import { Dropdown } from '@components/shared/dropdown';
-import { motion } from 'framer-motion';
-
 
 
 const NAV_ROUTES: { id: string; label: string }[] = [
@@ -27,6 +25,7 @@ export const Header: React.FC = () => {
     const [selectedId, setSelectedId] = React.useState<string>()
 
     const pathname = usePathname();
+    const router = useRouter();
     const { state, city, service } = useParams();
 
     const cityKey = `${state}_${city}` as keyof typeof CITIES;
@@ -41,6 +40,7 @@ export const Header: React.FC = () => {
         if (section) {
             section.scrollIntoView({ behavior: 'smooth' });
         }
+        // router.push('/')
     };
 
     const navLinks = React.useMemo(() => {
@@ -86,7 +86,6 @@ export const Header: React.FC = () => {
             {cityData?.phone ? cityData?.phone : '(888) 998-6263'}
         </button>
     ), [cityKey, pathname]);
-
 
 
 

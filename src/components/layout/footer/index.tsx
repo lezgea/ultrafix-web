@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { useParams, usePathname } from 'next/navigation';
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { CITIES } from 'constants/locations';
 import { FacebookIcon, InstagramIcon, LinkedinIcon, LogoWhite, YoutubeIcon } from '@assets/icons';
@@ -11,7 +10,7 @@ import { FacebookIcon, InstagramIcon, LinkedinIcon, LogoWhite, YoutubeIcon } fro
 export const Footer: React.FC = () => {
     const pathname = usePathname();
 
-    const { state, city, service } = useParams();
+    const { state, city } = useParams();
 
     const cityKey = `${state}_${city}` as keyof typeof CITIES;
     const cityData = CITIES[cityKey];

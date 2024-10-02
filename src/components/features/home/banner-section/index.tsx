@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react';
 import SectionLayout from '@components/layout/section-layout';
 import Image from 'next/image';
@@ -6,6 +8,15 @@ import * as motion from "framer-motion/client";
 
 
 export const BannerSection: React.FC = () => {
+
+    const scrollToContact = () => {
+        const section = document.getElementById('contact');
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+
     return (
         <SectionLayout>
             <div className="z-10 flex flex-col w-full absolute space-y-5 text-end justify-end items-end">
@@ -13,13 +24,13 @@ export const BannerSection: React.FC = () => {
                     <span className='text-primary'>Make</span> Appliances <span className='text-primary'>Great</span> Again !
                 </h2>
                 <p className="text-2xl font-light text-gray-500">Call now and book your service technician</p>
-                <Link
-                    href="/"
-                    className="inline-flex w-auto text-center items-center px-6 py-[12px] text-lg text-white transition-all bg-primary rounded-xl sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
+                <button
+                    onClick={scrollToContact}
+                    className="inline-flex w-auto text-center items-center px-6 py-[12px] text-lg text-white transition-all bg-primary rounded-lg sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
                     aria-label="See our races"
                 >
                     Book a Service
-                </Link>
+                </button>
             </div>
             <motion.div
                 initial={{ opacity: 0, x: -300 }}

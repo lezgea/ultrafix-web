@@ -59,6 +59,9 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      boxShadow: {
+        'top-lg': '0 10px 10px -3px rgba(0, 0, 0, 0.05), 0 -4px 6px -2px rgba(0, 0, 0, 0.05)',
+      },
       keyframes: {
         mainLabelAnimation: {
           '0%': { opacity: '0', transform: 'scale(1) translateY(-70vh)' },

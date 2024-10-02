@@ -1,16 +1,9 @@
 import React from 'react';
-import PageLayout from '@components/layout/page-layout';
-import {
-    AboutUsSection,
-    LocationsBanner,
-    LocationsMap,
-    LocationsServices,
-    LogosSection,
-    WhyUsSection
-} from '@components/features';
 import { Metadata } from 'next';
-import * as motion from "framer-motion/client";
-import { AnimatePresence } from 'framer-motion';
+import PageLayout from '@components/layout/page-layout';
+import { AboutUsSection, BannerSection, BrandsSection, LogosSection, ServicesSection, WhyUsSection } from '@components/features/home';
+import * as motion from "framer-motion/client"
+import { ContactSection } from '@components/features/home/contact-section';
 
 
 export const metadata: Metadata = {
@@ -64,35 +57,15 @@ export const metadata: Metadata = {
     },
 };
 
-interface ILocationProps {
-    params: {
-        state: string;
-        city: string;
-    };
-}
+const list = { hidden: { opacity: 0 } }
+const item = { hidden: { x: -10, opacity: 0 } }
 
-const LocationPage: React.FC<ILocationProps> = ({ params }) => {
+const Contact: React.FC = () => {
     return (
         <PageLayout title="The number one Appliance Repair service in US">
-            <AnimatePresence mode="wait">
-                <LocationsBanner />
-                <motion.div
-                    initial={{ opacity: 0, x: 400 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{
-                        duration: 0.5,
-                        ease: [0, 0.71, 0.2, 1.01]
-                    }}
-                >
-                    <LogosSection />
-                </motion.div>
-                <LocationsServices />
-                <LocationsMap />
-                <WhyUsSection />
-                <AboutUsSection />
-            </AnimatePresence>
+            <ContactSection />
         </PageLayout >
     );
 };
 
-export default LocationPage;
+export default Contact;
