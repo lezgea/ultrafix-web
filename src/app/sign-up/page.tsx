@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Image from 'next/image';
-import { SignUpForm } from '@components/features';
+// import { SignUpForm } from '@components/features';
 import Link from 'next/link';
 
 
@@ -35,7 +35,7 @@ const SignUp: React.FC = () => {
 
             {/* Right side with form */}
             <div className="w-full lg:w-1/2 bg-white content-center px-8 py-[30px] lg:p-20 overflow-y-scroll">
-                <SignUpForm />
+                {/* <SignUpForm /> */}
             </div>
         </div>
     );

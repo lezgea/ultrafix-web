@@ -10,7 +10,6 @@ import { useRegisterUserMutation } from '@api/user-api';
 import { toast } from 'react-toastify';
 import Link from 'next/link';
 import Image from 'next/image';
-import { EmailSent } from '../../features/sign-up/email-sent';
 
 
 interface IFormInput {
@@ -60,7 +59,7 @@ export const ContactForm: React.FC = () => {
     };
 
 
-    if (emailSent) return <EmailSent />
+    // if (emailSent) return <EmailSent />
 
 
     return (
