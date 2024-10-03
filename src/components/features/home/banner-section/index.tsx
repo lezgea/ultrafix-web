@@ -3,7 +3,6 @@
 import React from 'react';
 import SectionLayout from '@components/layout/section-layout';
 import Image from 'next/image';
-import Link from 'next/link';
 import * as motion from "framer-motion/client";
 
 

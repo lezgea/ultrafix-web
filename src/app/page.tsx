@@ -3,7 +3,6 @@ import { Metadata } from 'next';
 import PageLayout from '@components/layout/page-layout';
 import { AboutUsSection, BannerSection, BrandsSection, LogosSection, ServicesSection, WhyUsSection } from '@components/features/home';
 import * as motion from "framer-motion/client"
-import { ContactSection } from '@components/features/home/contact-section';
 
 
 export const metadata: Metadata = {

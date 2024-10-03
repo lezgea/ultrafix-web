@@ -1,6 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import axiosBaseQuery from '@utils/axiosBaseQuery';
-import { IRegisterRequest, RegisterResponse } from './types/user-types';
+import { ContactResponse, IContactRequest } from './types/user-types';
 
 
 export const userApi = createApi({
@@ -8,7 +8,7 @@ export const userApi = createApi({
     baseQuery: axiosBaseQuery,
     tagTypes: ['User'],
     endpoints: (builder) => ({
-        contactUser: builder.mutation<RegisterResponse, IRegisterRequest>({
+        contactUser: builder.mutation<ContactResponse, IContactRequest>({
             query: (credentials) => ({
                 url: '/contacts/store',
                 method: 'POST',

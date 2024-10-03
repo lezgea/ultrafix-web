@@ -5,55 +5,47 @@ import * as Yup from 'yup';
 import { FormInput } from '@components/shared';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { EmailIcon, EyeClosedIcon, EyeIcon } from '@assets/icons';
 import { useContactUserMutation } from '@api/user-api';
 import { toast } from 'react-toastify';
 
 
-interface IFormInput {
-    email: string;
-    password: string;
-    confirmation: string;
+interface IContactForm {
+    name: string;
+    phone: string;
+    address: string;
+    message?: string;
 }
 
 const validationSchema = Yup.object().shape({
-    email: Yup.string()
-        .email('Invalid email')
-        .required('Email is required'),
-    password: Yup.string()
-        .required('Password is required')
-        .min(3, 'Password must be at least 3 characters'),
-    confirmation: Yup.string()
-        .required('Password confirmation is required')
-        .oneOf([Yup.ref('password')], 'Passwords must match'),
+    name: Yup.string()
+        .required('Fullname is required'),
+    phone: Yup.string()
+        .required('Phone number is required'),
+    address: Yup.string()
+        .required('Address is required'),
 });
 
 
 export const ContactForm: React.FC = () => {
     const [terms, acceptTerms] = React.useState<boolean>(false);
-    const [showPassword, setShowPassword] = React.useState<boolean>(false);
     const [emailSent, showEmailSent] = React.useState<boolean>(false);
 
-    const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>({
+    const { register, handleSubmit, formState: { errors } } = useForm<IContactForm>({
         resolver: yupResolver(validationSchema),
         mode: 'onBlur',
     });
 
     // RTK Query mutation hook
-    const [registerUser, { isLoading, error }] = useContactUserMutation();
+    const [sendRequest, { isLoading, error }] = useContactUserMutation();
 
-    const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+    const onSubmit: SubmitHandler<IContactForm> = async (data) => {
         try {
-            await registerUser(data).unwrap();
+            await sendRequest(data).unwrap();
             showEmailSent(true);
         } catch (err: any) {
             console.error('Unknown error:', err);
             toast.error(err.data?.message || 'An unexpected error occurred');
         }
-    };
-
-    const togglePasswordVisibility = (): void => {
-        setShowPassword(!showPassword);
     };
 
 
@@ -66,11 +58,10 @@ export const ContactForm: React.FC = () => {
                 <FormInput
                     label='Fullname'
                     type='text'
-                    name='fullname'
+                    name='name'
                     placeholder="Enter your fullname"
                     register={register}
                     errors={errors}
-                    icon={<EmailIcon />}
                 />
                 <FormInput
                     label='Phone'
@@ -79,7 +70,6 @@ export const ContactForm: React.FC = () => {
                     placeholder="Enter your phone number"
                     register={register}
                     errors={errors}
-                    onClickIcon={togglePasswordVisibility}
                 />
                 <FormInput
                     label='Address'
@@ -88,18 +78,15 @@ export const ContactForm: React.FC = () => {
                     placeholder="Enter your address"
                     register={register}
                     errors={errors}
-                    onClickIcon={togglePasswordVisibility}
                 />
                 <FormInput
                     isTextArea={true}
                     label='Message'
-                    type={showPassword ? "text" : "password"}
-                    name='confirmation'
-                    placeholder="Enter your description"
+                    type='text'
+                    name='message'
+                    placeholder="Enter your problem description"
                     register={register}
                     errors={errors}
-                    onClickIcon={togglePasswordVisibility}
-                    icon={showPassword ? <EyeIcon /> : <EyeClosedIcon />}
                 />
                 <div className="flex justify-between items-center pb-4 pt-1 select-none">
                     <label className="inline-flex items-center cursor-pointer">

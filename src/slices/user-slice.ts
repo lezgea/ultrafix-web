@@ -1,12 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { userApi } from '../api/user-api';
-import { IUser, RegisterResponse } from '@api/types/user-types';
+import { ContactResponse } from '@api/types/user-types';
 import Cookies from 'js-cookie';
 
 
 interface IAuthState {
     isAuthenticated: boolean;
-    user: IUser | null;
     loading: boolean;
     error: string | null;
     description: string | null;
@@ -14,7 +13,6 @@ interface IAuthState {
 
 const initialState: IAuthState = {
     isAuthenticated: false,
-    user: null,
     loading: true,
     error: null,
     description: null,
@@ -24,13 +22,12 @@ const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        setAuthState: (state, action: PayloadAction<{ isAuthenticated?: boolean, user?: IUser | null, loading: boolean }>) => {
+        setAuthState: (state, action: PayloadAction<{ isAuthenticated?: boolean, loading: boolean }>) => {
             state.loading = action.payload.loading;  // Loading is done once this action is dispatched
         },
         logout: (state) => {
             state.isAuthenticated = false;
             state.loading = false;
-            state.user = null;
             state.error = null;
             Cookies.remove('dtr-token');
         },
@@ -47,7 +44,7 @@ const userSlice = createSlice({
             )
             .addMatcher(
                 userApi.endpoints.contactUser.matchFulfilled,
-                (state, action: PayloadAction<RegisterResponse>) => {
+                (state, action: PayloadAction<ContactResponse>) => {
                     state.loading = false;
                 }
             )
