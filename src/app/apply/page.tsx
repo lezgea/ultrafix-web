@@ -1,7 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Image from 'next/image';
-// import { SignUpForm } from '@components/features';
 import Link from 'next/link';
 
 
@@ -11,19 +10,19 @@ export const metadata: Metadata = {
 };
 
 
-const SignUp: React.FC = () => {
+const Apply: React.FC = () => {
     return (
         <div className="min-h-screen max-h-screen flex">
             {/* Left side with image */}
             <div className="w-full lg:w-1/2 relative hidden lg:block">
-                <Image
+                {/* <Image
                     src="/png/login.png"
                     alt="Team Photo"
                     layout="fill"
                     objectFit="cover"
                     className="h-full"
                     priority
-                />
+                /> */}
                 <div className="absolute column w-full h-full content-end text-center px-20 py-[10%] space-y-7">
                     <Link className="flex cursor-pointer justify-center mb-10" href="/">
                         <Image src="/svg/datarace-logo.svg" alt="Logo" width={250} height={70} />
@@ -41,4 +40,4 @@ const SignUp: React.FC = () => {
     );
 };
 
-export default SignUp;
+export default Apply;
