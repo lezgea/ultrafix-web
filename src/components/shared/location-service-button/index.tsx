@@ -1,7 +1,10 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
 import { ServiceIcon } from '../service-icon';
 import * as motion from "framer-motion/client"
+import { useParams } from 'next/navigation';
 
 
 interface IServiceProps {
@@ -14,6 +17,9 @@ interface IServiceProps {
 export const LocationServiceButton: React.FC<IServiceProps> = (props) => {
     let { title, value: service } = props;
 
+    const { state, city } = useParams();
+    console.log('@@@@', state)
+
     return (
         <motion.div
             initial={{ opacity: 0, x: -200 }}
@@ -21,7 +27,7 @@ export const LocationServiceButton: React.FC<IServiceProps> = (props) => {
             transition={{ duration: 0.5 }}
         >
             <Link
-                href={`/services/${service}`}
+                href={`/locations/${state}/${city}/${service}`}
                 className='flex relative text-center items-center justify-center group hover:bg-primary transition-colors duration-300 ease-in-out w-[12rem] h-[12rem] rounded-full bg-gray-100'
             >
                 <ServiceIcon

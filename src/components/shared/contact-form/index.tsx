@@ -1,15 +1,13 @@
 "use client";
 
-import { FormInput } from '@components/shared';
 import React from 'react';
 import * as Yup from 'yup';
+import { FormInput } from '@components/shared';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { EmailIcon, EyeClosedIcon, EyeIcon } from '@assets/icons';
-import { useRegisterUserMutation } from '@api/user-api';
+import { useContactUserMutation } from '@api/user-api';
 import { toast } from 'react-toastify';
-import Link from 'next/link';
-import Image from 'next/image';
 
 
 interface IFormInput {
@@ -42,7 +40,7 @@ export const ContactForm: React.FC = () => {
     });
 
     // RTK Query mutation hook
-    const [registerUser, { isLoading, error }] = useRegisterUserMutation();
+    const [registerUser, { isLoading, error }] = useContactUserMutation();
 
     const onSubmit: SubmitHandler<IFormInput> = async (data) => {
         try {
@@ -67,39 +65,37 @@ export const ContactForm: React.FC = () => {
             <form className="space-y-5 select-none" onSubmit={handleSubmit(onSubmit)}>
                 <FormInput
                     label='Fullname'
-                    type='email'
-                    name='email'
-                    placeholder="example@company.com"
+                    type='text'
+                    name='fullname'
+                    placeholder="Enter your fullname"
                     register={register}
                     errors={errors}
                     icon={<EmailIcon />}
                 />
                 <FormInput
                     label='Phone'
-                    type={showPassword ? "text" : "password"}
-                    name='password'
-                    placeholder="Enter password"
+                    type="text"
+                    name='phone'
+                    placeholder="Enter your phone number"
                     register={register}
                     errors={errors}
                     onClickIcon={togglePasswordVisibility}
-                    icon={showPassword ? <EyeIcon /> : <EyeClosedIcon />}
                 />
                 <FormInput
                     label='Address'
-                    type={showPassword ? "text" : "password"}
-                    name='confirmation'
-                    placeholder="Enter password"
+                    type="text"
+                    name='address'
+                    placeholder="Enter your address"
                     register={register}
                     errors={errors}
                     onClickIcon={togglePasswordVisibility}
-                    icon={showPassword ? <EyeIcon /> : <EyeClosedIcon />}
                 />
                 <FormInput
                     isTextArea={true}
                     label='Message'
                     type={showPassword ? "text" : "password"}
                     name='confirmation'
-                    placeholder="Enter password"
+                    placeholder="Enter your description"
                     register={register}
                     errors={errors}
                     onClickIcon={togglePasswordVisibility}

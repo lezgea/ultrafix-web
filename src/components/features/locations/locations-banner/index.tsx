@@ -1,6 +1,5 @@
 "use client";
 
-import { useGetUserQuery } from '@api/user-api';
 import { CallIcon } from '@assets/icons';
 import SectionLayout from '@components/layout/section-layout';
 import { Loader } from '@components/shared';
