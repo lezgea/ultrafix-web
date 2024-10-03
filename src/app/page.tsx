@@ -1,8 +1,9 @@
 import React from 'react';
 import { Metadata } from 'next';
 import PageLayout from '@components/layout/page-layout';
-import { AboutUsSection, BannerSection, BrandsSection, LogosSection, ServicesSection, WhyUsSection } from '@components/features/home';
+import { AboutUsSection, BannerSection, BrandsSection, ContactSection, LogosSection, ServicesSection, WhyUsSection } from '@components/features/home';
 import * as motion from "framer-motion/client"
+import { AppliancesIllustration } from '@assets/icons';
 
 
 export const metadata: Metadata = {
@@ -71,7 +72,21 @@ const Home: React.FC = () => {
                 <LogosSection />
             </motion.div>
             <ServicesSection />
-            {/* <ContactSection /> */}
+            <motion.div
+                initial={{ opacity: 0, x: 400 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3 }}
+                className="flex items-center justify-center mt-20"
+            >
+                <AppliancesIllustration />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: -200 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3 }}
+            >
+                <ContactSection />
+            </motion.div>
             <AboutUsSection />
             <BrandsSection />
             <WhyUsSection />

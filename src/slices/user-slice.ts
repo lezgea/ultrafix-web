@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { userApi } from '../api/user-api';
 import { ContactResponse } from '@api/types/user-types';
 import Cookies from 'js-cookie';
+import { toast } from 'react-toastify';
 
 
 interface IAuthState {

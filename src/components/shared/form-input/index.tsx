@@ -32,7 +32,7 @@ export const FormInput: React.FC<IFormInputProps> = (props) => {
     } = props;
 
     return (
-        <div className="relative">
+        <div className="w-full relative">
             <div className="relative">
                 <label htmlFor={name} className="block text-gray-700 mb-1" style={labelStyle}>
                     {label}

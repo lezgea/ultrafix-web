@@ -2,6 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import PageLayout from '@components/layout/page-layout';
 import { ContactSection } from '@components/features/home/contact-section';
+import { AppliancesIllustration } from '@assets/icons';
 
 
 export const metadata: Metadata = {
@@ -59,6 +60,9 @@ export const metadata: Metadata = {
 const Contact: React.FC = () => {
     return (
         <PageLayout title="The number one Appliance Repair service in US">
+            <div className="flex items-center justify-center -mb-20 mt-20">
+                <AppliancesIllustration />
+            </div>
             <ContactSection />
         </PageLayout >
     );

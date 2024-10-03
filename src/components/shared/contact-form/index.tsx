@@ -30,7 +30,7 @@ export const ContactForm: React.FC = () => {
     const [terms, acceptTerms] = React.useState<boolean>(false);
     const [emailSent, showEmailSent] = React.useState<boolean>(false);
 
-    const { register, handleSubmit, formState: { errors } } = useForm<IContactForm>({
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<IContactForm>({
         resolver: yupResolver(validationSchema),
         mode: 'onBlur',
     });
@@ -42,6 +42,8 @@ export const ContactForm: React.FC = () => {
         try {
             await sendRequest(data).unwrap();
             showEmailSent(true);
+            toast.success("Thank you for contacting us! We have received your message and will get back to you shortly.");
+            reset();
         } catch (err: any) {
             console.error('Unknown error:', err);
             toast.error(err.data?.message || 'An unexpected error occurred');
@@ -53,29 +55,59 @@ export const ContactForm: React.FC = () => {
 
 
     return (
-        <div className="w-full mx-auto lg:max-w-md space-y-10">
+        <div className="w-full space-y-10">
             <form className="space-y-5 select-none" onSubmit={handleSubmit(onSubmit)}>
-                <FormInput
-                    label='Fullname'
-                    type='text'
-                    name='name'
-                    placeholder="Enter your fullname"
-                    register={register}
-                    errors={errors}
-                />
-                <FormInput
-                    label='Phone'
-                    type="text"
-                    name='phone'
-                    placeholder="Enter your phone number"
-                    register={register}
-                    errors={errors}
-                />
+                <div className="flex flex-col md:flex-row gap-5">
+                    <FormInput
+                        label='Fullname'
+                        type='text'
+                        name='name'
+                        placeholder="John Doe"
+                        register={register}
+                        errors={errors}
+                    />
+                    <FormInput
+                        label='Phone'
+                        type="text"
+                        name='phone'
+                        placeholder="Enter your phone number"
+                        register={register}
+                        errors={errors}
+                    />
+                </div>
+
+                <div className="flex flex-col md:flex-row gap-5">
+                    <FormInput
+                        label='State'
+                        type="text"
+                        name='state'
+                        placeholder="State"
+                        register={register}
+                        errors={errors}
+                    />
+                    <FormInput
+                        label='City'
+                        type="text"
+                        name='city'
+                        placeholder="City"
+                        register={register}
+                        errors={errors}
+                    />
+                    <FormInput
+                        label='Zip Code'
+                        type="text"
+                        name='zipcode'
+                        placeholder="Zip Code"
+                        register={register}
+                        errors={errors}
+                    />
+                </div>
+
                 <FormInput
                     label='Address'
                     type="text"
                     name='address'
-                    placeholder="Enter your address"
+                    placeholder="Address"
                     register={register}
                     errors={errors}
                 />

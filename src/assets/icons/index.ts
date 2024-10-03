@@ -56,6 +56,7 @@ import GarbageDisposalIcon from './garbage_disposal.svg';
 import CallIcon from './call.svg';
 import LogoIcon from './logo-icon.svg';
 import FacebookIcon from './facebook.svg';
+import AppliancesIllustration from './appliances-illustration.svg';
 
 
 export {
@@ -70,6 +71,7 @@ export {
     Teamwork,
     Failed,
     RaceFlag,
+    AppliancesIllustration,
 
     // icons
     FacebookIcon,
