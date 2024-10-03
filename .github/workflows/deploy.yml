@@ -49,3 +49,4 @@ jobs:
             cd /var/www/ultrafix-web-front
             npm cache clean --force
           EOF
+          
