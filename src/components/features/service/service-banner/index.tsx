@@ -11,6 +11,14 @@ interface IServiceBannerProps {
 }
 
 export const ServiceBanner: React.FC<IServiceBannerProps> = ({ service }) => {
+
+    const scrollToContact = () => {
+        const section = document.getElementById('contact');
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <SectionLayout noYPadding>
             <div className='w-full flex flex-col lg:flex-row py-10'>
@@ -49,13 +57,13 @@ export const ServiceBanner: React.FC<IServiceBannerProps> = ({ service }) => {
                         className='z-0 h-[100px] w-[100px] rounded-full bg-gray-100 absolute top-[250px] left-[450px]'
                     ></motion.div>
                     <div className='space-y-4 z-10'>
-                        <Link
-                            href="/"
+                        <button
+                            onClick={scrollToContact}
                             className="inline-flex w-auto text-center items-center px-6 py-[12px] text-lg text-white transition-all bg-primary rounded-xl sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
                             aria-label="See our races"
                         >
                             Book a Service
-                        </Link>
+                        </button>
                         <p className='text-gray-600 text-xl'>Average price for {SERVICES[service].title.toLowerCase()} repair without parts</p>
                         <p className='text-primaryDark text-5xl font-medium'>$ {SERVICES[service].price}</p>
                     </div>
