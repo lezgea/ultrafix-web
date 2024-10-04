@@ -78,7 +78,7 @@ export const Footer: React.FC = () => {
                                         </Link>
                                         :
                                         <Link
-                                            href="https://www.google.com/maps?q=2742+Janetta+St+%23722,+Houston,+TX+77063"
+                                            href="https://www.google.com/maps?q=31602+Roldan+Ln,+Fulshear,+TX+77441"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="hover:text-primary"
