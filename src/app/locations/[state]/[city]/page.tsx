@@ -2,6 +2,7 @@ import React from 'react';
 import PageLayout from '@components/layout/page-layout';
 import {
     AboutUsSection,
+    ContactSection,
     LocationsBanner,
     LocationsMap,
     LocationsServices,
@@ -88,6 +89,7 @@ const LocationPage: React.FC<ILocationProps> = ({ params }) => {
                 </motion.div>
                 <LocationsServices />
                 <LocationsMap />
+                <ContactSection />
                 <WhyUsSection />
                 <AboutUsSection />
             </AnimatePresence>

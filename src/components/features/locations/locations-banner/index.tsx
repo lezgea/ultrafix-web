@@ -24,6 +24,13 @@ export const LocationsBanner: React.FC<ILocationBannerProps> = () => {
     const { state, city, service } = useParams();
     const dispatch = useDispatch();
 
+    const scrollToContact = () => {
+        const section = document.getElementById('contact');
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     const serviceKey = service as keyof typeof SERVICES;
     const cityKey = `${state}_${city}` as keyof typeof CITIES;
     const cityData = CITIES[cityKey];
@@ -41,13 +48,13 @@ export const LocationsBanner: React.FC<ILocationBannerProps> = () => {
                 <p className="text-xl font-light max-w-[45%] text-gray-500">
                     UltraFix Appliance Repair services are a call away. We can be with you on the same day
                 </p>
-                <Link
-                    href="/"
+                <button
+                    onClick={scrollToContact}
                     className="inline-flex w-auto text-center items-center px-6 py-[12px] text-lg text-white transition-all bg-primary rounded-xl sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
                     aria-label="See our races"
                 >
                     Book a Service
-                </Link>
+                </button>
             </div>
 
             <motion.div
