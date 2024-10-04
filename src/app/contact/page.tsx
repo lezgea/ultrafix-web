@@ -60,9 +60,6 @@ export const metadata: Metadata = {
 const Contact: React.FC = () => {
     return (
         <PageLayout title="The number one Appliance Repair service in US">
-            <div className="flex items-center justify-center -mb-20 mt-20">
-                <AppliancesIllustration />
-            </div>
             <ContactSection />
         </PageLayout >
     );
