@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - dev
-   
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -16,8 +16,17 @@ jobs:
       - name: Install SSH Key
         uses: webfactory/ssh-agent@v0.5.4
         with:
-          ssh-private-key: ${{ secrets.DO_SSH_KEY }}
+          ssh-private-key: ${{ secrets.SERVER_SSH_KEY }}
 
       - name: Copy Files to Server
         run: |
-          rsync -avz -e "ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=5" ./ root@198.211.108.190:/var/www/ultrafix-web-front/
+          rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./ root@137.184.157.106:/var/www/ultrafix-web-front/
+
+      - name: Install dependencies on Server
+        run: |
+          ssh -o StrictHostKeyChecking=no root@137.184.157.106 << 'EOF'
+            cd /var/www/ultrafix-web-front
+            npm install
+            npm run build
+            pm2 restart ultrafix-web-front || pm2 start npm --name "ultrafix-web-front" -- start
+          EOF
