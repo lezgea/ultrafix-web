@@ -2,7 +2,7 @@ import React from 'react';
 import PageLayout from '@components/layout/page-layout';
 import { SERVICES } from 'constants/services';
 import SectionLayout from '@components/layout/section-layout';
-import { ServiceBanner, WhyUsSection } from '@components/features';
+import { ContactSection, ServiceBanner, WhyUsSection } from '@components/features';
 
 interface ServiceProps {
     params: {
@@ -43,6 +43,7 @@ const ServiceDetailPage = ({ params }: ServiceProps) => {
                     <p className='text-gray-500 text-md text-[#a175b5]'>{SERVICES[service].note}</p>
                 </div>
             </SectionLayout>
+            <ContactSection />
             <WhyUsSection />
         </PageLayout >
     );
