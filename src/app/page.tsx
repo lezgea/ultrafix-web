@@ -72,21 +72,7 @@ const Home: React.FC = () => {
                 <LogosSection />
             </motion.div>
             <ServicesSection />
-            <motion.div
-                initial={{ opacity: 0, x: 400 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3 }}
-                className="flex items-center justify-center mt-20"
-            >
-                <AppliancesIllustration />
-            </motion.div>
-            <motion.div
-                initial={{ opacity: 0, x: -200 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3 }}
-            >
-                <ContactSection />
-            </motion.div>
+            <ContactSection />
             <AboutUsSection />
             <BrandsSection />
             <WhyUsSection />
