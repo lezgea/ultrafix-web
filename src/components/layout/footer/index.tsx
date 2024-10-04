@@ -83,7 +83,7 @@ export const Footer: React.FC = () => {
                                             rel="noopener noreferrer"
                                             className="hover:text-primary"
                                         >
-                                            2742 Janetta St #722, Houston, TX 77063
+                                            31602 Roldan Ln, Fulshear, TX 77441
                                         </Link>
                                 }
                             </li>

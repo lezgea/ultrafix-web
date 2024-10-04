@@ -299,7 +299,7 @@ export const CITIES = {
         state: 'Texas',
         title: 'Houston',
         value: 'houston',
-        address: '2742 Janetta St #722, Houston, TX 77063',
+        address: '2742 Jeanetta St #722, Houston, TX 77063',
         phone: '(832) 998-0886',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
