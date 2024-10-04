@@ -59,7 +59,7 @@ export const ContactForm: React.FC = () => {
             <form className="space-y-5 select-none" onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex flex-col md:flex-row gap-5">
                     <FormInput
-                        label='Fullname'
+                        label='Full Name'
                         type='text'
                         name='name'
                         placeholder="John Doe"
@@ -78,18 +78,37 @@ export const ContactForm: React.FC = () => {
 
                 <div className="flex flex-col md:flex-row gap-5">
                     <FormInput
-                        label='State'
+                        label='Address'
                         type="text"
-                        name='state'
-                        placeholder="State"
+                        name='address'
+                        placeholder="Address"
                         register={register}
                         errors={errors}
                     />
+                    <FormInput
+                        label='E-mail'
+                        type="text"
+                        name='address'
+                        placeholder="johndoe@mail.com"
+                        register={register}
+                        errors={errors}
+                    />
+                </div>
+
+                <div className="flex flex-col md:flex-row gap-5">
                     <FormInput
                         label='City'
                         type="text"
                         name='city'
                         placeholder="City"
+                        register={register}
+                        errors={errors}
+                    />
+                    <FormInput
+                        label='State'
+                        type="text"
+                        name='state'
+                        placeholder="State"
                         register={register}
                         errors={errors}
                     />
@@ -103,14 +122,6 @@ export const ContactForm: React.FC = () => {
                     />
                 </div>
 
-                <FormInput
-                    label='Address'
-                    type="text"
-                    name='address'
-                    placeholder="Address"
-                    register={register}
-                    errors={errors}
-                />
                 <FormInput
                     isTextArea={true}
                     label='Message'
