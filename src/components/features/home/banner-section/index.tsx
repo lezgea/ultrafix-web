@@ -38,7 +38,7 @@ export const BannerSection: React.FC = () => {
                 className="flex -ml-[120px]"
             >
                 <Image
-                    src="/img/cars/tx_houston_car.webp"
+                    src="/img/cars/main_car.webp"
                     width={700}
                     height={700}
                     className="w-auto h-[700px]"
