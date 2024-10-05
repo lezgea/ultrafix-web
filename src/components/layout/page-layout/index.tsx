@@ -12,7 +12,7 @@ const PageLayout: FC<IPageLayout> = ({
 }) => {
 
     return (
-        <div className="min-h-screen flex flex-col py-10">
+        <div className="min-h-screen flex flex-col py-[50px] lg:py-10">
             <a href="#main-content" className="sr-only focus:not-sr-only">Skip to main content</a>
             <main id="main-content" className="w-full">
                 <h1 className="sr-only">{title}</h1>

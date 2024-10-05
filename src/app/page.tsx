@@ -72,10 +72,10 @@ const Home: React.FC = () => {
                 <LogosSection />
             </motion.div>
             <ServicesSection />
-            {/* <ContactSection />
+            <ContactSection />
             <AboutUsSection />
             <BrandsSection />
-            <WhyUsSection /> */}
+            <WhyUsSection />
         </PageLayout >
     );
 };

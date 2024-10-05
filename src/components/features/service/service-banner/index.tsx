@@ -1,3 +1,5 @@
+"use client";
+
 import SectionLayout from '@components/layout/section-layout';
 import { SERVICES } from 'constants/services';
 import Image from 'next/image';

@@ -18,7 +18,7 @@ export const BannerSection: React.FC = () => {
 
     return (
         <SectionLayout>
-            <div className="z-10 flex flex-col w-full space-y-4 md:absolute md:space-y-5 text-center md:text-end justify-end items-center md:items-end">
+            <div className="z-10 flex flex-col w-full space-y-3 md:absolute md:space-y-5 text-center md:text-end justify-end items-center md:items-end">
                 <h2 className="text-[2.5rem] leading-[3rem] lg:text-[4rem] lg:leading-[5rem] lg:max-w-[60%] font-semibold text-primaryDark">
                     <span className='text-primary'>Make</span> Appliances <span className='text-primary'>Great</span> Again !
                 </h2>

@@ -13,18 +13,18 @@ export const ContactSection: React.FC = () => {
             description="We have been providing top service! See just how our UltraFix Appliance Repair Service can better your life today!"
         >
             <motion.div
-                initial={{ opacity: 0, x: 400 }}
+                initial={{ opacity: 0, x: 200 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3 }}
-                className="flex items-center justify-center mt-20"
+                className="flex items-center justify-center lg:mt-20"
             >
-                <AppliancesIllustration />
+                <AppliancesIllustration className="h-40" />
             </motion.div>
             <motion.div
                 initial={{ opacity: 0, x: -200 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3 }}
-                className='flex items-center justify-center bg-white rounded-3xl shadow-top-lg p-10'
+                className='flex items-center justify-center bg-white rounded-3xl shadow-top-lg p-4 lg:p-10'
             >
                 <ContactForm />
             </motion.div>

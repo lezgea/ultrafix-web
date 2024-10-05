@@ -14,7 +14,7 @@ export const ServicesSection: React.FC = () => {
             title="Our Services"
             description="We have been providing top service! See just how our UltraFix Appliance Repair Service can better your life today!"
         >
-            <div className='flex flex-wrap gap-7 md:gap-10 items-center justify-center'>
+            <div className='flex flex-wrap gap-5 md:gap-10 items-center justify-center'>
                 {
                     SERVICES_LIST.map((item, i) =>
                         <MemoizedServiceButton key={item.id} {...item} />
