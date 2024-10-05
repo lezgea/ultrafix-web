@@ -106,7 +106,7 @@ export const Header: React.FC = () => {
                             }
                         </div>
                         <Link href="/" passHref aria-label="UltraFix Logo">
-                            <UltrafixLogo className="h-auto w-[150px]" />
+                            <UltrafixLogo className="h-auto w-[120px] lg:w-[150px]" />
                         </Link>
                     </div>
 

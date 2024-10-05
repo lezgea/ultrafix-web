@@ -71,11 +71,11 @@ const Home: React.FC = () => {
             >
                 <LogosSection />
             </motion.div>
-            <ServicesSection />
+            {/* <ServicesSection />
             <ContactSection />
             <AboutUsSection />
             <BrandsSection />
-            <WhyUsSection />
+            <WhyUsSection /> */}
         </PageLayout >
     );
 };
