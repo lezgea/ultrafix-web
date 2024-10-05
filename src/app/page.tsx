@@ -71,8 +71,8 @@ const Home: React.FC = () => {
             >
                 <LogosSection />
             </motion.div>
-            {/* <ServicesSection />
-            <ContactSection />
+            <ServicesSection />
+            {/* <ContactSection />
             <AboutUsSection />
             <BrandsSection />
             <WhyUsSection /> */}
