@@ -147,7 +147,7 @@ const LocationsDropdownContent: React.FC<ILocationsDropdownContentProps> = (prop
     }
 
     return (
-        <div className="columns-2 lg:columns-3 max-h-[700px] p-4">
+        <div className="columns-2 lg:columns-3 max-h-[400px] md:max-h-[700px] p-4 overflow-y-scroll">
             {
                 STATES_LIST.map((state) => {
                     const stateKey = state.value as keyof typeof STATES;

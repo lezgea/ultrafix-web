@@ -30,8 +30,8 @@ const ServiceDetailPage = ({ params }: ServiceProps) => {
             <LocationsServiceBanner service={serviceKey} />
             <SectionLayout noYPadding>
                 <p className='text-gray-500 text-md font-light'>{SERVICES[serviceKey].description}</p>
-                <div className='py-5 px-10 border border-1 border-[#ceb5d9] rounded-full text-center bg-[#FDFCFE]'>
-                    <p className='text-gray-500 text-md text-[#a175b5]'>{SERVICES[serviceKey].note}</p>
+                <div className='py-4 md:py-5 px-10 border border-1 border-[#ceb5d9] rounded-xl md:rounded-full text-center bg-[#FDFCFE]'>
+                    <p className='text-gray-500 text-sm md:text-md text-[#a175b5]'>{SERVICES[serviceKey].note}</p>
                 </div>
             </SectionLayout>
             <ContactSection />
