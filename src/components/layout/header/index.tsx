@@ -96,7 +96,7 @@ export const Header: React.FC = () => {
     return (
         <>
             <header className="backdrop-blur-xl bg-white/60 w-full fixed z-30 h-[65px] border-b border-gray-100 select-none">
-                <nav role="navigation" aria-label="Main navigation" className="container w-full max-w-[1200px] mx-auto flex justify-between items-center px-3 py-0 h-full space-x-5 md:px-0">
+                <nav role="navigation" aria-label="Main navigation" className="container w-full max-w-[1200px] mx-auto flex justify-between items-center px-3 md:px-10 xl:px-0 py-0 h-full space-x-5">
                     <div className="flex items-center cursor-pointer lg:w-[20%] space-x-3 lg:space-x-0">
                         <div className="w-[30px] ml-3 flex lg:hidden">
                             {
@@ -110,7 +110,7 @@ export const Header: React.FC = () => {
                         </Link>
                     </div>
 
-                    <ul className="hidden lg:flex space-x-10 items-center">
+                    <ul className="hidden lg:flex md:space-x-5 xl:space-x-10 items-center">
                         {navLinks}
                     </ul>
 
