@@ -404,7 +404,7 @@ export const CITIES = {
         title: 'Conroe',
         value: 'conroe',
         address: '2257 N Loop 336 W #140, Conroe, TX 77304',
-        phone: '(832) 249-2540',
+        phone: '(936) 249-2540',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/tx_conroe_car.webp',
