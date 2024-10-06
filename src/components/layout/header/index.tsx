@@ -49,7 +49,7 @@ export const Header: React.FC = () => {
                 {
                     item.id === 'locations'
                         ?
-                        <Dropdown content={<LocationsDropdownContent />}>
+                        <Dropdown content={<LocationsDropdownContent onCloseSidebar={() => setSidebarOpen(false)} />}>
                             <div className="relative flex items-center space-x-3 cursor-pointer">
                                 {(item.id === selectedId) && (
                                     <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
@@ -60,7 +60,7 @@ export const Header: React.FC = () => {
                             </div>
                         </Dropdown>
                         :
-                        <div className="relative flex items-center space-x-3 cursor-pointer">
+                        <div className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
                             {(item.id === selectedId) && (
                                 <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
                             )}
@@ -132,7 +132,12 @@ export const Header: React.FC = () => {
 };
 
 
-const LocationsDropdownContent = () => {
+interface ILocationsDropdownContentProps {
+    onCloseSidebar: () => void,
+}
+
+const LocationsDropdownContent: React.FC<ILocationsDropdownContentProps> = (props) => {
+    let { onCloseSidebar } = props;
     const { state, city, service } = useParams();
 
     const router = useRouter();
@@ -142,20 +147,20 @@ const LocationsDropdownContent = () => {
     }
 
     return (
-        <div className="columns-3 max-h-[700px] p-4">
+        <div className="columns-2 lg:columns-3 max-h-[700px] p-4">
             {
                 STATES_LIST.map((state) => {
                     const stateKey = state.value as keyof typeof STATES;
 
                     return (
-                        <div key={state.id} className="break-inside-avoid mb-4 w-[150px]">
+                        <div key={state.id} className="break-inside-avoid mb-4 w-[120px] lg:w-[150px]">
                             <div className="text-xs text-primary font-semibold mb-2">{state.title}</div>
                             <div className="flex flex-col space-y-1">
                                 {
                                     STATES[stateKey].map((city) =>
                                         <div
                                             key={city.id}
-                                            onClick={() => onNavigate(stateKey, city.value)}
+                                            onClick={() => { onNavigate(stateKey, city.value); onCloseSidebar() }}
                                             className="text-sm font-light text-gray-500 cursor-pointer hover:text-primary hover:underline"
                                         >
                                             {city.title}

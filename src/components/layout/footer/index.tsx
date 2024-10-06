@@ -29,7 +29,7 @@ export const Footer: React.FC = () => {
 
     return (
         <footer className="bg-primaryDark" role="contentinfo">
-            <div className="container mx-auto w-full max-w-[1200px] py-[50px] px-5 lg:px-20 md:px-0 space-y-7">
+            <div className="container mx-auto w-full max-w-[1200px] py-[50px] px-5 md:px-0 space-y-7">
                 <section className="grid gap-10 grid-cols-1 md:grid-cols-[3fr_3fr_2fr] text-white text-center md:text-start">
                     <div className="space-y-6 flex flex-col items-center md:items-start md:pr-40">
                         <LogoWhite className="w-auto h-[30px] lg:h-[40px]" />

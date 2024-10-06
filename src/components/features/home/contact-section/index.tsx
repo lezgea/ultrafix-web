@@ -12,14 +12,14 @@ export const ContactSection: React.FC = () => {
             title="Contact Us"
             description="We have been providing top service! See just how our UltraFix Appliance Repair Service can better your life today!"
         >
-            <motion.div
+            {/* <motion.div
                 initial={{ opacity: 0, x: 200 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3 }}
                 className="flex items-center justify-center lg:mt-20"
             >
-                <AppliancesIllustration className="h-40" />
-            </motion.div>
+                <AppliancesIllustration className="h-[200px] md:h-auto" />
+            </motion.div> */}
             <motion.div
                 initial={{ opacity: 0, x: -200 }}
                 whileInView={{ opacity: 1, x: 0 }}

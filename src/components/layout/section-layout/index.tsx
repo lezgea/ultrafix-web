@@ -25,7 +25,7 @@ const SectionLayout: FC<ISectionLayout> = ({
                     (!!title || !!description) &&
                     <div className='space-y-2'>
                         {!!title && (
-                            <h2 className="text-[2rem] leading-[3rem] md:text-[2.5rem] md:leading-[4rem] text-center font-semibold text-primaryDark">
+                            <h2 className="text-[1.7rem] leading-[2.5rem] md:text-[2.5rem] md:leading-[4rem] text-center font-semibold text-primaryDark">
                                 {title}
                             </h2>
                         )}

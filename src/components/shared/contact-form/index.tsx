@@ -56,8 +56,8 @@ export const ContactForm: React.FC = () => {
 
     return (
         <div className="w-full space-y-10">
-            <form className="space-y-5 select-none" onSubmit={handleSubmit(onSubmit)}>
-                <div className="flex flex-col md:flex-row gap-5">
+            <form className="space-y-3 md:space-y-5 select-none" onSubmit={handleSubmit(onSubmit)}>
+                <div className="flex flex-col md:flex-row gap-3 md:gap-5">
                     <FormInput
                         label='Full Name'
                         type='text'
@@ -76,15 +76,7 @@ export const ContactForm: React.FC = () => {
                     />
                 </div>
 
-                <div className="flex flex-col md:flex-row gap-5">
-                    <FormInput
-                        label='Address'
-                        type="text"
-                        name='address'
-                        placeholder="Address"
-                        register={register}
-                        errors={errors}
-                    />
+                <div className="flex flex-col md:flex-row gap-3 md:gap-5">
                     <FormInput
                         label='E-mail'
                         type="text"
@@ -93,9 +85,17 @@ export const ContactForm: React.FC = () => {
                         register={register}
                         errors={errors}
                     />
+                    <FormInput
+                        label='Address'
+                        type="text"
+                        name='address'
+                        placeholder="Address"
+                        register={register}
+                        errors={errors}
+                    />
                 </div>
 
-                <div className="flex flex-col md:flex-row gap-5">
+                <div className="flex flex-col md:flex-row gap-3 md:gap-5">
                     <FormInput
                         label='City'
                         type="text"
@@ -157,7 +157,7 @@ export const ContactForm: React.FC = () => {
                 <button
                     disabled={!terms}
                     type="submit"
-                    className="w-full h-[50px] font-regmed bg-primary text-white py-2 rounded-lg ring-2 ring-primary hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:outline-none focus:ring-2 focus:ring-primaryDark focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
+                    className="w-full h-[45px] md:h-[50px] font-regmed bg-primary text-white py-2 rounded-lg ring-2 ring-primary hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:outline-none focus:ring-2 focus:ring-primaryDark focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
                 >
                     Submit Request
                 </button>
