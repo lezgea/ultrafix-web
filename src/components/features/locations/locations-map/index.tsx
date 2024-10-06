@@ -47,7 +47,7 @@ export const LocationsMap: React.FC = () => {
         >
             {isMounted && (
                 <AnimatePresence mode="wait">
-                    <div className="relative flex items-center">
+                    <div className="relative flex flex-column md:flex-row items-center">
                         <motion.div
                             initial={{ opacity: 0, x: -400 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -68,11 +68,11 @@ export const LocationsMap: React.FC = () => {
                             initial={{ opacity: 0, x: 200 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.3 }}
-                            className="bg-white p-10 rounded-2xl shadow-2xl absolute -right-20 min-w-[400px] max-w-[400px] space-y-7"
+                            className="bg-white p-10 rounded-2xl shadow-2xl md:absolute -right-20 min-w-[400px] max-w-[400px] space-y-7"
                         >
                             <div>
-                                <div className="text-xl font-light text-primaryDark"><strong className="font-medium">UltraFix</strong> Appliance Repair</div>
-                                <div className="font-medium text-[2.2rem] leading-[2.5rem] text-primaryDark">in <span className="text-primary">{cityData?.title}, {cityData?.stateShort}</span></div>
+                                <div className="text-xl font-light text-primaryDark">UltraFix Appliance Repair</div>
+                                <div className="font-medium text-[1.5rem] leading-[2rem] md:text-[2.2rem] md:leading-[2.5rem] text-primaryDark">in <span className="text-primary">{cityData?.title}, {cityData?.stateShort}</span></div>
                                 <div className="text-sm text-gray-500 mt-2">{cityData?.address}</div>
                             </div>
                             <div>

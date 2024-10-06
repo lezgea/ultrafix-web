@@ -31,7 +31,7 @@ const SectionLayout: FC<ISectionLayout> = ({
                         )}
                         {
                             !!description &&
-                            <p className="text-md font-light text-center text-gray-500 md:px-20">{description}</p>
+                            <p className="text-sm font-light text-center text-gray-500 md:px-20">{description}</p>
                         }
                     </div>
                 }
