@@ -2,39 +2,37 @@ import React from 'react';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { BGUltraIllustration, LogoWhite, UltrafixLogo } from '@assets/icons';
+import { ApplyForm } from '@components/shared';
 
 
 export const metadata: Metadata = {
-    title: "Sign Up | DataRace.ai",
-    description: "DataRace is an innovative platform designed to bring data scientists and AI enthusiasts together to compete in data-driven challenges.",
+    title: "Apply | UlrtaFix Appliance Repair",
 };
 
 
 const Apply: React.FC = () => {
     return (
-        <div className="min-h-screen max-h-screen flex">
+        <div className="min-h-screen max-h-screen flex items-center justify-center">
             {/* Left side with image */}
-            <div className="w-full lg:w-1/2 relative hidden lg:block">
-                {/* <Image
-                    src="/png/login.png"
-                    alt="Team Photo"
-                    layout="fill"
-                    objectFit="cover"
-                    className="h-full"
-                    priority
-                /> */}
-                <div className="absolute column w-full h-full content-end text-center px-20 py-[10%] space-y-7">
-                    <Link className="flex cursor-pointer justify-center mb-10" href="/">
-                        <Image src="/svg/datarace-logo.svg" alt="Logo" width={250} height={70} />
-                    </Link>
-                    <h1 className="text-4xl font-medium">Join the race to AI excellence</h1>
-                    <p className="text-lg text-gray-500">DataRace is an innovative platform designed to bring data scientists and Al enthusiasts together to compete in data-driven challenges.</p>
+            <div className="w-full hidden md:flex md:w-1/2 relative h-screen flex flex-col text-center items-center px-20 justify-center space-y-10 bg-gradient-to-bl from-primary to-[#0E5EBB]">
+                {/* <Link href="/">
+                    <LogoWhite className="w-[200px]" />
+                </Link> */}
+                <div className='w-full text-center text-white'>
+                    <span className="text-[2rem] font-thin">Let's Make</span>
+                    <h1 className="text-[3rem] leading-[3.5rem] text-white font-medium"> Appliances Great Again</h1>
                 </div>
+                <p className="text-lg lg:px-20 md:max-w-full md:text-sm font-thin text-white">
+                    Our pledge is to establish lasting relationships with our customers by exceeding their expectations and gaining their trust through exceptional performance by each member of our service team. We have been providing top service!
+                </p>
+                <BGUltraIllustration className="absolute max-h-[500px] bottom-0" />
             </div>
 
             {/* Right side with form */}
-            <div className="w-full lg:w-1/2 bg-white content-center px-8 py-[30px] lg:p-20 overflow-y-scroll">
-                {/* <SignUpForm /> */}
+            <div className="w-full md:w-1/2 bg-white h-full flex flex-col items-center justify-center px-10 lg:px-[100px] py-[30px] overflow-y-scroll space-y-[60px]">
+                <UltrafixLogo />
+                <ApplyForm />
             </div>
         </div>
     );

@@ -15,7 +15,7 @@ const NAV_ROUTES: { id: string; label: string }[] = [
     { id: 'about_us', label: 'About Us' },
     { id: 'brands', label: 'Brands' },
     { id: 'reviews', label: 'Reviews' },
-    { id: 'apply_now', label: 'Apply Now' },
+    { id: 'apply', label: 'Apply Now' },
     { id: 'why_us', label: 'Why Us' },
 ];
 
@@ -59,15 +59,24 @@ export const Header: React.FC = () => {
                                 </div>
                             </div>
                         </Dropdown>
-                        :
-                        <div className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
-                            {(item.id === selectedId) && (
-                                <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
-                            )}
-                            <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
-                                {item.label}
+                        : item.id === 'apply' ?
+                            <Link href="/apply" className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
+                                {(item.id === selectedId) && (
+                                    <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
+                                )}
+                                <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                                    {item.label}
+                                </div>
+                            </Link>
+                            :
+                            <div className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
+                                {(item.id === selectedId) && (
+                                    <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
+                                )}
+                                <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                                    {item.label}
+                                </div>
                             </div>
-                        </div>
                 }
             </li>
         ));

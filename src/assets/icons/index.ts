@@ -57,6 +57,7 @@ import CallIcon from './call.svg';
 import LogoIcon from './logo-icon.svg';
 import FacebookIcon from './facebook.svg';
 import AppliancesIllustration from './appliances-illustration.svg';
+import BGUltraIllustration from './bg-ultra.svg';
 
 
 export {
@@ -65,6 +66,7 @@ export {
     LogoWhite,
 
     // illustrations
+    BGUltraIllustration,
     TeamBrainstorming,
     TeamBrainStorm,
     HumanRight,
