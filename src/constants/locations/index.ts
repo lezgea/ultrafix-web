@@ -11,6 +11,7 @@ export const STATES_LIST = [
     { id: 9, title: 'Texas', value: 'TX' },
     { id: 10, title: 'Virginia', value: 'VA' },
     { id: 11, title: 'North Carolina', value: 'NC' },
+    { id: 12, title: 'New Jersey', value: 'NJ' },
 ]
 
 export const STATES = {
@@ -67,6 +68,9 @@ export const STATES = {
     ],
     NC: [
         { id: 'NC1', title: 'Charlotte', value: 'charlotte' },
+    ],
+    NJ: [
+        { id: 'NJ1', title: 'Livingston', value: 'livingston' },
     ],
 }
 
@@ -487,5 +491,18 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/nc_charlotte_car.webp',
         mapUrl: '/img/maps/nc_charlotte_map.webp',
+    },
+    nj_livingston: {
+        id: 'NJ1',
+        stateShort: 'NJ',
+        state: 'North Carolina',
+        title: 'Livingston',
+        value: 'livingston',
+        address: '506 W. Mt. Pleasant Ave #3433 Livingston, NJ 07039',
+        phone: '(862) 343-5590',
+        days: 'Monday - Saturday',
+        hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/nj_livingston_car.webp',
+        mapUrl: '/img/maps/nj_livingston_map.webp',
     },
 }
