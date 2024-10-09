@@ -7,7 +7,7 @@ import { ApplyForm } from '@components/shared';
 
 
 export const metadata: Metadata = {
-    title: "Apply | UlrtaFix Appliance Repair",
+    title: "Apply | UltraFix Appliance Repair",
 };
 
 

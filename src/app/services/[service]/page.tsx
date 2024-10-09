@@ -2,7 +2,7 @@ import React from 'react';
 import PageLayout from '@components/layout/page-layout';
 import { SERVICES } from 'constants/services';
 import SectionLayout from '@components/layout/section-layout';
-import { ContactSection, ServiceBanner, WhyUsSection } from '@components/features';
+import { AboutUsSection, BrandsSection, ContactSection, ServiceBanner, WhyUsSection } from '@components/features';
 
 interface ServiceProps {
     params: {
@@ -44,7 +44,9 @@ const ServiceDetailPage = ({ params }: ServiceProps) => {
                 </div>
             </SectionLayout>
             <ContactSection />
+            <BrandsSection />
             <WhyUsSection />
+            <AboutUsSection />
         </PageLayout >
     );
 };

@@ -3,10 +3,11 @@
 import React from 'react';
 import Link from 'next/link';
 import { useParams, usePathname, useRouter } from 'next/navigation';
-import { CloseIcon, HamburgerIcon, UltrafixLogo } from '@assets/icons';
+import { CallIcon, CloseIcon, HamburgerIcon, UltrafixLogo } from '@assets/icons';
 import { Sidebar } from '../sidebar';
 import { CITIES, STATES, STATES_LIST } from 'constants/locations';
 import { Dropdown } from '@components/shared/dropdown';
+import { motion } from 'framer-motion';
 
 
 const NAV_ROUTES: { id: string; label: string }[] = [
@@ -106,24 +107,24 @@ export const Header: React.FC = () => {
         <>
             <header className="backdrop-blur-xl bg-white/60 w-full fixed z-30 h-[65px] border-b border-gray-100 select-none">
                 <nav role="navigation" aria-label="Main navigation" className="container w-full max-w-[1200px] mx-auto flex justify-between items-center px-3 md:px-10 xl:px-0 py-0 h-full space-x-5">
-                    <div className="flex items-center cursor-pointer lg:w-[20%] space-x-3 lg:space-x-0">
-                        <div className="w-[30px] ml-3 flex lg:hidden">
+                    <div className="flex items-center cursor-pointer w-[100%] justify-between lg:w-[20%] lg:space-x-0">
+                        <Link href="/" passHref aria-label="UltraFix Logo">
+                            <UltrafixLogo className="h-auto w-[120px] lg:w-[150px]" />
+                        </Link>
+                        <div className="w-[30px] flex lg:hidden">
                             {
                                 isSidebarOpen
                                     ? <CloseIcon onClick={toggleSidebar} data-testid="close-icon" />
                                     : <HamburgerIcon onClick={toggleSidebar} data-testid="hamburger-icon" />
                             }
                         </div>
-                        <Link href="/" passHref aria-label="UltraFix Logo">
-                            <UltrafixLogo className="h-auto w-[120px] lg:w-[150px]" />
-                        </Link>
                     </div>
 
                     <ul className="hidden lg:flex md:space-x-5 xl:space-x-10 items-center">
                         {navLinks}
                     </ul>
 
-                    <div className="flex items-center justify-end lg:w-[20%] h-full">
+                    <div className="flex hidden items-center justify-end lg:flex lg:w-[20%] h-full">
                         {phoneButton}
                     </div>
                 </nav>
@@ -136,6 +137,36 @@ export const Header: React.FC = () => {
                     setSidebarOpen={setSidebarOpen}
                 />
             </div>
+
+
+            <Link href={`tel:${cityData?.phone ? cityData?.phone : '(888) 998-6263'}`}>
+                <motion.div
+                    initial={{ rotate: 0, scale: 0 }}
+                    animate={{ rotate: 360, scale: 1 }}
+                    transition={{
+                        type: "spring",
+                        stiffness: 260,
+                        damping: 20,
+                        repeat: Infinity,
+                        repeatType: "loop",
+                        duration: 1, // Set the duration for one complete cycle (faster animation)
+                        repeatDelay: 4, // Delay for 2 seconds before repeating
+                    }}
+                    className="lg:hidden p-3 h-20 w-20 flex items-center justify-center rounded-full bg-primary z-40 bottom-10 left-10 fixed hover:text-primary shadow-lg"
+                    style={{
+                        boxShadow: "0 4px 30px rgba(0, 0, 255, 0.5)", // Blue blur shadow
+                    }}
+                >
+                    <CallIcon className="w-[35px]" fill="white" />
+                </motion.div>
+
+
+                {/* <strong className='font-medium'>Phone:</strong> */}
+
+                {/* <span className='ml-2'>
+                    {cityData?.phone ? cityData?.phone : '(888) 998-6263'}
+                </span> */}
+            </Link>
         </>
     );
 };

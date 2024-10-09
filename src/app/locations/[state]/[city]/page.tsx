@@ -2,6 +2,7 @@ import React from 'react';
 import PageLayout from '@components/layout/page-layout';
 import {
     AboutUsSection,
+    BrandsSection,
     ContactSection,
     LocationsBanner,
     LocationsMap,
@@ -90,6 +91,7 @@ const LocationPage: React.FC<ILocationProps> = ({ params }) => {
                 <LocationsServices />
                 <LocationsMap />
                 <ContactSection />
+                <BrandsSection />
                 <WhyUsSection />
                 <AboutUsSection />
             </AnimatePresence>

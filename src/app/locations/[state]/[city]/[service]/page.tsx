@@ -4,7 +4,7 @@ import React from 'react';
 import PageLayout from '@components/layout/page-layout';
 import { SERVICES } from 'constants/services';
 import SectionLayout from '@components/layout/section-layout';
-import { ContactSection, LocationsServiceBanner, WhyUsSection } from '@components/features';
+import { AboutUsSection, BrandsSection, ContactSection, LocationsServiceBanner, LocationsServices, WhyUsSection } from '@components/features';
 import { useParams } from 'next/navigation';
 import { CITIES, STATES } from 'constants/locations';
 
@@ -34,8 +34,11 @@ const ServiceDetailPage = ({ params }: ServiceProps) => {
                     <p className='text-gray-500 text-sm md:text-md text-[#a175b5]'>{SERVICES[serviceKey].note}</p>
                 </div>
             </SectionLayout>
+            <LocationsServices />
+            <BrandsSection />
             <ContactSection />
             <WhyUsSection />
+            <AboutUsSection />
         </PageLayout >
     );
 };
