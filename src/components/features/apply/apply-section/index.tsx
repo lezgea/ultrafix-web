@@ -23,8 +23,8 @@ export const ApplySection = () => {
                 </div>
 
                 {/* Right side with form */}
-                <div className="w-full md:w-1/2 bg-white flex flex-col items-center justify-center px-10 lg:px-[50px] py-[30px] overflow-y-scroll">
-                    <h2 className="text-[1.7rem] leading-[1.5rem] md:text-[1.5rem] md:leading-[4rem] text-end font-semibold text-primaryDark">
+                <div className="w-full md:w-1/2 bg-white flex flex-col items-center justify-center px-5 lg:px-[50px] py-[30px] overflow-y-scroll">
+                    <h2 className="text-[1.2rem] leading-[3rem] md:text-[1.5rem] md:leading-[4rem] text-end font-semibold text-primaryDark">
                         Apply Now
                     </h2>
                     <ApplyForm />

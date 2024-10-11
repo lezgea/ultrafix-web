@@ -152,20 +152,13 @@ export const Header: React.FC = () => {
                         duration: 1, // Set the duration for one complete cycle (faster animation)
                         repeatDelay: 4, // Delay for 2 seconds before repeating
                     }}
-                    className="lg:hidden p-3 h-20 w-20 flex items-center justify-center rounded-full bg-primary z-40 bottom-10 left-10 fixed hover:text-primary shadow-lg"
+                    className="lg:hidden p-3 h-20 w-20 flex items-center justify-center rounded-full bg-primary z-40 bottom-10 right-10 fixed hover:text-primary shadow-lg"
                     style={{
                         boxShadow: "0 4px 30px rgba(0, 0, 255, 0.5)", // Blue blur shadow
                     }}
                 >
                     <CallIcon className="w-[35px]" fill="white" />
                 </motion.div>
-
-
-                {/* <strong className='font-medium'>Phone:</strong> */}
-
-                {/* <span className='ml-2'>
-                    {cityData?.phone ? cityData?.phone : '(888) 998-6263'}
-                </span> */}
             </Link>
         </>
     );
