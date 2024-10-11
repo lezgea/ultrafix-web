@@ -149,8 +149,8 @@ export const Header: React.FC = () => {
                         damping: 20,
                         repeat: Infinity,
                         repeatType: "loop",
-                        duration: 1, // Set the duration for one complete cycle (faster animation)
-                        repeatDelay: 4, // Delay for 2 seconds before repeating
+                        duration: 1,
+                        repeatDelay: 4,
                     }}
                     className="lg:hidden p-3 h-20 w-20 flex items-center justify-center rounded-full bg-primary z-40 bottom-10 right-10 fixed hover:text-primary shadow-lg"
                     style={{
