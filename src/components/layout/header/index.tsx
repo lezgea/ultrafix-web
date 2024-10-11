@@ -101,7 +101,7 @@ export const Header: React.FC = () => {
 
     const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
 
-    if (shouldHideHeader) return null;
+    // if (shouldHideHeader) return null;
 
     return (
         <>

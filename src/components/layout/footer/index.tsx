@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
         }
     };
 
-    if (shouldHideFooter) return null;
+    // if (shouldHideFooter) return null;
 
     return (
         <footer className="bg-primaryDark" role="contentinfo">
