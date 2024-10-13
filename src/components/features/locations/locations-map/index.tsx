@@ -47,9 +47,9 @@ export const LocationsMap: React.FC = () => {
         >
             {isMounted && (
                 <AnimatePresence mode="wait">
-                    <div className="relative flex flex-column md:flex-row items-center">
+                    <div className="relative flex flex-col md:flex-row items-center">
                         <motion.div
-                            initial={{ opacity: 0, x: -400 }}
+                            initial={{ opacity: 0, x: -200 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.3 }}
                             className="rounded-3xl overflow-hidden"
@@ -68,7 +68,7 @@ export const LocationsMap: React.FC = () => {
                             initial={{ opacity: 0, x: 200 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.3 }}
-                            className="bg-white p-10 rounded-2xl shadow-2xl md:absolute -right-20 min-w-[400px] max-w-[400px] space-y-7"
+                            className="bg-white p-10 rounded-2xl shadow-2xl relative w-full -top-20 md:top-auto md:absolute md:-right-20 md:min-w-[400px] md:max-w-[400px] space-y-7"
                         >
                             <div>
                                 <div className="text-xl font-light text-primaryDark">UltraFix Appliance Repair</div>
@@ -83,7 +83,6 @@ export const LocationsMap: React.FC = () => {
                         </motion.div>
                     </div>
                 </AnimatePresence>
-
             )}
         </SectionLayout>
     );
