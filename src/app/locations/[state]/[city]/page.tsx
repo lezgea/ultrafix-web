@@ -4,6 +4,7 @@ import {
     AboutUsSection,
     BrandsSection,
     ContactSection,
+    EmployeesSection,
     LocationsBanner,
     LocationsMap,
     LocationsServices,
@@ -91,6 +92,7 @@ const LocationPage: React.FC<ILocationProps> = ({ params }) => {
                 <LocationsServices />
                 <LocationsMap />
                 <ContactSection />
+                <EmployeesSection />
                 <BrandsSection />
                 <WhyUsSection />
                 <AboutUsSection />

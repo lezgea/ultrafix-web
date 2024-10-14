@@ -88,6 +88,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/ca_sacramento_car.webp',
         mapUrl: '/img/maps/ca_sacramento_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     ca_san_jose: {
         id: 'CA2',
@@ -101,6 +106,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/ca_san_jose_car.webp',
         mapUrl: '/img/maps/ca_san_jose_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     fl_jacksonville: {
         id: 'FL1',
@@ -114,6 +124,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/fl_jacksonville_car.webp',
         mapUrl: '/img/maps/fl_jacksonville_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     fl_miami: {
         id: 'FL2',
@@ -127,6 +142,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/fl_miami_car.webp',
         mapUrl: '/img/maps/fl_miami_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     fl_orlando: {
         id: 'FL3',
@@ -140,6 +160,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/fl_orlando_car.webp',
         mapUrl: '/img/maps/fl_orlando_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     fl_tampa: {
         id: 'FL4',
@@ -153,6 +178,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/fl_tampa_car.webp',
         mapUrl: '/img/maps/fl_tampa_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     ga_atlanta: {
         id: 'GA1',
@@ -166,6 +196,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/ga_atlanta_car.webp',
         mapUrl: '/img/maps/ga_atlanta_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     il_chicago: {
         id: 'IL1',
@@ -179,6 +214,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/il_chicago_car.webp',
         mapUrl: '/img/maps/il_chicago_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     ma_boston: {
         id: 'MA1',
@@ -192,6 +232,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/ma_boston_car.webp',
         mapUrl: '/img/maps/ma_boston_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     md_baltimore: {
         id: 'MD1',
@@ -205,6 +250,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/md_baltimore_car.webp',
         mapUrl: '/img/maps/md_baltimore_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     mo_st_louis: {
         id: 'MO1',
@@ -218,6 +268,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/mo_st_louis_car.webp',
         mapUrl: '/img/maps/mo_st_louis_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     pa_philadelphia: {
         id: 'PA1',
@@ -231,6 +286,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/pa_philadelphia_car.webp',
         mapUrl: '/img/maps/pa_philadelphia_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     pa_pittsburgh: {
         id: 'PA2',
@@ -244,6 +304,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/pa_pittsburgh_car.webp',
         mapUrl: '/img/maps/pa_pittsburgh_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     tx_austin: {
         id: 'TX1',
@@ -257,6 +322,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/tx_austin_car.webp',
         mapUrl: '/img/maps/tx_austin_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     tx_dallas: {
         id: 'TX2',
@@ -270,6 +340,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/tx_dallas_car.webp',
         mapUrl: '/img/maps/tx_dallas_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     tx_fort_worth: {
         id: 'TX3',
@@ -283,6 +358,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/tx_fort_worth_car.webp',
         mapUrl: '/img/maps/tx_fort_worth_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     tx_fulshear: {
         id: 'TX4',
@@ -296,6 +376,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/tx_fulshear_car.webp',
         mapUrl: '/img/maps/tx_fulshear_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     tx_houston: {
         id: 'TX5',
@@ -309,6 +394,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/tx_houston_car.webp',
         mapUrl: '/img/maps/tx_houston_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     tx_mckinney: {
         id: 'TX6',
@@ -322,6 +412,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/tx_mckinney_car.webp',
         mapUrl: '/img/maps/tx_mckinney_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     tx_pearland: {
         id: 'TX7',
@@ -335,6 +430,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/tx_pearland_car.webp',
         mapUrl: '/img/maps/tx_pearland_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     tx_san_antonio: {
         id: 'TX8',
@@ -348,6 +448,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/tx_san_antonio_car.webp',
         mapUrl: '/img/maps/tx_san_antonio_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     tx_spring: {
         id: 'TX9',
@@ -361,6 +466,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/tx_spring_car.webp',
         mapUrl: '/img/maps/tx_spring_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     tx_tomball: {
         id: 'TX10',
@@ -374,6 +484,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/tx_tomball_car.webp',
         mapUrl: '/img/maps/tx_tomball_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     tx_sugar_land: {
         id: 'TX11',
@@ -387,6 +502,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/tx_sugar_land_car.webp',
         mapUrl: '/img/maps/tx_sugar_land_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     tx_katy: {
         id: 'TX12',
@@ -400,6 +520,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/tx_katy_car.webp',
         mapUrl: '/img/maps/tx_katy_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     tx_conroe: {
         id: 'TX13',
@@ -413,6 +538,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/tx_conroe_car.webp',
         mapUrl: '/img/maps/tx_conroe_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     tx_cypress: {
         id: 'TX14',
@@ -426,6 +556,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/tx_cypress_car.webp',
         mapUrl: '/img/maps/tx_cypress_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     tx_richmond: {
         id: 'TX15',
@@ -439,6 +574,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/tx_richmond_car.webp',
         mapUrl: '/img/maps/tx_richmond_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     tx_irving: {
         id: 'TX16',
@@ -452,6 +592,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/tx_irving_car.webp',
         mapUrl: '/img/maps/tx_irving_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     va_alexandria: {
         id: 'VA1',
@@ -465,6 +610,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/va_alexandria_car.webp',
         mapUrl: '/img/maps/va_alexandria_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     va_richmond: {
         id: 'VA2',
@@ -478,6 +628,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/va_richmond_car.webp',
         mapUrl: '/img/maps/va_richmond_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     nc_charlotte: {
         id: 'NC1',
@@ -491,6 +646,11 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/nc_charlotte_car.webp',
         mapUrl: '/img/maps/nc_charlotte_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
     nj_livingston: {
         id: 'NJ1',
@@ -504,5 +664,10 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/nj_livingston_car.webp',
         mapUrl: '/img/maps/nj_livingston_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
     },
 }
