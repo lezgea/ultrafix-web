@@ -139,26 +139,28 @@ export const Header: React.FC = () => {
             </div>
 
 
-            <Link href={`tel:${cityData?.phone ? cityData?.phone : '(888) 998-6263'}`}>
-                <motion.div
-                    initial={{ rotate: 0, scale: 0 }}
-                    animate={{ rotate: 360, scale: 1 }}
-                    transition={{
-                        type: "spring",
-                        stiffness: 260,
-                        damping: 20,
-                        repeat: Infinity,
-                        repeatType: "loop",
-                        duration: 1,
-                        repeatDelay: 4,
-                    }}
-                    className="lg:hidden p-3 h-20 w-20 flex items-center justify-center rounded-full bg-primary z-40 bottom-10 right-10 fixed hover:text-primary shadow-lg"
-                    style={{
-                        boxShadow: "0 4px 30px rgba(0, 0, 255, 0.5)", // Blue blur shadow
-                    }}
-                >
-                    <CallIcon className="w-[35px]" fill="white" />
-                </motion.div>
+            <Link href={`tel:${cityData?.phone ? cityData.phone : '(888) 998-6263'}`}>
+                <div onClick={(e) => e.stopPropagation()} className="lg:hidden fixed bottom-10 right-10 z-40">
+                    <motion.div
+                        initial={{ rotate: 0, scale: 0 }}
+                        animate={{ rotate: 360, scale: 1 }}
+                        transition={{
+                            type: "spring",
+                            stiffness: 260,
+                            damping: 20,
+                            repeat: Infinity,
+                            repeatType: "loop",
+                            duration: 1,
+                            repeatDelay: 4,
+                        }}
+                        className="p-3 h-[70px] w-[70px] flex items-center justify-center rounded-full bg-primary hover:text-primary shadow-xs"
+                        style={{
+                            boxShadow: "0 4px 30px rgba(0, 0, 255, 0.5)", // Blue blur shadow
+                        }}
+                    >
+                        <CallIcon className="w-[35px]" fill="white" />
+                    </motion.div>
+                </div>
             </Link>
         </>
     );
