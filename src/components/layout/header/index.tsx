@@ -138,7 +138,6 @@ export const Header: React.FC = () => {
                 />
             </div>
 
-
             <Link href={`tel:${cityData?.phone ? cityData.phone : '(888) 998-6263'}`}>
                 <div onClick={(e) => e.stopPropagation()} className="lg:hidden fixed bottom-10 right-10 z-40">
                     <motion.div
