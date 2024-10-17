@@ -60,7 +60,7 @@ export const metadata: Metadata = {
 const Location: React.FC = () => {
     return (
         <PageLayout title="The number one Appliance Repair service in US">
-            <MapSection />
+            {/* <MapSection /> */}
             <ServicesSection />
             <AboutUsSection />
             <BrandsSection />
