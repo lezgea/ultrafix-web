@@ -11,8 +11,8 @@ const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({ subsets: ["latin"], weight: ["200", "300", "400", "500", "600", "700", "800", "900"] }); // Specify weights if needed
 
 export const metadata: Metadata = {
-  title: "UltraFix Appliance Repair LLC",
-  description: "Client satisfaction is at the forefront of our minds at UltraFix Appliance Repair Service. Our business model is built on respect, promptness, honesty, and taking pride in our work. When you choose us for your appliance repair, you learn how closely we hold to these values.",
+  title: "Appliance Repair – Same Day Service - Local Pros | UltraFix™",
+  description: "Ultrafix™ Provides Fast, Reliable Appliance Repair Services. Get Same-Day Repairs for All Major Brands. Satisfaction Guaranteed—call Now!",
   keywords: [
     'Appliance Repair',
     'Local Appliance Repair',

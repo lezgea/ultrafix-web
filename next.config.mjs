@@ -36,6 +36,36 @@ const nextConfig = {
         });
         return config;
     },
+    async headers() {
+        return [
+            {
+                // Apply to all routes
+                source: '/(.*)',
+                headers: [
+                    {
+                        key: 'Strict-Transport-Security',
+                        value: 'max-age=31536000; includeSubDomains; preload', // HSTS Header
+                    },
+                    {
+                        key: 'X-Content-Type-Options',
+                        value: 'nosniff', // Prevent MIME type sniffing
+                    },
+                    {
+                        key: 'X-Frame-Options',
+                        value: 'DENY', // Prevent clickjacking
+                    },
+                    {
+                        key: 'Referrer-Policy',
+                        value: 'strict-origin-when-cross-origin', // Set referrer policy
+                    },
+                    {
+                        key: 'Content-Security-Policy',
+                        value: "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none';", // Updated CSP
+                    },
+                ],
+            },
+        ];
+    },
 };
 
 // Wrap your Next.js config with the bundle analyzer

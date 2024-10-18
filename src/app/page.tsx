@@ -62,7 +62,7 @@ const item = { hidden: { x: -10, opacity: 0 } }
 
 const Home: React.FC = () => {
     return (
-        <PageLayout title="The number one Appliance Repair service in US">
+        <PageLayout title="Same-Day Appliance Repair Services by UltraFix™">
             <BannerSection />
             <motion.div
                 initial={{ opacity: 0, x: 400 }}
