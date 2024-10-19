@@ -51,9 +51,6 @@ export const ContactForm: React.FC = () => {
     };
 
 
-    // if (emailSent) return <EmailSent />
-
-
     return (
         <div className="w-full space-y-10">
             <form className="space-y-3 md:space-y-5 select-none" onSubmit={handleSubmit(onSubmit)}>
