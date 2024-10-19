@@ -74,7 +74,7 @@ interface ILocationProps {
     };
 }
 
-const LocationPage: React.FC<ILocationProps> = ({ params }) => {
+const StatePage: React.FC<ILocationProps> = ({ params }) => {
     return (
         <PageLayout title="The number one Appliance Repair service in US">
             <AnimatePresence mode="wait">
@@ -101,4 +101,4 @@ const LocationPage: React.FC<ILocationProps> = ({ params }) => {
     );
 };
 
-export default LocationPage;
+export default StatePage;

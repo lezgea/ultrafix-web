@@ -12,16 +12,16 @@ const nextConfig = {
     sassOptions: {
         includePaths: [path.join(__dirname, 'src/styles')],
     },
-    images: {
-        remotePatterns: [
-            {
-                protocol: 'https',
-                hostname: 'lezgea.com', // Replace with your image host domain
-                port: '',
-                pathname: '/**',
-            },
-        ],
-    },
+    // images: {
+    //     remotePatterns: [
+    //         {
+    //             protocol: 'https',
+    //             hostname: 'ultrafix.com', // Replace with your image host domain
+    //             port: '',
+    //             pathname: '/**',
+    //         },
+    //     ],
+    // },
     webpack(config) {
         config.module.rules.push({
             test: /\.svg$/,
@@ -58,10 +58,10 @@ const nextConfig = {
                         key: 'Referrer-Policy',
                         value: 'strict-origin-when-cross-origin', // Set referrer policy
                     },
-                    // {
-                    //     key: 'Content-Security-Policy',
-                    //     value: "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none';", // Updated CSP
-                    // },
+                    {
+                        key: 'Content-Security-Policy',
+                        value: "style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none';", // Updated CSP
+                    },
                 ],
             },
         ];

@@ -177,7 +177,7 @@ const LocationsDropdownContent: React.FC<ILocationsDropdownContentProps> = (prop
     const router = useRouter();
 
     const onNavigate = (stateKey: string, city: string): void => {
-        router.replace(`/locations/${stateKey.toLowerCase()}/${city.toLowerCase()}`);
+        router.replace(`/appliance-repair/${stateKey.toLowerCase()}/${city.toLowerCase()}`);
     }
 
     return (
