@@ -48,7 +48,6 @@ interface ServiceProps {
 const ServiceDetailPage = ({ params }: ServiceProps) => {
     const { service } = params;
 
-
     const metadata: Metadata = {
         title: `Residential ${SERVICES[service].title} repair | UltraFix™`,
         description: `Get Professional ${SERVICES[service].title} repair by Ultrafix™. Same-Day Service, Certified Technicians, and High-Quality Parts for All Your Appliance Repair Needs.`,

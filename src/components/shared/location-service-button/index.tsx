@@ -26,7 +26,7 @@ export const LocationServiceButton: React.FC<IServiceProps> = (props) => {
             transition={{ duration: 0.5 }}
         >
             <Link
-                href={`/locations/${state}/${city}/${service}`}
+                href={`/appliance-repair/${state}/${city}/${service}`}
                 className='flex relative text-center items-center justify-center group hover:bg-primary transition-colors duration-300 ease-in-out w-[6rem] h-[6rem] lg:w-[12rem] lg:h-[12rem] rounded-full bg-gray-100'
             >
                 <ServiceIcon
