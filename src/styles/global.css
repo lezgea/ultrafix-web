@@ -140,3 +140,59 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+
+.call-btn {
+    bottom: 40px;
+    right: 40px;
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    z-index: 1000;
+    border-radius: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: #003168;
+    backdrop-filter: blur(20px);
+    animation: callButtonAnimation 4s infinite ease-in-out;
+
+    @media (max-width: 768px) {
+        display: flex;
+    }
+}
+
+@keyframes callButtonAnimation {
+    0% {
+        transform: scale(1);
+    }
+
+    20% {
+        transform: scale(1.2);
+    }
+
+    25% {
+        transform: rotateZ(-40deg);
+    }
+
+    30% {
+        transform: rotateZ(30deg);
+    }
+
+    35% {
+        transform: rotateZ(-20deg);
+    }
+
+    40% {
+        transform: scale(1);
+    }
+
+    80% {
+        transform: scale(1.2);
+        border-radius: 50px;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

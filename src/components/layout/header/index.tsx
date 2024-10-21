@@ -138,7 +138,11 @@ export const Header: React.FC = () => {
                 />
             </div>
 
-            <Link href={`tel:${cityData?.phone ? cityData.phone : '(888) 998-6263'}`}>
+            <a href={`tel:${cityData?.phone ? cityData.phone : '(888) 998-6263'}`} className="call-btn">
+                <CallIcon className="w-[35px]" fill="white" />
+            </a>
+
+            {/* <Link href={`tel:${cityData?.phone ? cityData.phone : '(888) 998-6263'}`}>
                 <div onClick={(e) => e.stopPropagation()} className="lg:hidden fixed bottom-10 right-10 z-40">
                     <motion.div
                         initial={{ rotate: 0, scale: 0 }}
@@ -160,7 +164,7 @@ export const Header: React.FC = () => {
                         <CallIcon className="w-[35px]" fill="white" />
                     </motion.div>
                 </div>
-            </Link>
+            </Link> */}
         </>
     );
 };
