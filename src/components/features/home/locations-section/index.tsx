@@ -39,7 +39,7 @@ export const LocationsSection: React.FC = () => {
                                     className="break-inside-avoid mb-6 w-[250px] text-gray-500 cursor-pointer"
                                 >
                                     <div
-                                        className="text-sm font-semibold mb-1 text-gray-700 hover:text-primary"
+                                        className="text-sm font-semibold text-primaryDark mb-1 text-gray-700 hover:text-primary"
                                         onClick={(e) => {
                                             e.stopPropagation();
                                             if (stateIds.includes(state.id)) {
