@@ -50,7 +50,7 @@ export const Header: React.FC = () => {
                 {
                     item.id === 'locations'
                         ?
-                        <Dropdown content={<LocationsDropdownContent onCloseSidebar={() => setSidebarOpen(false)} />}>
+                        <Dropdown content={<LocationsDropdownContent onCloseSidebar={() => setSidebarOpen(false)} onShowAll={() => handleScroll(item.id)} />}>
                             <div className="relative flex items-center space-x-3 cursor-pointer">
                                 {(item.id === selectedId) && (
                                     <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
@@ -148,10 +148,11 @@ export const Header: React.FC = () => {
 
 interface ILocationsDropdownContentProps {
     onCloseSidebar: () => void,
+    onShowAll: () => void,
 }
 
 const LocationsDropdownContent: React.FC<ILocationsDropdownContentProps> = (props) => {
-    let { onCloseSidebar } = props;
+    let { onCloseSidebar, onShowAll } = props;
     const { state, city, service } = useParams();
     const [stateIds, setStateIds] = React.useState<number[]>([])
 
@@ -215,7 +216,7 @@ const LocationsDropdownContent: React.FC<ILocationsDropdownContentProps> = (prop
                 <button
                     type="button"
                     className="w-auto text-sm font-medium text-center items-center px-4 py-2 text-primary transition-all  hover:underline hover:-translate-y-px focus:shadow-none"
-                    onClick={() => router.replace('/locations')}
+                    onClick={onShowAll}
                 >
                     Show All Locations
                 </button>

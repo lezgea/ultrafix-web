@@ -6,3 +6,4 @@ export * from './brands-section';
 export * from './why-us-section';
 export * from './contact-section';
 export * from './map-section';
+export * from './locations-section';

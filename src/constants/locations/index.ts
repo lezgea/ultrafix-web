@@ -4,14 +4,14 @@ export const STATES_LIST = [
     { id: 2, title: 'Florida', value: 'FL' },
     { id: 3, title: 'Georgia', value: 'GA' },
     { id: 4, title: 'Illinois', value: 'IL' },
-    { id: 5, title: 'Massachusetts', value: 'MA' },
+    { id: 5, title: 'Pennsylvania', value: 'PA' },
     { id: 6, title: 'Maryland', value: 'MD' },
     { id: 7, title: 'Missouri', value: 'MO' },
-    { id: 8, title: 'Pennsylvania', value: 'PA' },
-    { id: 9, title: 'Texas', value: 'TX' },
-    { id: 10, title: 'Virginia', value: 'VA' },
-    { id: 11, title: 'North Carolina', value: 'NC' },
-    { id: 12, title: 'New Jersey', value: 'NJ' },
+    { id: 8, title: 'Massachusetts', value: 'MA' },
+    { id: 9, title: 'Virginia', value: 'VA' },
+    { id: 10, title: 'North Carolina', value: 'NC' },
+    { id: 11, title: 'New Jersey', value: 'NJ' },
+    { id: 12, title: 'Texas', value: 'TX' },
 ]
 
 export const STATES = {
@@ -31,8 +31,9 @@ export const STATES = {
     IL: [
         { id: 'IL1', state: 'Illinois', title: 'Chicago', value: 'chicago' },
     ],
-    MA: [
-        { id: 'MA1', state: 'Massachusetts', title: 'Boston', value: 'boston' },
+    PA: [
+        { id: 'PA1', state: 'Pennsylvania', title: 'Philadelphia', value: 'philadelphia' },
+        { id: 'PA2', state: 'Pennsylvania', title: 'Pittsburgh', value: 'pittsburgh' },
     ],
     MD: [
         { id: 'MD1', state: 'Maryland', title: 'Baltimore', value: 'baltimore' },
@@ -40,9 +41,18 @@ export const STATES = {
     MO: [
         { id: 'MO1', state: 'Missouri', title: 'St. Louis', value: 'st_louis' },
     ],
-    PA: [
-        { id: 'PA1', state: 'Pennsylvania', title: 'Philadelphia', value: 'philadelphia' },
-        { id: 'PA2', state: 'Pennsylvania', title: 'Pittsburgh', value: 'pittsburgh' },
+    MA: [
+        { id: 'MA1', state: 'Massachusetts', title: 'Boston', value: 'boston' },
+    ],
+    VA: [
+        { id: 'VA1', state: 'Virginia', title: 'Alexandria', value: 'alexandria' },
+        { id: 'VA2', state: 'Virginia', title: 'Richmond', value: 'richmond' },
+    ],
+    NC: [
+        { id: 'NC1', state: 'North Carolina', title: 'Charlotte', value: 'charlotte' },
+    ],
+    NJ: [
+        { id: 'NJ1', state: 'New Jersey', title: 'Livingston', value: 'livingston' },
     ],
     TX: [
         { id: 'TX1', state: 'Texas', title: 'Austin', value: 'austin' },
@@ -61,16 +71,6 @@ export const STATES = {
         { id: 'TX14', state: 'Texas', title: 'Cypress', value: 'cypress' },
         { id: 'TX15', state: 'Texas', title: 'Richmond', value: 'richmond' },
         { id: 'TX16', state: 'Texas', title: 'Irving', value: 'irving' },
-    ],
-    VA: [
-        { id: 'VA1', state: 'Virginia', title: 'Alexandria', value: 'alexandria' },
-        { id: 'VA2', state: 'Virginia', title: 'Richmond', value: 'richmond' },
-    ],
-    NC: [
-        { id: 'NC1', state: 'North Carolina', title: 'Charlotte', value: 'charlotte' },
-    ],
-    NJ: [
-        { id: 'NJ1', state: 'New Jersey', title: 'Livingston', value: 'livingston' },
     ],
 }
 
