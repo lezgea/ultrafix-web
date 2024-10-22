@@ -79,6 +79,16 @@ export const SERVICES = {
             'to avoid breakages in the future. Schedule your refrigerator repair service today by using the form below or calling us at (888) 998-6263.',
         note:
             'If we are unable to complete a refrigerator repair on the first visit, we can order part to get the job done.',
+        keywords: [
+            'Refrigerator repair',
+            'Refrigerator repair service',
+            'Refrigerator repair services',
+            'Refrigeraotor service repair',
+            'Repair refrigerator',
+            'Refrigerator services near me',
+            'Repair refrigerators near me',
+            'Refrigeration repair',
+        ],
     },
     ice_machine: {
         id: 2,
@@ -96,6 +106,14 @@ export const SERVICES = {
             'more efficiently to avoid breakages in the future. Schedule your ice machine repair service today by using the form below or calling us at (888) 998-6263.',
         note:
             'If we are unable to complete a ice machine repair on the first visit, we can order part to get the job done.',
+        keywords: [
+            'ice machine repair near me',
+            'ice machine repair',
+            'ice machine repair service',
+            'ice machine service and repair',
+            'ice machine repair service near me',
+            'ice machine service',
+        ],
     },
     washer: {
         id: 3,
@@ -111,6 +129,18 @@ export const SERVICES = {
             'breakages in the future. Schedule your washer repair service today by using the form below or calling us at (888) 998-6263.',
         note:
             'If we are unable to complete a washer repair on the first visit, we can order part to get the job done.',
+        keywords: [
+            'washer repair service near me',
+            'washer repair sevice',
+            'clothes washer repair',
+            'washing machine repair service near me',
+            'washing machine repair service',
+            'washer service repair',
+            'washer repair near me',
+            'washing machine repair',
+            'washer repair',
+            'washing machine repair near me',
+        ],
     },
     dryer: {
         id: 4,
@@ -128,6 +158,15 @@ export const SERVICES = {
             'breakages in the future. Schedule your dryer repair service today by using the form below or calling us at (888) 998-6263.',
         note:
             'If we are unable to complete a dryer repair on the first visit, we can order part to get the job done.',
+        keywords: [
+            'dryer repair near me',
+            'dryer repair',
+            'clothes dryer repair',
+            'clothes dryer repair near me',
+            'dryer repair service near me',
+            'dryer repair service',
+            'dryer service and repair',
+        ],
     },
     dishwasher: {
         id: 5,
@@ -145,6 +184,13 @@ export const SERVICES = {
             'breakages in the future. Schedule your dishwasher repair service today by using the form below or calling us at (888) 998-6263.',
         note:
             'If we are unable to complete a dishwasher repair on the first visit, we can order part to get the job done.',
+        keywords: [
+            'dishwasher repair',
+            'dishwasher repair near me',
+            'dishwasher repair service near me',
+            'dishwasher repair service',
+            'repair dishwasher',
+        ],
     },
     oven: {
         id: 6,
@@ -161,6 +207,13 @@ export const SERVICES = {
             'breakages in the future. Schedule your oven repair service today by using the form below or calling us at (888) 998-6263.',
         note:
             'If we are unable to complete a oven repair on the first visit, we can order part to get the job done.',
+        keywords: [
+            'oven repair',
+            'oven repair near me',
+            'gas oven repair',
+            'oven repair service near me',
+            'oven repair service',
+        ],
     },
     cooktop: {
         id: 7,
@@ -178,6 +231,13 @@ export const SERVICES = {
             'breakages in the future. Schedule your cooktop repair service today by using the form below or calling us at (888) 998-6263.',
         note:
             'If we are unable to complete a cooktop repair on the first visit, we can order part to get the job done.',
+        keywords: [
+            'cooktop repair near me',
+            'cooktop repair',
+            'gas cooktop repair',
+            'gas cooktop repair service',
+            'gas cooktop repair near me',
+        ],
     },
     microwave: {
         id: 8,
@@ -193,6 +253,14 @@ export const SERVICES = {
             'cooking once more. Your satisfaction is our focus – let us fix it, so you can cook without concerns!',
         note:
             'If we are unable to complete a microwave repair on the first visit, we can order part to get the job done.',
+        keywords: [
+            'microwave repair near me',
+            'microwave repair',
+            'microwave oven repair',
+            'microwave oven repair near me',
+            'microwave appliance repair near me',
+            'microwave repair service',
+        ],
     },
     wine_cooler: {
         id: 9,
@@ -208,6 +276,13 @@ export const SERVICES = {
             'more efficiently to avoid breakages in the future. Schedule your wine cooler repair service today by using the form below or calling us at (888) 998-6263.',
         note:
             'If we are unable to complete a wine cooler repair on the first visit, we can order part to get the job done.',
+        keywords: [
+            'wine cooler repair',
+            'wine cooler repair near me',
+            'repair wine cooler',
+            'wine cooler repair service',
+            'wine cooler repair service near me',
+        ],
     },
     freezer: {
         id: 10,
@@ -223,6 +298,14 @@ export const SERVICES = {
             'breakages in the future. Schedule your freezer repair service today by using the form below or calling us at (888) 998-6263.',
         note:
             'If we are unable to complete a freezer repair on the first visit, we can order part to get the job done.',
+        keywords: [
+            'freezer repair',
+            'freezer repair near me',
+            'commercial freezer repair',
+            'fridge freezer repairs',
+            'freezer repair services near me',
+            'repair refrigerator freezer',
+        ],
     },
     vent_hood: {
         id: 11,
@@ -238,6 +321,12 @@ export const SERVICES = {
             "again. Your satisfaction is our priority – let us fix it, so you can cook worry-free!",
         note:
             'If we are unable to complete a vent hood repair on the first visit, we can order part to get the job done.',
+        keywords: [
+            'vent hood repair',
+            'kitchen hood repair near me',
+            'kitchen hood repair',
+            'commercial kitchen hood repair',
+        ],
     },
     garbage_disposal: {
         id: 12,
@@ -254,5 +343,12 @@ export const SERVICES = {
             "satisfaction is our priority!",
         note:
             'If we are unable to complete a garbage disposal repair on the first visit, we can order part to get the job done.',
+        keywords: [
+            'garbage disposal repair',
+            'garbage disposal repair near me',
+            'garbage disposal repair service',
+            'garbage disposal service',
+            'garbage disposal service near me',
+        ],
     },
 }

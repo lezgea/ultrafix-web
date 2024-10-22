@@ -58,6 +58,13 @@ const ServiceDetailPage = ({ params }: ServiceProps) => {
         title: `Residential ${SERVICES[serviceKey].title} repair in ${cityData?.title}, ${cityData?.state}`,
         description: `Need ${SERVICES[serviceKey].title} repair in ${cityData?.title}-${cityData?.state}? Ultrafix™ Offers Same-Day, Professional ${SERVICES[serviceKey].title} Repairs. Book Your Appointment Today!`,
         keywords: [
+            ...SERVICES[serviceKey].keywords,
+            'appliance repair near me',
+            'appliance repair',
+            'appliance repair service',
+            'commercial appliance repair',
+            'repair appliances',
+            'service appliance repair',
             'Appliance Repair',
             'Local Appliance Repair',
             'Emergency Appliance Repair',
