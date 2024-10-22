@@ -141,30 +141,6 @@ export const Header: React.FC = () => {
             <a href={`tel:${cityData?.phone ? cityData.phone : '(888) 998-6263'}`} className="call-btn">
                 <CallIcon className="w-[35px]" fill="white" />
             </a>
-
-            {/* <Link href={`tel:${cityData?.phone ? cityData.phone : '(888) 998-6263'}`}>
-                <div onClick={(e) => e.stopPropagation()} className="lg:hidden fixed bottom-10 right-10 z-40">
-                    <motion.div
-                        initial={{ rotate: 0, scale: 0 }}
-                        animate={{ rotate: 360, scale: 1 }}
-                        transition={{
-                            type: "spring",
-                            stiffness: 260,
-                            damping: 20,
-                            repeat: Infinity,
-                            repeatType: "loop",
-                            duration: 1,
-                            repeatDelay: 4,
-                        }}
-                        className="p-3 h-[70px] w-[70px] flex items-center justify-center rounded-full bg-primary hover:text-primary shadow-xs"
-                        style={{
-                            boxShadow: "0 4px 30px rgba(0, 0, 255, 0.5)", // Blue blur shadow
-                        }}
-                    >
-                        <CallIcon className="w-[35px]" fill="white" />
-                    </motion.div>
-                </div>
-            </Link> */}
         </>
     );
 };
@@ -177,40 +153,75 @@ interface ILocationsDropdownContentProps {
 const LocationsDropdownContent: React.FC<ILocationsDropdownContentProps> = (props) => {
     let { onCloseSidebar } = props;
     const { state, city, service } = useParams();
+    const [stateIds, setStateIds] = React.useState<number[]>([])
 
     const router = useRouter();
 
     const onNavigate = (stateKey: string, city: string): void => {
-        router.replace(`/appliance-repair/${stateKey.toLowerCase()}/${city.toLowerCase()}`);
+        router.replace(`/appliance-repair/${stateKey.toLowerCase()}/${city}`);
     }
 
     return (
-        <div className="columns-2 lg:columns-3 max-h-[400px] md:max-h-[700px] p-4 overflow-y-scroll">
-            {
-                STATES_LIST.map((state) => {
-                    const stateKey = state.value as keyof typeof STATES;
+        <div className="flex flex-col items-center px-3">
+            <div className="columns-2 lg:columns-2 pt-4 pb-2">
+                {
+                    STATES_LIST.map((state) => {
+                        const stateKey = state.value as keyof typeof STATES;
 
-                    return (
-                        <div key={state.id} className="break-inside-avoid mb-4 w-[120px] lg:w-[150px]">
-                            <div className="text-xs text-primary font-semibold mb-2">{state.title}</div>
-                            <div className="flex flex-col space-y-1">
+                        return (
+                            <div
+                                key={state.id}
+                                className="break-inside-avoid mb-3 w-[120px] lg:w-[150px] text-gray-500 cursor-pointer"
+                            // onClick={() => { onNavigate(stateKey); onCloseSidebar() }}
+                            >
+                                <div
+                                    className="text-xs font-semibold mb-1 text-gray-700 hover:text-primary"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        if (stateIds.includes(state.id)) {
+                                            let arr = stateIds
+                                            let newArr = arr.filter(item => item !== state.id)
+                                            setStateIds([...newArr])
+                                        } else {
+                                            setStateIds([...stateIds, state.id])
+                                        }
+                                    }}
+                                >
+                                    {state.title}
+                                </div>
                                 {
-                                    STATES[stateKey].map((city) =>
-                                        <div
-                                            key={city.id}
-                                            onClick={() => { onNavigate(stateKey, city.value); onCloseSidebar() }}
-                                            className="text-sm font-light text-gray-500 cursor-pointer hover:text-primary hover:underline"
-                                        >
-                                            {city.title}
-                                        </div>
-                                    )
+                                    stateIds.includes(state.id) &&
+                                    <div className="flex flex-col space-y-1 ml-3">
+                                        {
+                                            STATES[stateKey].map((city) =>
+                                                <div
+                                                    key={city.id}
+                                                    onClick={() => { onNavigate(stateKey, city.value); onCloseSidebar() }}
+                                                    className="text-sm font-light text-gray-500 cursor-pointer hover:text-primary hover:underline"
+                                                >
+                                                    {city.title}
+                                                </div>
+                                            )
+                                        }
+                                    </div>
                                 }
+
                             </div>
-                        </div>
-                    )
-                })
-            }
-        </div >
+                        )
+                    })
+                }
+            </div>
+            <div className="w-full flex justify-center border-t border-gray-200 pt-3 pb-1">
+                <button
+                    type="button"
+                    className="w-auto text-sm font-medium text-center items-center px-4 py-2 text-primary transition-all  hover:underline hover:-translate-y-px focus:shadow-none"
+                    onClick={() => router.replace('/locations')}
+                >
+                    Show All Locations
+                </button>
+            </div>
+
+        </div>
     );
 }
 
