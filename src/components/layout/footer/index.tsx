@@ -5,12 +5,14 @@ import { useParams, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { CITIES } from 'constants/locations';
 import { FacebookIcon, InstagramIcon, LinkedinIcon, LogoWhite, YoutubeIcon } from '@assets/icons';
+import { TermsModal } from '@components/shared';
 
 
 export const Footer: React.FC = () => {
     const pathname = usePathname();
 
     const { state, city } = useParams();
+    const [showTerms, setShowTerms] = React.useState(false);
 
     const cityKey = `${state}_${city}` as keyof typeof CITIES;
     const cityData = CITIES[cityKey];
@@ -45,6 +47,8 @@ export const Footer: React.FC = () => {
                             <li className="w-[40%] cursor-pointer hover:text-primary" onClick={() => handleScroll('brands')}>Brands</li>
                             <li className="w-[40%] cursor-pointer hover:text-primary" onClick={() => handleScroll('reviews')}>Reviews</li>
                             <li className="w-[40%] cursor-pointer hover:text-primary" onClick={() => handleScroll('why_us')}>Why Us</li>
+                            <li className="w-[40%] cursor-pointer hover:text-primary" onClick={() => setShowTerms(true)}>Terms and Conditions</li>
+                            <li className="w-[40%] cursor-pointer hover:text-primary" onClick={() => handleScroll('why_us')}>Privacy Policy</li>
                         </ul>
                     </div>
                     <div className="space-y-6">
@@ -113,6 +117,11 @@ export const Footer: React.FC = () => {
                     </div>
                 </section>
             </div>
+
+            <TermsModal
+                visible={showTerms}
+                onClose={() => setShowTerms(false)}
+            />
         </footer>
     );
 };
