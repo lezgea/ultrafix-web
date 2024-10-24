@@ -5,7 +5,7 @@ import { useParams, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { CITIES } from 'constants/locations';
 import { FacebookIcon, InstagramIcon, LinkedinIcon, LogoWhite, YoutubeIcon } from '@assets/icons';
-import { TermsModal } from '@components/shared';
+import { PrivacyModal, TermsModal } from '@components/shared';
 
 
 export const Footer: React.FC = () => {
@@ -13,6 +13,7 @@ export const Footer: React.FC = () => {
 
     const { state, city } = useParams();
     const [showTerms, setShowTerms] = React.useState(false);
+    const [showPrivacy, setShowPrivacy] = React.useState(false);
 
     const cityKey = `${state}_${city}` as keyof typeof CITIES;
     const cityData = CITIES[cityKey];
@@ -48,7 +49,7 @@ export const Footer: React.FC = () => {
                             <li className="w-[40%] cursor-pointer hover:text-primary" onClick={() => handleScroll('reviews')}>Reviews</li>
                             <li className="w-[40%] cursor-pointer hover:text-primary" onClick={() => handleScroll('why_us')}>Why Us</li>
                             <li className="w-[40%] cursor-pointer hover:text-primary" onClick={() => setShowTerms(true)}>Terms and Conditions</li>
-                            <li className="w-[40%] cursor-pointer hover:text-primary" onClick={() => handleScroll('why_us')}>Privacy Policy</li>
+                            <li className="w-[40%] cursor-pointer hover:text-primary" onClick={() => setShowPrivacy(true)}>Privacy Policy</li>
                         </ul>
                     </div>
                     <div className="space-y-6">
@@ -121,6 +122,10 @@ export const Footer: React.FC = () => {
             <TermsModal
                 visible={showTerms}
                 onClose={() => setShowTerms(false)}
+            />
+            <PrivacyModal
+                visible={showPrivacy}
+                onClose={() => setShowPrivacy(false)}
             />
         </footer>
     );

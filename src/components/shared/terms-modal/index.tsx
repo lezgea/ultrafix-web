@@ -107,14 +107,14 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                 <div>
                     <h3 className='font-medium'>12. Contact Us</h3>
                     <p className='font-light'>If you have any questions about these Terms, please contact us at:</p>
-                    <p className='font-light ml-5 mt-2'>Email: <strong className="font-medium text-primary">info@ultrafix.com</strong></p>
-                    <p className='font-light ml-5 mt-1'>Phone: <strong className="font-medium text-primary">(888) 998-6263</strong></p>
+                    <p className='font-light ml-5 mt-2'>- Email: <strong className="font-medium text-primary">info@ultrafix.com</strong></p>
+                    <p className='font-light ml-5 mt-1'>- Phone: <strong className="font-medium text-primary">(888) 998-6263</strong></p>
                 </div>
             </div>
-            <div className="flex space-x-3">
+            <div className="flex w-full justify-end space-x-3">
                 <button
                     onClick={onClose}
-                    className="inline-flex w-full text-center justify-center px-4 py-2 text-primaryDark transition-all border border-primaryDark rounded-lg hover:bg-primaryDark hover:text-white shadow-neutral-300 dark:shadow-neutral-700 hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:shadow-none animate-button"
+                    className="inline-flex text-center justify-center px-4 py-2 text-primaryDark transition-all border border-primaryDark rounded-lg hover:bg-primaryDark hover:text-white shadow-neutral-300 dark:shadow-neutral-700 hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:shadow-none animate-button"
                     aria-label="Join the Race"
                 >
                     Close
