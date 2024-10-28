@@ -143,8 +143,8 @@ body {
 
 
 .call-btn {
-    bottom: 40px;
-    right: 40px;
+    bottom: 25px;
+    left: 25px;
     position: fixed;
     width: 60px;
     height: 60px;

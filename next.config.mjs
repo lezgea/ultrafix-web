@@ -58,10 +58,10 @@ const nextConfig = {
                         key: 'Referrer-Policy',
                         value: 'strict-origin-when-cross-origin', // Set referrer policy
                     },
-                    {
-                        key: 'Content-Security-Policy',
-                        value: "style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none';", // Updated CSP
-                    },
+                    // {
+                    //     key: 'Content-Security-Policy',
+                    //     value: "style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none';", // Updated CSP
+                    // },
                 ],
             },
         ];
