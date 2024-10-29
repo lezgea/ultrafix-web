@@ -19,9 +19,9 @@ export const BannerSection: React.FC = () => {
     return (
         <SectionLayout>
             <div className="z-10 flex flex-col w-full space-y-3 md:absolute md:space-y-5 text-center md:text-end justify-end items-center md:items-end">
-                <h2 className="text-[2.5rem] leading-[3rem] lg:text-[4rem] lg:leading-[5rem] lg:max-w-[60%] font-semibold text-primaryDark">
-                    <span className='text-primary'>Make</span> Appliances <span className='text-primary'>Great</span> Again !
-                </h2>
+                <h1 className="text-[2.5rem] leading-[3rem] lg:text-[4rem] lg:leading-[5rem] lg:max-w-[60%] font-semibold text-primaryDark">
+                    <span className='text-primary'>Same-Day</span> Appliance Repair Services by <span className='text-primary text-[3.5rem] leading-[3rem] lg:text-[4.5rem] lg:leading-[5.5rem]'>UltraFix™</span>
+                </h1>
                 <p className="text-lg max-w-[80%] md:max-w-full md:text-2xl font-light text-gray-500">Call now and book your service technician</p>
                 <button
                     onClick={scrollToContact}
@@ -41,7 +41,7 @@ export const BannerSection: React.FC = () => {
                     src="/img/cars/main_car.webp"
                     width={700}
                     height={500}
-                    className="w-auto -mt-[50px] md:-mt-0 lg:h-[700px]"
+                    className="w-auto -mt-[50px] md:mt-[50px] lg:h-[700px]"
                     alt="UltraFix Car Image"
                     loading="lazy"
                     // placeholder="blur"
