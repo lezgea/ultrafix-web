@@ -8,8 +8,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import '../styles/global.css';
 
 const inter = Inter({ subsets: ["latin"] });
-const poppins = Poppins({ subsets: ["latin"], weight: ["200", "300", "400", "500", "600", "700", "800", "900"] }); // Specify weights if needed
-
+const poppins = Poppins({ subsets: ["latin"], weight: ["200", "300", "400", "500", "600", "700", "800", "900"] });
 
 export default function RootLayout({
   children,
@@ -18,13 +17,63 @@ export default function RootLayout({
   children: React.ReactNode;
   params: { slug?: string };
 }) {
-
   return (
     <html lang="en">
       <head>
         {/* Link to the favicon */}
         <link rel="icon" href="/favicon.ico" />
         <link rel="preload" href="/img/houston_car.webp" as="image" />
+        {/* JSON-LD Schema Markup */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Ultrafix.com",
+              "url": "https://www.ultrafix.com",
+              "logo": "https://www.ultrafix.com/logo.png",
+              "description": "Ultrafix.com provides professional appliance repair services across the United States, including washer repair, refrigerator repair, and more.",
+              "contactPoint": [
+                {
+                  "@type": "ContactPoint",
+                  "telephone": "(888) 998-6263",
+                  "contactType": "Customer Service",
+                  "areaServed": "US",
+                  "availableLanguage": "English",
+                  "email": "info@ultrafixappliance.com"
+                }
+              ],
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "31602 Roldan Ln",
+                "addressLocality": "Fulshear",
+                "addressRegion": "TX",
+                "postalCode": "77441",
+                "addressCountry": "US"
+              },
+              "sameAs": [
+                "https://www.facebook.com/ultrafixappliance",
+                "https://www.instagram.com/ultrafixappliancerepair/",
+                "https://www.youtube.com/@ultrafixappliance",
+                "https://www.linkedin.com/company/ultrafix-appliance-repair-llc/"
+              ],
+              "founder": {
+                "@type": "Person",
+                "name": "Aydin Amiraslanov"
+              },
+              "foundingDate": "2020-01-01",
+              "areaServed": "US",
+              "employee": [
+                {
+                  "@type": "Person",
+                  "name": "Jane Smith",
+                  "jobTitle": "Technician"
+                }
+              ]
+            })
+          }}
+        />
       </head>
       <body className={`${inter.className} ${poppins.className}`}>
         <ReduxProvider>
