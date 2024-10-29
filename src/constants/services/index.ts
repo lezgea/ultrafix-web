@@ -3,69 +3,82 @@ export const SERVICES_LIST = [
         id: 1,
         title: 'Refrigerator',
         value: 'refrigerator',
+        link: 'refrigerator-repair',
     },
     {
         id: 2,
         title: 'Ice Machine',
         value: 'ice_machine',
+        link: 'ice-machine-repair',
     },
     {
         id: 3,
         title: 'Washer',
         value: 'washer',
+        link: 'washer-repair',
     },
     {
         id: 4,
         title: 'Dryer',
         value: 'dryer',
+        link: 'dryer-repair',
     },
     {
         id: 5,
         title: 'Dishwasher',
         value: 'dishwasher',
+        link: 'dishwasher-repair',
     },
     {
         id: 6,
         title: 'Oven',
         value: 'oven',
+        link: 'oven-repair',
     },
     {
         id: 7,
         title: 'Cooktop',
         value: 'cooktop',
+        link: 'cooktop-repair',
     },
     {
         id: 8,
         title: 'Microwave',
         value: 'microwave',
+        link: 'microwave-repair',
     },
     {
         id: 9,
         title: 'Wine Cooler',
         value: 'wine_cooler',
+        link: 'wine-cooler-repair',
     },
     {
         id: 10,
         title: 'Freezer',
         value: 'freezer',
+        link: 'freezer-repair',
     },
     {
         id: 11,
         title: 'Vent Hood',
         value: 'vent_hood',
+        link: 'vent-hood-repair',
     },
     {
         id: 12,
         title: 'Garbage Disposal',
         value: 'garbage_disposal',
+        link: 'garbage-disposal-repair',
     },
 ];
 
 export const SERVICES = {
-    refrigerator: {
+    "refrigerator-repair": {
         id: 1,
         title: 'Refrigerator',
         value: 'refrigerator',
+        link: 'refrigerator-repair',
         price: '165 - 365',
         subTitle: 'Keep your cool with refrigerator repair from our expert technicians',
         description:
@@ -90,10 +103,11 @@ export const SERVICES = {
             'Refrigeration repair',
         ],
     },
-    ice_machine: {
+    "ice-machine-repair": {
         id: 2,
         title: 'Ice Machine',
         value: 'ice_machine',
+        link: 'ice-machine-repair',
         price: '165 - 345',
         subTitle: 'Quickly get your ice machine operating again',
         description:
@@ -115,10 +129,11 @@ export const SERVICES = {
             'ice machine service',
         ],
     },
-    washer: {
+    "washer-repair": {
         id: 3,
         title: 'Washer',
         value: 'washer',
+        link: 'washer-repair',
         price: '145 - 265',
         subTitle: 'Don\'t let laundry pile up because of a broken-down washer!',
         description:
@@ -142,10 +157,11 @@ export const SERVICES = {
             'washing machine repair near me',
         ],
     },
-    dryer: {
+    "dryer-repair": {
         id: 4,
         title: 'Dryer',
         value: 'dryer',
+        link: 'dryer-repair',
         price: '145 - 235',
         subTitle: 'Your dryer will work better and more efficiently',
         description:
@@ -168,10 +184,11 @@ export const SERVICES = {
             'dryer service and repair',
         ],
     },
-    dishwasher: {
+    "dishwasher-repair": {
         id: 5,
         title: 'Dishwasher',
         value: 'dishwasher',
+        link: 'dishwasher-repair',
         price: '145 - 185',
         subTitle: 'Help your dishwasher clean to the max',
         description:
@@ -192,10 +209,11 @@ export const SERVICES = {
             'repair dishwasher',
         ],
     },
-    oven: {
+    "oven-repair": {
         id: 6,
         title: 'Oven',
         value: 'oven',
+        link: 'oven-repair',
         price: '185 - 315',
         subTitle: 'Get your oven working efficiently',
         description:
@@ -215,10 +233,11 @@ export const SERVICES = {
             'oven repair service',
         ],
     },
-    cooktop: {
+    "cooktop-repair": {
         id: 7,
         title: 'Cooktop',
         value: 'cooktop',
+        link: 'cooktop-repair',
         price: '145 - 285',
         subTitle: 'Get your cooktop working perfect',
         description:
@@ -239,10 +258,11 @@ export const SERVICES = {
             'gas cooktop repair near me',
         ],
     },
-    microwave: {
+    "microwave-repair": {
         id: 8,
         title: 'Microwave',
         value: 'microwave',
+        link: 'microwave-repair',
         price: '145 - 185',
         subTitle: 'Quick Fixes, Lasting Solutions – UltraFix Appliance Repair for Microwaves!',
         description:
@@ -262,10 +282,11 @@ export const SERVICES = {
             'microwave repair service',
         ],
     },
-    wine_cooler: {
+    "wine-cooler-repair": {
         id: 9,
         title: 'Wine Cooler',
         value: 'wine_cooler',
+        link: 'wine-cooler-repair',
         price: '165 - 265',
         subTitle: 'Get your wine cooler repaired fast',
         description:
@@ -284,10 +305,11 @@ export const SERVICES = {
             'wine cooler repair service near me',
         ],
     },
-    freezer: {
+    "freezer-repair": {
         id: 10,
         title: 'Freezer',
         value: 'freezer',
+        link: 'freezer-repair',
         price: '165 - 285',
         subTitle: 'Preserve your food, your pocketbook, and your sanity with us',
         description:
@@ -307,10 +329,11 @@ export const SERVICES = {
             'repair refrigerator freezer',
         ],
     },
-    vent_hood: {
+    "vent-hood-repair": {
         id: 11,
         title: 'Vent Hood',
         value: 'vent_hood',
+        link: 'vent-hood-repair',
         price: '145 - 195',
         subTitle: 'Say Goodbye to Kitchen Hassles with UltraFix Vent Hood Repair Services.',
         description:
@@ -328,10 +351,11 @@ export const SERVICES = {
             'commercial kitchen hood repair',
         ],
     },
-    garbage_disposal: {
+    "garbage-disposal-repair": {
         id: 12,
         title: 'Garbage Disposal',
         value: 'garbage_disposal',
+        link: 'garbage-disposal-repair',
         price: '145 - 195',
         subTitle: 'No More Kitchen Hassles! Choose UltraFix for Garbage Disposal Solutions.',
         description:

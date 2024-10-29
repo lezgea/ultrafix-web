@@ -7,12 +7,12 @@ import * as motion from "framer-motion/client"
 interface IServiceProps {
     id: number,
     title: string,
-    value: string,
+    link: string,
 }
 
 
 export const ServiceButton: React.FC<IServiceProps> = (props) => {
-    let { title, value: service } = props;
+    let { title, link: service } = props;
 
     return (
         <motion.div
