@@ -9,3 +9,4 @@ export * from './contact-form';
 export * from '../features/apply/apply-form';
 export * from './terms-modal';
 export * from './privacy-modal';
+export * from './expandable-info-section';

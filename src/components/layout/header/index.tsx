@@ -15,7 +15,7 @@ const NAV_ROUTES: { id: string; label: string }[] = [
     { id: 'locations', label: 'Locations' },
     { id: 'about_us', label: 'About Us' },
     { id: 'brands', label: 'Brands' },
-    { id: 'reviews', label: 'Reviews' },
+    { id: 'faq', label: 'FAQ' },
     { id: 'apply', label: 'Apply Now' },
     { id: 'why_us', label: 'Why Us' },
 ];
@@ -69,15 +69,24 @@ export const Header: React.FC = () => {
                                     {item.label}
                                 </div>
                             </Link>
-                            :
-                            <div className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
-                                {(item.id === selectedId) && (
-                                    <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
-                                )}
-                                <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
-                                    {item.label}
+                            : item.id === 'faq' ?
+                                <Link href="/faq" className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
+                                    {(item.id === selectedId) && (
+                                        <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
+                                    )}
+                                    <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                                        {item.label}
+                                    </div>
+                                </Link>
+                                :
+                                <div className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
+                                    {(item.id === selectedId) && (
+                                        <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
+                                    )}
+                                    <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                                        {item.label}
+                                    </div>
                                 </div>
-                            </div>
                 }
             </li>
         ));
