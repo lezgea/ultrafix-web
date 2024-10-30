@@ -48,20 +48,31 @@ export const Header: React.FC = () => {
         return NAV_ROUTES.map((item, i) => (
             <li key={i} onClick={() => handleScroll(item.id)}>
                 {
-                    item.id === 'locations'
-                        ?
-                        <Dropdown content={<LocationsDropdownContent onCloseSidebar={() => setSidebarOpen(false)} onShowAll={() => handleScroll(item.id)} />}>
-                            <div className="relative flex items-center space-x-3 cursor-pointer">
-                                {(item.id === selectedId) && (
-                                    <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
-                                )}
-                                <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
-                                    {item.label}
-                                </div>
+                    // item.id === 'locations'
+                    //     ?
+                    //     <Dropdown content={<LocationsDropdownContent onCloseSidebar={() => setSidebarOpen(false)} onShowAll={() => handleScroll(item.id)} />}>
+                    //         <div className="relative flex items-center space-x-3 cursor-pointer">
+                    //             {(item.id === selectedId) && (
+                    //                 <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
+                    //             )}
+                    //             <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                    //                 {item.label}
+                    //             </div>
+                    //         </div>
+                    //     </Dropdown>
+                    //     :
+
+                    item.id === 'apply' ?
+                        <Link href="/apply" className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
+                            {(item.id === selectedId) && (
+                                <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
+                            )}
+                            <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                                {item.label}
                             </div>
-                        </Dropdown>
-                        : item.id === 'apply' ?
-                            <Link href="/apply" className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
+                        </Link>
+                        : item.id === 'faq' ?
+                            <Link href="/faq" className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
                                 {(item.id === selectedId) && (
                                     <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
                                 )}
@@ -69,24 +80,15 @@ export const Header: React.FC = () => {
                                     {item.label}
                                 </div>
                             </Link>
-                            : item.id === 'faq' ?
-                                <Link href="/faq" className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
-                                    {(item.id === selectedId) && (
-                                        <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
-                                    )}
-                                    <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
-                                        {item.label}
-                                    </div>
-                                </Link>
-                                :
-                                <div className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
-                                    {(item.id === selectedId) && (
-                                        <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
-                                    )}
-                                    <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
-                                        {item.label}
-                                    </div>
+                            :
+                            <div className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
+                                {(item.id === selectedId) && (
+                                    <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
+                                )}
+                                <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                                    {item.label}
                                 </div>
+                            </div>
                 }
             </li>
         ));
