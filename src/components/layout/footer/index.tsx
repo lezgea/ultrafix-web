@@ -50,6 +50,11 @@ export const Footer: React.FC = () => {
                             <li className="w-[40%] cursor-pointer hover:text-primary" onClick={() => handleScroll('why_us')}>Why Us</li>
                             <li className="w-[40%] cursor-pointer hover:text-primary" onClick={() => setShowTerms(true)}>Terms and Conditions</li>
                             <li className="w-[40%] cursor-pointer hover:text-primary" onClick={() => setShowPrivacy(true)}>Privacy Policy</li>
+                            <li className="w-[40%] cursor-pointer hover:text-primary">
+                                <Link href="/faq">
+                                    FAQ
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                     <div className="space-y-6">
