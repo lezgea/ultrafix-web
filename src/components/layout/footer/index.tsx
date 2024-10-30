@@ -61,9 +61,9 @@ export const Footer: React.FC = () => {
                         <h2 className="font-semibold">Contact us</h2>
                         <ul className="text-sm font-light space-y-4">
                             <li>
-                                <Link href="mailto:info@ultrafixappliance.com" className="hover:text-primary">
+                                <Link href="mailto:info@ultrafix.com" className="hover:text-primary">
                                     <strong className='font-medium'>E-mail:</strong>
-                                    <span className='ml-2'>info@ultrafixappliance.com</span>
+                                    <span className='ml-2'>info@ultrafix.com</span>
                                 </Link>
                             </li>
                             <li>
