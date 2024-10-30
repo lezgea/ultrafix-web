@@ -28,7 +28,7 @@ export const LocationsSection: React.FC = () => {
                 transition={{ duration: 0.3 }}
                 className='flex items-center bg-white rounded-3xl shadow-top-lg p-7 lg:p-10'
             >
-                <div className="w-full columns-2 lg:columns-3">
+                <div className="w-full columns-2 lg:columns-2">
                     {
                         STATES_LIST.map((state) => {
                             const stateKey = state.value as keyof typeof STATES;

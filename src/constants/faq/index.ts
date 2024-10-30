@@ -10,12 +10,12 @@ export const FAQ_LIST = [
     {
         id: 2,
         title: 'What areas do you serve?',
-        value: `Our service area includes ${STATES_LIST.map(item => ' ' + item.title)}. If you’re unsure if we cover your location, give us a call, and we’ll let you know.`,
+        value: `We provide appliance repair services in Texas, Florida, Illinois, Massachusetts, Pennsylvania, and Virginia. If you’re unsure whether we cover your specific location, please call us, and we’ll be happy to assist.`,
     },
     {
         id: 3,
         title: 'Do you provide any warranties on repairs?',
-        value: 'Yes, we provide a 90-day warranty on parts and a 30-day warranty on labor. If any issues arise within this period, we’ll come back at no additional cost.',
+        value: 'Yes, we provide a 90-day warranty on parts and a 30-day warranty on labor. For refrigerator sealed system repairs, we offer an extended warranty of up to one year. If any issues arise within these periods, we’ll come back at no additional cost.',
     },
     {
         id: 4,
@@ -39,13 +39,13 @@ export const FAQ_LIST = [
     },
     {
         id: 8,
-        title: 'What is the cost of your repair service?',
-        value: 'Our pricing structure includes an $85 diagnostic fee plus applicable tax. After diagnosing the problem, we’ll provide a detailed estimate for any additional repair costs.',
+        title: 'What is the cost of your service fee?',
+        value: 'Our service call fee varies by zip code. Please call us to check the exact fee for your area. After diagnosing the problem, we’ll provide a detailed estimate for any additional repair costs.',
     },
     {
         id: 9,
         title: 'Can I purchase parts directly from you?',
-        value: 'Yes, we sell appliance parts and can help you find the right part. Just contact us with your appliance details, and we’ll assist.',
+        value: 'No, we don’t sell parts directly. However, we’re happy to assist you with repairs and provide guidance on where you might find the parts you need.',
     },
     {
         id: 10,
@@ -95,7 +95,7 @@ export const FAQ_LIST = [
     {
         id: 19,
         title: 'How can I pay for the service?',
-        value: 'We accept most major credit cards, debit cards, and online payment options through IWallet.',
+        value: 'We accept all major credit cards, including MasterCard, Visa, Discover, and American Express, as well as checks and cash. Choose the payment method that’s most convenient for you!',
     },
     {
         id: 20,
@@ -105,7 +105,7 @@ export const FAQ_LIST = [
     {
         id: 21,
         title: 'How do I know if my appliance needs repair or replacement?',
-        value: 'Our technician will provide an honest assessment after diagnosing the issue, helping you decide whether to repair or replace your appliance.',
+        value: 'Our technician will provide an honest assessment after diagnosing the issue, helping you decide whether to repair or replace your appliance. Most of the time, repair is much more affordable than a full replacement, allowing you to get the most out of your existing appliance.',
     },
     {
         id: 22,
