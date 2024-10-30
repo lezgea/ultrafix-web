@@ -180,7 +180,7 @@ const ServiceDetailPage = ({ params }: ServiceProps) => {
 
 
     return (
-        <PageLayout title={`${SERVICES[serviceKey].title} repair in ${cityData?.title}, ${cityData?.state} – Same-Day Service`}>
+        <PageLayout>
             <LocationsServiceBanner service={serviceKey} />
             <SectionLayout noYPadding>
                 <p className='text-gray-500 text-md font-light'>{SERVICES[serviceKey].description}</p>

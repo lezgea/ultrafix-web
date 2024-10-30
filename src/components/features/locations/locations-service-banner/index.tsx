@@ -33,12 +33,9 @@ export const LocationsServiceBanner: React.FC<IServiceBannerProps> = ({ service 
             <div className='w-full flex flex-col lg:flex-row py-10'>
                 <div className='w-full relative flex flex-col text-center md:text-start justify-between md:py-20'>
                     <div className='space-y-2 md:space-y-4 z-10'>
-                        <h2 className='text-primaryDark text-4xl md:text-5xl font-medium'>
-                            <strong className='text-primary font-medium'>{SERVICES[service].title}</strong> repair
-                        </h2>
-                        <h3 className='text-primaryDark text-[2rem] md:text-[4rem] md:leading-[4rem] font-medium'>
-                            in <span className="text-primary">{cityData?.title}, {cityData?.stateShort}</span>
-                        </h3>
+                        <h1 className='text-primaryDark text-4xl md:text-5xl font-medium'>
+                            <strong className='text-primary font-medium'>{SERVICES[serviceKey].title}</strong> repair in <span className="text-primary">{cityData?.title}, {cityData?.stateShort}</span> Same-Day Service
+                        </h1>
                         <p className='text-gray-600 text-lg md:text-xl mb-10'>{SERVICES[service].subTitle}</p>
                     </div>
                     <motion.div
