@@ -1,59 +1,20 @@
 
 export const STATES_LIST = [
-    { id: 1, title: 'California', value: 'CA' },
+    { id: 12, title: 'Texas', value: 'TX' },
+    // { id: 1, title: 'California', value: 'CA' },
     { id: 2, title: 'Florida', value: 'FL' },
-    { id: 3, title: 'Georgia', value: 'GA' },
+    // { id: 3, title: 'Georgia', value: 'GA' },
     { id: 4, title: 'Illinois', value: 'IL' },
     { id: 5, title: 'Pennsylvania', value: 'PA' },
-    { id: 6, title: 'Maryland', value: 'MD' },
-    { id: 7, title: 'Missouri', value: 'MO' },
+    // { id: 6, title: 'Maryland', value: 'MD' },
+    // { id: 7, title: 'Missouri', value: 'MO' },
     { id: 8, title: 'Massachusetts', value: 'MA' },
     { id: 9, title: 'Virginia', value: 'VA' },
-    { id: 10, title: 'North Carolina', value: 'NC' },
-    { id: 11, title: 'New Jersey', value: 'NJ' },
-    { id: 12, title: 'Texas', value: 'TX' },
+    // { id: 10, title: 'North Carolina', value: 'NC' },
+    // { id: 11, title: 'New Jersey', value: 'NJ' },
 ]
 
 export const STATES = {
-    CA: [
-        { id: 'CA1', state: 'California', title: 'Sacramento', value: 'sacramento' },
-        { id: 'CA2', state: 'California', title: 'San Jose', value: 'san_jose' },
-    ],
-    FL: [
-        { id: 'FL1', state: 'Florida', title: 'Jacksonville', value: 'jacksonville' },
-        { id: 'FL2', state: 'Florida', title: 'Miami', value: 'miami' },
-        { id: 'FL3', state: 'Florida', title: 'Orlando', value: 'orlando' },
-        { id: 'FL4', state: 'Florida', title: 'Tampa', value: 'tampa' },
-    ],
-    GA: [
-        { id: 'GA1', state: 'Georgia', title: 'Atlanta', value: 'atlanta' },
-    ],
-    IL: [
-        { id: 'IL1', state: 'Illinois', title: 'Chicago', value: 'chicago' },
-    ],
-    PA: [
-        { id: 'PA1', state: 'Pennsylvania', title: 'Philadelphia', value: 'philadelphia' },
-        { id: 'PA2', state: 'Pennsylvania', title: 'Pittsburgh', value: 'pittsburgh' },
-    ],
-    MD: [
-        { id: 'MD1', state: 'Maryland', title: 'Baltimore', value: 'baltimore' },
-    ],
-    MO: [
-        { id: 'MO1', state: 'Missouri', title: 'St. Louis', value: 'st_louis' },
-    ],
-    MA: [
-        { id: 'MA1', state: 'Massachusetts', title: 'Boston', value: 'boston' },
-    ],
-    VA: [
-        { id: 'VA1', state: 'Virginia', title: 'Alexandria', value: 'alexandria' },
-        { id: 'VA2', state: 'Virginia', title: 'Richmond', value: 'richmond' },
-    ],
-    NC: [
-        { id: 'NC1', state: 'North Carolina', title: 'Charlotte', value: 'charlotte' },
-    ],
-    NJ: [
-        { id: 'NJ1', state: 'New Jersey', title: 'Livingston', value: 'livingston' },
-    ],
     TX: [
         { id: 'TX1', state: 'Texas', title: 'Austin', value: 'austin' },
         { id: 'TX2', state: 'Texas', title: 'Dallas', value: 'dallas' },
@@ -72,6 +33,45 @@ export const STATES = {
         { id: 'TX15', state: 'Texas', title: 'Richmond', value: 'richmond' },
         { id: 'TX16', state: 'Texas', title: 'Irving', value: 'irving' },
     ],
+    // CA: [
+    //     { id: 'CA1', state: 'California', title: 'Sacramento', value: 'sacramento' },
+    //     { id: 'CA2', state: 'California', title: 'San Jose', value: 'san_jose' },
+    // ],
+    FL: [
+        // { id: 'FL1', state: 'Florida', title: 'Jacksonville', value: 'jacksonville' },
+        { id: 'FL2', state: 'Florida', title: 'Miami', value: 'miami' },
+        { id: 'FL3', state: 'Florida', title: 'Orlando', value: 'orlando' },
+        // { id: 'FL4', state: 'Florida', title: 'Tampa', value: 'tampa' },
+    ],
+    // GA: [
+    //     { id: 'GA1', state: 'Georgia', title: 'Atlanta', value: 'atlanta' },
+    // ],
+    IL: [
+        { id: 'IL1', state: 'Illinois', title: 'Chicago', value: 'chicago' },
+    ],
+    PA: [
+        { id: 'PA1', state: 'Pennsylvania', title: 'Philadelphia', value: 'philadelphia' },
+        { id: 'PA2', state: 'Pennsylvania', title: 'Pittsburgh', value: 'pittsburgh' },
+    ],
+    // MD: [
+    //     { id: 'MD1', state: 'Maryland', title: 'Baltimore', value: 'baltimore' },
+    // ],
+    // MO: [
+    //     { id: 'MO1', state: 'Missouri', title: 'St. Louis', value: 'st_louis' },
+    // ],
+    MA: [
+        { id: 'MA1', state: 'Massachusetts', title: 'Boston', value: 'boston' },
+    ],
+    VA: [
+        { id: 'VA1', state: 'Virginia', title: 'Alexandria', value: 'alexandria' },
+        // { id: 'VA2', state: 'Virginia', title: 'Richmond', value: 'richmond' },
+    ],
+    // NC: [
+    //     { id: 'NC1', state: 'North Carolina', title: 'Charlotte', value: 'charlotte' },
+    // ],
+    // NJ: [
+    //     { id: 'NJ1', state: 'New Jersey', title: 'Livingston', value: 'livingston' },
+    // ],
 }
 
 
