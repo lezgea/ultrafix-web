@@ -26,7 +26,11 @@ export const ServiceBanner: React.FC<IServiceBannerProps> = ({ service }) => {
             <div className='w-full flex flex-col lg:flex-row py-10'>
                 <div className='w-full relative flex flex-col text-center md:text-start justify-between md:py-20'>
                     <div className='space-y-2 md:space-y-4 z-10'>
-                        <h1 className='text-primaryDark text-4xl md:text-5xl font-medium'><strong className='text-primary font-medium'>Residential</strong> {SERVICES[service].title} repair</h1>
+                        <h1 className='text-primaryDark text-4xl md:text-5xl font-medium space-y-2'>
+                            <p className="font-light text-5xl md:text-7xl text-[#c3c9d1]">Same-Day </p>
+                            <p><span className="text-primary">Residential</span> {SERVICES[service].title} </p>
+                            <p>repair</p>
+                        </h1>
                         <p className='text-gray-600 text-lg md:text-xl mb-10'>{SERVICES[service].subTitle}</p>
                     </div>
                     <motion.div

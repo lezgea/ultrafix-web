@@ -174,7 +174,7 @@ const ServiceDetailPage = ({ params }: ServiceProps) => {
 
 
     return (
-        <PageLayout title={`Residential ${SERVICES[service].title} repair - Same-Day Service`}>
+        <PageLayout >
             <ServiceBanner service={service} />
             <SectionLayout noYPadding>
                 <p className='text-gray-500 text-md font-light'>{SERVICES[service].description}</p>
