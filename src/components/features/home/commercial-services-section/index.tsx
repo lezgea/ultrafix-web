@@ -1,23 +1,23 @@
+import React from 'react';  
 import SectionLayout from '@components/layout/section-layout';
 import { ServiceButton } from '@components/shared/service-button';
-import { SERVICES, SERVICES_LIST } from 'constants/services';
-import React from 'react';
+import { COMMERCIAL_SERVICES_LIST } from 'constants/services';
 
 
 const MemoizedServiceButton = React.memo(ServiceButton);
 
 
-export const ServicesSection: React.FC = () => {
+export const CommercialServicesSection: React.FC = () => {
     return (
         <SectionLayout
-            scrollId="services"
-            title="Our Services"
+            scrollId="com_services"
+            title="Our Commercial Services"
             description="We have been providing top service! See just how our UltraFix Appliance Repair Service can better your life today!"
         >
             <div className='flex flex-wrap gap-5 md:gap-10 items-center justify-center'>
                 {
-                    SERVICES_LIST.map((item, i) =>
-                        <MemoizedServiceButton key={item.id} {...item} />
+                    COMMERCIAL_SERVICES_LIST.map((item, i) =>
+                        <MemoizedServiceButton key={item.id} type="commercial" {...item} />
                     )
                 }
             </div>
@@ -25,4 +25,4 @@ export const ServicesSection: React.FC = () => {
     )
 }
 
-ServicesSection.displayName = "ServicesSection";
+CommercialServicesSection.displayName = "CommercialServicesSection";

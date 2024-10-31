@@ -1,4 +1,4 @@
-export const SERVICES_LIST = [
+export const RESIDENCIAL_SERVICES_LIST = [
     {
         id: 1,
         title: 'Refrigerator',
@@ -73,7 +73,30 @@ export const SERVICES_LIST = [
     },
 ];
 
-export const SERVICES = {
+
+export const COMMERCIAL_SERVICES_LIST = [
+    {
+        id: 1,
+        title: 'Refrigerator',
+        value: 'refrigerator',
+        link: 'refrigerator-repair',
+    },
+    {
+        id: 2,
+        title: 'Ice Machine',
+        value: 'ice_machine',
+        link: 'ice-machine-repair',
+    },
+    {
+        id: 10,
+        title: 'Freezer',
+        value: 'freezer',
+        link: 'freezer-repair',
+    },
+];
+
+
+export const RESIDENTIAL_SERVICES = {
     "refrigerator-repair": {
         id: 1,
         title: 'Refrigerator',
@@ -373,6 +396,89 @@ export const SERVICES = {
             'garbage disposal repair service',
             'garbage disposal service',
             'garbage disposal service near me',
+        ],
+    },
+}
+
+
+export const COMMERCIAL_SERVICES = {
+    "refrigerator-repair": {
+        id: 1,
+        title: 'Refrigerator',
+        value: 'refrigerator',
+        link: 'refrigerator-repair',
+        price: '165 - 365',
+        subTitle: 'Keep your cool with refrigerator repair from our expert technicians',
+        description:
+            'An appliance can fail at the most inconvenient time; therefore it is important to have a reputable ' +
+            'repair service company you can call to get it up and running as soon as possible. Items stored in the fridge ' +
+            'can spoil if the service company contacted fails to arrive in good time. Some of the factors to consider when ' +
+            'getting in touch with an appliance service company will include. The UltraFix Appliance Repair Service ' +
+            'will finish the job in the same day before leaving the premises. Customers are always looking for a quick solution ' +
+            'to a problem; as a result the company hired must ensure 100% customer satisfaction. You will always receive the lowest ' +
+            'possible price quote before the repair begins and you will be advised how to use your refrigerator more efficiently ' +
+            'to avoid breakages in the future. Schedule your refrigerator repair service today by using the form below or calling us at (888) 998-6263.',
+        note:
+            'If we are unable to complete a refrigerator repair on the first visit, we can order part to get the job done.',
+        keywords: [
+            'Refrigerator repair',
+            'Refrigerator repair service',
+            'Refrigerator repair services',
+            'Refrigeraotor service repair',
+            'Repair refrigerator',
+            'Refrigerator services near me',
+            'Repair refrigerators near me',
+            'Refrigeration repair',
+        ],
+    },
+    "ice-machine-repair": {
+        id: 2,
+        title: 'Ice Machine',
+        value: 'ice_machine',
+        link: 'ice-machine-repair',
+        price: '165 - 345',
+        subTitle: 'Quickly get your ice machine operating again',
+        description:
+            'Not having ice can bring your party or business to a halt. Even if it\'s not the peak of summer, having ice for your drinks, ' +
+            'ingredient storage, and food preparation is essential. The UltraFix Appliance Repair Service can respond faster ' +
+            'to your emergency, whether you have an ice machine in your restaurant, in your outdoor kitchen, in your basement bar, ' +
+            'or anywhere else in your home. Ice machines have a lot of sharp moving parts, especially if they produce different types of ice. ' +
+            'Call or submit a request in UltraFix Appliance Repair Service, we can troubleshoot the problem and safely repair any broken parts. ' +
+            'You will always receive the lowest possible price quote before the repair begins and you will be advised how to use your ice machine ' +
+            'more efficiently to avoid breakages in the future. Schedule your ice machine repair service today by using the form below or calling us at (888) 998-6263.',
+        note:
+            'If we are unable to complete a ice machine repair on the first visit, we can order part to get the job done.',
+        keywords: [
+            'ice machine repair near me',
+            'ice machine repair',
+            'ice machine repair service',
+            'ice machine service and repair',
+            'ice machine repair service near me',
+            'ice machine service',
+        ],
+    },
+    "freezer-repair": {
+        id: 10,
+        title: 'Freezer',
+        value: 'freezer',
+        link: 'freezer-repair',
+        price: '165 - 285',
+        subTitle: 'Preserve your food, your pocketbook, and your sanity with us',
+        description:
+            'The expert technicians at UltraFix Appliance Repair Service know how to repair all types of freezers, including upright freezers, ' +
+            'chest freezers, drawer freezers, and refrigerator-freezer combos. When performing routine maintenance or repairs, we can identify ' +
+            'further issues before they occur, avoiding superfluous repairs and ruined food. You will always receive the lowest ' +
+            'possible price quote before the repair begins and you will be advised how to use your freezer more efficiently to avoid ' +
+            'breakages in the future. Schedule your freezer repair service today by using the form below or calling us at (888) 998-6263.',
+        note:
+            'If we are unable to complete a freezer repair on the first visit, we can order part to get the job done.',
+        keywords: [
+            'freezer repair',
+            'freezer repair near me',
+            'commercial freezer repair',
+            'fridge freezer repairs',
+            'freezer repair services near me',
+            'repair refrigerator freezer',
         ],
     },
 }

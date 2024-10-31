@@ -2,11 +2,10 @@
 
 import React from 'react';
 import PageLayout from '@components/layout/page-layout';
-import { SERVICES } from 'constants/services';
 import SectionLayout from '@components/layout/section-layout';
 import { AboutUsSection, BrandsSection, ContactSection, ServiceBanner, WhyUsSection } from '@components/features';
-// import { Metadata } from 'next';
 import Head from 'next/head';
+import { COMMERCIAL_SERVICES } from 'constants/services';
 
 
 interface Metadata {
@@ -41,18 +40,18 @@ interface Metadata {
 
 interface ServiceProps {
     params: {
-        service: keyof typeof SERVICES;
+        service: keyof typeof COMMERCIAL_SERVICES;
     };
 }
 
-const ServiceDetailPage = ({ params }: ServiceProps) => {
+const CommercialServiceDetailPage = ({ params }: ServiceProps) => {
     const { service } = params;
 
     const metadata: Metadata = {
-        title: `Residential ${SERVICES[service].title} repair | UltraFix™`,
-        description: `Get Professional ${SERVICES[service].title} repair by Ultrafix™. Same-Day Service, Certified Technicians, and High-Quality Parts for All Your Appliance Repair Needs.`,
+        title: `Residential ${COMMERCIAL_SERVICES[service].title} repair | UltraFix™`,
+        description: `Get Professional ${COMMERCIAL_SERVICES[service].title} repair by Ultrafix™. Same-Day Service, Certified Technicians, and High-Quality Parts for All Your Appliance Repair Needs.`,
         keywords: [
-            ...SERVICES[service].keywords,
+            ...COMMERCIAL_SERVICES[service].keywords,
             'appliance repair near me',
             'appliance repair',
             'appliance repair service',
@@ -175,11 +174,11 @@ const ServiceDetailPage = ({ params }: ServiceProps) => {
 
     return (
         <PageLayout >
-            <ServiceBanner service={service} />
+            <ServiceBanner type="commercial" service={service} />
             <SectionLayout noYPadding>
-                <p className='text-gray-500 text-md font-light'>{SERVICES[service].description}</p>
+                <p className='text-gray-500 text-md font-light'>{COMMERCIAL_SERVICES[service].description}</p>
                 <div className='py-4 md:py-5 px-10 border border-1 border-[#ceb5d9] rounded-xl md:rounded-full text-center bg-[#FDFCFE]'>
-                    <p className='text-gray-500 text-sm md:text-md text-[#a175b5]'>{SERVICES[service].note}</p>
+                    <p className='text-gray-500 text-sm md:text-md text-[#a175b5]'>{COMMERCIAL_SERVICES[service].note}</p>
                 </div>
             </SectionLayout>
             <ContactSection />
@@ -190,4 +189,4 @@ const ServiceDetailPage = ({ params }: ServiceProps) => {
     );
 };
 
-export default ServiceDetailPage;
+export default CommercialServiceDetailPage;

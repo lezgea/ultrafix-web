@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import PageLayout from '@components/layout/page-layout';
-import { AboutUsSection, BannerSection, BrandsSection, ContactSection, LocationsSection, LogosSection, ServicesSection, WhyUsSection } from '@components/features/home';
+import { AboutUsSection, BannerSection, BrandsSection, CommercialServicesSection, ContactSection, LocationsSection, LogosSection, ResidentialServicesSection, WhyUsSection } from '@components/features/home';
 import * as motion from "framer-motion/client"
 import { AppliancesIllustration } from '@assets/icons';
 
@@ -71,7 +71,8 @@ const Home: React.FC = () => {
             >
                 <LogosSection />
             </motion.div>
-            <ServicesSection />
+            <ResidentialServicesSection />
+            <CommercialServicesSection />
             <ContactSection />
             <LocationsSection />
             <AboutUsSection />
