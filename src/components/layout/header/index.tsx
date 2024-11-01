@@ -7,7 +7,6 @@ import { CallIcon, CloseIcon, HamburgerIcon, UltrafixLogo } from '@assets/icons'
 import { Sidebar } from '../sidebar';
 import { CITIES, STATES, STATES_LIST } from 'constants/locations';
 import { Dropdown } from '@components/shared/dropdown';
-import { motion } from 'framer-motion';
 
 
 const NAV_ROUTES: { id: string; label: string }[] = [
@@ -26,14 +25,10 @@ export const Header: React.FC = () => {
     const [selectedId, setSelectedId] = React.useState<string>()
 
     const pathname = usePathname();
-    const router = useRouter();
-    const { state, city, service } = useParams();
+    const { state, city } = useParams();
 
     const cityKey = `${state}_${city}` as keyof typeof CITIES;
     const cityData = CITIES[cityKey];
-
-    const hideHeaderRoutes = React.useMemo(() => ["/apply"], []);
-    const shouldHideHeader = hideHeaderRoutes.includes(pathname);
 
     const handleScroll = (sectionId: string) => {
         setSelectedId(sectionId)
@@ -41,38 +36,27 @@ export const Header: React.FC = () => {
         if (section) {
             section.scrollIntoView({ behavior: 'smooth' });
         }
-        // router.push('/')
     };
 
     const navLinks = React.useMemo(() => {
         return NAV_ROUTES.map((item, i) => (
             <li key={i} onClick={() => handleScroll(item.id)}>
                 {
-                    // item.id === 'locations'
-                    //     ?
-                    //     <Dropdown content={<LocationsDropdownContent onCloseSidebar={() => setSidebarOpen(false)} onShowAll={() => handleScroll(item.id)} />}>
-                    //         <div className="relative flex items-center space-x-3 cursor-pointer">
-                    //             {(item.id === selectedId) && (
-                    //                 <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
-                    //             )}
-                    //             <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
-                    //                 {item.label}
-                    //             </div>
-                    //         </div>
-                    //     </Dropdown>
-                    //     :
-
-                    item.id === 'apply' ?
-                        <Link href="/apply" className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
-                            {(item.id === selectedId) && (
-                                <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
-                            )}
-                            <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
-                                {item.label}
+                    item.id === 'services'
+                        ?
+                        <Dropdown content={<ServicesDropdownContent />}>
+                            <div className="relative flex items-center space-x-3 cursor-pointer">
+                                {(item.id === selectedId) && (
+                                    <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
+                                )}
+                                <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                                    {item.label}
+                                </div>
                             </div>
-                        </Link>
-                        : item.id === 'faq' ?
-                            <Link href="/faq" className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
+                        </Dropdown>
+                        :
+                        item.id === 'apply' ?
+                            <Link href="/apply" className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
                                 {(item.id === selectedId) && (
                                     <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
                                 )}
@@ -80,19 +64,29 @@ export const Header: React.FC = () => {
                                     {item.label}
                                 </div>
                             </Link>
-                            :
-                            <div className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
-                                {(item.id === selectedId) && (
-                                    <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
-                                )}
-                                <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
-                                    {item.label}
+                            : item.id === 'faq' ?
+                                <Link href="/faq" className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
+                                    {(item.id === selectedId) && (
+                                        <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
+                                    )}
+                                    <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                                        {item.label}
+                                    </div>
+                                </Link>
+                                :
+                                <div className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
+                                    {(item.id === selectedId) && (
+                                        <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
+                                    )}
+                                    <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                                        {item.label}
+                                    </div>
                                 </div>
-                            </div>
                 }
             </li>
         ));
     }, [selectedId]);
+
 
     const onDeal = () => {
         window.location.href = `tel:${cityData?.phone ? cityData?.phone : '(888) 998-6263'}`;
@@ -109,10 +103,8 @@ export const Header: React.FC = () => {
     ), [cityKey, pathname]);
 
 
-
     const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
 
-    // if (shouldHideHeader) return null;
 
     return (
         <>
@@ -238,4 +230,32 @@ const LocationsDropdownContent: React.FC<ILocationsDropdownContentProps> = (prop
 }
 
 
+interface IServicesDropdownContentProps { }
 
+const ServicesDropdownContent: React.FC<IServicesDropdownContentProps> = (props) => {
+    const handleScroll = (sectionId: string) => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    return (
+        <div className="flex flex-col items-center px-3">
+            <div className="break-inside-avoid space-y-3 py-3 px-1 w-[150px] lg:w-[150px] text-gray-500 cursor-pointer">
+                <div
+                    onClick={() => handleScroll('res_services')}
+                    className="text-sm mb-1 text-gray-700 hover:text-primary hover:underline"
+                >
+                    Residential
+                </div>
+                <div
+                    onClick={() => handleScroll('com_services')}
+                    className="text-sm mb-1 text-gray-700 hover:text-primary hover:underline"
+                >
+                    Commercial
+                </div>
+            </div>
+        </div>
+    );
+}
