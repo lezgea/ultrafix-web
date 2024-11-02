@@ -3,7 +3,7 @@
 import React from 'react';
 import PageLayout from '@components/layout/page-layout';
 import SectionLayout from '@components/layout/section-layout';
-import { AboutUsSection, BrandsSection, ContactSection, ServiceBanner, WhyUsSection } from '@components/features';
+import { AboutUsSection, BrandsSection, CommercialServicesSection, ContactSection, ResidentialServicesSection, ServiceBanner, WhyUsSection } from '@components/features';
 import Head from 'next/head';
 import { COMMERCIAL_SERVICES } from 'constants/services';
 
@@ -48,7 +48,7 @@ const CommercialServiceDetailPage = ({ params }: ServiceProps) => {
     const { service } = params;
 
     const metadata: Metadata = {
-        title: `Residential ${COMMERCIAL_SERVICES[service].title} repair | UltraFix™`,
+        title: `Commercial ${COMMERCIAL_SERVICES[service].title} repair | UltraFix™`,
         description: `Get Professional ${COMMERCIAL_SERVICES[service].title} repair by Ultrafix™. Same-Day Service, Certified Technicians, and High-Quality Parts for All Your Appliance Repair Needs.`,
         keywords: [
             ...COMMERCIAL_SERVICES[service].keywords,
@@ -182,6 +182,8 @@ const CommercialServiceDetailPage = ({ params }: ServiceProps) => {
                 </div>
             </SectionLayout>
             <ContactSection />
+            <ResidentialServicesSection />
+            <CommercialServicesSection />
             <BrandsSection />
             <WhyUsSection />
             <AboutUsSection />
