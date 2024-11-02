@@ -26,6 +26,7 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no root@137.184.157.106 << 'EOF'
             cd /var/www/ultrafix-web-front
+            # npm run x
             npm install
             npm run build
             pm2 restart ultrafix-web-front || pm2 start npm --name "ultrafix-web-front" -- start
