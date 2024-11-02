@@ -6,7 +6,7 @@ import SectionLayout from '@components/layout/section-layout';
 import { AboutUsSection, BrandsSection, CommercialServicesSection, ContactSection, LocationsServiceBanner, LocationsServices, ResidentialServicesSection, WhyUsSection } from '@components/features';
 import { useParams } from 'next/navigation';
 import { CITIES, STATES } from 'constants/locations';
-import { COMMERCIAL_SERVICES, RESIDENTIAL_SERVICES } from 'constants/services';
+import { RESIDENTIAL_SERVICES } from 'constants/services';
 
 
 interface Metadata {
