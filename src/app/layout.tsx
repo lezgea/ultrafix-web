@@ -85,7 +85,7 @@ export default function RootLayout({
             <Footer />
           </ToastProvider>
         </ReduxProvider>
-        <script type="text/javascript" dangerouslySetInnerHTML={{
+        {/* <script type="text/javascript" dangerouslySetInnerHTML={{
           __html: `
           var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
           (function(){
@@ -96,7 +96,7 @@ export default function RootLayout({
           s1.setAttribute('crossorigin','*');
           s0.parentNode.insertBefore(s1,s0);
           })();
-        `}}></script>
+        `}}></script> */}
       </body>
     </html>
   );

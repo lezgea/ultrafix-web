@@ -144,7 +144,7 @@ body {
 
 .call-btn {
     bottom: 25px;
-    left: 25px;
+    right: 25px;
     position: fixed;
     width: 60px;
     height: 60px;
