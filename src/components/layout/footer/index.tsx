@@ -43,7 +43,8 @@ export const Footer: React.FC = () => {
                     <div className="space-y-6">
                         <h2 className="font-semibold">Company</h2>
                         <ul className=" flex flex-wrap text-sm font-light gap-4">
-                            <li className="w-[40%] cursor-pointer hover:text-primary" onClick={() => handleScroll('services')}>Services</li>
+                            <li className="w-[40%] cursor-pointer hover:text-primary" onClick={() => handleScroll('res_services')}>Residential</li>
+                            <li className="w-[40%] cursor-pointer hover:text-primary" onClick={() => handleScroll('com_services')}>Commercial</li>
                             <li className="w-[40%] cursor-pointer hover:text-primary" onClick={() => handleScroll('about_us')}>About Us</li>
                             <li className="w-[40%] cursor-pointer hover:text-primary" onClick={() => handleScroll('brands')}>Brands</li>
                             <li className="w-[40%] cursor-pointer hover:text-primary" onClick={() => handleScroll('reviews')}>Reviews</li>
