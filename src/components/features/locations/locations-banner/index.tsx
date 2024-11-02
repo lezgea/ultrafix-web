@@ -6,13 +6,13 @@ import { Loader } from '@components/shared';
 import { setAuthState } from '@slices/user-slice';
 import { RootState } from '@store/store';
 import { CITIES } from 'constants/locations';
-import { SERVICES } from 'constants/services';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { motion } from 'framer-motion';
+import { RESIDENTIAL_SERVICES } from 'constants/services';
 
 
 interface ILocationBannerProps {
@@ -31,7 +31,7 @@ export const LocationsBanner: React.FC<ILocationBannerProps> = () => {
         }
     };
 
-    const serviceKey = service as keyof typeof SERVICES;
+    const serviceKey = service as keyof typeof RESIDENTIAL_SERVICES;
     const cityKey = `${state}_${city}` as keyof typeof CITIES;
     const cityData = CITIES[cityKey];
 

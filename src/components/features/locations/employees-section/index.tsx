@@ -3,11 +3,10 @@
 import SectionLayout from '@components/layout/section-layout';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
-import { BRANDS } from 'constants/brands';
 import { useParams } from 'next/navigation';
-import { SERVICES } from 'constants/services';
 import { CITIES } from 'constants/locations';
 import DateLib from '@utils/datelib';
+import { RESIDENTIAL_SERVICES } from 'constants/services';
 
 
 export const EmployeesSection: React.FC = () => {
@@ -21,7 +20,7 @@ export const EmployeesSection: React.FC = () => {
 
     const { state, city, service } = useParams();
 
-    const serviceKey = service as keyof typeof SERVICES;
+    const serviceKey = service as keyof typeof RESIDENTIAL_SERVICES;
     const cityKey = `${state}_${city}` as keyof typeof CITIES;
     const cityData = CITIES[cityKey];
 

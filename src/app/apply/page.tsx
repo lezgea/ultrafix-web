@@ -6,7 +6,7 @@ import { BGUltraIllustration, LogoWhite, UltrafixLogo } from '@assets/icons';
 import { ApplyForm } from '@components/shared';
 import PageLayout from '@components/layout/page-layout';
 import SectionLayout from '@components/layout/section-layout';
-import { AboutUsSection, ApplySection, BrandsSection, ServicesSection, WhyUsSection } from '@components/features';
+import { AboutUsSection, ApplySection, BrandsSection, CommercialServicesSection, ResidentialServicesSection, WhyUsSection } from '@components/features';
 
 
 export const metadata: Metadata = {
@@ -18,7 +18,8 @@ const Apply: React.FC = () => {
     return (
         <PageLayout title="The number one Appliance Repair service in US">
             <ApplySection />
-            <ServicesSection />
+            <ResidentialServicesSection />
+            <CommercialServicesSection />
             <AboutUsSection />
             <BrandsSection />
             <WhyUsSection />

@@ -199,11 +199,10 @@ const LocationPage: React.FC<ILocationProps> = ({ params }) => {
                 >
                     <LogosSection />
                 </motion.div>
-                <LocationsServices />
-                <LocationsMap />
-                <ContactSection />
                 <ResidentialServicesSection />
                 <CommercialServicesSection />
+                <LocationsMap />
+                <ContactSection />
                 <EmployeesSection />
                 <BrandsSection />
                 <WhyUsSection />

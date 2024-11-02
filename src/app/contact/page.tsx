@@ -2,7 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import PageLayout from '@components/layout/page-layout';
 import { ContactSection } from '@components/features/home/contact-section';
-import { AboutUsSection, BrandsSection, ServicesSection, WhyUsSection } from '@components/features';
+import { AboutUsSection, BrandsSection, CommercialServicesSection, ResidentialServicesSection, WhyUsSection } from '@components/features';
 
 
 export const metadata: Metadata = {
@@ -61,7 +61,8 @@ const Contact: React.FC = () => {
     return (
         <PageLayout title="The number one Appliance Repair service in US">
             <ContactSection />
-            <ServicesSection />
+            <ResidentialServicesSection />
+            <CommercialServicesSection />
             <AboutUsSection />
             <BrandsSection />
             <WhyUsSection />
