@@ -1,25 +1,12 @@
-"use client";
+"use client"
 
 import React from 'react';
 import PageLayout from '@components/layout/page-layout';
-import {
-    AboutUsSection,
-    BrandsSection,
-    CommercialServicesSection,
-    ContactSection,
-    EmployeesSection,
-    LocationsBanner,
-    LocationsMap,
-    LocationsServices,
-    LogosSection,
-    ResidentialServicesSection,
-    WhyUsSection
-} from '@components/features';
-import * as motion from "framer-motion/client";
-import { AnimatePresence } from 'framer-motion';
+import SectionLayout from '@components/layout/section-layout';
+import { AboutUsSection, BrandsSection, ContactSection, LocationsServiceBanner, LocationsServices, WhyUsSection } from '@components/features';
 import { useParams } from 'next/navigation';
-import { CITIES } from 'constants/locations';
-import { RESIDENTIAL_SERVICES } from 'constants/services';
+import { CITIES, STATES } from 'constants/locations';
+import { COMMERCIAL_SERVICES, RESIDENTIAL_SERVICES } from 'constants/services';
 
 
 interface Metadata {
@@ -51,16 +38,16 @@ interface Metadata {
     };
 }
 
-
-interface ILocationProps {
+interface ServiceProps {
     params: {
-        state: string;
-        city: string;
+        state: keyof typeof STATES,
+        city: keyof typeof CITIES,
+        service: keyof typeof RESIDENTIAL_SERVICES;
     };
 }
 
-const LocationPage: React.FC<ILocationProps> = ({ params }) => {
 
+const ServiceDetailPage = ({ params }: ServiceProps) => {
     const { state, city, service } = useParams();
 
     const serviceKey = service as keyof typeof RESIDENTIAL_SERVICES;
@@ -68,9 +55,16 @@ const LocationPage: React.FC<ILocationProps> = ({ params }) => {
     const cityData = CITIES[cityKey];
 
     const metadata: Metadata = {
-        title: `Appliance Repair Service in ${cityData?.title}, ${cityData?.state}`,
-        description: `Ultrafix™ Offers Trusted Appliance Repair Services in ${cityData?.title}-${cityData?.state}. Fast, Same-Day Repairs for Refrigerators, Washers, Dryers, Ovens, and More!`,
+        title: `Residential ${RESIDENTIAL_SERVICES[serviceKey].title} repair in ${cityData?.title}, ${cityData?.state}`,
+        description: `Need ${RESIDENTIAL_SERVICES[serviceKey].title} repair in ${cityData?.title}-${cityData?.state}? Ultrafix™ Offers Same-Day, Professional ${RESIDENTIAL_SERVICES[serviceKey].title} Repairs. Book Your Appointment Today!`,
         keywords: [
+            ...RESIDENTIAL_SERVICES[serviceKey].keywords,
+            'appliance repair near me',
+            'appliance repair',
+            'appliance repair service',
+            'commercial appliance repair',
+            'repair appliances',
+            'service appliance repair',
             'Appliance Repair',
             'Local Appliance Repair',
             'Emergency Appliance Repair',
@@ -186,31 +180,21 @@ const LocationPage: React.FC<ILocationProps> = ({ params }) => {
 
 
     return (
-        <PageLayout title={`Appliance Repair Service in ${cityData?.title}, ${cityData?.state} - Same-Day Service`}>
-            <AnimatePresence mode="wait">
-                <LocationsBanner />
-                <motion.div
-                    initial={{ opacity: 0, x: 400 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{
-                        duration: 0.5,
-                        ease: [0, 0.71, 0.2, 1.01]
-                    }}
-                >
-                    <LogosSection />
-                </motion.div>
-                <LocationsServices />
-                <LocationsMap />
-                <ContactSection />
-                <ResidentialServicesSection />
-                <CommercialServicesSection />
-                <EmployeesSection />
-                <BrandsSection />
-                <WhyUsSection />
-                <AboutUsSection />
-            </AnimatePresence>
+        <PageLayout>
+            <LocationsServiceBanner type="residential" service={serviceKey} />
+            <SectionLayout noYPadding>
+                <p className='text-gray-500 text-md font-light'>{RESIDENTIAL_SERVICES[serviceKey].description}</p>
+                <div className='py-4 md:py-5 px-10 border border-1 border-[#ceb5d9] rounded-xl md:rounded-full text-center bg-[#FDFCFE]'>
+                    <p className='text-gray-500 text-sm md:text-md text-[#a175b5]'>{RESIDENTIAL_SERVICES[serviceKey].note}</p>
+                </div>
+            </SectionLayout>
+            <LocationsServices />
+            <BrandsSection />
+            <ContactSection />
+            <WhyUsSection />
+            <AboutUsSection />
         </PageLayout >
     );
 };
 
-export default LocationPage;
+export default ServiceDetailPage;

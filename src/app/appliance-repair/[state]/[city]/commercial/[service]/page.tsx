@@ -2,11 +2,11 @@
 
 import React from 'react';
 import PageLayout from '@components/layout/page-layout';
-import { SERVICES } from 'constants/services';
 import SectionLayout from '@components/layout/section-layout';
 import { AboutUsSection, BrandsSection, ContactSection, LocationsServiceBanner, LocationsServices, WhyUsSection } from '@components/features';
 import { useParams } from 'next/navigation';
 import { CITIES, STATES } from 'constants/locations';
+import { COMMERCIAL_SERVICES } from 'constants/services';
 
 
 interface Metadata {
@@ -42,7 +42,7 @@ interface ServiceProps {
     params: {
         state: keyof typeof STATES,
         city: keyof typeof CITIES,
-        service: keyof typeof SERVICES;
+        service: keyof typeof COMMERCIAL_SERVICES;
     };
 }
 
@@ -50,15 +50,15 @@ interface ServiceProps {
 const ServiceDetailPage = ({ params }: ServiceProps) => {
     const { state, city, service } = useParams();
 
-    const serviceKey = service as keyof typeof SERVICES;
+    const serviceKey = service as keyof typeof COMMERCIAL_SERVICES;
     const cityKey = `${state}_${city}` as keyof typeof CITIES;
     const cityData = CITIES[cityKey];
 
     const metadata: Metadata = {
-        title: `Residential ${SERVICES[serviceKey].title} repair in ${cityData?.title}, ${cityData?.state}`,
-        description: `Need ${SERVICES[serviceKey].title} repair in ${cityData?.title}-${cityData?.state}? Ultrafix™ Offers Same-Day, Professional ${SERVICES[serviceKey].title} Repairs. Book Your Appointment Today!`,
+        title: `Commercial ${COMMERCIAL_SERVICES[serviceKey].title} repair in ${cityData?.title}, ${cityData?.state}`,
+        description: `Need ${COMMERCIAL_SERVICES[serviceKey].title} repair in ${cityData?.title}-${cityData?.state}? Ultrafix™ Offers Same-Day, Professional ${COMMERCIAL_SERVICES[serviceKey].title} Repairs. Book Your Appointment Today!`,
         keywords: [
-            ...SERVICES[serviceKey].keywords,
+            ...COMMERCIAL_SERVICES[serviceKey].keywords,
             'appliance repair near me',
             'appliance repair',
             'appliance repair service',
@@ -181,11 +181,11 @@ const ServiceDetailPage = ({ params }: ServiceProps) => {
 
     return (
         <PageLayout>
-            <LocationsServiceBanner service={serviceKey} />
+            <LocationsServiceBanner type="commercial" service={serviceKey} />
             <SectionLayout noYPadding>
-                <p className='text-gray-500 text-md font-light'>{SERVICES[serviceKey].description}</p>
+                <p className='text-gray-500 text-md font-light'>{COMMERCIAL_SERVICES[serviceKey].description}</p>
                 <div className='py-4 md:py-5 px-10 border border-1 border-[#ceb5d9] rounded-xl md:rounded-full text-center bg-[#FDFCFE]'>
-                    <p className='text-gray-500 text-sm md:text-md text-[#a175b5]'>{SERVICES[serviceKey].note}</p>
+                    <p className='text-gray-500 text-sm md:text-md text-[#a175b5]'>{COMMERCIAL_SERVICES[serviceKey].note}</p>
                 </div>
             </SectionLayout>
             <LocationsServices />
