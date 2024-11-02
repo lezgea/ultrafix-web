@@ -63,7 +63,7 @@ const item = { hidden: { x: -10, opacity: 0 } }
 const Home: React.FC = () => {
     return (
         <PageLayout>
-            {/* <BannerSection /> */}
+            <BannerSection />
             <motion.div
                 initial={{ opacity: 0, x: 400 }}
                 whileInView={{ opacity: 1, x: 0 }}
