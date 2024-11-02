@@ -3,4 +3,3 @@ export * from './service';
 export * from './home';
 export * from './apply';
 export * from './faq';
-
