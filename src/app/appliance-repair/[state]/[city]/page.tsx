@@ -5,14 +5,13 @@ import PageLayout from '@components/layout/page-layout';
 import {
     AboutUsSection,
     BrandsSection,
-    CommercialServicesSection,
+    CommercialLocationServices,
     ContactSection,
     EmployeesSection,
     LocationsBanner,
     LocationsMap,
-    LocationsServices,
     LogosSection,
-    ResidentialServicesSection,
+    ResidentialLocationServices,
     WhyUsSection
 } from '@components/features';
 import * as motion from "framer-motion/client";
@@ -199,8 +198,8 @@ const LocationPage: React.FC<ILocationProps> = ({ params }) => {
                 >
                     <LogosSection />
                 </motion.div>
-                <ResidentialServicesSection />
-                <CommercialServicesSection />
+                <ResidentialLocationServices />
+                <CommercialLocationServices />
                 <LocationsMap />
                 <ContactSection />
                 <EmployeesSection />

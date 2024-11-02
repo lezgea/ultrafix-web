@@ -15,7 +15,7 @@ interface IServiceProps {
 }
 
 
-export const LocationServiceButton: React.FC<IServiceProps> = (props) => {
+export const RezLocationServiceButton: React.FC<IServiceProps> = (props) => {
     let { title, link: service, value } = props;
 
     const { state, city } = useParams();
@@ -27,7 +27,7 @@ export const LocationServiceButton: React.FC<IServiceProps> = (props) => {
             transition={{ duration: 0.5 }}
         >
             <Link
-                href={`/appliance-repair/${state}/${city}/${service}`}
+                href={`/appliance-repair/${state}/${city}/residential/${service}`}
                 className='flex relative text-center items-center justify-center group hover:bg-primary transition-colors duration-300 ease-in-out w-[6rem] h-[6rem] lg:w-[12rem] lg:h-[12rem] rounded-full bg-gray-100'
             >
                 <ServiceIcon
