@@ -28,6 +28,11 @@ const TOP_SERVICES = [
         url: "https://www.thumbtack.com/tx/houston/appliance-repair/ultrafix-appliance-repair-llc/service/428552679308009500?utm_medium=web&utm_source=txt&surface=sp",
         src: "/img/logos/ul-thumbtack.webp",
     },
+    {
+        alt: "Trustpilot",
+        url: "https://www.trustpilot.com/review/ultrafixappliance.com",
+        src: "/img/logos/ul-trustpilot.webp",
+    },
 ];
 
 export const LogosSection: React.FC = () => {
