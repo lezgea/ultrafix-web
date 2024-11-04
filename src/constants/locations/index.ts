@@ -22,17 +22,15 @@ export const STATES = {
         { id: 'TX4', state: 'Texas', title: 'Fulshear', value: 'fulshear', img: '/img/cities/tx_fulshear.jpg' },
         { id: 'TX5', state: 'Texas', title: 'Houston', value: 'houston', img: '/img/cities/tx_houston.jpeg' },
         { id: 'TX6', state: 'Texas', title: 'McKinney', value: 'mckinney', img: '/img/cities/tx_mckinney.jpeg' },
-        { id: 'TX7', state: 'Texas', title: 'Pearland', value: 'pearland', img: '/img/cities/tx_pearland.jpeg' },
+        { id: 'TX7', state: 'Texas', title: 'Pearland', value: 'pearland', img: '/img/cities/tx_pearland.jpg' },
         { id: 'TX8', state: 'Texas', title: 'San Antonio', value: 'san_antonio', img: '/img/cities/tx_san_antonio.jpeg' },
         { id: 'TX9', state: 'Texas', title: 'Spring', value: 'spring', img: '/img/cities/tx_spring.jpeg' },
-
-        { id: 'TX10', state: 'Texas', title: 'Tomball', value: 'tomball', img: '/img/cities/tx_tomball.jpeg' },
-        { id: 'TX11', state: 'Texas', title: 'Sugar Land', value: 'sugar_land', img: '/img/cities/tx_sugar_land.jpeg' },
+        { id: 'TX10', state: 'Texas', title: 'Tomball', value: 'tomball', img: '/img/cities/tx_tomball.webp' },
+        { id: 'TX11', state: 'Texas', title: 'Sugar Land', value: 'sugar_land', img: '/img/cities/tx_sugar_land.webp' },
         { id: 'TX12', state: 'Texas', title: 'Katy', value: 'katy', img: '/img/cities/tx_katy.jpeg' },
         { id: 'TX13', state: 'Texas', title: 'Conroe', value: 'conroe', img: '/img/cities/tx_conroe.jpeg' },
-        { id: 'TX14', state: 'Texas', title: 'Cypress', value: 'cypress', img: '/img/cities/tx_cypress.jpeg' },
+        { id: 'TX14', state: 'Texas', title: 'Cypress', value: 'cypress', img: '/img/cities/tx_cypress.jpg' },
         { id: 'TX15', state: 'Texas', title: 'Richmond', value: 'richmond', img: '/img/cities/tx_richmond.jpeg' },
-
         { id: 'TX16', state: 'Texas', title: 'Irving', value: 'irving', img: '/img/cities/tx_irving.jpg' },
     ],
     // CA: [

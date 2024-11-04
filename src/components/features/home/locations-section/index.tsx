@@ -35,7 +35,6 @@ export const LocationsSection: React.FC = () => {
                     {
                         STATES_LIST.map((state) => {
                             const stateKey = state.value as keyof typeof STATES;
-                            console.log('@@@@@', state)
 
                             return (
                                 <div
@@ -69,19 +68,6 @@ export const LocationsSection: React.FC = () => {
                                     >
                                         {state.title}
                                     </div>
-                                    {/* <div className="flex flex-col space-y-1 ml-1">
-                                        {
-                                            STATES[stateKey].map((city) =>
-                                                <div
-                                                    key={city.id}
-                                                    onClick={() => onNavigate(stateKey, city.value)}
-                                                    className="text-sm md:text-md font-light text-gray-500 cursor-pointer hover:text-primary hover:underline"
-                                                >
-                                                    {city.title}
-                                                </div>
-                                            )
-                                        }
-                                    </div> */}
                                 </div>
                             )
                         })
