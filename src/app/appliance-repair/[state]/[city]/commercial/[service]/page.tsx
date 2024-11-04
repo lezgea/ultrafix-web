@@ -3,7 +3,7 @@
 import React from 'react';
 import PageLayout from '@components/layout/page-layout';
 import SectionLayout from '@components/layout/section-layout';
-import { AboutUsSection, BrandsSection, CommercialLocationServices, ContactSection, LocationsServiceBanner, ResidentialLocationServices, WhyUsSection } from '@components/features';
+import { AboutUsSection, BrandsSection, CommercialLocationServices, ContactSection, LocationsSection, LocationsServiceBanner, ResidentialLocationServices, WhyUsSection } from '@components/features';
 import { useParams } from 'next/navigation';
 import { CITIES, STATES } from 'constants/locations';
 import { COMMERCIAL_SERVICES } from 'constants/services';
@@ -190,6 +190,7 @@ const ServiceDetailPage = ({ params }: ServiceProps) => {
             </SectionLayout>
             <ResidentialLocationServices />
             <CommercialLocationServices />
+            <LocationsSection />
             <BrandsSection />
             <ContactSection />
             <WhyUsSection />
