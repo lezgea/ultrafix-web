@@ -1,37 +1,39 @@
 
 export const STATES_LIST = [
-    { id: 12, title: 'Texas', value: 'TX' },
+    { id: 12, title: 'Texas', value: 'TX', img: '/img/states/texas.webp' },
     // { id: 1, title: 'California', value: 'CA' },
-    { id: 2, title: 'Florida', value: 'FL' },
+    { id: 2, title: 'Florida', value: 'FL', img: '/img/states/florida.webp' },
     // { id: 3, title: 'Georgia', value: 'GA' },
-    { id: 4, title: 'Illinois', value: 'IL' },
-    { id: 5, title: 'Pennsylvania', value: 'PA' },
+    { id: 4, title: 'Illinois', value: 'IL', img: '/img/states/illinois.webp' },
+    { id: 5, title: 'Pennsylvania', value: 'PA', img: '/img/states/pennsylvania.webp' },
     // { id: 6, title: 'Maryland', value: 'MD' },
     // { id: 7, title: 'Missouri', value: 'MO' },
-    { id: 8, title: 'Massachusetts', value: 'MA' },
-    { id: 9, title: 'Virginia', value: 'VA' },
+    { id: 8, title: 'Massachusetts', value: 'MA', img: '/img/states/massachusetts.webp' },
+    { id: 9, title: 'Virginia', value: 'VA', img: '/img/states/virginia.webp' },
     // { id: 10, title: 'North Carolina', value: 'NC' },
     // { id: 11, title: 'New Jersey', value: 'NJ' },
 ]
 
 export const STATES = {
     TX: [
-        { id: 'TX1', state: 'Texas', title: 'Austin', value: 'austin' },
-        { id: 'TX2', state: 'Texas', title: 'Dallas', value: 'dallas' },
-        { id: 'TX3', state: 'Texas', title: 'Fort Worth', value: 'fort_worth' },
-        { id: 'TX4', state: 'Texas', title: 'Fulshear', value: 'fulshear' },
-        { id: 'TX5', state: 'Texas', title: 'Houston', value: 'houston' },
-        { id: 'TX6', state: 'Texas', title: 'McKinney', value: 'mckinney' },
-        { id: 'TX7', state: 'Texas', title: 'Pearland', value: 'pearland' },
-        { id: 'TX8', state: 'Texas', title: 'San Antonio', value: 'san_antonio' },
-        { id: 'TX9', state: 'Texas', title: 'Spring', value: 'spring' },
-        { id: 'TX10', state: 'Texas', title: 'Tomball', value: 'tomball' },
-        { id: 'TX11', state: 'Texas', title: 'Sugar Land', value: 'sugar_land' },
-        { id: 'TX12', state: 'Texas', title: 'Katy', value: 'katy' },
-        { id: 'TX13', state: 'Texas', title: 'Conroe', value: 'conroe' },
-        { id: 'TX14', state: 'Texas', title: 'Cypress', value: 'cypress' },
-        { id: 'TX15', state: 'Texas', title: 'Richmond', value: 'richmond' },
-        { id: 'TX16', state: 'Texas', title: 'Irving', value: 'irving' },
+        { id: 'TX1', state: 'Texas', title: 'Austin', value: 'austin', img: '/img/cities/tx_austin.jpeg' },
+        { id: 'TX2', state: 'Texas', title: 'Dallas', value: 'dallas', img: '/img/cities/tx_dallas.jpeg' },
+        { id: 'TX3', state: 'Texas', title: 'Fort Worth', value: 'fort_worth', img: '/img/cities/tx_fort_worth.jpeg' },
+        { id: 'TX4', state: 'Texas', title: 'Fulshear', value: 'fulshear', img: '/img/cities/tx_fulshear.jpg' },
+        { id: 'TX5', state: 'Texas', title: 'Houston', value: 'houston', img: '/img/cities/tx_houston.jpeg' },
+        { id: 'TX6', state: 'Texas', title: 'McKinney', value: 'mckinney', img: '/img/cities/tx_mckinney.jpeg' },
+        { id: 'TX7', state: 'Texas', title: 'Pearland', value: 'pearland', img: '/img/cities/tx_pearland.jpeg' },
+        { id: 'TX8', state: 'Texas', title: 'San Antonio', value: 'san_antonio', img: '/img/cities/tx_san_antonio.jpeg' },
+        { id: 'TX9', state: 'Texas', title: 'Spring', value: 'spring', img: '/img/cities/tx_spring.jpeg' },
+
+        { id: 'TX10', state: 'Texas', title: 'Tomball', value: 'tomball', img: '/img/cities/tx_tomball.jpeg' },
+        { id: 'TX11', state: 'Texas', title: 'Sugar Land', value: 'sugar_land', img: '/img/cities/tx_sugar_land.jpeg' },
+        { id: 'TX12', state: 'Texas', title: 'Katy', value: 'katy', img: '/img/cities/tx_katy.jpeg' },
+        { id: 'TX13', state: 'Texas', title: 'Conroe', value: 'conroe', img: '/img/cities/tx_conroe.jpeg' },
+        { id: 'TX14', state: 'Texas', title: 'Cypress', value: 'cypress', img: '/img/cities/tx_cypress.jpeg' },
+        { id: 'TX15', state: 'Texas', title: 'Richmond', value: 'richmond', img: '/img/cities/tx_richmond.jpeg' },
+
+        { id: 'TX16', state: 'Texas', title: 'Irving', value: 'irving', img: '/img/cities/tx_irving.jpg' },
     ],
     // CA: [
     //     { id: 'CA1', state: 'California', title: 'Sacramento', value: 'sacramento' },
@@ -39,19 +41,19 @@ export const STATES = {
     // ],
     FL: [
         // { id: 'FL1', state: 'Florida', title: 'Jacksonville', value: 'jacksonville' },
-        { id: 'FL2', state: 'Florida', title: 'Miami', value: 'miami' },
-        { id: 'FL3', state: 'Florida', title: 'Orlando', value: 'orlando' },
+        { id: 'FL2', state: 'Florida', title: 'Miami', value: 'miami', img: '/img/cities/fl_miami.jpeg' },
+        { id: 'FL3', state: 'Florida', title: 'Orlando', value: 'orlando', img: '/img/cities/fl_orlando.jpeg' },
         // { id: 'FL4', state: 'Florida', title: 'Tampa', value: 'tampa' },
     ],
     // GA: [
     //     { id: 'GA1', state: 'Georgia', title: 'Atlanta', value: 'atlanta' },
     // ],
     IL: [
-        { id: 'IL1', state: 'Illinois', title: 'Chicago', value: 'chicago' },
+        { id: 'IL1', state: 'Illinois', title: 'Chicago', value: 'chicago', img: '/img/cities/il_chicago.jpeg' },
     ],
     PA: [
-        { id: 'PA1', state: 'Pennsylvania', title: 'Philadelphia', value: 'philadelphia' },
-        { id: 'PA2', state: 'Pennsylvania', title: 'Pittsburgh', value: 'pittsburgh' },
+        { id: 'PA1', state: 'Pennsylvania', title: 'Philadelphia', value: 'philadelphia', img: '/img/cities/pa_philadelphia.jpeg' },
+        { id: 'PA2', state: 'Pennsylvania', title: 'Pittsburgh', value: 'pittsburgh', img: '/img/cities/pa_pittsburgh.jpeg' },
     ],
     // MD: [
     //     { id: 'MD1', state: 'Maryland', title: 'Baltimore', value: 'baltimore' },
@@ -60,10 +62,10 @@ export const STATES = {
     //     { id: 'MO1', state: 'Missouri', title: 'St. Louis', value: 'st_louis' },
     // ],
     MA: [
-        { id: 'MA1', state: 'Massachusetts', title: 'Boston', value: 'boston' },
+        { id: 'MA1', state: 'Massachusetts', title: 'Boston', value: 'boston', img: '/img/cities/ma_boston.jpeg' },
     ],
     VA: [
-        { id: 'VA1', state: 'Virginia', title: 'Alexandria', value: 'alexandria' },
+        { id: 'VA1', state: 'Virginia', title: 'Alexandria', value: 'alexandria', img: '/img/cities/va_alexandria.jpeg' },
         // { id: 'VA2', state: 'Virginia', title: 'Richmond', value: 'richmond' },
     ],
     // NC: [

@@ -11,3 +11,4 @@ export * from './privacy-modal';
 export * from './expandable-info-section';
 export * from './com-location-service-button';
 export * from './rez-location-service-button';
+export * from './cities-modal';

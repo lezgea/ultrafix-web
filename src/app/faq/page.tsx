@@ -20,7 +20,6 @@ const Apply: React.FC = () => {
             <BrandsSection />
             <WhyUsSection />
         </PageLayout>
-
     );
 };
 
