@@ -5,7 +5,7 @@ import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { CarouselProps } from 'react-responsive-carousel';
-import { BRANDS } from 'constants/brands';
+import { BRANDS, BRANDS_MOB } from 'constants/brands';
 
 // Dynamically import the Carousel to avoid SSR issues
 const Carousel = dynamic(() => import("react-responsive-carousel").then(mod => mod.Carousel), {
@@ -36,7 +36,7 @@ export const BrandsSection: React.FC = () => {
             title="Brands We Repair"
         >
             {isMounted && (
-                <div className="rounded-3xl overflow-hidden max-h-[120px] flex items-center">
+                <div className="hidden md:flex rounded-3xl overflow-hidden max-h-[120px] flex items-center">
                     <Carousel {...(carouselProps as CarouselProps)}>
                         {BRANDS.map(({ url, alt }, i) => (
                             <Image
@@ -53,6 +53,22 @@ export const BrandsSection: React.FC = () => {
                     </Carousel>
                 </div>
             )}
+            <div className="md:hidden rounded-3xl overflow-hidden max-h-[120px] flex items-center">
+                <Carousel {...(carouselProps as CarouselProps)}>
+                    {BRANDS_MOB.map(({ url, alt }, i) => (
+                        <Image
+                            key={i} // Add key for each image
+                            src={url}
+                            width={1200} // Adjust width and height based on your layout
+                            height={400}
+                            className="w-auto h-auto"
+                            alt={alt}
+                            loading="lazy"
+                            sizes="(max-width: 1200px) 100vw, 1000px"
+                        />
+                    ))}
+                </Carousel>
+            </div>
         </SectionLayout>
     );
 };
