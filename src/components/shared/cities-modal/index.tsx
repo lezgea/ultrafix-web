@@ -34,7 +34,7 @@ interface IModalContent {
 const ModalContent: React.FC<IModalContent> = (props) => {
     let { state, onClose } = props;
 
-    const stateKey = state as keyof typeof STATES;
+    const stateKey = state as keyof typeof STATES;  
 
 
     return (
