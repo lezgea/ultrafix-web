@@ -58,6 +58,12 @@ import LogoIcon from './logo-icon.svg';
 import FacebookIcon from './facebook.svg';
 import AppliancesIllustration from './appliances-illustration.svg';
 import BGUltraIllustration from './bg-ultra.svg';
+import TXMapIcon from './tx_map.svg';
+import FLMapIcon from './fl_map.svg';
+import ILMapIcon from './il_map.svg';
+import MAMapIcon from './ma_map.svg';
+import PAMapIcon from './pa_map.svg';
+import VAMapIcon from './va_map.svg';
 
 
 export {
@@ -76,6 +82,12 @@ export {
     AppliancesIllustration,
 
     // icons
+    FLMapIcon,
+    ILMapIcon,
+    MAMapIcon,
+    PAMapIcon,
+    VAMapIcon,
+    TXMapIcon,
     FacebookIcon,
     LogoIcon,
     CallIcon,

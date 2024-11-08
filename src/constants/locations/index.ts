@@ -1,15 +1,15 @@
 
 export const STATES_LIST = [
-    { id: 12, title: 'Texas', value: 'TX', img: '/img/states/texas.webp' },
+    { id: 12, title: 'Texas', value: 'TX' },
     // { id: 1, title: 'California', value: 'CA' },
-    { id: 2, title: 'Florida', value: 'FL', img: '/img/states/florida.webp' },
+    { id: 2, title: 'Florida', value: 'FL' },
     // { id: 3, title: 'Georgia', value: 'GA' },
-    { id: 4, title: 'Illinois', value: 'IL', img: '/img/states/illinois.webp' },
-    { id: 5, title: 'Pennsylvania', value: 'PA', img: '/img/states/pennsylvania.webp' },
+    { id: 4, title: 'Illinois', value: 'IL' },
+    { id: 5, title: 'Pennsylvania', value: 'PA' },
     // { id: 6, title: 'Maryland', value: 'MD' },
     // { id: 7, title: 'Missouri', value: 'MO' },
-    { id: 8, title: 'Massachusetts', value: 'MA', img: '/img/states/massachusetts.webp' },
-    { id: 9, title: 'Virginia', value: 'VA', img: '/img/states/virginia.webp' },
+    { id: 8, title: 'Massachusetts', value: 'MA' },
+    { id: 9, title: 'Virginia', value: 'VA' },
     // { id: 10, title: 'North Carolina', value: 'NC' },
     // { id: 11, title: 'New Jersey', value: 'NJ' },
 ]
