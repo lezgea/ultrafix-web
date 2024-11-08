@@ -30,7 +30,7 @@ export const ServiceButton: React.FC<IServiceProps> = (props) => {
                     value={value}
                     className='fill-gray-400 group-hover:fill-white h-10 w-10 lg:h-20 lg:w-20 transform transition-transform duration-300 ease-in-out group-hover:scale-110 active:scale-100'
                 />
-                <span className='absolute bottom-0 bg-[#fff] text-sm lg:text-xl lg:px-4 py-1 w-full h-[15px] lg:h-[20px] text-gray-400'>{title}</span>
+                <span className='absolute bottom-0 bg-[#fff] text-sm lg:text-lg lg:px-4 py-2 w-full h-[15px] lg:h-[20px] text-gray-400 group-hover:text-primaryDark group-hover:font-medium'>{title}</span>
             </Link>
         </motion.div>
     )
