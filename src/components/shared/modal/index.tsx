@@ -10,24 +10,24 @@ interface IModalProps {
 export const Modal: React.FC<IModalProps> = (props) => {
     let { visible, content, onClose } = props;
 
-    React.useEffect(() => {
-        if (visible) {
-            const scrollY = window.scrollY;
-            document.body.style.position = 'fixed';
-            document.body.style.top = `-${scrollY}px`;
-            document.body.style.width = '100%';
-        } else {
-            const scrollY = document.body.style.top;
-            document.body.style.position = '';
-            document.body.style.top = '';
-            window.scrollTo(0, parseInt(scrollY || '0') * -1);
-        }
+    // React.useEffect(() => {
+    //     if (visible) {
+    //         const scrollY = window.scrollY;
+    //         document.body.style.position = 'fixed';
+    //         document.body.style.top = `-${scrollY}px`;
+    //         document.body.style.width = '100%';
+    //     } else {
+    //         const scrollY = document.body.style.top;
+    //         // document.body.style.position = '';
+    //         document.body.style.top = '';
+    //         window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    //     }
 
-        return () => {
-            // document.body.style.position = '';
-            // document.body.style.top = '';
-        };
-    }, [visible]);
+    //     return () => {
+    //         // document.body.style.position = '';
+    //         // document.body.style.top = '';
+    //     };
+    // }, [visible]);
 
 
     const handleBackgroundClick = (e: React.MouseEvent<HTMLDivElement>) => {
