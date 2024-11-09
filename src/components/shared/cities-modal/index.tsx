@@ -51,19 +51,18 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                             key={city.id}
                             href={`/appliance-repair/${state.toLowerCase()}/${city.value}`}
                         >
-                            <div className="relative rounded-xl md:rounded-2xl max-h-[100px] md:h-[200px] md:max-h-[200px] overflow-hidden mb-4">
+                            <div className="relative rounded-xl md:rounded-2xl max-h-[100px] md:h-[200px] md:max-h-[200px] overflow-hidden mb-4 border border-gray-300">
                                 <div className="text-gray-500 cursor-pointer shadow-top-lg hover:shadow-lg group rounded-xl md:rounded-2xl overflow-hidden">
                                     <Image
                                         src={city.img}
                                         width={300}
                                         height={200}
-                                        className="w-full min-h-[100px] max-h-[100px] md:h-[200px] md:max-h-[200px] object-cover transition-transform duration-300 ease-in-out transform group-hover:scale-110"
+                                        className="w-full min-h-[100px] max-h-[100px] md:h-[200px] md:max-h-[200px] object-cover transition-transform duration-300 ease-in-out transform group-hover:scale-110 rounded-xl md:rounded-2xl border border-gray-100"
                                         alt={`${city.title} Image`}
                                         loading="lazy"
                                         sizes="(max-width: 1200px) 200px, (min-width: 1200px) 200px"
                                     />
-                                    <div className="absolute z-60 flex items-center justify-center top-0 w-full h-full rounded-xl md:rounded-2xl py-5 bg-white/30 backdrop-blur-xl group-hover:backdrop-blur-none group-hover:bg-transparent text-xl font-semibold text-center text-white"
-                                    >
+                                    <div className="absolute z-60 flex items-center justify-center top-0 w-full h-full rounded-xl md:rounded-2xl py-5 bg-white/30 backdrop-blur-xl group-hover:backdrop-blur-none group-hover:bg-transparent text-lg md:text-xl font-semibold text-center text-white">
                                         {city.title}
                                     </div>
                                 </div>

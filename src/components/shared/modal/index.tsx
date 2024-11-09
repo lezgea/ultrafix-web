@@ -12,15 +12,23 @@ export const Modal: React.FC<IModalProps> = (props) => {
 
     React.useEffect(() => {
         if (visible) {
-            document.body.classList.add('no-scroll');
+            const scrollY = window.scrollY;
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${scrollY}px`;
+            document.body.style.width = '100%';
         } else {
-            document.body.classList.remove('no-scroll');
+            const scrollY = document.body.style.top;
+            document.body.style.position = '';
+            document.body.style.top = '';
+            window.scrollTo(0, parseInt(scrollY || '0') * -1);
         }
 
         return () => {
-            document.body.classList.remove('no-scroll');
+            // document.body.style.position = '';
+            // document.body.style.top = '';
         };
     }, [visible]);
+
 
     const handleBackgroundClick = (e: React.MouseEvent<HTMLDivElement>) => {
         // Close the modal when clicking on the background (outside the modal content)
