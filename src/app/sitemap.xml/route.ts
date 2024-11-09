@@ -1,10 +1,10 @@
+// app/sitemap.xml/route.ts
+import { NextRequest, NextResponse } from 'next/server';
+import { SitemapStream, streamToPromise } from 'sitemap';
 import { CITIES, STATES_LIST } from 'constants/locations';
 import { COMMERCIAL_SERVICES_LIST, RESIDENCIAL_SERVICES_LIST } from 'constants/services';
-import { NextApiRequest, NextApiResponse } from 'next';
-import { SitemapStream, streamToPromise } from 'sitemap';
 
-
-const Sitemap = async (req: NextApiRequest, res: NextApiResponse) => {
+export async function GET(req: NextRequest) {
     const sitemap = new SitemapStream({ hostname: 'https://ultrafix.com/' });
 
     sitemap.write({ url: '/', lastmod: '2024-10-19', changefreq: 'weekly', priority: 1.0 });
@@ -15,7 +15,6 @@ const Sitemap = async (req: NextApiRequest, res: NextApiResponse) => {
     const residential_services = RESIDENCIAL_SERVICES_LIST.map(service => service.value);
     const commercial_services = COMMERCIAL_SERVICES_LIST.map(service => service.value);
 
-    // Generate URLs for each combination of state, city, and residential services
     states.forEach(state => {
         cities.forEach(city => {
             residential_services.forEach(service => {
@@ -26,7 +25,6 @@ const Sitemap = async (req: NextApiRequest, res: NextApiResponse) => {
                     priority: 0.7,
                 });
             });
-
             commercial_services.forEach(service => {
                 sitemap.write({
                     url: `/appliance-repair/${state}/${city}/commercial/${service}/`,
@@ -38,7 +36,6 @@ const Sitemap = async (req: NextApiRequest, res: NextApiResponse) => {
         });
     });
 
-    // Generate URLs for all residential services
     residential_services.forEach(service => {
         sitemap.write({
             url: `/appliance-services/residential/${service}/`,
@@ -48,7 +45,6 @@ const Sitemap = async (req: NextApiRequest, res: NextApiResponse) => {
         });
     });
 
-    // Generate URLs for all commercial services
     commercial_services.forEach(service => {
         sitemap.write({
             url: `/appliance-services/commercial/${service}/`,
@@ -62,9 +58,9 @@ const Sitemap = async (req: NextApiRequest, res: NextApiResponse) => {
 
     const xml = await streamToPromise(sitemap).then(data => data.toString());
 
-    res.setHeader('Content-Type', 'application/xml');
-    res.write(xml);
-    res.end();
-};
-
-export default Sitemap;
+    return new NextResponse(xml, {
+        headers: {
+            'Content-Type': 'application/xml',
+        },
+    });
+}
