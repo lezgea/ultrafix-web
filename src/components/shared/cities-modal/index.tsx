@@ -3,6 +3,7 @@ import { Modal } from '../modal';
 import { STATES } from 'constants/locations';
 import Image from 'next/image';
 import Link from 'next/link';
+import { CloseIcon } from '@assets/icons';
 
 
 interface ICitiesModalProps {
@@ -41,6 +42,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
         <div className="flex relative flex-col md:max-w-[80vw] max-h-[90vh] rounded-lg overflow-hidden space-y-5 text-center">
             <div className="z-50 backdrop-blur-xl flex items-center justify-center bg-white/60 absolute w-full py-2 md:py-3">
                 <h2 className="text-lg md:text-2xl text-gray-500 mt-3">Our Locations in <strong className="font-medium">{STATES[stateKey][0]?.state}</strong></h2>
+                <div className="z-200 absolute top-5 right-5 cursor-pointer hover:text-primary" onClick={onClose}><CloseIcon /></div>
             </div>
             <div className="w-full columns-2 lg:columns-3 p-7 pt-[50px] md:pt-[60px] md:p-7 overflow-y-scroll">
                 {

@@ -10,6 +10,18 @@ interface IModalProps {
 export const Modal: React.FC<IModalProps> = (props) => {
     let { visible, content, onClose } = props;
 
+    React.useEffect(() => {
+        if (visible) {
+            document.body.classList.add('no-scroll');
+        } else {
+            document.body.classList.remove('no-scroll');
+        }
+
+        return () => {
+            document.body.classList.remove('no-scroll');
+        };
+    }, [visible]);
+
     const handleBackgroundClick = (e: React.MouseEvent<HTMLDivElement>) => {
         // Close the modal when clicking on the background (outside the modal content)
         if (e.target === e.currentTarget) {
