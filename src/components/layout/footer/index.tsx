@@ -42,15 +42,13 @@ export const Footer: React.FC = () => {
                     </div>
                     <div className="space-y-6">
                         <h2 className="font-semibold">Company</h2>
-                        <ul className="flex flex-wrap text-sm text-start font-light gap-4">
+                        <ul className="flex flex-wrap text-sm text-center md:text-start font-light gap-4">
                             <li className="w-[40%] cursor-pointer hover:text-primary ml-5 md:ml-0" onClick={() => handleScroll('res_services')}>Residential</li>
                             <li className="w-[40%] cursor-pointer hover:text-primary ml-5 md:ml-0" onClick={() => handleScroll('com_services')}>Commercial</li>
                             <li className="w-[40%] cursor-pointer hover:text-primary ml-5 md:ml-0" onClick={() => handleScroll('about_us')}>About Us</li>
                             <li className="w-[40%] cursor-pointer hover:text-primary ml-5 md:ml-0" onClick={() => handleScroll('brands')}>Brands</li>
                             <li className="w-[40%] cursor-pointer hover:text-primary ml-5 md:ml-0" onClick={() => handleScroll('reviews')}>Reviews</li>
                             <li className="w-[40%] cursor-pointer hover:text-primary ml-5 md:ml-0" onClick={() => handleScroll('why_us')}>Why Us</li>
-                            <li className="w-[40%] cursor-pointer hover:text-primary ml-5 md:ml-0" onClick={() => setShowTerms(true)}>Terms & Conditions</li>
-                            <li className="w-[40%] cursor-pointer hover:text-primary ml-5 md:ml-0" onClick={() => setShowPrivacy(true)}>Privacy Policy</li>
                             <li className="w-[40%] cursor-pointer hover:text-primary ml-5 md:ml-0">
                                 <Link href="/faq">
                                     FAQ
@@ -103,7 +101,14 @@ export const Footer: React.FC = () => {
                 </section>
 
                 <section className="flex flex-col items-center gap-10 md:flex-row md:justify-between">
-                    <span className="text-white">UltraFix Appliance Repair, LLC</span>
+                    <div className="flex flex-col space-y-2 items-center md:items-start mt-10 md:mt-5">
+                        <span className="text-white text-lg">UltraFix Appliance Repair, LLC</span>
+                        <div className="text-white text-md font-thin">
+                            <span className="cursor-pointer hover:text-primary hover:underline" onClick={() => setShowTerms(true)}>Terms & Conditions</span>
+                            <span className="text-sm"> and </span>
+                            <span className="cursor-pointer hover:text-primary hover:underline" onClick={() => setShowPrivacy(true)}>Privacy Policy</span>
+                        </div>
+                    </div>
                     <div className="flex space-x-5 justify-center">
                         <Link href="https://www.instagram.com/ultrafixappliancerepair/" className="text-gray-400 hover:text-gray-900 dark:hover:text-white">
                             <InstagramIcon className="w-[30px] h-[30px]" />
