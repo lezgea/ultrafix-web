@@ -167,17 +167,21 @@ body {
     height: 100%;
 }
 
-.group:active {
-    /* border-radius: inherit !important; */
-    /* This ensures the border-radius is maintained */
-}
-
 .group:active img {
     transform: none !important;
 }
 
 .group {
-    will-change: transform, backdrop-filter;
+    will-change: transform;
+}
+
+@media not all and (min-resolution:.001dpcm) {
+
+    /* Safari specific styles */
+    .group {
+        will-change: transform;
+        /* Apply only transform in Safari */
+    }
 }
 
 @keyframes callButtonAnimation {
