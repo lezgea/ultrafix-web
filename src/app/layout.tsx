@@ -6,6 +6,7 @@ import ToastProvider from "@providers/toast-provider";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import '../styles/global.css';
 import { FAQ_LIST } from "constants/faq";
+import { SCHEMA_IMAGES } from "constants/schemas";
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({ subsets: ["latin"], weight: ["200", "300", "400", "500", "600", "700", "800", "900"] });
@@ -140,6 +141,24 @@ export default function RootLayout({
             })
           }}
         />
+
+        {/* JSON-LD Schema Markup for Images */}
+        {
+          SCHEMA_IMAGES.map(item => (
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "ImageObject",
+                  "contentUrl": item.url,
+                  "name": item.name,
+                  "description": item.description
+                })
+              }}
+            />
+          ))
+        }
       </head>
       <body className={`${inter.className} ${poppins.className}`}>
         <ReduxProvider>
