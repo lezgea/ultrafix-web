@@ -5,6 +5,7 @@ import ToastProvider from "@providers/toast-provider";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import '../styles/global.css';
+import { FAQ_LIST } from "constants/faq";
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({ subsets: ["latin"], weight: ["200", "300", "400", "500", "600", "700", "800", "900"] });
@@ -23,7 +24,7 @@ export default function RootLayout({
         {/* Link to the favicon */}
         <link rel="icon" href="/favicon.ico" />
         <link rel="preload" href="/img/houston_car.webp" as="image" />
-        {/* JSON-LD Schema Markup */}
+        {/* JSON-LD Schema Markup for Organization */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -70,6 +71,71 @@ export default function RootLayout({
                   "name": "Jane Smith",
                   "jobTitle": "Technician"
                 }
+              ]
+            })
+          }}
+        />
+
+        {/* JSON-LD Schema Markup for LocalBusiness */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "UltraFix Appliance Repair",
+              "image": "https://ultrafix.com/logo.png",
+              "url": "https://ultrafix.com",
+              "telephone": "+1(888) 998-6263",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "31602 Roldan Ln",
+                "addressLocality": "Fulshear",
+                "addressRegion": "TX",
+                "postalCode": "77441",
+                "addressCountry": "US"
+              },
+              "sameAs": [
+                "https://www.facebook.com/UltraFixApplianceRepair",
+                "https://twitter.com/ultrafix",
+                "https://www.linkedin.com/company/ultrafix-appliance-repair",
+                "https://www.instagram.com/ultrafixappliances"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+1(888) 998-6263",
+                "contactType": "Customer Service",
+                "areaServed": "US",
+                "availableLanguage": "English"
+              },
+              "openingHours": "Mo-Su 09:00-18:00",
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 29.6351,
+                "longitude": -95.8100
+              },
+              "priceRange": "$$",
+              "description": "UltraFix Appliance Repair provides high-quality appliance repair services in Fulshear, TX, with experienced technicians ready to fix your home appliances quickly and affordably."
+            })
+          }}
+        />
+
+        {/* JSON-LD Schema Markup for FAQ */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                ...FAQ_LIST.map(item => ({
+                  "@type": "Question",
+                  "name": item.title,
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": item.value
+                  }
+                }))
               ]
             })
           }}
