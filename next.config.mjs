@@ -12,16 +12,16 @@ const nextConfig = {
     sassOptions: {
         includePaths: [path.join(__dirname, 'src/styles')],
     },
-    // images: {
-    //     remotePatterns: [
-    //         {
-    //             protocol: 'https',
-    //             hostname: 'ultrafix.com', // Replace with your image host domain
-    //             port: '',
-    //             pathname: '/**',
-    //         },
-    //     ],
-    // },
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'ultrafix.com', // Replace with your image host domain
+                port: '',
+                pathname: '/**',
+            },
+        ],
+    },
     webpack(config) {
         config.module.rules.push({
             test: /\.svg$/,
