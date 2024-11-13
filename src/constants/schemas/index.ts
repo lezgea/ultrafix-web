@@ -112,3 +112,67 @@ export const SCHEMA_IMAGES = [
         description: "Image of a Commercial Freezer representing UltraFix's Commercial Freezer repair services",
     },
 ]
+
+
+export const SCHEMA_SERVICES = [
+    {
+        name: 'Residential Refrigerator Repair',
+        url: 'https://ultrafix.com/appliance-services/residential/refrigerator-repair',
+    },
+    {
+        name: 'Residential Ice Machine Repair',
+        url: 'https://ultrafix.com/appliance-services/residential/ice-machine-repair',
+    },
+    {
+        name: 'Residential Washer Repair',
+        url: 'https://ultrafix.com/appliance-services/residential/washer-repair',
+    },
+    {
+        name: 'Residential Dryer Repair',
+        url: 'https://ultrafix.com/appliance-services/residential/dryer-repair',
+    },
+    {
+        name: 'Residential Dishwasher Repair',
+        url: 'https://ultrafix.com/appliance-services/residential/dishwasher-repair',
+    },
+    {
+        name: 'Residential Oven Repair',
+        url: 'https://ultrafix.com/appliance-services/residential/oven-repair',
+    },
+    {
+        name: 'Residential Cooktop Repair',
+        url: 'https://ultrafix.com/appliance-services/residential/cooktop-repair',
+    },
+    {
+        name: 'Residential Microwave Repair',
+        url: 'https://ultrafix.com/appliance-services/residential/microwave-repair',
+    },
+    {
+        name: 'Residential Wine Cooler Repair',
+        url: 'https://ultrafix.com/appliance-services/residential/wine-cooler-repair',
+    },
+    {
+        name: 'Residential Freezer Repair',
+        url: 'https://ultrafix.com/appliance-services/residential/freezer-repair',
+    },
+    {
+        name: 'Residential Vent Hood Repair',
+        url: 'https://ultrafix.com/appliance-services/residential/vent-hood-repair',
+    },
+    {
+        name: 'Residential Garbage Disposal Repair',
+        url: 'https://ultrafix.com/appliance-services/residential/garbage-disposal-repair',
+    },
+    {
+        name: 'Commercial Refrigerator Repair',
+        url: 'https://ultrafix.com/appliance-services/commercial/refrigerator-repair',
+    },
+    {
+        name: 'Commercial Ice Machine Repair',
+        url: 'https://ultrafix.com/appliance-services/commercial/ice-machine-repair',
+    },
+    {
+        name: 'Commercial Freezer Repair',
+        url: 'https://ultrafix.com/appliance-services/commercial/freezer-repair',
+    },
+]

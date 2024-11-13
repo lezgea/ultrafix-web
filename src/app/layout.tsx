@@ -159,6 +159,69 @@ export default function RootLayout({
             />
           ))
         }
+
+        {/* JSON-LD Schema Markup for Services */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "serviceType": "Appliance Repair",
+              "provider": {
+                "@type": "Organization",
+                "name": "UltraFix Appliance Repair",
+                "url": "https://ultrafix.com"
+              },
+              "description": "Professional appliance repair services, including washer repair, refrigerator repair, and more.",
+              "offers": [
+                {
+                  "@type": "Offer",
+                  "url": "https://ultrafix.com/appliance-services/residential/refrigerator-repair",
+                  "name": "Residential Refrigerator Repair",
+                  "eligibleRegion": {
+                    "@type": "Place",
+                    "name": "United States"
+                  },
+                  "availability": "https://schema.org/InStock",
+                  "validFrom": "2024-11-13"
+                },
+                {
+                  "@type": "Offer",
+                  "url": "https://ultrafix.com/appliance-services/residential/ice-machine-repair",
+                  "name": "Residential Ice Machine Repair",
+                  "eligibleRegion": {
+                    "@type": "Place",
+                    "name": "United States"
+                  },
+                  "availability": "https://schema.org/InStock",
+                  "validFrom": "2024-11-13"
+                },
+                {
+                  "@type": "Offer",
+                  "url": "https://ultrafix.com/appliance-services/residential/washer-repair",
+                  "name": "Residential Washer Repair",
+                  "eligibleRegion": {
+                    "@type": "Place",
+                    "name": "United States"
+                  },
+                  "availability": "https://schema.org/InStock",
+                  "validFrom": "2024-11-13"
+                }
+              ],
+              "areaServed": {
+                "@type": "Place",
+                "name": "United States"
+              },
+              "category": [
+                "Residential Refrigerator Repair",
+                "Residential Ice Machine Repair",
+                "Residential Washer Repair"
+              ]
+            })
+          }}
+        />
+
       </head>
       <body className={`${inter.className} ${poppins.className}`}>
         <ReduxProvider>
