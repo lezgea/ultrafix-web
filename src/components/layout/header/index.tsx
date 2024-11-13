@@ -44,7 +44,7 @@ export const Header: React.FC = () => {
                 {
                     item.id === 'services'
                         ?
-                        <Dropdown content={<ServicesDropdownContent />}>
+                        <Dropdown content={<ServicesDropdownContent onClose={() => setSidebarOpen(false)} />}>
                             <div className="relative flex items-center space-x-3 cursor-pointer">
                                 {(item.id === selectedId) && (
                                     <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
@@ -149,13 +149,18 @@ export const Header: React.FC = () => {
 };
 
 
-interface IServicesDropdownContentProps { }
+interface IServicesDropdownContentProps {
+    onClose: () => void,
+}
 
 const ServicesDropdownContent: React.FC<IServicesDropdownContentProps> = (props) => {
+    let { onClose } = props;
+
     const handleScroll = (sectionId: string) => {
         const section = document.getElementById(sectionId);
         if (section) {
             section.scrollIntoView({ behavior: 'smooth' });
+            onClose();
         }
     };
 
