@@ -6,7 +6,7 @@ import ToastProvider from "@providers/toast-provider";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import '../styles/global.css';
 import { FAQ_LIST } from "constants/faq";
-import { SCHEMA_IMAGES } from "constants/schemas";
+import { SCHEMA_IMAGES, SCHEMA_SERVICES } from "constants/schemas";
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({ subsets: ["latin"], weight: ["200", "300", "400", "500", "600", "700", "800", "900"] });
@@ -175,48 +175,24 @@ export default function RootLayout({
               },
               "description": "Professional appliance repair services, including washer repair, refrigerator repair, and more.",
               "offers": [
-                {
+                ...SCHEMA_SERVICES.map(item => ({
                   "@type": "Offer",
-                  "url": "https://ultrafix.com/appliance-services/residential/refrigerator-repair",
-                  "name": "Residential Refrigerator Repair",
+                  "url": item.url,
+                  "name": item.name,
                   "eligibleRegion": {
                     "@type": "Place",
                     "name": "United States"
                   },
                   "availability": "https://schema.org/InStock",
                   "validFrom": "2024-11-13"
-                },
-                {
-                  "@type": "Offer",
-                  "url": "https://ultrafix.com/appliance-services/residential/ice-machine-repair",
-                  "name": "Residential Ice Machine Repair",
-                  "eligibleRegion": {
-                    "@type": "Place",
-                    "name": "United States"
-                  },
-                  "availability": "https://schema.org/InStock",
-                  "validFrom": "2024-11-13"
-                },
-                {
-                  "@type": "Offer",
-                  "url": "https://ultrafix.com/appliance-services/residential/washer-repair",
-                  "name": "Residential Washer Repair",
-                  "eligibleRegion": {
-                    "@type": "Place",
-                    "name": "United States"
-                  },
-                  "availability": "https://schema.org/InStock",
-                  "validFrom": "2024-11-13"
-                }
+                }))
               ],
               "areaServed": {
                 "@type": "Place",
                 "name": "United States"
               },
               "category": [
-                "Residential Refrigerator Repair",
-                "Residential Ice Machine Repair",
-                "Residential Washer Repair"
+                ...SCHEMA_SERVICES.map(item => item.name)
               ]
             })
           }}
