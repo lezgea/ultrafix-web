@@ -8,7 +8,6 @@ import '../styles/global.css';
 import { FAQ_LIST } from "constants/faq";
 import { SCHEMA_IMAGES, SCHEMA_SERVICES } from "constants/schemas";
 
-const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({ subsets: ["latin"], weight: ["200", "300", "400", "500", "600", "700", "800", "900"] });
 
 
@@ -249,7 +248,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} ${poppins.className}`}>
+      <body className={`${poppins.className}`}>
         <ReduxProvider>
           <ToastProvider>
             <Header />
