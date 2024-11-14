@@ -198,6 +198,56 @@ export default function RootLayout({
           }}
         />
 
+        {/* JSON-LD Schema Markup for Places */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Place",
+              "name": "UltraFix Appliance Repair Location",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "31602 Roldan Ln",
+                "addressLocality": "Fulshear",
+                "addressRegion": "TX",
+                "postalCode": "77441",
+                "addressCountry": "US"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 29.6351,
+                "longitude": -95.8100
+              },
+              "description": "UltraFix Appliance Repair main service location in Fulshear, TX. Providing quality appliance repair services."
+            })
+          }}
+        />
+
+        {/* JSON-LD Schema Markup for Reviews */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Review",
+              "itemReviewed": {
+                "@type": "LocalBusiness",
+                "name": "UltraFix Appliance Repair LLC"
+              },
+              "author": {
+                "@type": "Person",
+                "name": "John Doe"
+              },
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5",
+                "bestRating": "5"
+              },
+              "reviewBody": "UltraFix provided excellent service. The technician was professional, on time, and fixed our washer quickly. Highly recommended!"
+            })
+          }}
+        />
       </head>
       <body className={`${inter.className} ${poppins.className}`}>
         <ReduxProvider>
