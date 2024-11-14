@@ -95,7 +95,13 @@ const ServiceDetailPage = ({ params }: ServiceProps) => {
                     width: 800,
                     height: 600,
                     alt: 'UltraFix Appliance Repair',
-                    url: `https://ultrafix.com/_next/image?url=%2Fassets%2Fmock_images%2Fabout_us_media.png&w=1920&q=75`,
+                    url: `/img/services/residential/${RESIDENTIAL_SERVICES[serviceKey].value}.webp`,
+                },
+                {
+                    width: 1200,
+                    height: 630,
+                    alt: 'Feature Image for Appliance Repair Service',
+                    url: `/img/services/residential/${RESIDENTIAL_SERVICES[serviceKey].value}.webp`,
                 },
             ],
             locale: 'en_US',
@@ -105,7 +111,7 @@ const ServiceDetailPage = ({ params }: ServiceProps) => {
             title: 'UltraFix Appliance Repair LLC',
             card: 'summary_large_image',
             description: "Client satisfaction is at the forefront of our minds at UltraFix Appliance Repair Service. Our business model is built on respect, promptness, honesty, and taking pride in our work. When you choose us for your appliance repair, you learn how closely we hold to these values.",
-            images: [`https://ultrafix.com/_next/image?url=%2Fassets%2Fmock_images%2Fabout_us_media.png&w=1920&q=75`],
+            images: [`/img/services/residential/${RESIDENTIAL_SERVICES[serviceKey].value}.webp`],
         },
         alternates: {
             canonical: `https://ultrafix.com/`,
@@ -128,25 +134,25 @@ const ServiceDetailPage = ({ params }: ServiceProps) => {
         document.head.appendChild(metaKeywords);
 
         // Open Graph meta tags
-        // const metaOpenGraphTitle = document.createElement('meta');
-        // metaOpenGraphTitle.property = 'og:title';
-        // metaOpenGraphTitle.content = metadata.openGraph.title;
-        // document.head.appendChild(metaOpenGraphTitle);
+        const metaOgTitle = document.createElement('meta');
+        metaOgTitle.setAttribute('property', 'og:title');
+        metaOgTitle.content = metadata.openGraph.title;
+        document.head.appendChild(metaOgTitle);
 
-        // const metaOpenGraphDescription = document.createElement('meta');
-        // metaOpenGraphDescription.property = 'og:description';
-        // metaOpenGraphDescription.content = metadata.openGraph.description;
-        // document.head.appendChild(metaOpenGraphDescription);
+        const metaOgDescription = document.createElement('meta');
+        metaOgDescription.setAttribute('property', 'og:description');
+        metaOgDescription.content = metadata.openGraph.description;
+        document.head.appendChild(metaOgDescription);
 
-        // const metaOpenGraphUrl = document.createElement('meta');
-        // metaOpenGraphUrl.property = 'og:url';
-        // metaOpenGraphUrl.content = metadata.openGraph.url;
-        // document.head.appendChild(metaOpenGraphUrl);
+        const metaOgImage = document.createElement('meta');
+        metaOgImage.setAttribute('property', 'og:image');
+        metaOgImage.content = metadata.openGraph.images[0].url;
+        document.head.appendChild(metaOgImage);
 
-        // const metaOpenGraphImage = document.createElement('meta');
-        // metaOpenGraphImage.property = 'og:image';
-        // metaOpenGraphImage.content = metadata.openGraph.images[0].url;
-        // document.head.appendChild(metaOpenGraphImage);
+        const metaOgUrl = document.createElement('meta');
+        metaOgUrl.setAttribute('property', 'og:url');
+        metaOgUrl.content = metadata.openGraph.url;
+        document.head.appendChild(metaOgUrl);
 
         // Twitter meta tags
         const metaTwitterTitle = document.createElement('meta');
@@ -168,10 +174,10 @@ const ServiceDetailPage = ({ params }: ServiceProps) => {
         return () => {
             document.head.removeChild(metaDescription);
             document.head.removeChild(metaKeywords);
-            // document.head.removeChild(metaOpenGraphTitle);
-            // document.head.removeChild(metaOpenGraphDescription);
-            // document.head.removeChild(metaOpenGraphUrl);
-            // document.head.removeChild(metaOpenGraphImage);
+            document.head.removeChild(metaOgTitle);
+            document.head.removeChild(metaOgDescription);
+            document.head.removeChild(metaOgImage);
+            document.head.removeChild(metaOgUrl);
             document.head.removeChild(metaTwitterTitle);
             document.head.removeChild(metaTwitterDescription);
             document.head.removeChild(metaTwitterImage);
