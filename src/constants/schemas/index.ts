@@ -4,14 +4,9 @@ export const SCHEMA_IMAGES = [
         url: 'https://ultrafix.com/logo.png',
         description: 'Logo of UltraFix Appliance Repair, a professional appliance repair service provider.',
     },
-    // {
-    //     name: 'Houston Car Image',
-    //     url: 'https://ultrafix.com/_next/image?url=%2Fimg%2Fcars%2Fmain_car.webp&w=1080&q=75',
-    //     description: "Image of a car representing UltraFix's appliance repair services in Houston.",
-    // },
     {
         name: 'Houston Car Image',
-        url: 'https://ultrafix.com/_next/image?url=%2Fimg%2Fservices%2Fresidential%2Frefrigerator.webp&w=1200&q=75',
+        url: 'https://ultrafix.com/_next/image?url=%2Fimg%2Fcars%2Fmain_car.webp&w=1080&q=75',
         description: "Image of a car representing UltraFix's appliance repair services in Houston.",
     },
     {

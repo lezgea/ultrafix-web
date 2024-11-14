@@ -24,7 +24,7 @@ export default function RootLayout({
       <head>
         {/* Link to the favicon */}
         <link rel="icon" href="/favicon.ico" />
-        <link rel="preload" href="/img/houston_car.webp" as="image" />
+        {/* <link rel="preload" href="/img/houston_car.webp" as="image" /> */}
         {/* JSON-LD Schema Markup for Organization */}
         <script
           type="application/ld+json"
