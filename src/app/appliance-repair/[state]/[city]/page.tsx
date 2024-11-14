@@ -137,6 +137,27 @@ const LocationPage: React.FC<ILocationProps> = ({ params }) => {
         metaKeywords.content = metadata.keywords.join(', ');
         document.head.appendChild(metaKeywords);
 
+        // Open Graph meta tags
+        const metaOgTitle = document.createElement('meta');
+        metaOgTitle.setAttribute('property', 'og:title');
+        metaOgTitle.content = metadata.openGraph.title;
+        document.head.appendChild(metaOgTitle);
+
+        const metaOgDescription = document.createElement('meta');
+        metaOgDescription.setAttribute('property', 'og:description');
+        metaOgDescription.content = metadata.openGraph.description;
+        document.head.appendChild(metaOgDescription);
+
+        const metaOgImage = document.createElement('meta');
+        metaOgImage.setAttribute('property', 'og:image');
+        metaOgImage.content = metadata.openGraph.images[0].url;
+        document.head.appendChild(metaOgImage);
+
+        const metaOgUrl = document.createElement('meta');
+        metaOgUrl.setAttribute('property', 'og:url');
+        metaOgUrl.content = metadata.openGraph.url;
+        document.head.appendChild(metaOgUrl);
+
         // Twitter meta tags
         const metaTwitterTitle = document.createElement('meta');
         metaTwitterTitle.name = 'twitter:title';
@@ -157,6 +178,10 @@ const LocationPage: React.FC<ILocationProps> = ({ params }) => {
         return () => {
             document.head.removeChild(metaDescription);
             document.head.removeChild(metaKeywords);
+            document.head.removeChild(metaOgTitle);
+            document.head.removeChild(metaOgDescription);
+            document.head.removeChild(metaOgImage);
+            document.head.removeChild(metaOgUrl);
             document.head.removeChild(metaTwitterTitle);
             document.head.removeChild(metaTwitterDescription);
             document.head.removeChild(metaTwitterImage);
