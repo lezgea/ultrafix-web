@@ -93,19 +93,19 @@ const LocationPage: React.FC<ILocationProps> = ({ params }) => {
             type: 'website',
             title: 'UltraFix Appliance Repair LLC',
             description: "Client satisfaction is at the forefront of our minds at UltraFix Appliance Repair Service. Our business model is built on respect, promptness, honesty, and taking pride in our work. When you choose us for your appliance repair, you learn how closely we hold to these values.",
-            url: `https://ultrafix.com/`,
+            url: `https://ultrafix.com/img/cities/${state}_${city}.jpeg`,
             images: [
                 {
                     width: 800,
                     height: 600,
                     alt: 'UltraFix Appliance Repair',
-                    url: `/img/cities/${state}_${city}.jpeg`,
+                    url: `https://ultrafix.com/img/cities/${state}_${city}.jpeg`,
                 },
                 {
                     width: 1200,
                     height: 630,
                     alt: 'Feature Image for Appliance Repair Service',
-                    url: `/img/cities/${state}_${city}.jpeg`,
+                    url: `https://ultrafix.com/img/cities/${state}_${city}.jpeg`,
                 },
             ],
             locale: 'en_US',
@@ -115,7 +115,7 @@ const LocationPage: React.FC<ILocationProps> = ({ params }) => {
             title: 'UltraFix Appliance Repair LLC',
             card: 'summary_large_image',
             description: "Client satisfaction is at the forefront of our minds at UltraFix Appliance Repair Service. Our business model is built on respect, promptness, honesty, and taking pride in our work. When you choose us for your appliance repair, you learn how closely we hold to these values.",
-            images: [`/img/cities/${state}_${city}.jpeg`],
+            images: [`https://ultrafix.com/img/cities/${state}_${city}.jpeg`],
         },
         alternates: {
             canonical: `https://ultrafix.com/`,
