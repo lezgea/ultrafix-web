@@ -14,4 +14,4 @@ Allow: /img/
 Allow: /public/
 
 # Sitemap location
-Sitemap: https://ultrafix.com/api/sitemap.xml
+Sitemap: https://ultrafix.com/sitemap.xml
