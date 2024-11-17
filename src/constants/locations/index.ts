@@ -12,7 +12,7 @@ export const STATES_LIST = [
     { id: 9, title: 'Virginia', value: 'VA' },
     // { id: 10, title: 'North Carolina', value: 'NC' },
     { id: 11, title: 'New Jersey', value: 'NJ' },
-    { id: 11, title: 'New York', value: 'NY' },
+    { id: 12, title: 'New York', value: 'NY' },
 ]
 
 export const STATES = {
@@ -33,6 +33,7 @@ export const STATES = {
         { id: 'TX14', state: 'Texas', title: 'Cypress', value: 'cypress', img: '/img/cities/tx_cypress.jpg' },
         { id: 'TX15', state: 'Texas', title: 'Richmond', value: 'richmond', img: '/img/cities/tx_richmond.jpeg' },
         { id: 'TX16', state: 'Texas', title: 'Irving', value: 'irving', img: '/img/cities/tx_irving.jpg' },
+        { id: 'TX17', state: 'Texas', title: 'Richardson', value: 'richardson', img: '/img/cities/tx_richardson.jpeg' },
     ],
     // CA: [
     //     { id: 'CA1', state: 'California', title: 'Sacramento', value: 'sacramento' },
@@ -49,10 +50,12 @@ export const STATES = {
     // ],
     IL: [
         { id: 'IL1', state: 'Illinois', title: 'Chicago', value: 'chicago', img: '/img/cities/il_chicago.jpeg' },
+        { id: 'IL2', state: 'Illinois', title: 'Naperville', value: 'naperville', img: '/img/cities/il_naperville.jpeg' },
     ],
     PA: [
         { id: 'PA1', state: 'Pennsylvania', title: 'Philadelphia', value: 'philadelphia', img: '/img/cities/pa_philadelphia.jpeg' },
         { id: 'PA2', state: 'Pennsylvania', title: 'Pittsburgh', value: 'pittsburgh', img: '/img/cities/pa_pittsburgh.jpeg' },
+        { id: 'PA3', state: 'Pennsylvania', title: 'Cranberry Twp', value: 'cranberry', img: '/img/cities/pa_cranberry.jpeg' },
     ],
     // MD: [
     //     { id: 'MD1', state: 'Maryland', title: 'Baltimore', value: 'baltimore' },
@@ -71,7 +74,10 @@ export const STATES = {
     //     { id: 'NC1', state: 'North Carolina', title: 'Charlotte', value: 'charlotte' },
     // ],
     NJ: [
-        { id: 'NJ1', state: 'New Jersey', title: 'Livingston', value: 'livingston' },
+        { id: 'NJ1', state: 'New Jersey', title: 'Livingston', value: 'livingston', img: '/img/cities/nj_livingston.jpeg' },
+    ],
+    NY: [
+        { id: 'NY1', state: 'New York', title: 'Hempstead', value: 'hempstead', img: '/img/cities/ny_hempstead.jpeg' },
     ],
 }
 
@@ -229,6 +235,25 @@ export const CITIES = {
             { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
         ]
     },
+    il_naperville: {
+        id: 'IL2',
+        stateShort: 'IL',
+        state: 'Illinois',
+        title: 'Naperville',
+        value: 'naperville',
+        abbreviation: 'naperville-il',
+        address: '1509 Waukegan Rd #1169, Glenview, IL 60025',
+        phone: '(224) 998-0811',
+        days: 'Monday - Saturday',
+        hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/il_naperville_car.webp',
+        mapUrl: '/img/maps/il_naperville_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
+    },
     ma_boston: {
         id: 'MA1',
         stateShort: 'MA',
@@ -318,6 +343,25 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/pa_pittsburgh_car.webp',
         mapUrl: '/img/maps/pa_pittsburgh_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
+    },
+    pa_cranberry: {
+        id: 'PA3',
+        stateShort: 'PA',
+        state: 'Pennsylvania',
+        title: 'Cranberry',
+        value: 'cranberry',
+        abbreviation: 'cranberry-pa',
+        address: '2515 Banksville Road #1049 Pittsburgh, PA 15216',
+        phone: '(412) 420-6315',
+        days: 'Monday - Saturday',
+        hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/pa_cranberry_car.webp',
+        mapUrl: '/img/maps/pa_cranberry_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
             { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
@@ -628,6 +672,25 @@ export const CITIES = {
             { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
         ]
     },
+    tx_richardson: {
+        id: 'TX17',
+        stateShort: 'TX',
+        state: 'Texas',
+        title: 'Richardson',
+        value: 'richardson',
+        abbreviation: 'richardson-tx',
+        address: '4157 W Northgate Dr #1002, Irving, TX 75062',
+        phone: '(469) 613-3397',
+        days: 'Monday - Saturday',
+        hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/tx_richardson_car.webp',
+        mapUrl: '/img/maps/tx_richardson_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
+    },
     va_alexandria: {
         id: 'VA1',
         stateShort: 'VA',
@@ -688,7 +751,7 @@ export const CITIES = {
     nj_livingston: {
         id: 'NJ1',
         stateShort: 'NJ',
-        state: 'North Carolina',
+        state: 'New Jersey',
         title: 'Livingston',
         value: 'livingston',
         abbreviation: 'livingston-nj',
@@ -698,6 +761,25 @@ export const CITIES = {
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/nj_livingston_car.webp',
         mapUrl: '/img/maps/nj_livingston_map.webp',
+        employees: [
+            { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
+            { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
+            { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
+        ]
+    },
+    ny_hempstead: {
+        id: 'NY1',
+        stateShort: 'NY',
+        state: 'New York',
+        title: 'Hempstead',
+        value: 'hempstead',
+        abbreviation: 'hempstead-ny',
+        address: '506 W. Mt. Pleasant Ave #3433 Livingston, NJ 07039',
+        phone: '(862) 343-5590',
+        days: 'Monday - Saturday',
+        hours: '07:00 am - 08:00 pm',
+        carUrl: '/img/cars/ny_hempstead_car.webp',
+        mapUrl: '/img/maps/ny_hempstead_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
             { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
