@@ -45,7 +45,7 @@ export const BrandsSection: React.FC = () => {
                                 width={1200} // Adjust width and height based on your layout
                                 height={400}
                                 className="w-auto h-auto"
-                                alt={alt}
+                                 alt={alt}
                                 loading="lazy"
                                 sizes="(max-width: 1200px) 100vw, 1000px"
                             />
