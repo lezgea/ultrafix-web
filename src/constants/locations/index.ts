@@ -11,7 +11,8 @@ export const STATES_LIST = [
     { id: 8, title: 'Massachusetts', value: 'MA' },
     { id: 9, title: 'Virginia', value: 'VA' },
     // { id: 10, title: 'North Carolina', value: 'NC' },
-    // { id: 11, title: 'New Jersey', value: 'NJ' },
+    { id: 11, title: 'New Jersey', value: 'NJ' },
+    { id: 11, title: 'New York', value: 'NY' },
 ]
 
 export const STATES = {
@@ -69,9 +70,9 @@ export const STATES = {
     // NC: [
     //     { id: 'NC1', state: 'North Carolina', title: 'Charlotte', value: 'charlotte' },
     // ],
-    // NJ: [
-    //     { id: 'NJ1', state: 'New Jersey', title: 'Livingston', value: 'livingston' },
-    // ],
+    NJ: [
+        { id: 'NJ1', state: 'New Jersey', title: 'Livingston', value: 'livingston' },
+    ],
 }
 
 
