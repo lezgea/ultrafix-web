@@ -49,7 +49,7 @@ export const STATES = {
     //     { id: 'GA1', state: 'Georgia', title: 'Atlanta', value: 'atlanta' },
     // ],
     IL: [
-        { id: 'IL1', state: 'Illinois', title: 'Chicago', value: 'chicago', img: '/img/cities/il_chicago.jpeg' },
+        { id: 'IL1', state: 'Illinois', title: 'Glenview', value: 'glenview', img: '/img/cities/il_glenview.jpg' },
         { id: 'IL2', state: 'Illinois', title: 'Naperville', value: 'naperville', img: '/img/cities/il_naperville.jpeg' },
     ],
     PA: [
@@ -216,19 +216,19 @@ export const CITIES = {
             { id: 3, name: 'Farr', image: '/img/employees/employee3.webp' },
         ]
     },
-    il_chicago: {
+    il_glenview: {
         id: 'IL1',
         stateShort: 'IL',
         state: 'Illinois',
-        title: 'Chicago',
-        value: 'chicago',
-        abbreviation: 'chicago-il',
+        title: 'Glenview',
+        value: 'glenview',
+        abbreviation: 'glenview-il',
         address: '1509 Waukegan Rd #1169, Glenview, IL 60025',
         phone: '(224) 998-0811',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/il_chicago_car.webp',
-        mapUrl: '/img/maps/il_chicago_map.webp',
+        carUrl: '/img/cars/il_glenview_car.webp',
+        mapUrl: '/img/maps/il_glenview_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
             { id: 2, name: 'Oreck', image: '/img/employees/employee2.webp' },
