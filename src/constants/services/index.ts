@@ -410,54 +410,54 @@ export const RESIDENTIAL_SERVICES = {
             'garbage disposal service near me',
         ],
     },
-    "stove-repair": {
-        id: 13,
-        title: 'Stove',
-        value: 'stove',
-        link: 'stove-repair',
-        price: '145 - 285',
-        subTitle: 'No More Kitchen Hassles! Choose UltraFix for Stove Solutions.',
-        description:
-            "At UltraFix Appliance Repair, we specialize in swift and reliable Stove services that ensure your kitchen stays " +
-            "in top-notch shape. Is your disposal unit making strange noises or failing to function properly? Don't let the inconvenience linger " +
-            "any longer! Our expert technicians are just a phone call away, ready to swiftly diagnose and fix any issues. We offer same-day service," +
-            " so you can get back to a hassle-free kitchen experience ASAP. Say goodbye to kitchen troubles and hello to seamless disposal " +
-            "performance! Call us now at (888) 998-6263 to schedule your Garbage Disposal Repair and enjoy a trouble-free kitchen today. Your " +
-            "satisfaction is our priority!",
-        note:
-            'If we are unable to complete a stove repair on the first visit, we can order part to get the job done.',
-        keywords: [
-            'stove repair',
-            'stove repair near me',
-            'stove repair service',
-            'stove service',
-            'stove service near me',
-        ],
-    },
-    "range-repair": {
-        id: 13,
-        title: 'Range',
-        value: 'range',
-        link: 'range-repair',
-        price: '145 - 285',
-        subTitle: 'No More Kitchen Hassles! Choose UltraFix for Range Solutions.',
-        description:
-            "At UltraFix Appliance Repair, we specialize in swift and reliable Range services that ensure your kitchen stays " +
-            "in top-notch shape. Is your disposal unit making strange noises or failing to function properly? Don't let the inconvenience linger " +
-            "any longer! Our expert technicians are just a phone call away, ready to swiftly diagnose and fix any issues. We offer same-day service," +
-            " so you can get back to a hassle-free kitchen experience ASAP. Say goodbye to kitchen troubles and hello to seamless disposal " +
-            "performance! Call us now at (888) 998-6263 to schedule your Garbage Disposal Repair and enjoy a trouble-free kitchen today. Your " +
-            "satisfaction is our priority!",
-        note:
-            'If we are unable to complete a stove repair on the first visit, we can order part to get the job done.',
-        keywords: [
-            'range repair',
-            'range repair near me',
-            'range repair service',
-            'range service',
-            'range service near me',
-        ],
-    },
+    // "stove-repair": {
+    //     id: 13,
+    //     title: 'Stove',
+    //     value: 'stove',
+    //     link: 'stove-repair',
+    //     price: '145 - 285',
+    //     subTitle: 'No More Kitchen Hassles! Choose UltraFix for Stove Solutions.',
+    //     description:
+    //         "At UltraFix Appliance Repair, we specialize in swift and reliable Stove services that ensure your kitchen stays " +
+    //         "in top-notch shape. Is your disposal unit making strange noises or failing to function properly? Don't let the inconvenience linger " +
+    //         "any longer! Our expert technicians are just a phone call away, ready to swiftly diagnose and fix any issues. We offer same-day service," +
+    //         " so you can get back to a hassle-free kitchen experience ASAP. Say goodbye to kitchen troubles and hello to seamless disposal " +
+    //         "performance! Call us now at (888) 998-6263 to schedule your Garbage Disposal Repair and enjoy a trouble-free kitchen today. Your " +
+    //         "satisfaction is our priority!",
+    //     note:
+    //         'If we are unable to complete a stove repair on the first visit, we can order part to get the job done.',
+    //     keywords: [
+    //         'stove repair',
+    //         'stove repair near me',
+    //         'stove repair service',
+    //         'stove service',
+    //         'stove service near me',
+    //     ],
+    // },
+    // "range-repair": {
+    //     id: 13,
+    //     title: 'Range',
+    //     value: 'range',
+    //     link: 'range-repair',
+    //     price: '145 - 285',
+    //     subTitle: 'No More Kitchen Hassles! Choose UltraFix for Range Solutions.',
+    //     description:
+    //         "At UltraFix Appliance Repair, we specialize in swift and reliable Range services that ensure your kitchen stays " +
+    //         "in top-notch shape. Is your disposal unit making strange noises or failing to function properly? Don't let the inconvenience linger " +
+    //         "any longer! Our expert technicians are just a phone call away, ready to swiftly diagnose and fix any issues. We offer same-day service," +
+    //         " so you can get back to a hassle-free kitchen experience ASAP. Say goodbye to kitchen troubles and hello to seamless disposal " +
+    //         "performance! Call us now at (888) 998-6263 to schedule your Garbage Disposal Repair and enjoy a trouble-free kitchen today. Your " +
+    //         "satisfaction is our priority!",
+    //     note:
+    //         'If we are unable to complete a stove repair on the first visit, we can order part to get the job done.',
+    //     keywords: [
+    //         'range repair',
+    //         'range repair near me',
+    //         'range repair service',
+    //         'range service',
+    //         'range service near me',
+    //     ],
+    // },
 }
 
 
