@@ -28,7 +28,7 @@ export const StateButton: React.FC<IStateProps> = (props) => {
             >
                 <MapIcon
                     value={value}
-                    className='fill-gray-400 group-hover:fill-white h-[100px] w-[100px] lg:h-[150px] lg:w-[150px] transform transition-transform duration-300 ease-in-out group-hover:scale-110 active:scale-100'
+                    className='fill-gray-400 group-hover:fill-white h-[100px] w-[100px] lg:h-[170px] lg:w-[170px] transform transition-transform duration-300 ease-in-out group-hover:scale-110 active:scale-100'
                 />
                 <span className='absolute bottom-0 bg-[#fff] text-sm lg:text-md lg:px-4 py-2 md:py-2 w-full text-gray-400 group-hover:text-primaryDark group-hover:font-medium'>{title}</span>
             </div>

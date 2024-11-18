@@ -27,7 +27,7 @@ export const LocationsSection: React.FC = () => {
                 transition={{ duration: 0.3 }}
                 className="flex justify-center"
             >
-                <div className='flex flex-wrap gap-4 md:gap-5 items-center justify-center lg:max-w-[80%]'>
+                <div className='flex flex-wrap gap-4 md:gap-5 items-center justify-center'>
                     {
                         STATES_LIST.map((item, i) =>
                             <MemoizedStateButton
