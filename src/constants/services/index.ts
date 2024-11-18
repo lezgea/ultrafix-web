@@ -71,18 +71,18 @@ export const RESIDENCIAL_SERVICES_LIST = [
         value: 'garbage_disposal',
         link: 'garbage-disposal-repair',
     },
-    {
-        id: 13,
-        title: 'Stove',
-        value: 'stove',
-        link: 'stove-repair',
-    },
-    {
-        id: 14,
-        title: 'Range',
-        value: 'range',
-        link: 'range-repair',
-    },
+    // {
+    //     id: 13,
+    //     title: 'Stove',
+    //     value: 'stove',
+    //     link: 'stove-repair',
+    // },
+    // {
+    //     id: 14,
+    //     title: 'Range',
+    //     value: 'range',
+    //     link: 'range-repair',
+    // },
 ];
 
 

@@ -1,4 +1,4 @@
-import { FLMapIcon, ILMapIcon, MAMapIcon, PAMapIcon, TXMapIcon, VAMapIcon } from '@assets/icons';
+import { FLMapIcon, ILMapIcon, MAMapIcon, NJMapIcon, NYMapIcon, PAMapIcon, TXMapIcon, VAMapIcon } from '@assets/icons';
 import React from 'react';
 
 
@@ -15,6 +15,8 @@ export const MapIcon: React.FC<IMapIconProps> = ({ value, className }) => {
         case 'FL': return <FLMapIcon className={className} />;
         case 'PA': return <PAMapIcon className={className} />;
         case 'VA': return <VAMapIcon className={className} />;
+        case 'NJ': return <NJMapIcon className={className} />;
+        case 'NY': return <NYMapIcon className={className} />;
         default: return null;
     }
 }

@@ -64,6 +64,8 @@ import ILMapIcon from './il_map.svg';
 import MAMapIcon from './ma_map.svg';
 import PAMapIcon from './pa_map.svg';
 import VAMapIcon from './va_map.svg';
+import NJMapIcon from './nj_map.svg';
+import NYMapIcon from './ny_map.svg';
 
 
 export {
@@ -82,6 +84,8 @@ export {
     AppliancesIllustration,
 
     // icons
+    NJMapIcon,
+    NYMapIcon,
     FLMapIcon,
     ILMapIcon,
     MAMapIcon,

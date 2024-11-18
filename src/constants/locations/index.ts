@@ -1,18 +1,18 @@
 
 export const STATES_LIST = [
-    { id: 12, title: 'Texas', value: 'TX' },
+    { id: 1, title: 'Texas', value: 'TX' },
     // { id: 1, title: 'California', value: 'CA' },
     { id: 2, title: 'Florida', value: 'FL' },
     // { id: 3, title: 'Georgia', value: 'GA' },
-    { id: 4, title: 'Illinois', value: 'IL' },
-    { id: 5, title: 'Pennsylvania', value: 'PA' },
+    { id: 3, title: 'Illinois', value: 'IL' },
+    { id: 4, title: 'Pennsylvania', value: 'PA' },
     // { id: 6, title: 'Maryland', value: 'MD' },
     // { id: 7, title: 'Missouri', value: 'MO' },
-    { id: 8, title: 'Massachusetts', value: 'MA' },
-    { id: 9, title: 'Virginia', value: 'VA' },
+    { id: 5, title: 'Massachusetts', value: 'MA' },
+    { id: 6, title: 'Virginia', value: 'VA' },
     // { id: 10, title: 'North Carolina', value: 'NC' },
-    { id: 11, title: 'New Jersey', value: 'NJ' },
-    { id: 12, title: 'New York', value: 'NY' },
+    { id: 7, title: 'New Jersey', value: 'NJ' },
+    // { id: 8, title: 'New York', value: 'NY' },
 ]
 
 export const STATES = {
@@ -76,9 +76,9 @@ export const STATES = {
     NJ: [
         { id: 'NJ1', state: 'New Jersey', title: 'Livingston', value: 'livingston', img: '/img/cities/nj_livingston.jpeg' },
     ],
-    NY: [
-        { id: 'NY1', state: 'New York', title: 'Hempstead', value: 'hempstead', img: '/img/cities/ny_hempstead.jpeg' },
-    ],
+    // NY: [
+    //     { id: 'NY1', state: 'New York', title: 'Hempstead', value: 'hempstead', img: '/img/cities/ny_hempstead.jpeg' },
+    // ],
 }
 
 
@@ -356,8 +356,8 @@ export const CITIES = {
         title: 'Cranberry',
         value: 'cranberry',
         abbreviation: 'cranberry-pa',
-        address: '2515 Banksville Road #1049 Pittsburgh, PA 15216',
-        phone: '(412) 420-6315',
+        address: '1717 PA-228, Cranberry Twp, PA 16066',
+        phone: '(724) 361-5170',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/pa_cranberry_car.webp',
@@ -679,8 +679,8 @@ export const CITIES = {
         title: 'Richardson',
         value: 'richardson',
         abbreviation: 'richardson-tx',
-        address: '4157 W Northgate Dr #1002, Irving, TX 75062',
-        phone: '(469) 613-3397',
+        address: '800 W Renner Rd, Richardson, TX 75080',
+        phone: '(469) 353-2518',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/tx_richardson_car.webp',
