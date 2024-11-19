@@ -12,7 +12,7 @@ export const STATES_LIST = [
     { id: 6, title: 'Virginia', value: 'VA' },
     // { id: 10, title: 'North Carolina', value: 'NC' },
     { id: 7, title: 'New Jersey', value: 'NJ' },
-    // { id: 8, title: 'New York', value: 'NY' },
+    { id: 8, title: 'New York', value: 'NY' },
 ]
 
 export const STATES = {
@@ -76,9 +76,9 @@ export const STATES = {
     NJ: [
         { id: 'NJ1', state: 'New Jersey', title: 'Livingston', value: 'livingston', img: '/img/cities/nj_livingston.jpeg' },
     ],
-    // NY: [
-    //     { id: 'NY1', state: 'New York', title: 'Hempstead', value: 'hempstead', img: '/img/cities/ny_hempstead.jpeg' },
-    // ],
+    NY: [
+        { id: 'NY1', state: 'New York', title: 'Hempstead', value: 'hempstead', img: '/img/cities/ny_hempstead.jpeg' },
+    ],
 }
 
 
@@ -242,8 +242,8 @@ export const CITIES = {
         title: 'Naperville',
         value: 'naperville',
         abbreviation: 'naperville-il',
-        address: '1509 Waukegan Rd #1169, Glenview, IL 60025',
-        phone: '(224) 998-0811',
+        address: '2323 Naperville Rd #299, Naperville, IL 60563',
+        phone: '(331) 244-6442',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/il_naperville_car.webp',
@@ -353,7 +353,7 @@ export const CITIES = {
         id: 'PA3',
         stateShort: 'PA',
         state: 'Pennsylvania',
-        title: 'Cranberry',
+        title: 'Cranberry Twp',
         value: 'cranberry',
         abbreviation: 'cranberry-pa',
         address: '1717 PA-228, Cranberry Twp, PA 16066',
@@ -774,8 +774,8 @@ export const CITIES = {
         title: 'Hempstead',
         value: 'hempstead',
         abbreviation: 'hempstead-ny',
-        address: '506 W. Mt. Pleasant Ave #3433 Livingston, NJ 07039',
-        phone: '(862) 343-5590',
+        address: '229 Front St, Hempstead, NY 11550',
+        phone: '(516) 452-9997',
         days: 'Monday - Saturday',
         hours: '07:00 am - 08:00 pm',
         carUrl: '/img/cars/ny_hempstead_car.webp',
