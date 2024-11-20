@@ -13,76 +13,76 @@ export const RESIDENCIAL_SERVICES_LIST = [
     },
     {
         id: 3,
-        title: 'Washer',
-        value: 'washer',
-        link: 'washer-repair',
-    },
-    {
-        id: 4,
-        title: 'Dryer',
-        value: 'dryer',
-        link: 'dryer-repair',
-    },
-    {
-        id: 5,
-        title: 'Dishwasher',
-        value: 'dishwasher',
-        link: 'dishwasher-repair',
-    },
-    {
-        id: 6,
-        title: 'Oven',
-        value: 'oven',
-        link: 'oven-repair',
-    },
-    {
-        id: 7,
-        title: 'Cooktop',
-        value: 'cooktop',
-        link: 'cooktop-repair',
-    },
-    {
-        id: 8,
-        title: 'Microwave',
-        value: 'microwave',
-        link: 'microwave-repair',
-    },
-    {
-        id: 9,
-        title: 'Wine Cooler',
-        value: 'wine_cooler',
-        link: 'wine-cooler-repair',
-    },
-    {
-        id: 10,
         title: 'Freezer',
         value: 'freezer',
         link: 'freezer-repair',
     },
     {
-        id: 11,
+        id: 4,
+        title: 'Wine Cooler',
+        value: 'wine_cooler',
+        link: 'wine-cooler-repair',
+    },
+    {
+        id: 5,
+        title: 'Oven',
+        value: 'oven',
+        link: 'oven-repair',
+    },
+    {
+        id: 6,
+        title: 'Range',
+        value: 'range',
+        link: 'range-repair',
+    },
+    {
+        id: 7,
+        title: 'Stove',
+        value: 'stove',
+        link: 'stove-repair',
+    },
+    {
+        id: 8,
+        title: 'Cooktop',
+        value: 'cooktop',
+        link: 'cooktop-repair',
+    },
+    {
+        id: 9,
+        title: 'Microwave',
+        value: 'microwave',
+        link: 'microwave-repair',
+    },
+    {
+        id: 10,
         title: 'Vent Hood',
         value: 'vent_hood',
         link: 'vent-hood-repair',
     },
     {
+        id: 11,
+        title: 'Dishwasher',
+        value: 'dishwasher',
+        link: 'dishwasher-repair',
+    },
+    {
         id: 12,
+        title: 'Washer',
+        value: 'washer',
+        link: 'washer-repair',
+    },
+    {
+        id: 13,
+        title: 'Dryer',
+        value: 'dryer',
+        link: 'dryer-repair',
+    },
+    {
+        id: 14,
         title: 'Garbage Disposal',
         value: 'garbage_disposal',
         link: 'garbage-disposal-repair',
     },
-    // {
-    //     id: 13,
-    //     title: 'Stove',
-    //     value: 'stove',
-    //     link: 'stove-repair',
-    // },
-    // {
-    //     id: 14,
-    //     title: 'Range',
-    //     value: 'range',
-    //     link: 'range-repair',
-    // },
 ];
 
 
@@ -114,7 +114,7 @@ export const RESIDENTIAL_SERVICES = {
         title: 'Refrigerator',
         value: 'refrigerator',
         link: 'refrigerator-repair',
-        price: '165 - 365',
+        price: '135 - 365',
         subTitle: 'Keep your cool with refrigerator repair from our expert technicians',
         description:
             'An appliance can fail at the most inconvenient time; therefore it is important to have a reputable ' +
@@ -143,7 +143,7 @@ export const RESIDENTIAL_SERVICES = {
         title: 'Ice Machine',
         value: 'ice_machine',
         link: 'ice-machine-repair',
-        price: '165 - 345',
+        price: '135 - 345',
         subTitle: 'Quickly get your ice machine operating again',
         description:
             'Not having ice can bring your party or business to a halt. Even if it\'s not the peak of summer, having ice for your drinks, ' +
@@ -169,7 +169,7 @@ export const RESIDENTIAL_SERVICES = {
         title: 'Washer',
         value: 'washer',
         link: 'washer-repair',
-        price: '145 - 265',
+        price: '135 - 265',
         subTitle: 'Don\'t let laundry pile up because of a broken-down washer!',
         description:
             'Whether your washing machine won\'t drain, won\'t spin, or simply won\'t turn on, UltraFix Appliance Repair Service can provide ' +
@@ -197,7 +197,7 @@ export const RESIDENTIAL_SERVICES = {
         title: 'Dryer',
         value: 'dryer',
         link: 'dryer-repair',
-        price: '145 - 235',
+        price: '135 - 235',
         subTitle: 'Your dryer will work better and more efficiently',
         description:
             'Does your dryer not completely dry your clothes? We understand that you need your clothes dryer to complete your laundry. ' +
@@ -224,7 +224,7 @@ export const RESIDENTIAL_SERVICES = {
         title: 'Dishwasher',
         value: 'dishwasher',
         link: 'dishwasher-repair',
-        price: '145 - 185',
+        price: '135 - 185',
         subTitle: 'Help your dishwasher clean to the max',
         description:
             'Dishwashers offer a great deal of convenience, cleaning your dishes while you sit back and relax. However, a broken-down or poorly ' +
@@ -249,7 +249,7 @@ export const RESIDENTIAL_SERVICES = {
         title: 'Oven',
         value: 'oven',
         link: 'oven-repair',
-        price: '185 - 315',
+        price: '135 - 315',
         subTitle: 'Get your oven working efficiently',
         description:
             'Baking is a healthy way of cooking food; furthermore you could make money through bake sales from the comfort of your home if ' +
@@ -273,7 +273,7 @@ export const RESIDENTIAL_SERVICES = {
         title: 'Cooktop',
         value: 'cooktop',
         link: 'cooktop-repair',
-        price: '145 - 285',
+        price: '135 - 285',
         subTitle: 'Get your cooktop working perfect',
         description:
             'Does one of your stove coils fail to heat ? We understand that you need a working stove to cook meals. Call the experts ' +
@@ -298,7 +298,7 @@ export const RESIDENTIAL_SERVICES = {
         title: 'Microwave',
         value: 'microwave',
         link: 'microwave-repair',
-        price: '145 - 185',
+        price: '135 - 185',
         subTitle: 'Quick Fixes, Lasting Solutions – UltraFix Appliance Repair for Microwaves!',
         description:
             'Experience superior Microwave Repair services with UltraFix Appliance Repair! Our skilled technicians are equipped to handle all ' +
@@ -322,7 +322,7 @@ export const RESIDENTIAL_SERVICES = {
         title: 'Wine Cooler',
         value: 'wine_cooler',
         link: 'wine-cooler-repair',
-        price: '165 - 265',
+        price: '135 - 265',
         subTitle: 'Get your wine cooler repaired fast',
         description:
             'A broken or poorly functioning wine refrigerator can make for a lackluster wine-drinking experience. UltraFix Appliance Repair Service is ' +
@@ -345,7 +345,7 @@ export const RESIDENTIAL_SERVICES = {
         title: 'Freezer',
         value: 'freezer',
         link: 'freezer-repair',
-        price: '165 - 285',
+        price: '135 - 285',
         subTitle: 'Preserve your food, your pocketbook, and your sanity with us',
         description:
             'The expert technicians at UltraFix Appliance Repair Service know how to repair all types of freezers, including upright freezers, ' +
@@ -369,7 +369,7 @@ export const RESIDENTIAL_SERVICES = {
         title: 'Vent Hood',
         value: 'vent_hood',
         link: 'vent-hood-repair',
-        price: '145 - 195',
+        price: '135 - 195',
         subTitle: 'Say Goodbye to Kitchen Hassles with UltraFix Vent Hood Repair Services.',
         description:
             "Experience top-notch Vent Hood Repair services with UltraFix Appliance Repair! Our expert technicians are ready to tackle all your " +
@@ -391,7 +391,7 @@ export const RESIDENTIAL_SERVICES = {
         title: 'Garbage Disposal',
         value: 'garbage_disposal',
         link: 'garbage-disposal-repair',
-        price: '145 - 195',
+        price: '135 - 195',
         subTitle: 'No More Kitchen Hassles! Choose UltraFix for Garbage Disposal Solutions.',
         description:
             "At UltraFix Appliance Repair, we specialize in swift and reliable Garbage Disposal Repair services that ensure your kitchen stays " +
@@ -410,54 +410,44 @@ export const RESIDENTIAL_SERVICES = {
             'garbage disposal service near me',
         ],
     },
-    // "stove-repair": {
-    //     id: 13,
-    //     title: 'Stove',
-    //     value: 'stove',
-    //     link: 'stove-repair',
-    //     price: '145 - 285',
-    //     subTitle: 'No More Kitchen Hassles! Choose UltraFix for Stove Solutions.',
-    //     description:
-    //         "At UltraFix Appliance Repair, we specialize in swift and reliable Stove services that ensure your kitchen stays " +
-    //         "in top-notch shape. Is your disposal unit making strange noises or failing to function properly? Don't let the inconvenience linger " +
-    //         "any longer! Our expert technicians are just a phone call away, ready to swiftly diagnose and fix any issues. We offer same-day service," +
-    //         " so you can get back to a hassle-free kitchen experience ASAP. Say goodbye to kitchen troubles and hello to seamless disposal " +
-    //         "performance! Call us now at (888) 998-6263 to schedule your Garbage Disposal Repair and enjoy a trouble-free kitchen today. Your " +
-    //         "satisfaction is our priority!",
-    //     note:
-    //         'If we are unable to complete a stove repair on the first visit, we can order part to get the job done.',
-    //     keywords: [
-    //         'stove repair',
-    //         'stove repair near me',
-    //         'stove repair service',
-    //         'stove service',
-    //         'stove service near me',
-    //     ],
-    // },
-    // "range-repair": {
-    //     id: 13,
-    //     title: 'Range',
-    //     value: 'range',
-    //     link: 'range-repair',
-    //     price: '145 - 285',
-    //     subTitle: 'No More Kitchen Hassles! Choose UltraFix for Range Solutions.',
-    //     description:
-    //         "At UltraFix Appliance Repair, we specialize in swift and reliable Range services that ensure your kitchen stays " +
-    //         "in top-notch shape. Is your disposal unit making strange noises or failing to function properly? Don't let the inconvenience linger " +
-    //         "any longer! Our expert technicians are just a phone call away, ready to swiftly diagnose and fix any issues. We offer same-day service," +
-    //         " so you can get back to a hassle-free kitchen experience ASAP. Say goodbye to kitchen troubles and hello to seamless disposal " +
-    //         "performance! Call us now at (888) 998-6263 to schedule your Garbage Disposal Repair and enjoy a trouble-free kitchen today. Your " +
-    //         "satisfaction is our priority!",
-    //     note:
-    //         'If we are unable to complete a stove repair on the first visit, we can order part to get the job done.',
-    //     keywords: [
-    //         'range repair',
-    //         'range repair near me',
-    //         'range repair service',
-    //         'range service',
-    //         'range service near me',
-    //     ],
-    // },
+    "stove-repair": {
+        id: 13,
+        title: 'Stove',
+        value: 'stove',
+        link: 'stove-repair',
+        price: '135 - 285',
+        subTitle: 'No More Kitchen Hassles! Choose UltraFix for Stove Solutions.',
+        description:
+            "At UltraFix Appliance Repair, we specialize in swift and reliable Stove Repair services to keep your kitchen running smoothly. Is your stove failing to heat properly, displaying error codes, or experiencing other issues? Don't let the inconvenience disrupt your daily routine! Our expert technicians are just a phone call away, ready to quickly diagnose and repair your stove. We offer same-day service, so you can enjoy a hassle-free cooking experience without delay. Say goodbye to kitchen troubles and hello to seamless stove performance! Call us now at (888) 998-6263 to schedule your Stove Repair Service and get your kitchen back in action today. Your satisfaction is our priority!",
+        note:
+            'If we are unable to complete a stove repair on the first visit, we can order part to get the job done.',
+        keywords: [
+            'stove repair',
+            'stove repair near me',
+            'stove repair service',
+            'stove service',
+            'stove service near me',
+        ],
+    },
+    "range-repair": {
+        id: 14,
+        title: 'Range',
+        value: 'range',
+        link: 'range-repair',
+        price: '135 - 285',
+        subTitle: 'No More Kitchen Hassles! Choose UltraFix for Range Solutions.',
+        description:
+            "At UltraFix Appliance Repair, we specialize in swift and reliable Range Repair services to keep your kitchen running smoothly. Is your range failing to heat properly, displaying error codes, or experiencing other issues? Don't let the inconvenience disrupt your daily routine! Our expert technicians are just a phone call away, ready to quickly diagnose and repair your range. We offer same-day service, so you can enjoy a hassle-free cooking experience without delay. Say goodbye to kitchen troubles and hello to seamless range performance! Call us now at (888) 998-6263 to schedule your Range Repair Service and get your kitchen back in action today. Your satisfaction is our priority!",
+        note:
+            'If we are unable to complete a stove repair on the first visit, we can order part to get the job done.',
+        keywords: [
+            'range repair',
+            'range repair near me',
+            'range repair service',
+            'range service',
+            'range service near me',
+        ],
+    },
 }
 
 
@@ -522,7 +512,7 @@ export const COMMERCIAL_SERVICES = {
         title: 'Washer',
         value: 'washer',
         link: 'washer-repair',
-        price: '145 - 265',
+        price: '165 - 265',
         subTitle: 'Don\'t let laundry pile up because of a broken-down washer!',
         description:
             'Whether your washing machine won\'t drain, won\'t spin, or simply won\'t turn on, UltraFix Appliance Repair Service can provide ' +
@@ -550,7 +540,7 @@ export const COMMERCIAL_SERVICES = {
         title: 'Dryer',
         value: 'dryer',
         link: 'dryer-repair',
-        price: '145 - 235',
+        price: '165 - 235',
         subTitle: 'Your dryer will work better and more efficiently',
         description:
             'Does your dryer not completely dry your clothes? We understand that you need your clothes dryer to complete your laundry. ' +
@@ -577,7 +567,7 @@ export const COMMERCIAL_SERVICES = {
         title: 'Dishwasher',
         value: 'dishwasher',
         link: 'dishwasher-repair',
-        price: '145 - 185',
+        price: '165 - 185',
         subTitle: 'Help your dishwasher clean to the max',
         description:
             'Dishwashers offer a great deal of convenience, cleaning your dishes while you sit back and relax. However, a broken-down or poorly ' +
@@ -602,7 +592,7 @@ export const COMMERCIAL_SERVICES = {
         title: 'Oven',
         value: 'oven',
         link: 'oven-repair',
-        price: '185 - 315',
+        price: '165 - 315',
         subTitle: 'Get your oven working efficiently',
         description:
             'Baking is a healthy way of cooking food; furthermore you could make money through bake sales from the comfort of your home if ' +
@@ -626,7 +616,7 @@ export const COMMERCIAL_SERVICES = {
         title: 'Cooktop',
         value: 'cooktop',
         link: 'cooktop-repair',
-        price: '145 - 285',
+        price: '165 - 285',
         subTitle: 'Get your cooktop working perfect',
         description:
             'Does one of your stove coils fail to heat ? We understand that you need a working stove to cook meals. Call the experts ' +
@@ -651,7 +641,7 @@ export const COMMERCIAL_SERVICES = {
         title: 'Microwave',
         value: 'microwave',
         link: 'microwave-repair',
-        price: '145 - 185',
+        price: '165 - 185',
         subTitle: 'Quick Fixes, Lasting Solutions – UltraFix Appliance Repair for Microwaves!',
         description:
             'Experience superior Microwave Repair services with UltraFix Appliance Repair! Our skilled technicians are equipped to handle all ' +
@@ -722,7 +712,7 @@ export const COMMERCIAL_SERVICES = {
         title: 'Vent Hood',
         value: 'vent_hood',
         link: 'vent-hood-repair',
-        price: '145 - 195',
+        price: '165 - 195',
         subTitle: 'Say Goodbye to Kitchen Hassles with UltraFix Vent Hood Repair Services.',
         description:
             "Experience top-notch Vent Hood Repair services with UltraFix Appliance Repair! Our expert technicians are ready to tackle all your " +
@@ -744,7 +734,7 @@ export const COMMERCIAL_SERVICES = {
         title: 'Garbage Disposal',
         value: 'garbage_disposal',
         link: 'garbage-disposal-repair',
-        price: '145 - 195',
+        price: '165 - 195',
         subTitle: 'No More Kitchen Hassles! Choose UltraFix for Garbage Disposal Solutions.',
         description:
             "At UltraFix Appliance Repair, we specialize in swift and reliable Garbage Disposal Repair services that ensure your kitchen stays " +
@@ -761,6 +751,44 @@ export const COMMERCIAL_SERVICES = {
             'garbage disposal repair service',
             'garbage disposal service',
             'garbage disposal service near me',
+        ],
+    },
+    "stove-repair": {
+        id: 13,
+        title: 'Stove',
+        value: 'stove',
+        link: 'stove-repair',
+        price: '165 - 285',
+        subTitle: 'No More Kitchen Hassles! Choose UltraFix for Stove Solutions.',
+        description:
+            "At UltraFix Appliance Repair, we specialize in swift and reliable Stove Repair services to keep your kitchen running smoothly. Is your stove failing to heat properly, displaying error codes, or experiencing other issues? Don't let the inconvenience disrupt your daily routine! Our expert technicians are just a phone call away, ready to quickly diagnose and repair your stove. We offer same-day service, so you can enjoy a hassle-free cooking experience without delay. Say goodbye to kitchen troubles and hello to seamless stove performance! Call us now at (888) 998-6263 to schedule your Stove Repair Service and get your kitchen back in action today. Your satisfaction is our priority!",
+        note:
+            'If we are unable to complete a stove repair on the first visit, we can order part to get the job done.',
+        keywords: [
+            'stove repair',
+            'stove repair near me',
+            'stove repair service',
+            'stove service',
+            'stove service near me',
+        ],
+    },
+    "range-repair": {
+        id: 14,
+        title: 'Range',
+        value: 'range',
+        link: 'range-repair',
+        price: '165 - 285',
+        subTitle: 'No More Kitchen Hassles! Choose UltraFix for Range Solutions.',
+        description:
+            "At UltraFix Appliance Repair, we specialize in swift and reliable Range Repair services to keep your kitchen running smoothly. Is your range failing to heat properly, displaying error codes, or experiencing other issues? Don't let the inconvenience disrupt your daily routine! Our expert technicians are just a phone call away, ready to quickly diagnose and repair your range. We offer same-day service, so you can enjoy a hassle-free cooking experience without delay. Say goodbye to kitchen troubles and hello to seamless range performance! Call us now at (888) 998-6263 to schedule your Range Repair Service and get your kitchen back in action today. Your satisfaction is our priority!",
+        note:
+            'If we are unable to complete a stove repair on the first visit, we can order part to get the job done.',
+        keywords: [
+            'range repair',
+            'range repair near me',
+            'range repair service',
+            'range service',
+            'range service near me',
         ],
     },
 }

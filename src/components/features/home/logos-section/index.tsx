@@ -38,7 +38,7 @@ const TOP_SERVICES = [
 export const LogosSection: React.FC = () => {
     return (
         <SectionLayout noYPadding>
-            <ul className="flex w-full items-center justify-center gap-3 lg:gap-10 -mt-[55px] md:-mt-[120px] mb-10">
+            <ul className="flex w-full items-center justify-center gap-3 lg:gap-10 md:-mt-[100px] mb-10">
                 {TOP_SERVICES.map(({ src, alt, url }, i) => (
                     <li key={i}>
                         <a href={url} target="_blank" rel="noopener noreferrer">

@@ -17,8 +17,8 @@ export const BannerSection: React.FC = () => {
 
 
     return (
-        <SectionLayout>
-            <div className="z-10 flex flex-col w-full space-y-3 md:absolute md:space-y-5 text-center md:text-end justify-end items-center md:items-end">
+        <SectionLayout noYPadding>
+            <div className="z-10 flex flex-col w-full space-y-3 md:absolute md:space-y-5 text-center md:text-end justify-end items-center md:items-end mt-10 md:mt-20">
                 <h1 className="text-[2.5rem] leading-[3rem] lg:text-[4rem] lg:leading-[5rem] lg:max-w-[60%] font-semibold text-primaryDark">
                     <span className='text-primary'>Same-Day</span> Appliance Repair Services
                     {/* <span className='text-primary text-[3.5rem] leading-[3rem] lg:text-[4.5rem] lg:leading-[5.5rem]'>UltraFix™</span> */}
@@ -49,7 +49,6 @@ export const BannerSection: React.FC = () => {
                     sizes="(max-width: 1200px) 100vw, (min-width: 1200px) 1000px"
                 />
             </motion.div>
-
         </SectionLayout>
     )
 };

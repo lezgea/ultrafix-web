@@ -1,4 +1,4 @@
-import { CooktopIcon, DishwasherIcon, DryerIcon, FreezerIcon, GarbageDisposalIcon, IceMachineIcon, MicrowaveIcon, OvenIcon, RefrigeratorIcon, VentHoodIcon, WasherIcon, WineCoolerIcon } from '@assets/icons';
+import { CooktopIcon, DishwasherIcon, DryerIcon, FreezerIcon, GarbageDisposalIcon, IceMachineIcon, MicrowaveIcon, OvenIcon, RangeIcon, RefrigeratorIcon, StoveIcon, VentHoodIcon, WasherIcon, WineCoolerIcon } from '@assets/icons';
 import React from 'react';
 
 
@@ -15,6 +15,8 @@ export const ServiceIcon: React.FC<IServiceIconProps> = ({ value, className }) =
         case 'dryer': return <DryerIcon className={className} />;
         case 'dishwasher': return <DishwasherIcon className={className} />;
         case 'oven': return <OvenIcon className={className} />;
+        case 'stove': return <StoveIcon className={className} />;
+        case 'range': return <RangeIcon className={className} />;
         case 'cooktop': return <CooktopIcon className={className} />;
         case 'microwave': return <MicrowaveIcon className={className} />;
         case 'wine_cooler': return <WineCoolerIcon className={className} />;
