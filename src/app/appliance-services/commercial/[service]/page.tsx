@@ -48,8 +48,8 @@ const CommercialServiceDetailPage = ({ params }: ServiceProps) => {
     const { service } = params;
 
     const metadata: Metadata = {
-        title: `Commercial ${COMMERCIAL_SERVICES[service].title} repair | UltraFix™`,
-        description: `Get Professional ${COMMERCIAL_SERVICES[service].title} repair by Ultrafix™. Same-Day Service, Certified Technicians, and High-Quality Parts for All Your Appliance Repair Needs.`,
+        title: `Commercial ${COMMERCIAL_SERVICES[service].title} repair | UltraFix®`,
+        description: `Get Professional ${COMMERCIAL_SERVICES[service].title} repair by Ultrafix®. Same-Day Service, Certified Technicians, and High-Quality Parts for All Your Appliance Repair Needs.`,
         keywords: [
             ...COMMERCIAL_SERVICES[service].keywords,
             'appliance repair near me',

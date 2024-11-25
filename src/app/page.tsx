@@ -6,8 +6,8 @@ import * as motion from "framer-motion/client"
 
 
 export const metadata: Metadata = {
-    title: "Appliance Repair – Same Day Service - Local Pros | UltraFix™",
-    description: "Ultrafix™ Provides Fast, Reliable Appliance Repair Services. Get Same-Day Repairs for All Major Brands. Satisfaction Guaranteed—call Now!",
+    title: "Appliance Repair – Same Day Service - Local Pros | UltraFix®",
+    description: "Ultrafix® Provides Fast, Reliable Appliance Repair Services. Get Same-Day Repairs for All Major Brands. Satisfaction Guaranteed—call Now!",
     keywords: [
         'Appliance Repair',
         'Local Appliance Repair',

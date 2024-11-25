@@ -56,7 +56,7 @@ const ServiceDetailPage = ({ params }: ServiceProps) => {
 
     const metadata: Metadata = {
         title: `Commercial ${COMMERCIAL_SERVICES[serviceKey].title} repair in ${cityData?.title}, ${cityData?.state}`,
-        description: `Need ${COMMERCIAL_SERVICES[serviceKey].title} repair in ${cityData?.title}-${cityData?.state}? Ultrafix™ Offers Same-Day, Professional ${COMMERCIAL_SERVICES[serviceKey].title} Repairs. Book Your Appointment Today!`,
+        description: `Need ${COMMERCIAL_SERVICES[serviceKey].title} repair in ${cityData?.title}-${cityData?.state}? Ultrafix® Offers Same-Day, Professional ${COMMERCIAL_SERVICES[serviceKey].title} Repairs. Book Your Appointment Today!`,
         keywords: [
             ...COMMERCIAL_SERVICES[serviceKey].keywords,
             'appliance repair near me',

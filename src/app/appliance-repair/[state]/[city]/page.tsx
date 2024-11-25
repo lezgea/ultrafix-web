@@ -65,10 +65,9 @@ const LocationPage: React.FC<ILocationProps> = ({ params }) => {
     const cityKey = `${state}_${city}` as keyof typeof CITIES;
     const cityData = CITIES[cityKey];
 
-    console.log('@@@@@', `${state}_${city}`)
     const metadata: Metadata = {
         title: `Appliance Repair Service in ${cityData?.title}, ${cityData?.state}`,
-        description: `Ultrafix™ Offers Trusted Appliance Repair Services in ${cityData?.title}-${cityData?.state}. Fast, Same-Day Repairs for Refrigerators, Washers, Dryers, Ovens, and More!`,
+        description: `Ultrafix® Offers Trusted Appliance Repair Services in ${cityData?.title}-${cityData?.state}. Fast, Same-Day Repairs for Refrigerators, Washers, Dryers, Ovens, and More!`,
         keywords: [
             'Appliance Repair',
             'Local Appliance Repair',
