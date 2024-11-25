@@ -2,10 +2,10 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { useParams, usePathname, useRouter } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
 import { CallIcon, CloseIcon, HamburgerIcon, UltrafixLogo } from '@assets/icons';
 import { Sidebar } from '../sidebar';
-import { CITIES, STATES, STATES_LIST } from 'constants/locations';
+import { CITIES } from 'constants/locations';
 import { Dropdown } from '@components/shared/dropdown';
 
 
@@ -15,8 +15,8 @@ const NAV_ROUTES: { id: string; label: string }[] = [
     { id: 'about_us', label: 'About Us' },
     { id: 'brands', label: 'Brands' },
     { id: 'faq', label: 'FAQ' },
+    { id: 'blog', label: 'Blog' },
     { id: 'apply', label: 'Apply Now' },
-    { id: 'why_us', label: 'Why Us' },
 ];
 
 
@@ -64,8 +64,8 @@ export const Header: React.FC = () => {
                                     {item.label}
                                 </div>
                             </Link>
-                            : item.id === 'faq' ?
-                                <Link href="/faq" className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
+                            : (item.id === 'faq' || item.id === 'blog') ?
+                                <Link href={`/${item.id}`} className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
                                     {(item.id === selectedId) && (
                                         <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
                                     )}

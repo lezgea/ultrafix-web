@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import PageLayout from '@components/layout/page-layout';
-import { AboutUsSection, ApplySection, BrandsSection, CommercialServicesSection, FAQSection, LocationsSection, ResidentialServicesSection, WhyUsSection } from '@components/features';
+import { AboutUsSection, BrandsSection, CommercialServicesSection, FAQSection, LocationsSection, ResidentialServicesSection, WhyUsSection } from '@components/features';
 
 
 export const metadata: Metadata = {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 
-const Apply: React.FC = () => {
+const FAQ: React.FC = () => {
     return (
         <PageLayout title="The number one Appliance Repair service in US">
             <FAQSection />
@@ -23,4 +23,4 @@ const Apply: React.FC = () => {
     );
 };
 
-export default Apply;
+export default FAQ;
