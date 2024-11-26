@@ -1,6 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import axiosBaseQuery from '@utils/axiosBaseQuery';
-import { ApplyResponse, ContactResponse, IApplyRequest, IContactRequest } from './types/user-types';
+import { ApplyResponse, ContactResponse, IApplyRequest, IContactRequest, ILoginRequest, ILoginResponse } from './types/user-types';
 
 
 export const userApi = createApi({
@@ -22,10 +22,18 @@ export const userApi = createApi({
                 data: credentials,
             }),
         }),
+        loginUser: builder.mutation<ILoginResponse, ILoginRequest>({
+            query: (credentials) => ({
+                url: '/login',
+                method: 'POST',
+                data: credentials,
+            }),
+        }),
     }),
 });
 
 export const {
     useContactUserMutation,
     useApplyMutation,
+    useLoginUserMutation,
 } = userApi;

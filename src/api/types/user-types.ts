@@ -19,3 +19,28 @@ export interface IApplyRequest {
 
 export type ApplyResponse = string
 
+
+export interface ILoginRequest {
+    email: string,
+    password: string,
+}
+
+export interface ILoginResponse {
+    status: string,
+    data: {
+        token: string,
+        user: {
+            id: number,
+            role: string,
+            name: string,
+            email: string,
+            phone: number,
+            remote_tech: number,
+            payment_percent: number,
+            address: number,
+            full_name: string
+        }
+    },
+    title: string,
+    description: string
+}

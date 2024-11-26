@@ -8,7 +8,7 @@ import Cookies from 'js-cookie';
 const withProtectedRoute = (WrappedComponent: React.ComponentType) => {
     const ProtectedRoute = (props: any) => {
         const router = useRouter();
-        let isAuthenticated = Cookies.get('dtr-token')
+        let isAuthenticated = Cookies.get('ultra-token')
 
         useAuthenticate(); // This will dispatch and set the auth state
 

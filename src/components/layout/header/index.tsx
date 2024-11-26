@@ -38,6 +38,10 @@ export const Header: React.FC = () => {
         }
     };
 
+    const hideHeaderRoutes = React.useMemo(() => [`/admin/sign-in`, `/admin/blogs`, `/admin/blog/create`, `/admin/blog/update`], []);
+    const shouldHideHeader = hideHeaderRoutes.includes(pathname);
+
+
     const navLinks = React.useMemo(() => {
         return NAV_ROUTES.map((item, i) => (
             <li key={i} onClick={() => handleScroll(item.id)}>
@@ -105,6 +109,8 @@ export const Header: React.FC = () => {
 
     const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
 
+
+    if (shouldHideHeader) return null;
 
     return (
         <>

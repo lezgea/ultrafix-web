@@ -6,7 +6,7 @@ import { setAuthState } from '@slices/user-slice';
 export const useAuthenticate = () => {
     // const dispatch = useDispatch();
     // const [loading, setLoading] = React.useState(true);
-    // const token = Cookies.get('dtr-token');
+    // const token = Cookies.get('ultra-token');
 
     // const { data: userData, error, isLoading, refetch } = useGetUserQuery(undefined, {
     //     skip: !token,

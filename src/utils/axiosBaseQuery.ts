@@ -21,7 +21,7 @@ const axiosBaseQuery: BaseQueryFn<AxiosBaseQueryArgs, unknown, unknown> = async 
     extraOptions
 ) => {
     try {
-        const token = Cookies.get('dtr-token');
+        const token = Cookies.get('ultra-token');
         const result = await axios({
             url: BASE_URL + url,
             method,

@@ -54,14 +54,11 @@ export const FormInput: React.FC<IFormInputProps> = (props) => {
                             id={name}
                             placeholder={placeholder}
                             className={`w-full h-[45px] text-md md:text-lg md:h-[50px] bg-gray-50 px-4 md:px-5 py-2 pr-12 border ${errors[name] ? 'ring-2 ring-red-500' : 'border-gray-300'
-                                } rounded-lg focus:outline-none focus:ring-2 focus:ring-primaryLight transition duration-200 ease-in-out transform`}
+                                } rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out transform`}
                             style={inputStyle}
                             {...register(name)}
                         />
                 }
-                {/* <div className="absolute h-[50px] right-5 bottom-0 flex items-center" onClick={onClickIcon}>
-                    {icon}
-                </div> */}
             </div>
             {
                 errors[name] && (
