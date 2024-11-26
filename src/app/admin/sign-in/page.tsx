@@ -54,14 +54,9 @@ const SignInContent: React.FC = () => {
 
     const onSubmit: SubmitHandler<IFormInput> = async (data) => {
         try {
-            // Passing rememberMe along with the login data
-            const payload = {
-                ...data,
-                // rememberMe: data.rememberMe || false,
-            };
-
+            const payload = { ...data };
             await loginUser(payload).unwrap();
-            router.push('/');
+            router.push('/admin/blogs');
         } catch (err: any) {
             if (err?.data?.code === "UNEXPECTED_EXCEPTION = USER_NOT_FOUND") {
                 toast.error("User is not found");
@@ -73,7 +68,7 @@ const SignInContent: React.FC = () => {
 
     React.useEffect(() => {
         if (token) {
-            router.push('/');
+            router.push('/admin/blogs');
             Cookies.set('neyroken', token as string, {
                 secure: process.env.NODE_ENV === 'production',
                 expires: 47 / 24,
@@ -86,7 +81,7 @@ const SignInContent: React.FC = () => {
         setShowPassword(!showPassword);
     };
 
-    if (isAuthenticated) router.push('/')
+    if (isAuthenticated) router.push('/admin/blogs')
 
 
     return (
