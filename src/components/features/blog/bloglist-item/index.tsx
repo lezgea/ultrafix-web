@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react';
-import { MinusIcon, PlusIcon } from '@assets/icons';
 
 
 interface IBlogListItemProps {

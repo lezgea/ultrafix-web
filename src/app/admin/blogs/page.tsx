@@ -1,18 +1,26 @@
+"use client";
+
 import React from 'react';
-import PageLayout from '@components/layout/page-layout';
-import { AboutUsSection, BlogSection, BrandsSection, CommercialServicesSection, LocationsSection, ResidentialServicesSection, WhyUsSection } from '@components/features';
-import Image from 'next/image';
-import { BlogsList } from '@components/features/admin';
 import Link from 'next/link';
+import PageLayout from '@components/layout/page-layout';
 import SectionLayout from '@components/layout/section-layout';
+import { AdminBlogsList } from '@components/features/admin';
+import { useSelector } from 'react-redux';
+import { RootState } from '@store/store';
+import { useRouter } from 'next/navigation';
+import withProtectedRoute from '@utils/withProtectedRoute';
 
 
 const AdminBlogs: React.FC = () => {
+    const router = useRouter();
+    const { isAuthenticated } = useSelector((state: RootState) => state.user);
+
+    // if (!isAuthenticated) router.push('/')
+    console.log('@@@@@', isAuthenticated)
+
     return (
-        <PageLayout title="The number one Appliance Repair service in US">
-            <SectionLayout
-                noYPadding
-            >
+        <PageLayout>
+            <SectionLayout noYPadding>
                 <div className='flex items-center justify-between mb-10'>
                     <h2 className="text-[1.7rem] leading-[2.5rem] md:text-[2.5rem] md:leading-[4rem] text-center font-semibold text-primaryDark">
                         Blogs list
@@ -25,9 +33,9 @@ const AdminBlogs: React.FC = () => {
                     </Link>
                 </div>
             </SectionLayout>
-            <BlogsList />
+            <AdminBlogsList />
         </PageLayout>
     );
 };
 
-export default AdminBlogs;
+export default withProtectedRoute(AdminBlogs);
