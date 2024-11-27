@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import PageLayout from '@components/layout/page-layout';
 import { AboutUsSection, ApplySection, BlogSection, BrandsSection, CommercialServicesSection, FAQSection, LocationsSection, ResidentialServicesSection, WhyUsSection } from '@components/features';
 import Image from 'next/image';
+import { AdminBlogsList } from '@components/features/admin';
 
 
 export const metadata: Metadata = {
@@ -22,7 +23,7 @@ const Blog: React.FC = () => {
                 loading="lazy"
                 sizes="(max-width: 1200px) 100vw, 100vw"
             />
-            <BlogSection />
+            <AdminBlogsList />
             <LocationsSection />
             <ResidentialServicesSection />
             <CommercialServicesSection />

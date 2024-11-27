@@ -155,7 +155,7 @@ body {
     display: none;
     align-items: center;
     justify-content: center;
-    background-color: #003168;
+    /* background-color: #003168; */
     backdrop-filter: blur(20px);
     animation: callButtonAnimation 4s infinite ease-in-out;
 

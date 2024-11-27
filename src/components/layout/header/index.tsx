@@ -15,7 +15,7 @@ const NAV_ROUTES: { id: string; label: string }[] = [
     { id: 'about_us', label: 'About Us' },
     { id: 'brands', label: 'Brands' },
     { id: 'faq', label: 'FAQ' },
-    { id: 'blog', label: 'Blog' },
+    // { id: 'blog', label: 'Blog' },
     { id: 'apply', label: 'Apply Now' },
 ];
 
@@ -114,7 +114,7 @@ export const Header: React.FC = () => {
 
     return (
         <>
-            <header className="backdrop-blur-xl bg-white/60 w-full fixed z-30 h-[65px] border-b border-gray-100 select-none">
+            <header className="backdrop-blur-xl bg-white/10 w-full fixed z-30 h-[65px] select-none">
                 <nav role="navigation" aria-label="Main navigation" className="container w-full max-w-[1200px] mx-auto flex justify-between items-center px-3 md:px-10 xl:px-0 py-0 h-full space-x-5">
                     <div className="flex items-center cursor-pointer w-[100%] justify-between lg:w-[20%] lg:space-x-0">
                         <Link href="/" passHref aria-label="UltraFix Logo">
@@ -150,12 +150,12 @@ export const Header: React.FC = () => {
             <div className='flex fixed md:hidden items-center bottom-[25px] left-[25px] right-[25px] z-50'>
                 <div
                     onClick={() => handleScroll('contact')}
-                    className='w-full flex items-center justify-center text-xl text-white h-[55px] bg-primary mr-5 rounded-full cursor-pointer hover:shadow-lg'
+                    className='w-full backdrop-blur-xl flex items-center justify-center text-xl text-white h-[55px] bg-primaryDark/60 mr-5 rounded-full cursor-pointer hover:shadow-lg'
                 >
                     Book Now
                 </div>
 
-                <a href={`tel:${cityData?.phone ? cityData.phone : '(888) 998-6263'}`} className="call-btn">
+                <a href={`tel:${cityData?.phone ? cityData.phone : '(888) 998-6263'}`} className="call-btn backdrop-blur-xl bg-primaryDark/60">
                     <CallIcon className="w-[35px]" fill="white" />
                 </a>
             </div>
