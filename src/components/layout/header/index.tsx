@@ -38,7 +38,7 @@ export const Header: React.FC = () => {
         }
     };
 
-    const hideHeaderRoutes = React.useMemo(() => [`/admin/sign-in`, `/admin/blogs`, `/admin/blog/create`, `/admin/blog/update`], []);
+    const hideHeaderRoutes = React.useMemo(() => [`/admin/sign-in`, `/admin/blogs`, `/admin/blogs/create`, `/admin/blogs/update`], []);
     const shouldHideHeader = hideHeaderRoutes.includes(pathname);
 
 
