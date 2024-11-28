@@ -87,7 +87,7 @@ const BlogImageUploader: React.FC<ImageUploaderProps> = ({ image, setImageId }) 
                     :
                     <div
                         id="FileUpload"
-                        className="relative my-3 w-full h-60 inline-block items-center content-center cursor-pointer appearance-none rounded-2xl border-2 border-dashed border-gray-300 hover:border-primary hover:bg-gray-50 p-[4rem] sm:py-7.5"
+                        className="relative w-full h-60 inline-block items-center content-center cursor-pointer appearance-none rounded-2xl border-2 border-dashed border-gray-300 hover:border-primary hover:bg-gray-50 p-[4rem] sm:py-7.5"
                     >
                         <input
                             type="file"

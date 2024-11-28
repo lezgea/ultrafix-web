@@ -4,6 +4,7 @@ import React from 'react';
 import SectionLayout from '@components/layout/section-layout';
 import { BLOGS_LIST } from 'constants/blogs';
 import { BlogListItem } from '@components/features/blog';
+import Link from 'next/link';
 
 
 export const AdminBlogsList: React.FC = () => {
@@ -22,10 +23,7 @@ export const AdminBlogsList: React.FC = () => {
             <div className="rounded-3xl space-y-2">
                 {
                     BLOGS_LIST.map(item =>
-                        <BlogListItem
-                            key={item.id}
-                            {...item}
-                        />
+                        <BlogListItem key={item.id} {...item} />
                     )
                 }
             </div>

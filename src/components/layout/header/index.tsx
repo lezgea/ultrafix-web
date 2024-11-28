@@ -38,8 +38,8 @@ export const Header: React.FC = () => {
         }
     };
 
-    const hideHeaderRoutes = React.useMemo(() => [`/admin/sign-in`, `/admin/blogs`, `/admin/blogs/create`, `/admin/blogs/update`], []);
-    const shouldHideHeader = hideHeaderRoutes.includes(pathname);
+    const hideHeaderRoutes = React.useMemo(() => [`/admin/sign-in`, `/admin/blogs`, `/admin/blogs/create`, `/admin/blogs/update/[blogId]`], []);
+    const shouldHideHeader = hideHeaderRoutes.some(route => pathname.startsWith(route));
 
 
     const navLinks = React.useMemo(() => {

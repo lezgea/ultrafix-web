@@ -13,7 +13,7 @@ import BlogImageUploader from '@components/features/admin/blog-image-uploader';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { FormInput } from '@components/shared';
+import { ConfirmationModal, FormInput } from '@components/shared';
 import TextEditor from '@components/shared/text-editor';
 
 
@@ -23,12 +23,12 @@ interface IFormInput {
 }
 
 
-const AdminBlogsCreate: React.FC = () => {
+const AdminBlogsUpdate: React.FC = () => {
     const router = useRouter();
+
+    const [showDeleteModal, setShowDeleteModal] = React.useState<boolean>(false);
     const { isAuthenticated } = useSelector((state: RootState) => state.user);
 
-    // if (!isAuthenticated) router.push('/')
-    console.log('@@@@@', isAuthenticated)
 
     const validationSchema = Yup.object().shape({
         // title: Yup.string().required(t('titleIsRequired')),
@@ -68,11 +68,11 @@ const AdminBlogsCreate: React.FC = () => {
                         <span className="text-lg">&gt;</span>
                         <Link href={`/admin/blogs`} className="hover:text-primary">Admin Blogs</Link>
                         <span className="text-lg">&gt;</span>
-                        <span>Blog Create</span>
+                        <span>Blog Update</span>
                     </nav>
                     <div className='flex items-center justify-between py-5'>
                         <h2 className="text-[1.7rem] leading-[2.5rem] md:text-[2.5rem] text-center font-semibold text-primaryDark">
-                            Create Blog
+                            Update Blog
                         </h2>
                         {/* <Link
                         href="/admin/blogs/create"
@@ -84,7 +84,6 @@ const AdminBlogsCreate: React.FC = () => {
                 </div>
             </SectionLayout>
             <SectionLayout noYPadding>
-
                 <form
                 // onSubmit={handleSubmit(onSubmit)}
                 >
@@ -108,32 +107,49 @@ const AdminBlogsCreate: React.FC = () => {
                                 errors={errors}
                             />
                             <TextEditor
-                                name='content'
+                                name='description'
                                 initialValue=' '
                                 register={register}
                                 setValue={setValue}
                             />
                         </div>
                     </div>
-                    <div className="py-3 flex w-full gap-3 border-t justify-end">
+                    <div className="py-3 flex w-full gap-3 border-t justify-between">
                         <button
                             type="button"
-                            // onClick={onCancel}
-                            className="flex w-full w-40 text-center items-center justify-center px-4 py-3 text-gray-500 transition-all bg-gray-100 rounded-lg hover:bg-primaryDark hover:text-white shadow-neutral-300 hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:shadow-none"
+                            onClick={() => setShowDeleteModal(true)}
+                            className="flex w-40 text-center items-center justify-center px-4 py-3 text-white transition-all bg-red rounded-lg hover:bg-primaryDark hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
                         >
-                            Cancel
+                            Delete
                         </button>
-                        <button
-                            type='submit'
-                            className="flex w-full w-40 text-center items-center justify-center px-4 py-3 text-white transition-all bg-primary rounded-lg hover:bg-primaryDark hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
-                        >
-                            Submit
-                        </button>
+                        <div className='flex gap-3'>
+                            <Link href='/admin/blogs'>
+                                <button
+                                    type="button"
+                                    // onClick={onCancel}
+                                    className="flex w-40 text-center items-center justify-center px-4 py-3 text-gray-500 transition-all bg-gray-100 rounded-lg hover:bg-primaryDark hover:text-white shadow-neutral-300 hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:shadow-none"
+                                >
+                                    Cancel
+                                </button>
+                            </Link>
+
+                            <button
+                                type='submit'
+                                className="flex w-40 text-center items-center justify-center px-4 py-3 text-white transition-all bg-primary rounded-lg hover:bg-primaryDark hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
+                            >
+                                Submit
+                            </button>
+                        </div>
                     </div>
                 </form>
             </SectionLayout>
+            <ConfirmationModal
+                visible={showDeleteModal}
+                onConfirm={() => { }}
+                onClose={() => setShowDeleteModal(false)}
+            />
         </PageLayout>
     );
 };
 
-export default withProtectedRoute(AdminBlogsCreate);
+export default withProtectedRoute(AdminBlogsUpdate);
