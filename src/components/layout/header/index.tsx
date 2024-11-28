@@ -15,7 +15,7 @@ const NAV_ROUTES: { id: string; label: string }[] = [
     { id: 'about_us', label: 'About Us' },
     { id: 'brands', label: 'Brands' },
     { id: 'faq', label: 'FAQ' },
-    // { id: 'blog', label: 'Blog' },
+    { id: 'blog', label: 'Blog' },
     { id: 'apply', label: 'Apply Now' },
 ];
 

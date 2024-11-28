@@ -87,7 +87,7 @@ const AdminBlogsUpdate: React.FC = () => {
                 <form
                 // onSubmit={handleSubmit(onSubmit)}
                 >
-                    <div className="pb-5 text-start space-y-1 overflow-auto space-y-5">
+                    <div className="pb-5 text-start space-y-1 space-y-5">
                         <BlogImageUploader />
 
                         <div className="space-y-5 select-none">
@@ -107,7 +107,7 @@ const AdminBlogsUpdate: React.FC = () => {
                                 errors={errors}
                             />
                             <TextEditor
-                                name='description'
+                                name='content'
                                 initialValue=' '
                                 register={register}
                                 setValue={setValue}

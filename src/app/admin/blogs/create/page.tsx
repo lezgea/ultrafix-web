@@ -88,7 +88,7 @@ const AdminBlogsCreate: React.FC = () => {
                 <form
                 // onSubmit={handleSubmit(onSubmit)}
                 >
-                    <div className="pb-5 text-start space-y-1 overflow-auto space-y-5">
+                    <div className="pb-5 text-start space-y-1 space-y-5">
                         <BlogImageUploader />
 
                         <div className="space-y-5 select-none">
@@ -115,17 +115,20 @@ const AdminBlogsCreate: React.FC = () => {
                             />
                         </div>
                     </div>
-                    <div className="py-3 flex w-full gap-3 border-t justify-end">
-                        <button
-                            type="button"
-                            // onClick={onCancel}
-                            className="flex w-full w-40 text-center items-center justify-center px-4 py-3 text-gray-500 transition-all bg-gray-100 rounded-lg hover:bg-primaryDark hover:text-white shadow-neutral-300 hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:shadow-none"
-                        >
-                            Cancel
-                        </button>
+                    <div className='flex gap-3 border-t justify-end py-3'>
+                        <Link href='/admin/blogs'>
+                            <button
+                                type="button"
+                                // onClick={onCancel}
+                                className="flex w-40 text-center items-center justify-center px-4 py-3 text-gray-500 transition-all bg-gray-100 rounded-lg hover:bg-primaryDark hover:text-white shadow-neutral-300 hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:shadow-none"
+                            >
+                                Cancel
+                            </button>
+                        </Link>
+
                         <button
                             type='submit'
-                            className="flex w-full w-40 text-center items-center justify-center px-4 py-3 text-white transition-all bg-primary rounded-lg hover:bg-primaryDark hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
+                            className="flex w-40 text-center items-center justify-center px-4 py-3 text-white transition-all bg-primary rounded-lg hover:bg-primaryDark hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
                         >
                             Submit
                         </button>

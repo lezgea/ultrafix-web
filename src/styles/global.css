@@ -141,6 +141,14 @@ body {
     text-overflow: ellipsis;
 }
 
+.truncate-text-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    /* Number of lines to show */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 .call-btn {
     /* bottom: 25px;

@@ -18,18 +18,19 @@ const Blog: React.FC = () => {
                 src="/img/blog/blog_banner.webp"
                 width={1200} // Adjust width and height based on your layout
                 height={400}
-                className="w-full h-auto mt-6"
+                className="w-full h-auto my-6"
                 alt={"Blog banner"}
                 loading="lazy"
                 sizes="(max-width: 1200px) 100vw, 100vw"
             />
-            <AdminBlogsList />
+            <BlogSection />
+            {/* <AdminBlogsList />
             <LocationsSection />
             <ResidentialServicesSection />
             <CommercialServicesSection />
             <AboutUsSection />
             <BrandsSection />
-            <WhyUsSection />
+            <WhyUsSection /> */}
         </PageLayout>
     );
 };
