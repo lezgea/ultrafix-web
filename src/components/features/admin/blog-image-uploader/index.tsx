@@ -95,11 +95,11 @@ const BlogImageUploader: React.FC<ImageUploaderProps> = ({ image, setImageId }) 
                             className="absolute inset-0 z-50 m-0 h-full w-full cursor-pointer p-0 opacity-0 outline-none"
                             onChange={handleImageChange}
                         />
-                        <div className="flex flex-col items-center justify-between h-full text-gray-400">
+                        <div className="flex flex-col items-center justify-between h-full text-gray-400 font-light">
                             {/* <IImageIcon /> */}
-                            <p className="text-lg font-light">Click to Upload Image</p>
-                            <p className='text-gray-300'>OR</p>
-                            <p className="text-lg font-light">Drag and Drop</p>
+                            <p className="text-md">Click to Upload Image</p>
+                            <p className='text-xl text-gray-300'>OR</p>
+                            <p className="text-md">Drag and Drop</p>
                         </div>
                     </div>
             }

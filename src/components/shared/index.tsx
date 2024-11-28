@@ -13,3 +13,4 @@ export * from './com-location-service-button';
 export * from './rez-location-service-button';
 export * from './cities-modal';
 export * from './map-icon';
+export * from './text-editor';
