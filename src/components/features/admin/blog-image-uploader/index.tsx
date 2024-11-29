@@ -1,5 +1,6 @@
 "use client"
 
+import { useUploadFileMutation } from '@api/upload-api';
 import React from 'react';
 import { UseFormSetValue } from 'react-hook-form';
 
@@ -8,13 +9,14 @@ import { UseFormSetValue } from 'react-hook-form';
 
 interface ImageUploaderProps {
     image?: string,
-    setImageId?: (val: number | null) => void,
+    setImageId: (val: number | string | null) => void,
 }
 
 const BlogImageUploader: React.FC<ImageUploaderProps> = ({ image, setImageId }) => {
     const [uploadedImage, setUploadedImage] = React.useState<File | null>(null);
-    // const [uploadDatasetImage, { isLoading }] = useUploadDatasetImageMutation();
     const [initialImage, setInitialImage] = React.useState<string>('');
+
+    const [uploadFile, { isLoading }] = useUploadFileMutation();
 
     const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const uploadedFile = e.target.files?.[0];
@@ -28,8 +30,8 @@ const BlogImageUploader: React.FC<ImageUploaderProps> = ({ image, setImageId }) 
             const formData = new FormData();
             formData.append("file", uploadedFile);
 
-            // let response = await uploadDatasetImage({ file: formData }).unwrap();
-            // setImageId(response.id)
+            let response = await uploadFile({ file: formData }).unwrap();
+            setImageId(response.data.id)
         } catch (error) {
             console.log(error)
         }
@@ -37,7 +39,7 @@ const BlogImageUploader: React.FC<ImageUploaderProps> = ({ image, setImageId }) 
 
     const onDeleteImage = () => {
         setInitialImage('');
-        // setImageId(null);
+        setImageId(null);
     }
 
     React.useEffect(() => {
@@ -46,9 +48,6 @@ const BlogImageUploader: React.FC<ImageUploaderProps> = ({ image, setImageId }) 
 
     return (
         <div>
-            {/* <label className="block font-semibold text-gray-900">
-                Image Upload
-            </label> */}
             {
                 (uploadedImage || initialImage) ?
                     <>
@@ -96,7 +95,6 @@ const BlogImageUploader: React.FC<ImageUploaderProps> = ({ image, setImageId }) 
                             onChange={handleImageChange}
                         />
                         <div className="flex flex-col items-center justify-between h-full text-gray-400 font-light">
-                            {/* <IImageIcon /> */}
                             <p className="text-md">Click to Upload Image</p>
                             <p className='text-xl text-gray-300'>OR</p>
                             <p className="text-md">Drag and Drop</p>

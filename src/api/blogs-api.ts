@@ -1,7 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import axiosBaseQuery from '@utils/axiosBaseQuery';
-import { IDataset, IDatasetCreateCommentRequest, IDatasetCreateRequest, IDatasetInfoRequest, IDatasetsRequest, IDatasetsResponse, IDatasetUpdateCommentRequest, IDatasetUpdateRequest, IDeleteDatasetCommentRequest, IGetDatasetCommentsRequest, IGetDatasetCommentsResponse } from './types/blog-types';
-import { IMessageResponse } from './types/competition-types';
+import { IBlogCreateRequest, IBlogCreateResponse } from './types/blog-types';
 
 
 export const blogsApi = createApi({
@@ -9,22 +8,22 @@ export const blogsApi = createApi({
     baseQuery: axiosBaseQuery,
     tagTypes: ['Blogs'],
     endpoints: (builder) => ({
-        getAllBlogs: builder.query<IDatasetsResponse, IDatasetsRequest>({
-            query: ({ data }) => ({
-                url: `/datasets/public/page?isMyDataset=false`,
-                method: 'GET',
-                params: { page: data.page, count: data.count },
-            }),
-            providesTags: ['Blogs'],
-        }),
-        createBlog: builder.mutation<IMessageResponse, IDatasetCreateRequest>({
+        createBlog: builder.mutation<IBlogCreateResponse, IBlogCreateRequest>({
             query: (data) => ({
-                url: `/datasets`,
+                url: `/blog/posts`,
                 method: 'POST',
                 data: data,
             }),
             invalidatesTags: ['Blogs'],
         }),
+        // getAllBlogs: builder.query<IDatasetsResponse, IDatasetsRequest>({
+        //     query: ({ data }) => ({
+        //         url: `/datasets/public/page?isMyDataset=false`,
+        //         method: 'GET',
+        //         params: { page: data.page, count: data.count },
+        //     }),
+        //     providesTags: ['Blogs'],
+        // }),
 
 
         // getMyDatasets: builder.query<IDatasetsResponse, IDatasetsRequest>({
@@ -92,6 +91,7 @@ export const blogsApi = createApi({
 });
 
 export const {
+    useCreateBlogMutation,
     // useLazyGetAllDatasetsQuery,
     // useLazyGetMyDatasetsQuery,
     // useCreateDatasetMutation,

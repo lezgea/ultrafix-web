@@ -30,7 +30,7 @@ const TextEditor: React.FC<ITextEditorProps> = (props) => {
     const config = {
         readonly: false,
         height: 1000,
-        buttons: ['bold', 'italic', 'underline', 'link', 'unlink', 'source'],
+        // buttons: ['bold', 'italic', 'underline', 'link', 'unlink', 'source'],
         uploader: {
             insertImageAsBase64URI: true,
         },
