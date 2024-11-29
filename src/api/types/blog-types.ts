@@ -62,3 +62,22 @@ export interface IBlogListResponse {
     skip: number,
     limit: number,
 }
+
+
+export interface IBlogInfoRequest {
+    id: number | string,
+}
+
+export interface IBlogInfoResponse {
+    status: string,
+    data: IBlogItem,
+}
+
+
+export interface IBlogUpdateRequest {
+    id: string,
+    title: string,
+    description: string,
+    content: string,
+    read_time: number,
+}

@@ -8,11 +8,12 @@ import { UseFormSetValue } from 'react-hook-form';
 
 
 interface ImageUploaderProps {
+    blogId?: string,
     image?: string,
     setImageId: (val: number | string | null) => void,
 }
 
-const BlogImageUploader: React.FC<ImageUploaderProps> = ({ image, setImageId }) => {
+const BlogImageUploader: React.FC<ImageUploaderProps> = ({ blogId, image, setImageId }) => {
     const [uploadedImage, setUploadedImage] = React.useState<File | null>(null);
     const [initialImage, setInitialImage] = React.useState<string>('');
 
@@ -27,11 +28,21 @@ const BlogImageUploader: React.FC<ImageUploaderProps> = ({ image, setImageId }) 
         setUploadedImage(uploadedFile);
 
         try {
-            const formData = new FormData();
-            formData.append("file", uploadedFile);
 
-            let response = await uploadFile({ file: formData }).unwrap();
-            setImageId(response.data.id)
+
+            if (!!blogId) {
+                const formData = new FormData();
+                formData.append("id", blogId);
+                formData.append("type", "images");
+                formData.append("file", uploadedFile);
+                // let response = await uploadFile({ file: formData }).unwrap();
+                // setImageId(response.data.id)
+            } else {
+                const formData = new FormData();
+                formData.append("file", uploadedFile);
+                let response = await uploadFile({ file: formData }).unwrap();
+                setImageId(response.data.id)
+            }
         } catch (error) {
             console.log(error)
         }

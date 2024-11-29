@@ -1,12 +1,12 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import axiosBaseQuery from '@utils/axiosBaseQuery';
-import { IBlogCreateRequest, IBlogCreateResponse, IBlogListRequest, IBlogListResponse } from './types/blog-types';
+import { IBlogCreateRequest, IBlogCreateResponse, IBlogInfoRequest, IBlogInfoResponse, IBlogListRequest, IBlogListResponse, IBlogUpdateRequest } from './types/blog-types';
 
 
 export const blogsApi = createApi({
     reducerPath: 'blogsApi',
     baseQuery: axiosBaseQuery,
-    tagTypes: ['Blogs'],
+    tagTypes: ['Blogs', 'BlogInfo'],
     endpoints: (builder) => ({
         createBlog: builder.mutation<IBlogCreateResponse, IBlogCreateRequest>({
             query: (data) => ({
@@ -24,82 +24,35 @@ export const blogsApi = createApi({
             }),
             providesTags: ['Blogs'],
         }),
-
-
-        // getMyDatasets: builder.query<IDatasetsResponse, IDatasetsRequest>({
-        //     query: ({ data }) => ({
-        //         url: `/datasets/public/page?isMyDataset=true`,
-        //         method: 'GET',
-        //         params: { page: data.page, count: data.count },
-        //     }),
-        //     providesTags: ['MyDatasets'],
-        // }),
-        // getDatasetInfo: builder.query<IDataset, IDatasetInfoRequest>({
-        //     query: ({ id }) => ({
-        //         url: `/datasets/${id}`,
-        //         method: 'GET',
-        //     }),
-        //     providesTags: ['DatasetInfo'],
-        // }),
-        // updateDataset: builder.mutation<IMessageResponse, IDatasetUpdateRequest>({
-        //     query: (data) => ({
-        //         url: `/datasets/${data.dataId}`,
-        //         method: 'PUT',
-        //         data: data,
-        //     }),
-        //     invalidatesTags: ['DatasetInfo'],
-        // }),
-        // deleteDataset: builder.mutation<void, { id: number | string }>({
-        //     query: ({ id }) => ({
-        //         url: `/files/dataset/${id}`,
-        //         method: 'DELETE',
-        //     }),
-        //     invalidatesTags: ['DatasetInfo'],
-        // }),
-        // createDatasetComment: builder.mutation<IMessageResponse, IDatasetCreateCommentRequest>({
-        //     query: ({ id, data }) => ({
-        //         url: `/datasets/${id}/comment`,
-        //         method: 'POST',
-        //         data: data,
-        //     }),
-        //     invalidatesTags: ['DatasetComments'],
-        // }),
-        // getDatasetComments: builder.query<IGetDatasetCommentsResponse, IGetDatasetCommentsRequest>({
-        //     query: ({ id }) => ({
-        //         url: `/datasets/${id}/comment`,
-        //         method: 'GET',
-        //         params: {},
-        //     }),
-        //     providesTags: ['DatasetComments'],
-        // }),
-        // deleteDatasetComment: builder.mutation<void, IDeleteDatasetCommentRequest>({
-        //     query: ({ commentId }) => ({
-        //         url: `/datasets/comment/${commentId}`,
-        //         method: 'DELETE',
-        //     }),
-        //     invalidatesTags: ['DatasetComments'],
-        // }),
-        // updateDatasetComment: builder.mutation<IMessageResponse, IDatasetUpdateCommentRequest>({
-        //     query: ({ commentId, data }) => ({
-        //         url: `/datasets/comment/${commentId}`,
-        //         method: 'PUT',
-        //         data: data,
-        //     }),
-        //     invalidatesTags: ['DatasetComments'],
-        // }),
+        getBlogInfo: builder.query<IBlogInfoResponse, IBlogInfoRequest>({
+            query: ({ id }) => ({
+                url: `/blog/posts/${id}`,
+                method: 'GET',
+            }),
+            providesTags: ['BlogInfo'],
+        }),
+        updateBlog: builder.mutation<null, IBlogUpdateRequest>({
+            query: (data) => ({
+                url: `/blog/posts/${data.id}`,
+                method: 'PUT',
+                data: data,
+            }),
+            invalidatesTags: ['BlogInfo'],
+        }),
+        deleteBlog: builder.mutation<void, { id: number | string }>({
+            query: ({ id }) => ({
+                url: `/blog/posts/${id}`,
+                method: 'DELETE',
+            }),
+            invalidatesTags: ['Blogs'],
+        }),
     }),
 });
 
 export const {
     useCreateBlogMutation,
     useLazyGetAllBlogsQuery,
-    // useLazyGetMyDatasetsQuery,
-    // useCreateDatasetMutation,
-    // useGetDatasetInfoQuery,
-    // useUpdateDatasetMutation,
-    // useDeleteDatasetMutation,
-    // useCreateDatasetCommentMutation,
-    // useLazyGetDatasetCommentsQuery,
-    // useDeleteDatasetCommentMutation,
-    // useUpdateDatasetCommentMutation,
+    useGetBlogInfoQuery,
+    useUpdateBlogMutation,
+    useDeleteBlogMutation,
 } = blogsApi;

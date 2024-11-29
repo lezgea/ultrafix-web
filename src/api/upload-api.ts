@@ -15,10 +15,17 @@ export const uploadApi = createApi({
                 data: file,
             }),
         }),
-
+        uploadBlogImage: builder.mutation<IFileUploadResponse, IFileUploadRequest>({
+            query: ({ file }) => ({
+                url: '/media/store',
+                method: 'POST',
+                data: file,
+            }),
+        }),
     }),
 });
 
 export const {
     useUploadFileMutation,
+    useUploadBlogImageMutation,
 } = uploadApi;

@@ -4,10 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import PageLayout from '@components/layout/page-layout';
 import SectionLayout from '@components/layout/section-layout';
-import { AdminBlogsList } from '@components/features/admin';
-import { useSelector } from 'react-redux';
-import { RootState } from '@store/store';
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import withProtectedRoute from '@utils/withProtectedRoute';
 import BlogImageUploader from '@components/features/admin/blog-image-uploader';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -15,19 +12,30 @@ import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { ConfirmationModal, FormInput } from '@components/shared';
 import TextEditor from '@components/shared/text-editor';
+import { toast } from 'react-toastify';
+import { useDeleteBlogMutation, useGetBlogInfoQuery, useUpdateBlogMutation } from '@api/blogs-api';
 
 
 
 interface IFormInput {
-
+    title: string,
+    description: string,
+    content: string,
+    read_time: number,
 }
 
 
 const AdminBlogsUpdate: React.FC = () => {
     const router = useRouter();
+    const { blogId } = useParams();
+    const bId = Array.isArray(blogId) ? blogId[0] : blogId;
 
+    const [imageId, setImageId] = React.useState<number | string | null>(null)
     const [showDeleteModal, setShowDeleteModal] = React.useState<boolean>(false);
-    const { isAuthenticated } = useSelector((state: RootState) => state.user);
+
+    const { data: blogInfo, error, isLoading, refetch } = useGetBlogInfoQuery({ id: bId }, { skip: !bId });
+    const [updateBlog] = useUpdateBlogMutation();
+    const [deleteBlog] = useDeleteBlogMutation();
 
 
     const validationSchema = Yup.object().shape({
@@ -42,21 +50,46 @@ const AdminBlogsUpdate: React.FC = () => {
     });
 
 
-    // const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    //     try {
-    //         // await createDataset({
-    //         //     datasetImageId: imageId,
-    //         //     ...data,
-    //         //     tags
-    //         // }).unwrap();
-    //         // toast.success('Dataset has been created');
-    //         // setSidebarOpen(false);
-    //         // onResetData();
-    //     } catch (err: any) {
-    //         console.error('Unknown error:', err);
-    //         toast.error(err.data?.message || 'An unexpected error occurred');
-    //     }
-    // };
+    const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+        try {
+            await updateBlog({
+                id: bId,
+                ...data,
+            }).unwrap();
+            toast.success('Blog has been updated');
+            onResetData();
+        } catch (err: any) {
+            console.error('Unknown error:', err);
+            toast.error(err.data?.message || 'An unexpected error occurred');
+        }
+    };
+
+
+    const onDeleteBlog = async () => {
+        try {
+            await deleteBlog({ id: bId })
+            setShowDeleteModal(false);
+            toast.success('Blog has been deleted!');
+            onResetData();
+        } catch (err: any) {
+            console.error('Unknown error:', err);
+            toast.error(err.data?.message || 'An unexpected error occurred');
+        }
+    }
+
+    const onResetData = () => {
+        reset();
+        router.push('/admin/blogs')
+    }
+
+
+    React.useEffect(() => {
+        if (blogInfo) {
+            setValue('title', blogInfo?.data?.title);
+            setValue('description', blogInfo?.data?.description);
+            setValue('read_time', blogInfo?.data?.read_time);
+        }
+    }, [blogInfo])
 
 
     return (
@@ -74,21 +107,13 @@ const AdminBlogsUpdate: React.FC = () => {
                         <h2 className="text-[1.7rem] leading-[2.5rem] md:text-[2.5rem] text-center font-semibold text-primaryDark">
                             Update Blog
                         </h2>
-                        {/* <Link
-                        href="/admin/blogs/create"
-                        className="px-10 h-[45px] flex items-center justify-center font-regmed bg-primary text-white py-2 rounded-lg ring-2 ring-primary hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:outline-none focus:ring-2 focus:ring-primaryDark focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
-                    >
-                        Create Blog
-                    </Link> */}
                     </div>
                 </div>
             </SectionLayout>
             <SectionLayout noYPadding>
-                <form
-                // onSubmit={handleSubmit(onSubmit)}
-                >
+                <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="pb-5 text-start space-y-1 space-y-5">
-                        <BlogImageUploader />
+                        <BlogImageUploader blogId="5" image={blogInfo?.data?.cover?.url} setImageId={setImageId} />
 
                         <div className="space-y-5 select-none">
                             <FormInput
@@ -108,7 +133,7 @@ const AdminBlogsUpdate: React.FC = () => {
                             />
                             <TextEditor
                                 name='content'
-                                initialValue=' '
+                                initialValue={blogInfo?.data?.content}
                                 register={register}
                                 setValue={setValue}
                             />
@@ -126,7 +151,7 @@ const AdminBlogsUpdate: React.FC = () => {
                             <Link href='/admin/blogs'>
                                 <button
                                     type="button"
-                                    // onClick={onCancel}
+                                    onClick={onResetData}
                                     className="flex w-40 text-center items-center justify-center px-4 py-3 text-gray-500 transition-all bg-gray-100 rounded-lg hover:bg-primaryDark hover:text-white shadow-neutral-300 hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:shadow-none"
                                 >
                                     Cancel
@@ -145,7 +170,7 @@ const AdminBlogsUpdate: React.FC = () => {
             </SectionLayout>
             <ConfirmationModal
                 visible={showDeleteModal}
-                onConfirm={() => { }}
+                onConfirm={onDeleteBlog}
                 onClose={() => setShowDeleteModal(false)}
             />
         </PageLayout>
