@@ -15,17 +15,17 @@ export const AdminBlogsList: React.FC = () => {
     const [totalPages, setTotalPages] = React.useState<number>(1);
     const [triggerGetBlogs, { data: blogsData, error, isLoading }] = useLazyGetAllBlogsQuery();
 
-    const itemsPerPage = 6;
+    const itemsPerPage = 10;
 
     React.useEffect(() => {
         triggerGetBlogs({
             skip: currentPage, limit: itemsPerPage
         }).then((response: any) => {
-            // if (response?.data?.totalElements) {
-            //     setTotalPages(Math.ceil(response.data.totalElements / itemsPerPage));
-            // } else {
-            //     setTotalPages(1)
-            // }
+            if (response?.data?.count) {
+                setTotalPages(Math.ceil(response.data.count / itemsPerPage));
+            } else {
+                setTotalPages(1)
+            }
         });
     }, [currentPage, triggerGetBlogs]);
 
@@ -52,7 +52,6 @@ export const AdminBlogsList: React.FC = () => {
         setIsMounted(true);
     }, []);
 
-    console.log('@@@@@', blogsData)
 
     return (
         <SectionLayout
@@ -66,6 +65,26 @@ export const AdminBlogsList: React.FC = () => {
                     )
                 }
             </div>
+            {/* Pagination Controls */
+                !!blogsData?.count &&
+                <div className="flex justify-between items-center mt-6">
+                    <button
+                        onClick={handlePreviousPage}
+                        disabled={currentPage === 0}
+                        className={`px-4 py-2 rounded-md ${currentPage === 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-primary text-white hover:bg-primaryDark'}`}
+                    >
+                        Previous
+                    </button>
+                    <span>Page {currentPage + 1} of {totalPages}</span>
+                    <button
+                        onClick={handleNextPage}
+                        disabled={currentPage >= totalPages - 1}
+                        className={`px-4 py-2 rounded-md ${currentPage >= totalPages - 1 ? 'bg-gray-300 cursor-not-allowed' : 'bg-primary text-white hover:bg-primaryDark'}`}
+                    >
+                        Next
+                    </button>
+                </div>
+            }
         </SectionLayout>
     );
 };

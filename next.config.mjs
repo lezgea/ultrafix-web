@@ -16,9 +16,7 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'ultrafix.com', // Replace with your image host domain
-                port: '',
-                pathname: '/**',
+                hostname: '**', // Allows images from any hostname
             },
         ],
     },

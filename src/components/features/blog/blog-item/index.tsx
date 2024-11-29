@@ -1,22 +1,22 @@
+import { IBlogItem } from "@api/types/blog-types";
 import { RootState } from "@store/store";
 import Image from "next/image";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 
 
-interface IBlogItemsProps {
+interface IBlogItemsProps extends IBlogItem {
     id: string | number,
-    image: string,
     title: string,
     description: string,
 };
 
 
 const BlogItem: React.FC<IBlogItemsProps> = (props) => {
-    let { id, title, description, image } = props
+    let { id, title, description, cover } = props
 
     const { isAuthenticated } = useSelector((state: RootState) => state.user);
-    const imageUrl = "svg/noimg.svg";
+    const imageUrl = cover?.url || "svg/noimg.svg";
 
 
     return (
