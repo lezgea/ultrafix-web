@@ -125,7 +125,7 @@ const AdminBlogsUpdate: React.FC = () => {
                                 errors={errors}
                             />
                             <FormInput
-                                isTextarea
+                                isTextarea={true}
                                 type='text'
                                 name='description'
                                 placeholder="Description"

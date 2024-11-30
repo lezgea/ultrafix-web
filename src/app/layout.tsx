@@ -261,6 +261,7 @@ export default function RootLayout({
             })
           }}
         />
+        
       </head>
       <body className={`${poppins.className}`}>
         {/* Google Tag Manager (noscript) */}

@@ -20,7 +20,15 @@ const nextConfig = {
             },
         ],
     },
-    webpack(config) {
+    webpack(config, { isServer, webpack }) {
+        if (isServer) {
+            config.plugins.push(
+                new webpack.DefinePlugin({
+                    self: {}, // Define `self` as an empty object during SSR
+                    document: {},
+                })
+            );
+        }
         config.module.rules.push({
             test: /\.svg$/,
             use: [

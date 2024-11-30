@@ -120,7 +120,7 @@ export const ContactForm: React.FC = () => {
                 </div>
 
                 <FormInput
-                    isTextArea={true}
+                    isTextarea={true}
                     label='Message'
                     type='text'
                     name='message'

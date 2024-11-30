@@ -14,6 +14,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { FormInput } from '@components/shared';
 import { useCreateBlogMutation } from '@api/blogs-api';
 import { toast } from 'react-toastify';
+import dynamic from 'next/dynamic';
+
+
+// const QuillEditor = dynamic(() => import(('jodit-react'), { ssr: false }))
 
 
 
@@ -97,7 +101,7 @@ const AdminBlogsCreate: React.FC = () => {
                                 errors={errors}
                             />
                             <FormInput
-                                isTextarea
+                                isTextarea={true}
                                 type='text'
                                 name='description'
                                 placeholder="Description"
