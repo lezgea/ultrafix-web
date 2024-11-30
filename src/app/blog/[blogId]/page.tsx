@@ -29,7 +29,7 @@ const BlogInfo: React.FC = () => {
                         <span className="text-lg">&gt;</span>
                         <span>{blogInfo?.data?.title}</span>
                     </nav>
-                    <h1 className="text-[1.7rem] leading-[2.5rem] md:text-[2.5rem] md:leading-[4rem] font-semibold text-primaryDark">
+                    <h1 className="text-[1.7rem] md:text-[2.5rem] leading-normal font-semibold text-primaryDark">
                         {blogInfo?.data?.title}
                     </h1>
                 </div>
@@ -49,6 +49,15 @@ const BlogInfo: React.FC = () => {
             </SectionLayout>
             <SectionLayout noYPadding>
                 <div className="mt-10" dangerouslySetInnerHTML={{ __html: blogInfo?.data?.content || '' }} />
+                <div className='flex items-center justify-center mb-40'>
+                    <button
+                        // onClick={scrollToContact}
+                        className="inline-flex w-auto text-center items-center px-5 py-2 lg:px-6 lg:py-[12px] text-md lg:text-lg text-white transition-all bg-primary rounded-lg sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
+                        aria-label="See our races"
+                    >
+                        Book an Appointment
+                    </button>
+                </div>
             </SectionLayout>
         </PageLayout>
     );
