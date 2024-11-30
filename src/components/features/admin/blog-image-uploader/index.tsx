@@ -1,6 +1,6 @@
 "use client"
 
-import { useUploadFileMutation } from '@api/upload-api';
+import { useUploadBlogImageMutation, useUploadFileMutation } from '@api/upload-api';
 import React from 'react';
 import { UseFormSetValue } from 'react-hook-form';
 
@@ -18,6 +18,7 @@ const BlogImageUploader: React.FC<ImageUploaderProps> = ({ blogId, image, setIma
     const [initialImage, setInitialImage] = React.useState<string>('');
 
     const [uploadFile, { isLoading }] = useUploadFileMutation();
+    const [uploadBlogImage] = useUploadBlogImageMutation();
 
     const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const uploadedFile = e.target.files?.[0];
@@ -35,8 +36,8 @@ const BlogImageUploader: React.FC<ImageUploaderProps> = ({ blogId, image, setIma
                 formData.append("id", blogId);
                 formData.append("type", "images");
                 formData.append("file", uploadedFile);
-                // let response = await uploadFile({ file: formData }).unwrap();
-                // setImageId(response.data.id)
+                let response = await uploadBlogImage({ file: formData }).unwrap();
+                setImageId(response.data.id)
             } else {
                 const formData = new FormData();
                 formData.append("file", uploadedFile);

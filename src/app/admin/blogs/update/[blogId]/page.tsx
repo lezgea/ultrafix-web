@@ -87,6 +87,7 @@ const AdminBlogsUpdate: React.FC = () => {
         if (blogInfo) {
             setValue('title', blogInfo?.data?.title);
             setValue('description', blogInfo?.data?.description);
+            setValue('content', blogInfo?.data?.content);
             setValue('read_time', blogInfo?.data?.read_time);
         }
     }, [blogInfo])

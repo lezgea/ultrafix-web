@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 
 const Blog: React.FC = () => {
-    
+
     return (
         <PageLayout title="The number one Appliance Repair service in US">
             <Image
