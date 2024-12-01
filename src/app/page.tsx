@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import PageLayout from '@components/layout/page-layout';
 import { AboutUsSection, BannerSection, BrandsSection, CommercialServicesSection, ContactSection, LocationsSection, LogosSection, ResidentialServicesSection, WhyUsSection } from '@components/features/home';
 import * as motion from "framer-motion/client"
+import { BlogSection } from '@components/features';
 
 
 export const metadata: Metadata = {
@@ -76,6 +77,7 @@ const Home: React.FC = () => {
             <LocationsSection />
             <AboutUsSection />
             <BrandsSection />
+            <BlogSection hideCarousel />
             <WhyUsSection />
         </PageLayout >
     );

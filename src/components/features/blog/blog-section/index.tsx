@@ -18,17 +18,18 @@ const Carousel = dynamic(() => import("react-responsive-carousel").then(mod => m
 });
 
 interface IBlogSectionProps {
+    hideCarousel?: boolean,
     data?: IBlogItem[],
 }
 
 export const BlogSection: React.FC<IBlogSectionProps> = (props) => {
-    let { data } = props
+    let { hideCarousel, data } = props
 
     const [currentPage, setCurrentPage] = React.useState<number>(0);
     const [totalPages, setTotalPages] = React.useState<number>(1);
     const [triggerGetBlogs, { data: blogsData, error, isLoading }] = useLazyGetAllBlogsQuery();
 
-    const itemsPerPage = 10;
+    const itemsPerPage = 4;
 
     React.useEffect(() => {
         triggerGetBlogs({
@@ -79,7 +80,7 @@ export const BlogSection: React.FC<IBlogSectionProps> = (props) => {
             title="UltraFix Info Hub"
             description="Discover helpful tips, expert advice, and the latest updates in the world of appliance repair on our blog. From troubleshooting common appliance issues to understanding when it’s time for professional service, we’re here to help you keep your home running smoothly. Explore practical guides, maintenance hacks, and industry insights tailored to save you time and money."
         >
-            {isMounted && (
+            {!hideCarousel && isMounted && (
                 <div className="rounded-3xl overflow-hidden">
                     <Carousel {...(carouselProps as CarouselProps)}>
                         {blogsData?.data?.map(({ id, title, cover }) => (
@@ -103,7 +104,7 @@ export const BlogSection: React.FC<IBlogSectionProps> = (props) => {
                 </div>
             )}
 
-            <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 pb-40">
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
                 {
                     blogsData?.data?.map((item: any) =>
                         <BlogItem key={item.id} {...item} />
@@ -111,7 +112,7 @@ export const BlogSection: React.FC<IBlogSectionProps> = (props) => {
                 }
             </div>
             {/* Pagination Controls */
-                !!blogsData?.count && (blogsData?.count > itemsPerPage) &&
+                !hideCarousel && !!blogsData?.count && (blogsData?.count > itemsPerPage) &&
                 <div className="flex justify-between items-center mt-6">
                     <button
                         onClick={handlePreviousPage}
