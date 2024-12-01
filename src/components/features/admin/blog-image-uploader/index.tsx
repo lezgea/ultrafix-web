@@ -29,12 +29,10 @@ const BlogImageUploader: React.FC<ImageUploaderProps> = ({ blogId, image, setIma
         setUploadedImage(uploadedFile);
 
         try {
-
-
             if (!!blogId) {
                 const formData = new FormData();
                 formData.append("id", blogId);
-                formData.append("type", "images");
+                formData.append("type", "cover");
                 formData.append("file", uploadedFile);
                 let response = await uploadBlogImage({ file: formData }).unwrap();
                 setImageId(response.data.id)

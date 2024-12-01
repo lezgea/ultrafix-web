@@ -114,7 +114,7 @@ const AdminBlogsUpdate: React.FC = () => {
             <SectionLayout noYPadding>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="pb-5 text-start space-y-1 space-y-5">
-                        <BlogImageUploader blogId="5" image={blogInfo?.data?.cover?.url} setImageId={setImageId} />
+                        <BlogImageUploader blogId={bId} image={blogInfo?.data?.cover?.url} setImageId={setImageId} />
 
                         <div className="space-y-5 select-none">
                             <FormInput

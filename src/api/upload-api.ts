@@ -17,7 +17,7 @@ export const uploadApi = createApi({
         }),
         uploadBlogImage: builder.mutation<IFileUploadResponse, IFileUploadRequest>({
             query: ({ file }) => ({
-                url: '/media/store',
+                url: '/blog/posts/fileupload',
                 method: 'POST',
                 data: file,
             }),
