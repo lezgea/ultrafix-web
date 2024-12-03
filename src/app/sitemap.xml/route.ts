@@ -4,6 +4,7 @@ import { SitemapStream, streamToPromise } from 'sitemap';
 import { CITIES, STATES_LIST } from 'constants/locations';
 import { COMMERCIAL_SERVICES_LIST, RESIDENCIAL_SERVICES_LIST } from 'constants/services';
 
+
 export async function GET(req: NextRequest) {
     const sitemap = new SitemapStream({ hostname: 'https://ultrafix.com/' });
 
@@ -11,7 +12,7 @@ export async function GET(req: NextRequest) {
     sitemap.write({ url: '/appliance-services/', lastmod: '2024-10-19', changefreq: 'monthly', priority: 0.8 });
 
     const states = STATES_LIST.map(state => state.title.toLowerCase());
-    const cities = Object.values(CITIES).map(city => city.abbreviation);
+    const cities = Object.values(CITIES).map(city => city.value);
     const residential_services = RESIDENCIAL_SERVICES_LIST.map(service => service.value);
     const commercial_services = COMMERCIAL_SERVICES_LIST.map(service => service.value);
 
