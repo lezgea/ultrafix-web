@@ -62,12 +62,6 @@ const Booking: React.FC = () => {
     return (
         <PageLayout title="The number one Appliance Repair service in US">
             <BookingForm />
-            {/* <LocationsSection />
-            <ResidentialServicesSection />
-            <CommercialServicesSection />
-            <AboutUsSection />
-            <BrandsSection />
-            <WhyUsSection /> */}
         </PageLayout >
     );
 };

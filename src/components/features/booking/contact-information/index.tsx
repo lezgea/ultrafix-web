@@ -3,8 +3,6 @@ import * as Yup from 'yup';
 import { FormInput } from '@components/shared';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useContactUserMutation } from '@api/user-api';
-import { toast } from 'react-toastify';
 import SectionLayout from '@components/layout/section-layout';
 
 
@@ -26,23 +24,19 @@ const validationSchema = Yup.object().shape({
 
 
 interface IContactInformationProps {
-    setStep: (step: number) => void,
+    showModal: () => void,
 }
 
 
 export const ContactInformation: React.FC<IContactInformationProps> = (props) => {
-    let { setStep } = props;
+    let { showModal } = props;
 
-    const [terms, acceptTerms] = React.useState<boolean>(false);
-    const [emailSent, showEmailSent] = React.useState<boolean>(false);
+    const [priceAcknowledge, setPriceAcknowledge] = React.useState<boolean>(false);
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm<IBookingForm>({
         resolver: yupResolver(validationSchema),
         mode: 'onBlur',
     });
-
-    // RTK Query mutation hook
-    // const [sendRequest, { isLoading, error }] = useContactUserMutation();
 
     const onSubmit: SubmitHandler<IBookingForm> = async (data) => {
         // try {
@@ -58,27 +52,153 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
 
 
     return (
-        <SectionLayout title="Select appliance type" noYPadding>
-            <div className="flex w-full justify-center space-y-10">
-                <form className="space-y-3 md:space-y-5 text-center select-none min-w-[30%] max-w-[40%]" onSubmit={handleSubmit(onSubmit)}>
-                    <div className="flex flex-col md:flex-row gap-3 md:gap-5">
-                        {/* <FormInput
-                            type='text'
-                            name='name'
-                            placeholder="Enter your zip code"
-                            register={register}
-                            errors={errors}
-                        /> */}
-                        <div>Contact Information</div>
+        <SectionLayout noYPadding>
+            <div className="flex w-full justify-center space-y-20">
+                <form className="flex flex-col space-y-10 text-center items-center select-none min-w-[30%]" onSubmit={handleSubmit(onSubmit)}>
+                    <div className="flex justify-between items-center pt-3 select-none">
+                        <label className="inline-flex items-center cursor-pointer">
+                            {/* Hidden native checkbox */}
+                            <input
+                                type="checkbox"
+                                className="hidden peer"
+                            // onChange={() => acceptTerms(!terms)}
+                            />
+                            {/* Custom checkbox */}
+                            <span className="w-6 h-6 rounded-lg border-2 border-gray-300 flex items-center justify-center bg-white peer-checked:bg-blue-400 peer-checked:border-transparent transition-colors duration-200">
+                                {/* Checkmark Icon */}
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="w-4 h-4 text-white hidden peer-checked:block"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                >
+                                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                </svg>
+                            </span>
+                            <span className="ml-2 text-gray-700">I acknowledge that the service price is <strong className='text-lg'>$185</strong></span>
+                        </label>
                     </div>
-                    <button
-                        // type="submit"
-                        onClick={() => setStep(3)}
-                        className="w-full h-[45px] font-regmed bg-primary text-white py-2 rounded-lg ring-2 ring-primary hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:outline-none focus:ring-2 focus:ring-primaryDark focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
-                    >
-                        Request Appointment
-                    </button>
-                    <p className='text-gray-400'>Questions ? Call (888) 998-6263</p>
+
+                    <div className='flex flex-col items-center space-y-6'>
+                        <h2 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
+                            Service address
+                        </h2>
+                        <div className="flex items-center justify-center flex-wrap gap-3 md:gap-4 max-w-[60%]">
+                            <div className='flex w-full gap-4'>
+                                <div className='w-full'>
+                                    <FormInput
+                                        type='text'
+                                        name='address'
+                                        placeholder="Address"
+                                        register={register}
+                                        errors={errors}
+                                    />
+                                </div>
+                                <div className='max-w-40'>
+                                    <FormInput
+                                        type='text'
+                                        name='state'
+                                        placeholder="State"
+                                        register={register}
+                                        errors={errors}
+                                    />
+                                </div>
+                            </div>
+                            <div className='flex w-full gap-4'>
+                                <FormInput
+                                    type='text'
+                                    name='city'
+                                    placeholder="City"
+                                    register={register}
+                                    errors={errors}
+                                />
+                                <FormInput
+                                    type='text'
+                                    name='zipcode'
+                                    placeholder="Zip code"
+                                    register={register}
+                                    errors={errors}
+                                />
+                                <FormInput
+                                    type='text'
+                                    name='unit'
+                                    placeholder="Unit or Apt"
+                                    register={register}
+                                    errors={errors}
+                                />
+                            </div>
+                            <FormInput
+                                isTextarea
+                                type='text'
+                                name='address'
+                                placeholder="Address line 2 (optional)"
+                                register={register}
+                                errors={errors}
+                            />
+                        </div>
+                    </div>
+
+                    <div className='flex flex-col items-center space-y-6'>
+                        <h3 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
+                            Contact Information
+                        </h3>
+                        <div className="flex items-center justify-center flex-wrap gap-3 md:gap-4 max-w-[60%]">
+                            <div className='flex w-full gap-4'>
+                                <FormInput
+                                    type='text'
+                                    name='firstname'
+                                    placeholder="Firstname"
+                                    register={register}
+                                    errors={errors}
+                                />
+                                <FormInput
+                                    type='text'
+                                    name='lastname'
+                                    placeholder="Lastname"
+                                    register={register}
+                                    errors={errors}
+                                />
+                            </div>
+                            <div className='flex w-full gap-4'>
+                                <FormInput
+                                    type='text'
+                                    name='email'
+                                    placeholder="E-mail"
+                                    register={register}
+                                    errors={errors}
+                                />
+                            </div>
+                            <div className='flex w-full gap-4'>
+                                <div className='w-40'>
+                                    <FormInput
+                                        type='text'
+                                        name='code'
+                                        placeholder="+1"
+                                        register={register}
+                                        errors={errors}
+                                    />
+                                </div>
+                                <FormInput
+                                    type='text'
+                                    name='phone'
+                                    placeholder="Phone"
+                                    register={register}
+                                    errors={errors}
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className='flex flex-col items-center gap-4'>
+                        <button
+                            // type="submit"
+                            onClick={showModal}
+                            className="w-full max-w-[300px] h-[45px] font-regmed bg-primary text-white py-2 rounded-lg ring-2 ring-primary hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:outline-none focus:ring-2 focus:ring-primaryDark focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
+                        >
+                            Request Appointment
+                        </button>
+                        <p className='text-gray-400'>Questions ? Call (888) 998-6263</p>
+                    </div>
                 </form>
             </div>
         </SectionLayout>

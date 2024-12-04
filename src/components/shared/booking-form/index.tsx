@@ -31,7 +31,8 @@ const validationSchema = Yup.object().shape({
 
 export const BookingForm: React.FC = () => {
 
-    const [step, setStep] = React.useState(0);
+    const [step, setStep] = React.useState<number>(0);
+    const [scheduleModal, setScheduleModal] = React.useState<boolean>(false);
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm<IBookingForm>({
         resolver: yupResolver(validationSchema),
@@ -60,7 +61,7 @@ export const BookingForm: React.FC = () => {
             {!step && <FindTechnician setStep={setStep} />}
             {step == 1 && <ApplianceSelect setStep={setStep} />}
             {step == 2 && <IssueSelect setStep={setStep} />}
-            {step == 3 && <ContactInformation setStep={setStep} />}
+            {step == 3 && <ContactInformation showModal={() => setScheduleModal(true)} />}
         </div>
     )
 }
