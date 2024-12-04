@@ -17,7 +17,7 @@ interface IBookingForm {
 
 const validationSchema = Yup.object().shape({
     name: Yup.string()
-        .required('Zip code is required'),
+        .required('Fullname is required'),
     phone: Yup.string()
         .required('Phone number is required'),
     address: Yup.string()
@@ -25,12 +25,12 @@ const validationSchema = Yup.object().shape({
 });
 
 
-interface IFindTechnicianProps {
+interface IIssueSelectProps {
     setStep: (step: number) => void,
 }
 
 
-export const FindTechnician: React.FC<IFindTechnicianProps> = (props) => {
+export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
     let { setStep } = props;
 
     const [terms, acceptTerms] = React.useState<boolean>(false);
@@ -58,22 +58,22 @@ export const FindTechnician: React.FC<IFindTechnicianProps> = (props) => {
 
 
     return (
-        <SectionLayout title="Find an UltraFix techinician in your area" noYPadding>
-            {/* <Stepper /> */}
+        <SectionLayout title="Select appliance type" noYPadding>
             <div className="flex w-full justify-center space-y-10">
-                <form className="space-y-3 md:space-y-5 select-none min-w-[30%] max-w-[40%] text-center" onSubmit={handleSubmit(onSubmit)}>
+                <form className="space-y-3 md:space-y-5 text-center select-none min-w-[30%] max-w-[40%]" onSubmit={handleSubmit(onSubmit)}>
                     <div className="flex flex-col md:flex-row gap-3 md:gap-5">
-                        <FormInput
+                        {/* <FormInput
                             type='text'
                             name='name'
                             placeholder="Enter your zip code"
                             register={register}
                             errors={errors}
-                        />
+                        /> */}
+                        <div>Issue Select</div>
                     </div>
                     <button
                         // type="submit"
-                        onClick={() => setStep(1)}
+                        onClick={() => setStep(3)}
                         className="w-full h-[45px] font-regmed bg-primary text-white py-2 rounded-lg ring-2 ring-primary hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:outline-none focus:ring-2 focus:ring-primaryDark focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
                     >
                         Continue
