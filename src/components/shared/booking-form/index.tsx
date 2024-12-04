@@ -55,7 +55,7 @@ export const BookingForm: React.FC = () => {
 
 
     return (
-        <div className="relative w-full flex items-center flex-col container mx-auto max-w-[1200px] pt-20 space-y-10">
+        <div className="relative w-full flex items-center flex-col container mx-auto max-w-[1200px] py-20 space-y-10">
             {!!step && <Stepper step={step} />}
             {!step && <FindTechnician setStep={setStep} />}
             {step == 1 && <ApplianceSelect setStep={setStep} />}
