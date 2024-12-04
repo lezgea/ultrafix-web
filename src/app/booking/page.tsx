@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import PageLayout from '@components/layout/page-layout';
 import { ContactSection } from '@components/features/home/contact-section';
 import { AboutUsSection, BrandsSection, CommercialServicesSection, LocationsSection, ResidentialServicesSection, WhyUsSection } from '@components/features';
+import { BookingForm } from '@components/shared/booking-form';
 
 
 export const metadata: Metadata = {
@@ -60,13 +61,13 @@ export const metadata: Metadata = {
 const Booking: React.FC = () => {
     return (
         <PageLayout title="The number one Appliance Repair service in US">
-            <ContactSection />
-            <LocationsSection />
+            <BookingForm />
+            {/* <LocationsSection />
             <ResidentialServicesSection />
             <CommercialServicesSection />
             <AboutUsSection />
             <BrandsSection />
-            <WhyUsSection />
+            <WhyUsSection /> */}
         </PageLayout >
     );
 };
