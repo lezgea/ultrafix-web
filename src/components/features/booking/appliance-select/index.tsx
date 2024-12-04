@@ -94,26 +94,31 @@ export const ApplianceSelect: React.FC<IApplianceSelectProps> = (props) => {
 
 
     return (
-        <SectionLayout title="Select appliance type" noYPadding>
+        <SectionLayout noYPadding>
             <div className="flex w-full justify-center space-y-10">
                 <form className="flex flex-col space-y-20 text-center items-center select-none min-w-[30%]" onSubmit={handleSubmit(onSubmit)}>
-                    <div className="flex flex-col md:flex-row gap-3 md:gap-5">
-                        {
-                            APPLIANCE_TYPES.map(type =>
-                                <SelectButton
-                                    label={type.label}
-                                    selected={type?.id == selectedType}
-                                    onSelect={() => setSelectedType(type.id)}
-                                />
+                    <div className='space-y-6'>
+                        <h2 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
+                            Select appliance type
+                        </h2>
+                        <div className="flex items-center justify-center flex-wrap gap-3 md:gap-5">
+                            {
+                                APPLIANCE_TYPES.map(type =>
+                                    <SelectButton
+                                        label={type.label}
+                                        selected={type?.id == selectedType}
+                                        onSelect={() => setSelectedType(type.id)}
+                                    />
 
-                            )
-                        }
+                                )
+                            }
+                        </div>
                     </div>
 
                     {
                         !!selectedType &&
-                        <div className='space-y-10'>
-                            <h3 className="text-[1.7rem] leading-[2.5rem] md:text-[2.5rem] md:leading-[4rem] text-center font-semibold text-primaryDark">
+                        <div className='space-y-6'>
+                            <h3 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
                                 Select an appliance to repair
                             </h3>
 

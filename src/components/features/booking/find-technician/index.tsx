@@ -58,11 +58,14 @@ export const FindTechnician: React.FC<IFindTechnicianProps> = (props) => {
 
 
     return (
-        <SectionLayout title="Find an UltraFix techinician in your area" noYPadding>
+        <SectionLayout noYPadding>
             {/* <Stepper /> */}
             <div className="flex w-full justify-center space-y-10">
-                <form className="space-y-3 md:space-y-5 select-none min-w-[30%] max-w-[40%] text-center" onSubmit={handleSubmit(onSubmit)}>
-                    <div className="flex flex-col md:flex-row gap-3 md:gap-5">
+                <form className="flex flex-col items-center space-y-6 select-none min-w-[30%] text-center" onSubmit={handleSubmit(onSubmit)}>
+                    <h2 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
+                        Find an UltraFix techinician in your area
+                    </h2>
+                    <div className="flex flex-col w-full max-w-[300px]">
                         <FormInput
                             type='text'
                             name='name'
@@ -74,7 +77,7 @@ export const FindTechnician: React.FC<IFindTechnicianProps> = (props) => {
                     <button
                         // type="submit"
                         onClick={() => setStep(1)}
-                        className="w-full h-[45px] font-regmed bg-primary text-white py-2 rounded-lg ring-2 ring-primary hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:outline-none focus:ring-2 focus:ring-primaryDark focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
+                        className="w-full h-[45px] max-w-[300px] font-regmed bg-primary text-white py-2 rounded-lg ring-2 ring-primary hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:outline-none focus:ring-2 focus:ring-primaryDark focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
                     >
                         Continue
                     </button>

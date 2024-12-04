@@ -1,3 +1,4 @@
+import { BlueCheckIcon } from '@assets/icons';
 import React from 'react';
 
 
@@ -26,8 +27,10 @@ interface IStepProps {
 const Step: React.FC<IStepProps> = ({ active, step }) => {
     return (
         <div className='flex items-center'>
-            {step > 1 && <div className={`w-40 h-1 ${active ? 'bg-primary' : 'bg-gray-200'}`} />}
-            <div className={`w-3 h-3 rounded-full ${active ? 'bg-primary' : 'bg-gray-200'}`} />
+            {step > 1 && <div className={`w-40 ${active ? 'h-1 bg-primaryLight' : 'h-0.5 bg-gray-200'}`} />}
+            <div className={`flex items-center justify-center rounded-full ${active ? 'w-7 h-7 bg-white' : 'w-3 h-3 bg-gray-200'}`} >
+                {active && <BlueCheckIcon />}
+            </div>
         </div>
     )
 }

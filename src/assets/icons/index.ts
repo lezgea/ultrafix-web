@@ -68,6 +68,7 @@ import NJMapIcon from './nj_map.svg';
 import NYMapIcon from './ny_map.svg';
 import StoveIcon from './stove.svg';
 import RangeIcon from './range.svg';
+import BlueCheckIcon from './blue-check.svg';
 
 
 export {
@@ -86,6 +87,7 @@ export {
     AppliancesIllustration,
 
     // icons
+    BlueCheckIcon,
     StoveIcon,
     RangeIcon,
     NJMapIcon,
