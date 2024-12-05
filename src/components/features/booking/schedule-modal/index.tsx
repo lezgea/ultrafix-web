@@ -3,7 +3,7 @@ import { STATES } from 'constants/locations';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CloseIcon } from '@assets/icons';
-import { Modal } from '@components/shared';
+import { DaySelect, Modal, TimeSelect } from '@components/shared';
 
 
 interface IScheduleModalProps {
@@ -26,6 +26,28 @@ export const ScheduleModal: React.FC<IScheduleModalProps> = (props) => {
     )
 }
 
+
+const DAYS = [
+    { id: 1, day: 4, weekDay: 'Wednesday', date: '4 Dec 2024' },
+    { id: 2, day: 5, weekDay: 'Thursday', date: '5 Dec 2024' },
+    { id: 3, day: 6, weekDay: 'Friday', date: '6 Dec 2024' },
+    { id: 4, day: 7, weekDay: 'Saturday', date: '7 Dec 2024' },
+    { id: 5, day: 8, weekDay: 'Sunday', date: '8 Dec 2024' },
+]
+
+const TIMES = [
+    { id: 1, label: '8 am - 11 am' },
+    { id: 2, label: '9 am - 12 pm' },
+    { id: 3, label: '10 am - 1 pm' },
+    { id: 4, label: '11 am - 2 pm' },
+    { id: 5, label: '12 pm - 15 pm' },
+    { id: 6, label: '13 pm - 16 pm' },
+    { id: 7, label: '14 pm - 17 pm' },
+    { id: 8, label: '15 pm - 18 pm' },
+    { id: 9, label: '16 pm - 19 pm' },
+    { id: 10, label: '17 pm - 20 pm' },
+]
+
 interface IModalContent {
     onClose: () => void,
 }
@@ -33,42 +55,72 @@ interface IModalContent {
 const ModalContent: React.FC<IModalContent> = (props) => {
     let { onClose } = props;
 
-    // const stateKey = state as keyof typeof STATES;
+    const [selectedDate, setSelectedDate] = React.useState<string>();
+    const [selectedDay, setSelectedDay] = React.useState<number>(1);
+    const [selectedTime, setSelectedTime] = React.useState<number>(0);
 
 
     return (
-        <div className="flex relative flex-col md:max-w-[80vw] max-h-[90vh] rounded-lg overflow-hidden space-y-5 text-center">
+        <div className="flex relative flex-col md:max-w-[80vw] md:min-w-[80vw] max-h-[90vh] rounded-lg overflow-hidden space-y-5 text-center">
             <div className="z-50 backdrop-blur-xl flex items-center justify-center bg-white/60 absolute w-full py-2 md:py-3">
-                <h2 className="text-lg md:text-2xl text-gray-500 mt-3">Let us know your availability</h2>
+                <h2 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
+                    Let us know your availability
+                </h2>
                 <div className="z-200 absolute top-5 right-5 cursor-pointer hover:text-primary" onClick={onClose}><CloseIcon /></div>
             </div>
-            <div className="w-full columns-2 lg:columns-3 p-7 pt-[50px] md:pt-[60px] md:p-7 overflow-y-scroll">
-                {
-                    // STATES[stateKey].map((city) =>
-                    //     <Link
-                    //         key={city.id}
-                    //         href={`/appliance-repair/${state.toLowerCase()}/${city.value}`}
-                    //     >
-                    //         <div className="relative rounded-xl md:rounded-2xl h-[100px] max-h-[100px] md:h-[200px] md:max-h-[200px] overflow-hidden mb-4 border border-gray-300">
-                    //             <div className="text-gray-500 cursor-pointer shadow-top-lg hover:shadow-lg group rounded-xl md:rounded-2xl overflow-hidden">
-                    //                 <Image
-                    //                     src={city.img}
-                    //                     width={300}
-                    //                     height={200}
-                    //                     className="w-full min-h-[100px] max-h-[100px] md:h-[200px] md:max-h-[200px] object-cover transition-transform duration-300 ease-in-out transform group-hover:scale-110 rounded-xl md:rounded-2xl border border-gray-100"
-                    //                     alt={`${city.title} Image`}
-                    //                     // loading="lazy"
-                    //                     sizes="(max-width: 1200px) 200px, (min-width: 1200px) 200px"
-                    //                 />
-                    //                 <div className="absolute z-60 flex items-center justify-center top-0 w-full h-full rounded-xl md:rounded-2xl py-5 bg-white/30 backdrop-blur-xl group-hover:backdrop-blur-none group-hover:bg-transparent text-lg md:text-xl font-semibold text-center text-white">
-                    //                     {city.title}
-                    //                 </div>
-                    //             </div>
-                    //         </div>
+            <div className="w-full flex flex-col items-center justify-center p-[50px] pt-[100px] gap-[40px]">
+                <div className='flex flex-col items-center gap-4'>
+                    <div className='flex gap-3'>
+                        {
+                            DAYS.map(day =>
+                                <DaySelect
+                                    key={day.id}
+                                    selected={day.id == selectedDay}
+                                    onSelect={() => { setSelectedDay(day.id); setSelectedDate(day.date) }}
+                                    {...day}
+                                />
+                            )
+                        }
+                    </div>
+                    <p className='text-gray-500'>OR</p>
+                    <button
+                        // type="submit"
+                        // onClick={showModal}
+                        className="w-full max-w-[250px] h-[45px] font-regmed border-2 border-primary text-primary px-6 py-2 rounded-lg hover:shadow-lg hover:shadow-neutral-300 hover:bg-primary hover:text-white hover:-tranneutral-y-px focus:outline-none focus:ring-2 focus:ring-primaryDark focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
+                    >
+                        Select from Calendar
+                    </button>
+                </div>
+                <div className='flex flex-col items-center gap-5'>
+                    <div>
+                        <h3 className='font-medium text-xl text-gray-400'>{DAYS[selectedDay - 1]?.weekDay}</h3>
+                        <h4 className='font-light text-3xl'>{selectedDate}</h4>
+                    </div>
+                    <p className='text-gray-400'>Please select the arrival time that best fits your schedule</p>
+                    <div className='flex flex-wrap items-center justify-center gap-3 max-w-[80%]'>
+                        {
+                            TIMES.map(time =>
+                                <TimeSelect
+                                    key={time.id}
+                                    selected={time.id == selectedTime}
+                                    onSelect={() => setSelectedTime(time.id)}
+                                    {...time}
+                                />
+                            )
+                        }
+                    </div>
+                </div>
 
-                    //     </Link>
-                    // )
-                }
+                <div className='flex flex-col items-center gap-4'>
+                    <button
+                        // type="submit"
+                        // onClick={showModal}
+                        className="w-full max-w-[300px] h-[45px] font-regmed bg-primary text-white px-6 py-2 rounded-lg ring-2 ring-primary hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:outline-none focus:ring-2 focus:ring-primaryDark focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
+                    >
+                        Book Appointment
+                    </button>
+                    <p className='text-gray-400'>Questions ? Call (888) 998-6263</p>
+                </div>
             </div>
         </div>
     )

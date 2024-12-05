@@ -9,7 +9,7 @@ import { useContactUserMutation } from '@api/user-api';
 import { toast } from 'react-toastify';
 import SectionLayout from '@components/layout/section-layout';
 import { Stepper } from '../stepper';
-import { ApplianceSelect, ContactInformation, FindTechnician, IssueSelect } from '@components/features/booking';
+import { ApplianceSelect, ContactInformation, FindTechnician, IssueSelect, ScheduleModal } from '@components/features/booking';
 
 
 interface IBookingForm {
@@ -56,12 +56,18 @@ export const BookingForm: React.FC = () => {
 
 
     return (
-        <div className="relative w-full flex items-center flex-col container mx-auto max-w-[1200px] py-20 space-y-10">
-            {!!step && <Stepper step={step} />}
-            {!step && <FindTechnician setStep={setStep} />}
-            {step == 1 && <ApplianceSelect setStep={setStep} />}
-            {step == 2 && <IssueSelect setStep={setStep} />}
-            {step == 3 && <ContactInformation showModal={() => setScheduleModal(true)} />}
-        </div>
+        <>
+            <div className="relative w-full flex items-center flex-col container mx-auto max-w-[1200px] py-20 space-y-10">
+                {!!step && <Stepper step={step} />}
+                {!step && <FindTechnician setStep={setStep} />}
+                {step == 1 && <ApplianceSelect setStep={setStep} />}
+                {step == 2 && <IssueSelect setStep={setStep} />}
+                {step == 3 && <ContactInformation showModal={() => setScheduleModal(true)} />}
+            </div>
+            <ScheduleModal
+                visible={scheduleModal}
+                onClose={() => setScheduleModal(false)}
+            />
+        </>
     )
 }
