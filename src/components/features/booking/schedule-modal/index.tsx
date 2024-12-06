@@ -9,17 +9,17 @@ import { DaySelect, Modal, TimeSelect } from '@components/shared';
 interface IScheduleModalProps {
     visible: boolean,
     onClose: () => void,
-    onConfirm?: () => void,
+    onConfirm: () => void,
 }
 
 export const ScheduleModal: React.FC<IScheduleModalProps> = (props) => {
-    let { visible, onClose } = props;
+    let { visible, onConfirm, onClose } = props;
 
     return (
         <Modal
             visible={visible}
             content={
-                <ModalContent onClose={onClose} />
+                <ModalContent onClose={onClose} onConfirm={onConfirm} />
             }
             onClose={onClose}
         />
@@ -49,15 +49,21 @@ const TIMES = [
 ]
 
 interface IModalContent {
+    onConfirm: () => void,
     onClose: () => void,
 }
 
 const ModalContent: React.FC<IModalContent> = (props) => {
-    let { onClose } = props;
+    let { onConfirm, onClose } = props;
 
     const [selectedDate, setSelectedDate] = React.useState<string>();
     const [selectedDay, setSelectedDay] = React.useState<number>(1);
     const [selectedTime, setSelectedTime] = React.useState<number>(0);
+
+    const onBook = () => {
+        onConfirm();
+        onClose();
+    }
 
 
     return (
@@ -146,7 +152,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                 <div className='flex flex-col items-center gap-4'>
                     <button
                         // type="submit"
-                        // onClick={showModal}
+                        onClick={onBook}
                         className="w-full max-w-[300px] h-[45px] font-regmed bg-primary text-white px-6 py-2 rounded-lg ring-2 ring-primary hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:outline-none focus:ring-2 focus:ring-primaryDark focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
                     >
                         Book Appointment

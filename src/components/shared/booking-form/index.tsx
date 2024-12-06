@@ -10,6 +10,7 @@ import { toast } from 'react-toastify';
 import SectionLayout from '@components/layout/section-layout';
 import { Stepper } from '../stepper';
 import { ApplianceSelect, ContactInformation, FindTechnician, IssueSelect, ScheduleModal } from '@components/features/booking';
+import { Confirmation } from '@components/features/booking/confirmation';
 
 
 interface IBookingForm {
@@ -33,6 +34,7 @@ export const BookingForm: React.FC = () => {
 
     const [step, setStep] = React.useState<number>(0);
     const [scheduleModal, setScheduleModal] = React.useState<boolean>(false);
+    const [confirmation, setConfirmation] = React.useState<boolean>(false);
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm<IBookingForm>({
         resolver: yupResolver(validationSchema),
@@ -57,8 +59,9 @@ export const BookingForm: React.FC = () => {
 
     return (
         <>
+            {step == 4 && confirmation && <Confirmation />}
             <div className="relative w-full flex items-center flex-col container mx-auto max-w-[1200px] py-20 space-y-10">
-                {!!step && <Stepper step={step} />}
+                {!!step && !confirm && <Stepper step={step} />}
                 {!step && <FindTechnician setStep={setStep} />}
                 {step == 1 && <ApplianceSelect setStep={setStep} />}
                 {step == 2 && <IssueSelect setStep={setStep} />}
@@ -66,6 +69,7 @@ export const BookingForm: React.FC = () => {
             </div>
             <ScheduleModal
                 visible={scheduleModal}
+                onConfirm={() => { setConfirmation(true); setStep(4) }}
                 onClose={() => setScheduleModal(false)}
             />
         </>
