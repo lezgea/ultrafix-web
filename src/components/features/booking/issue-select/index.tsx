@@ -91,7 +91,7 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
         <SectionLayout noYPadding>
             <div className="flex w-full justify-center space-y-10">
                 <form className="flex flex-col space-y-20 text-center items-center select-none min-w-[30%]" onSubmit={handleSubmit(onSubmit)}>
-                    <div className='space-y-6'>
+                    {/* <div className='space-y-6'>
                         <h2 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
                             Is your refrigerator built-in ?
                         </h2>
@@ -106,10 +106,9 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
                                 )
                             }
                         </div>
-                    </div>
+                    </div> */}
 
                     {
-                        !!selectedType &&
                         <div className='space-y-6'>
                             <h3 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
                                 What’s is the brand of refrigerator ?

@@ -55,30 +55,6 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
         <SectionLayout noYPadding>
             <div className="flex w-full justify-center space-y-20">
                 <form className="flex flex-col space-y-10 text-center items-center select-none min-w-[30%]" onSubmit={handleSubmit(onSubmit)}>
-                    <div className="flex justify-between items-center pt-3 select-none">
-                        <label className="inline-flex items-center cursor-pointer">
-                            {/* Hidden native checkbox */}
-                            <input
-                                type="checkbox"
-                                className="hidden peer"
-                            // onChange={() => acceptTerms(!terms)}
-                            />
-                            {/* Custom checkbox */}
-                            <span className="w-6 h-6 rounded-lg border-2 border-gray-300 flex items-center justify-center bg-white peer-checked:bg-blue-400 peer-checked:border-transparent transition-colors duration-200">
-                                {/* Checkmark Icon */}
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="w-4 h-4 text-white hidden peer-checked:block"
-                                    viewBox="0 0 20 20"
-                                    fill="currentColor"
-                                >
-                                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                </svg>
-                            </span>
-                            <span className="ml-2 text-gray-700">I acknowledge that the service price is <strong className='text-lg'>$185</strong></span>
-                        </label>
-                    </div>
-
                     <div className='flex flex-col items-center space-y-6'>
                         <h2 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
                             Service address
@@ -128,7 +104,6 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                 />
                             </div>
                             <FormInput
-                                isTextarea
                                 type='text'
                                 name='address'
                                 placeholder="Address line 2 (optional)"
