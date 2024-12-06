@@ -39,8 +39,8 @@ const BlogInfo: React.FC = () => {
                     <Image
                         src={blogInfo?.data?.cover?.url || ''}
                         width={1200} // Adjust width and height based on your layout
-                        height={400}
-                        className="w-full h-[400px] object-cover"
+                        height={600}
+                        className="w-full h-[600px] object-cover"
                         alt={"Blog banner"}
                         loading="lazy"
                         sizes="(max-width: 1200px) 100vw, 100vw"
@@ -48,8 +48,8 @@ const BlogInfo: React.FC = () => {
                 </div>
             </SectionLayout>
             <SectionLayout noYPadding>
-                <div className="mt-10" dangerouslySetInnerHTML={{ __html: blogInfo?.data?.content || '' }} />
-                <div className='flex items-center justify-center mb-40'>
+                <div className="mt-10 mb-20" dangerouslySetInnerHTML={{ __html: blogInfo?.data?.content || '' }} />
+                {/* <div className='flex items-center justify-center mb-40'>
                     <button
                         // onClick={scrollToContact}
                         className="inline-flex w-auto text-center items-center px-5 py-2 lg:px-6 lg:py-[12px] text-md lg:text-lg text-white transition-all bg-primary rounded-lg sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
@@ -57,7 +57,7 @@ const BlogInfo: React.FC = () => {
                     >
                         Book an Appointment
                     </button>
-                </div>
+                </div> */}
             </SectionLayout>
         </PageLayout>
     );

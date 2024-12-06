@@ -88,8 +88,8 @@ export const BlogSection: React.FC<IBlogSectionProps> = (props) => {
                                 <Image
                                     src={cover.url}
                                     width={1200}
-                                    height={400}
-                                    className="w-auto h-[400px] object-cover"
+                                    height={600}
+                                    className="w-auto h-[600px] object-cover"
                                     alt={cover.name}
                                     loading="lazy"
                                     sizes="(max-width: 1200px) 100vw, 1000px"
