@@ -18,15 +18,15 @@ export const BannerSection: React.FC = () => {
 
     return (
         <SectionLayout noYPadding>
-            <div className="z-10 flex flex-col w-full space-y-3 md:absolute md:space-y-5 text-center md:text-end justify-end items-center md:items-end mt-10 md:mt-20">
-                <h1 className="text-[2.5rem] leading-[3rem] lg:text-[4rem] lg:leading-[5rem] lg:max-w-[60%] font-semibold text-primaryDark">
+            <div className="z-10 flex flex-col w-full space-y-5 md:absolute text-center md:text-end justify-end items-center md:items-end mt-10 md:mt-20">
+                <h1 className="text-[3rem] leading-[3.5rem] lg:text-[4rem] lg:leading-[5rem] lg:max-w-[60%] font-semibold text-primaryDark">
                     <span className='text-primary'>Same-Day</span> Appliance Repair Services
                     {/* <span className='text-primary text-[3.5rem] leading-[3rem] lg:text-[4.5rem] lg:leading-[5.5rem]'>UltraFix®</span> */}
                 </h1>
-                <p className="text-lg max-w-[80%] md:max-w-full md:text-2xl font-light text-gray-500">Call now and book your service technician</p>
+                <p className="text-xl max-w-[80%] md:max-w-full md:text-2xl font-light text-gray-500">Call now and book your service technician</p>
                 <button
                     onClick={scrollToContact}
-                    className="inline-flex w-auto text-center items-center px-5 py-2 lg:px-6 lg:py-[12px] text-md lg:text-lg text-white transition-all bg-primary rounded-lg sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
+                    className="inline-flex w-auto text-center items-center px-10 py-3 lg:px-6 lg:py-[12px] text-xl text-white transition-all bg-primary rounded-lg sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
                     aria-label="See our races"
                 >
                     Book a Service

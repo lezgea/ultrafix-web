@@ -115,16 +115,16 @@ export const Header: React.FC = () => {
     return (
         <>
             <header className="backdrop-blur-xl bg-white/10 w-full fixed z-30 h-[65px] select-none">
-                <nav role="navigation" aria-label="Main navigation" className="container w-full max-w-[1200px] mx-auto flex justify-between items-center px-3 md:px-10 xl:px-0 py-0 h-full space-x-5">
+                <nav role="navigation" aria-label="Main navigation" className="container w-full max-w-[1200px] mx-auto flex justify-between items-center px-5 md:px-10 xl:px-0 py-0 h-full space-x-5">
                     <div className="flex items-center cursor-pointer w-[100%] justify-between lg:w-[20%] lg:space-x-0">
                         <Link href="/" passHref aria-label="UltraFix Logo">
-                            <UltrafixLogo className="h-auto w-[120px] lg:w-[150px]" />
+                            <UltrafixLogo className="h-auto w-[160px]" />
                         </Link>
-                        <div className="w-[30px] flex lg:hidden">
+                        <div className="w-[60px] flex lg:hidden">
                             {
                                 isSidebarOpen
-                                    ? <CloseIcon onClick={toggleSidebar} data-testid="close-icon" />
-                                    : <HamburgerIcon onClick={toggleSidebar} data-testid="hamburger-icon" />
+                                    ? <CloseIcon onClick={toggleSidebar} className="h-[30px] w-[70px]" data-testid="close-icon" />
+                                    : <HamburgerIcon onClick={toggleSidebar} className="h-[30px] w-[70px]" data-testid="hamburger-icon" />
                             }
                         </div>
                     </div>

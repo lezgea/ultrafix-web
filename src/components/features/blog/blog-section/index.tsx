@@ -18,12 +18,13 @@ const Carousel = dynamic(() => import("react-responsive-carousel").then(mod => m
 });
 
 interface IBlogSectionProps {
+    noYPadding?: boolean,
     hideCarousel?: boolean,
     data?: IBlogItem[],
 }
 
 export const BlogSection: React.FC<IBlogSectionProps> = (props) => {
-    let { hideCarousel, data } = props
+    let { noYPadding, hideCarousel, data } = props
 
     const [currentPage, setCurrentPage] = React.useState<number>(0);
     const [totalPages, setTotalPages] = React.useState<number>(1);
@@ -75,7 +76,7 @@ export const BlogSection: React.FC<IBlogSectionProps> = (props) => {
 
     return (
         <SectionLayout
-            noYPadding
+            noYPadding={noYPadding}
             title="UltraFix Info Hub"
             description="Discover helpful tips, expert advice, and the latest updates in the world of appliance repair on our blog. From troubleshooting common appliance issues to understanding when it’s time for professional service, we’re here to help you keep your home running smoothly. Explore practical guides, maintenance hacks, and industry insights tailored to save you time and money."
         >

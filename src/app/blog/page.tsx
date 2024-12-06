@@ -16,7 +16,7 @@ const Blog: React.FC = () => {
             largeYPadding
             title="The number one Appliance Repair service in US"
         >
-            <BlogSection />
+            <BlogSection noYPadding={true} />
             <ResidentialServicesSection />
             <CommercialServicesSection />
             <ContactSection />
