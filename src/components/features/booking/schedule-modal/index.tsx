@@ -61,7 +61,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
 
 
     return (
-        <div className="flex relative flex-col md:max-w-[80vw] md:min-w-[80vw] max-h-[90vh] rounded-lg overflow-hidden space-y-5 text-center">
+        <div className="flex relative flex-col md:max-w-[80vw] md:min-w-[80vw] max-h-[90vh] rounded-lg overflow-scroll space-y-5 text-center">
             <div className="z-50 backdrop-blur-xl flex items-center justify-center bg-white/60 absolute w-full py-2 md:py-3">
                 <h2 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
                     Let us know your availability
@@ -94,7 +94,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                 <div className='flex flex-col items-center gap-5'>
                     <div>
                         <h3 className='font-medium text-xl text-gray-400'>{DAYS[selectedDay - 1]?.weekDay}</h3>
-                        <h4 className='font-light text-3xl'>{selectedDate}</h4>
+                        <h4 className='font-regmed text-3xl'>{selectedDate}</h4>
                     </div>
                     <p className='text-gray-400'>Please select the arrival time that best fits your schedule</p>
                     <div className='flex flex-wrap items-center justify-center gap-3 max-w-[80%]'>
@@ -111,28 +111,36 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                     </div>
                 </div>
 
-                <div className="flex justify-between items-center pt-3 select-none">
-                    <label className="inline-flex items-center cursor-pointer">
-                        {/* Hidden native checkbox */}
-                        <input
-                            type="checkbox"
-                            className="hidden peer"
-                        // onChange={() => acceptTerms(!terms)}
-                        />
-                        {/* Custom checkbox */}
-                        <span className="w-6 h-6 rounded-lg border-2 border-gray-300 flex items-center justify-center bg-white peer-checked:bg-blue-400 peer-checked:border-transparent transition-colors duration-200">
-                            {/* Checkmark Icon */}
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="w-4 h-4 text-white hidden peer-checked:block"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                            >
-                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                            </svg>
-                        </span>
-                        <span className="ml-2 text-gray-700">I acknowledge that the service price is <strong className='text-lg'>$185</strong></span>
-                    </label>
+                <div className='flex flex-col items-center gap-3'>
+                    <div className='bg-[#F3EFFA] border-2 border-[#B1A7C7] text-[#85799F] rounded-xl px-10 py-5 max-w-[80%]'>
+                        A technician will visit your location to inspect the appliance and assess the necessary repairs. They will provide a detailed quote based on their findings. If you choose to proceed with the repair, the $89 service call fee will be applied toward the total repair cost.
+
+                        If you decide not to move forward with the repair, you will only be responsible for the $89 service call fee.
+                    </div>
+
+                    <div className="flex justify-between items-center pt-3 select-none">
+                        <label className="inline-flex items-center cursor-pointer">
+                            {/* Hidden native checkbox */}
+                            <input
+                                type="checkbox"
+                                className="hidden peer"
+                            // onChange={() => acceptTerms(!terms)}
+                            />
+                            {/* Custom checkbox */}
+                            <span className="w-6 h-6 rounded-lg border-2 border-gray-300 flex items-center justify-center bg-white peer-checked:bg-blue-400 peer-checked:border-transparent transition-colors duration-200">
+                                {/* Checkmark Icon */}
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="w-4 h-4 text-white hidden peer-checked:block"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                >
+                                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                </svg>
+                            </span>
+                            <span className="ml-2 text-gray-700">I acknowledge that the service price is <strong className='text-lg'>$185</strong></span>
+                        </label>
+                    </div>
                 </div>
 
                 <div className='flex flex-col items-center gap-4'>

@@ -54,6 +54,11 @@ export const Footer: React.FC = () => {
                                     FAQ
                                 </Link>
                             </li>
+                            <li className="w-[40%] cursor-pointer hover:text-primary ml-5 md:ml-0">
+                                <Link href="/blog">
+                                    Blog
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                     <div className="space-y-6">
