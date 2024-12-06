@@ -65,8 +65,7 @@ export const BookingForm: React.FC = () => {
                 {step == 3 && <ContactInformation showModal={() => setScheduleModal(true)} />}
             </div>
             <ScheduleModal
-                visible
-                // visible={scheduleModal}
+                visible={scheduleModal}
                 onClose={() => setScheduleModal(false)}
             />
         </>
