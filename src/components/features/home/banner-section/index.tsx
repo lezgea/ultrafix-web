@@ -26,7 +26,7 @@ export const BannerSection: React.FC = () => {
                 <p className="text-xl max-w-[80%] md:max-w-full md:text-2xl font-light text-gray-500">Call now and book your service technician</p>
                 <button
                     onClick={scrollToContact}
-                    className="inline-flex w-auto text-center items-center px-10 py-3 lg:px-6 lg:py-[12px] text-xl text-white transition-all bg-primary rounded-lg sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
+                    className="hidden md:inline-flex w-auto text-center items-center px-10 py-3 lg:px-6 lg:py-[12px] text-xl text-white transition-all bg-primary rounded-lg sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
                     aria-label="See our races"
                 >
                     Book a Service

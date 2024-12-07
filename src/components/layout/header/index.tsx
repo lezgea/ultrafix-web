@@ -152,7 +152,7 @@ export const Header: React.FC = () => {
                     onClick={() => handleScroll('contact')}
                     className='w-full flex items-center justify-center text-xl font-medium text-primaryDark h-[55px] rounded-full cursor-pointer hover:shadow-lg'
                 >
-                    Book Appointment
+                    Book Now
                 </div>
 
                 <a href={`tel:${cityData?.phone ? cityData.phone : '(888) 998-6263'}`} className="call-btn backdrop-blur-xl bg-primary">
