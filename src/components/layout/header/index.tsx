@@ -10,7 +10,8 @@ import { Dropdown } from '@components/shared/dropdown';
 
 
 const NAV_ROUTES: { id: string; label: string }[] = [
-    { id: 'services', label: 'Services' },
+    { id: 'res_services', label: 'Residential' },
+    { id: 'com_services', label: 'Commercial' },
     { id: 'locations', label: 'Locations' },
     { id: 'about_us', label: 'About Us' },
     { id: 'brands', label: 'Brands' },
@@ -53,7 +54,7 @@ export const Header: React.FC = () => {
                                 {(item.id === selectedId) && (
                                     <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
                                 )}
-                                <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                                <div className={`text-xl text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
                                     {item.label}
                                 </div>
                             </div>
@@ -64,7 +65,7 @@ export const Header: React.FC = () => {
                                 {(item.id === selectedId) && (
                                     <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
                                 )}
-                                <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                                <div className={`text-xl text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
                                     {item.label}
                                 </div>
                             </Link>
@@ -73,7 +74,7 @@ export const Header: React.FC = () => {
                                     {(item.id === selectedId) && (
                                         <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
                                     )}
-                                    <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                                    <div className={`text-xl text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
                                         {item.label}
                                     </div>
                                 </Link>
@@ -82,7 +83,7 @@ export const Header: React.FC = () => {
                                     {(item.id === selectedId) && (
                                         <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
                                     )}
-                                    <div className={`text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                                    <div className={`text-xl text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
                                         {item.label}
                                     </div>
                                 </div>
