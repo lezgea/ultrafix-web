@@ -14,7 +14,7 @@ const NAV_ROUTES: { id: string; label: string }[] = [
     { id: 'com_services', label: 'Commercial' },
     { id: 'locations', label: 'Locations' },
     { id: 'about_us', label: 'About Us' },
-    { id: 'brands', label: 'Brands' },
+    // { id: 'brands', label: 'Brands' },
     { id: 'faq', label: 'FAQ' },
     { id: 'blog', label: 'Blog' },
     { id: 'apply', label: 'Apply Now' },
@@ -54,7 +54,7 @@ export const Header: React.FC = () => {
                                 {(item.id === selectedId) && (
                                     <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
                                 )}
-                                <div className={`text-xl text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                                <div className={`text-xl md:text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
                                     {item.label}
                                 </div>
                             </div>
@@ -65,7 +65,7 @@ export const Header: React.FC = () => {
                                 {(item.id === selectedId) && (
                                     <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
                                 )}
-                                <div className={`text-xl text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                                <div className={`text-xl md:text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
                                     {item.label}
                                 </div>
                             </Link>
@@ -74,7 +74,7 @@ export const Header: React.FC = () => {
                                     {(item.id === selectedId) && (
                                         <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
                                     )}
-                                    <div className={`text-xl text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                                    <div className={`text-xl md:text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
                                         {item.label}
                                     </div>
                                 </Link>
@@ -83,7 +83,7 @@ export const Header: React.FC = () => {
                                     {(item.id === selectedId) && (
                                         <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
                                     )}
-                                    <div className={`text-xl text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                                    <div className={`text-xl md:text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
                                         {item.label}
                                     </div>
                                 </div>
@@ -130,7 +130,7 @@ export const Header: React.FC = () => {
                         </div>
                     </div>
 
-                    <ul className="hidden lg:flex md:space-x-5 xl:space-x-10 items-center">
+                    <ul className="hidden lg:flex md:space-x-3 xl:space-x-10 items-center">
                         {navLinks}
                     </ul>
 
