@@ -26,8 +26,8 @@ const BlogInfo: React.FC = () => {
                         <Link href="/" className="text-primary hover:text-primaryDark">Home Page</Link>
                         <span className="text-lg">&gt;</span>
                         <Link href={`/blog`} className="text-primary hover:text-primaryDark">Blog</Link>
-                        <span className="text-lg">&gt;</span>
-                        <span>{blogInfo?.data?.title}</span>
+                        <span className="hidden md:flex text-lg">&gt;</span>
+                        <span className='hidden md:flex'>{blogInfo?.data?.title}</span>
                     </nav>
                     <h1 className="text-[1.7rem] md:text-[2.5rem] leading-normal font-semibold text-primaryDark">
                         {blogInfo?.data?.title}
@@ -40,7 +40,7 @@ const BlogInfo: React.FC = () => {
                         src={blogInfo?.data?.cover?.url || ''}
                         width={1200} // Adjust width and height based on your layout
                         height={600}
-                        className="w-full h-[600px] object-cover"
+                        className="w-auto h-[250px] md:h-[600px] object-cover"
                         alt={"Blog banner"}
                         loading="lazy"
                         sizes="(max-width: 1200px) 100vw, 100vw"

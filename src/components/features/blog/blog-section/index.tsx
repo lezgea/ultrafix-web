@@ -89,12 +89,12 @@ export const BlogSection: React.FC<IBlogSectionProps> = (props) => {
                                     src={cover.url}
                                     width={1200}
                                     height={600}
-                                    className="w-auto h-[600px] object-cover"
+                                    className="w-auto h-[250px] md:h-[600px] object-cover"
                                     alt={cover.name}
                                     loading="lazy"
                                     sizes="(max-width: 1200px) 100vw, 1000px"
                                 />
-                                <div className="bg-gradient-to-r from-primaryDark via-primary to-primaryDark text-white text-2xl font-medium py-3 hover:underline">
+                                <div className="bg-gradient-to-r from-primaryDark via-primary to-primaryDark text-white text-lg md:text-2xl font-medium py-3 hover:underline">
                                     {title}
                                 </div>
                             </Link>
