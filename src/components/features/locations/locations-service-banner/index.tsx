@@ -82,7 +82,7 @@ const ResidentialContent: React.FC<IServiceBannerProps> = ({ service }) => {
                 <div className='space-y-4 z-10 mt-10 md:mt-0'>
                     <button
                         onClick={scrollToContact}
-                        className="inline-flex w-auto text-center items-center px-6 py-[10px] md:py-[12px] text-lg text-white transition-all bg-primary rounded-xl sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
+                        className="hidden md:inline-flex w-auto text-center items-center px-6 py-[10px] md:py-[12px] text-lg text-white transition-all bg-primary rounded-xl sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
                         aria-label="See our races"
                     >
                         Book a Service
