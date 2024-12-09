@@ -34,7 +34,7 @@ export const BlogSection: React.FC<IBlogSectionProps> = (props) => {
 
     React.useEffect(() => {
         triggerGetBlogs({
-            skip: currentPage, limit: itemsPerPage
+            skip: currentPage * itemsPerPage, limit: itemsPerPage
         }).then((response: any) => {
             if (response?.data?.count) {
                 setTotalPages(Math.ceil(response.data.count / itemsPerPage));
