@@ -7,11 +7,11 @@ export const FAQ_LIST = [
         title: 'What types of appliances do you repair?',
         value: 'We repair a wide range of household appliances, including refrigerators, ovens, dishwashers, washers, dryers, microwaves, and more. If you’re unsure if we can fix your appliance, please contact us!',
     },
-    {
-        id: 2,
-        title: 'What areas do you serve?',
-        value: `We provide appliance repair services in Texas, Florida, Illinois, Massachusetts, Pennsylvania, and Virginia. If you’re unsure whether we cover your specific location, please call us, and we’ll be happy to assist.`,
-    },
+    // {
+    //     id: 2,
+    //     title: 'What areas do you serve?',
+    //     value: `We provide appliance repair services in Texas, Florida, Illinois, Massachusetts, Pennsylvania, and Virginia. If you’re unsure whether we cover your specific location, please call us, and we’ll be happy to assist.`,
+    // },
     {
         id: 3,
         title: 'Do you provide any warranties on repairs?',

@@ -18,7 +18,7 @@ const Apply: React.FC = () => {
     return (
         <PageLayout title="The number one Appliance Repair service in US">
             <ApplySection />
-            <LocationsSection />
+            {/* <LocationsSection /> */}
             <ResidentialServicesSection />
             <CommercialServicesSection />
             <AboutUsSection />

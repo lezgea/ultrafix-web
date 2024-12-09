@@ -61,7 +61,7 @@ const Contact: React.FC = () => {
     return (
         <PageLayout title="The number one Appliance Repair service in US">
             <ContactSection />
-            <LocationsSection />
+            {/* <LocationsSection /> */}
             <ResidentialServicesSection />
             <CommercialServicesSection />
             <AboutUsSection />

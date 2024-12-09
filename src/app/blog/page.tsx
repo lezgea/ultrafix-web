@@ -20,7 +20,7 @@ const Blog: React.FC = () => {
             <ResidentialServicesSection />
             <CommercialServicesSection />
             <ContactSection />
-            <LocationsSection />
+            {/* <LocationsSection /> */}
             <AboutUsSection />
             <BrandsSection />
             <WhyUsSection />

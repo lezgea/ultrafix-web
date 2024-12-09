@@ -51,7 +51,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                         <p><strong>Application</strong> refers to UltraFix Pro, the software program provided by the Company.</p>
                     </li>
                     <li>
-                        <p><strong>Company</strong> (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to "UltraFix Appliance Repair" LLC, 31602 Roldan Ln, Fulshear, TX 77441.</p>
+                        <p><strong>Company</strong> (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to "UltraFix Appliance Store" LLC, 31602 Roldan Ln, Fulshear, TX 77441.</p>
                     </li>
                     <li>
                         <p><strong>Country</strong> refers to: Texas,  United States</p>

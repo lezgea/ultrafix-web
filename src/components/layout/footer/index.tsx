@@ -107,7 +107,8 @@ export const Footer: React.FC = () => {
 
                 <section className="flex flex-col items-center gap-10 md:flex-row md:justify-between">
                     <div className="flex flex-col space-y-2 items-center md:items-start mt-10 md:mt-5">
-                        <span className="text-white text-lg">UltraFix Appliance Repair, LLC</span>
+                        {/* <span className="text-white text-lg">UltraFix Appliance Repair, LLC</span> */}
+                        <span className="text-white text-lg">UltraFix Appliance Store, LLC</span>
                         <div className="text-white text-md font-thin">
                             <span className="cursor-pointer hover:text-primary hover:underline" onClick={() => setShowTerms(true)}>Terms & Conditions</span>
                             <span className="text-sm"> and </span>

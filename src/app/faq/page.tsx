@@ -13,7 +13,7 @@ const FAQ: React.FC = () => {
     return (
         <PageLayout title="The number one Appliance Repair service in US">
             <FAQSection />
-            <LocationsSection />
+            {/* <LocationsSection /> */}
             <ResidentialServicesSection />
             <CommercialServicesSection />
             <AboutUsSection />

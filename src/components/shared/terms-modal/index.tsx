@@ -33,7 +33,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
         <div className="flex flex-col md:max-w-[80vw] max-h-[80vh] overflow-y-scroll p-7 md:p-10 space-y-5 text-center">
             <h2 className="text-2xl md:text-3xl">Terms and Conditions</h2>
             <p className='font-light'>
-                Welcome to UltraFix.com! By accessing or using our website, you agree to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern UltraFix Appliance Repair’s relationship with you in relation to this website.
+                Welcome to UltraFix.com! By accessing or using our website, you agree to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern UltraFix Appliance Store’s relationship with you in relation to this website.
             </p>
             <div className='text-start space-y-5'>
                 <div>
@@ -59,7 +59,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                 <div>
                     <h3 className='font-medium'>4. Intellectual Property</h3>
                     <p className='font-light'>
-                        All content on UltraFix.com, including but not limited to text, images, logos, and videos, is the property of UltraFix Appliance Repair or its licensors. You may not reproduce, distribute, or otherwise use the content without written permission.
+                        All content on UltraFix.com, including but not limited to text, images, logos, and videos, is the property of UltraFix Appliance Store or its licensors. You may not reproduce, distribute, or otherwise use the content without written permission.
                     </p>
                 </div>
                 <div>
@@ -83,7 +83,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                 <div>
                     <h3 className='font-medium'>8. Limitation of Liability</h3>
                     <p className='font-light'>
-                        UltraFix Appliance Repair is not liable for any damages or losses arising from your use of the Website or reliance on any information provided. This includes direct, indirect, incidental, and consequential damages.
+                        UltraFix Appliance Store is not liable for any damages or losses arising from your use of the Website or reliance on any information provided. This includes direct, indirect, incidental, and consequential damages.
                     </p>
                 </div>
                 <div>

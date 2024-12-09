@@ -12,7 +12,7 @@ import { Dropdown } from '@components/shared/dropdown';
 const NAV_ROUTES: { id: string; label: string }[] = [
     { id: 'res_services', label: 'Residential' },
     { id: 'com_services', label: 'Commercial' },
-    { id: 'locations', label: 'Locations' },
+    // { id: 'locations', label: 'Locations' },
     { id: 'about_us', label: 'About Us' },
     // { id: 'brands', label: 'Brands' },
     { id: 'faq', label: 'FAQ' },

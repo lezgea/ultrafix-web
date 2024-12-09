@@ -196,7 +196,7 @@ const ServiceDetailPage = ({ params }: ServiceProps) => {
             </SectionLayout>
             <ResidentialLocationServices />
             <CommercialLocationServices />
-            <LocationsSection />
+            {/* <LocationsSection /> */}
             <BrandsSection />
             <ContactSection />
             <WhyUsSection />
