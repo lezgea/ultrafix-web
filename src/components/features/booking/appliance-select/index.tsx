@@ -11,36 +11,26 @@ import { SelectButton } from '@components/shared/select-button';
 
 
 
-const APPLIANCE_TYPES = [
-    {
-        id: 1,
-        label: 'Residential',
-        appliances: [
-            { id: 1, label: 'Refrigerator' },
-            { id: 2, label: 'Ice Machine' },
-            { id: 3, label: 'Freezer' },
-            { id: 4, label: 'Wine Cooler' },
-            { id: 5, label: 'Oven' },
-            { id: 6, label: 'Range' },
-            { id: 7, label: 'Stove' },
-            { id: 8, label: 'Cooktop' },
-            { id: 9, label: 'Microwave' },
-            { id: 10, label: 'Vent Hood' },
-            { id: 11, label: 'Dishwasher' },
-            { id: 12, label: 'Washer' },
-            { id: 13, label: 'Dryer' },
-            { id: 14, label: 'Garbage Disposal' },
-        ]
-    },
-    {
-        id: 2,
-        label: 'Commercial',
-        appliances: [
-            { id: 1, label: 'Refrigerator' },
-            { id: 2, label: 'Ice Machine' },
-            { id: 3, label: 'Freezer' },
-        ]
-    },
+const APPLIANCES = [
+    { id: 1, label: 'Refrigerator', },
+    { id: 2, label: 'Ice Machine' },
+    { id: 3, label: 'Freezer' },
+    { id: 4, label: 'Wine Cooler' },
+    { id: 5, label: 'Oven' },
+    { id: 6, label: 'Range' },
+    { id: 7, label: 'Stove' },
+    { id: 8, label: 'Cooktop' },
+    { id: 9, label: 'Microwave' },
+    { id: 10, label: 'Vent Hood' },
+    { id: 11, label: 'Dishwasher' },
+    { id: 12, label: 'Washer' },
+    { id: 13, label: 'Dryer' },
+    { id: 14, label: 'Garbage Disposal' },
+]
+
+const TYPES = [
+    { id: 1, label: 'Residential' },
+    { id: 2, label: 'Commercial' },
 ]
 
 
@@ -70,7 +60,7 @@ export const ApplianceSelect: React.FC<IApplianceSelectProps> = (props) => {
     let { setStep } = props;
 
     const [selectedType, setSelectedType] = React.useState<number>(0);
-    const [selectedAppliance, setSelectedAppliance] = React.useState<number>(0);
+    const [selectedAppliances, setSelectedAppliances] = React.useState<number[]>([]);
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm<IBookingForm>({
         resolver: yupResolver(validationSchema),
@@ -92,6 +82,25 @@ export const ApplianceSelect: React.FC<IApplianceSelectProps> = (props) => {
         // }
     };
 
+    const onSelectAppliance = (applianceId: number) => {
+        if (selectedAppliances.includes(applianceId)) {
+            let apps = selectedAppliances;
+            let newApps = apps.filter(item => item !== applianceId);
+            setSelectedAppliances(newApps);
+        } else {
+            if (selectedAppliances?.length > 2) {
+                toast.warning('Appliance select limit exceeded!');
+                return;
+            }
+            setSelectedAppliances([...selectedAppliances, applianceId])
+        }
+    }
+
+
+    const isSelected = (applianceId: number) => {
+        return selectedAppliances.includes(applianceId)
+    }
+
 
     return (
         <SectionLayout noYPadding>
@@ -104,11 +113,11 @@ export const ApplianceSelect: React.FC<IApplianceSelectProps> = (props) => {
 
                         <div className="flex items-center justify-center flex-wrap gap-3 md:gap-5">
                             {
-                                APPLIANCE_TYPES[selectedType - 1]?.appliances?.map(appliance =>
+                                APPLIANCES?.map(appliance =>
                                     <SelectButton
                                         label={appliance.label}
-                                        selected={appliance?.id == selectedAppliance}
-                                        onSelect={() => setSelectedAppliance(appliance.id)}
+                                        selected={isSelected(appliance.id)}
+                                        onSelect={() => onSelectAppliance(appliance?.id)}
                                     />
 
                                 )
@@ -117,24 +126,26 @@ export const ApplianceSelect: React.FC<IApplianceSelectProps> = (props) => {
                     </div>
 
                     {
-                        !!selectedAppliance &&
-                        <div className='space-y-6'>
-                            <h2 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
-                                Select appliance type
-                            </h2>
-                            <div className="flex items-center justify-center flex-wrap gap-3 md:gap-5">
-                                {
-                                    APPLIANCE_TYPES.map(type =>
-                                        <SelectButton
-                                            label={type.label}
-                                            selected={type?.id == selectedType}
-                                            onSelect={() => setSelectedType(type.id)}
-                                        />
+                        !!selectedAppliances?.length && selectedAppliances.map(appliance =>
+                            appliance < 4 &&
+                            <div key={appliance} className='space-y-6'>
+                                <h2 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
+                                    Select {APPLIANCES[appliance - 1]?.label} type
+                                </h2>
+                                <div className="flex items-center justify-center flex-wrap gap-3 md:gap-5">
+                                    {
+                                        TYPES.map(type =>
+                                            <SelectButton
+                                                label={type.label}
+                                                selected={type?.id == selectedType}
+                                                onSelect={() => setSelectedType(type.id)}
+                                            />
 
-                                    )
-                                }
+                                        )
+                                    }
+                                </div>
                             </div>
-                        </div>
+                        )
                     }
 
                     <div className='flex flex-col items-center gap-4'>
@@ -148,8 +159,8 @@ export const ApplianceSelect: React.FC<IApplianceSelectProps> = (props) => {
                         <p className='text-gray-400'>Questions ? Call (888) 998-6263</p>
                     </div>
                 </form>
-            </div>
-        </SectionLayout>
+            </div >
+        </SectionLayout >
 
     )
 }
