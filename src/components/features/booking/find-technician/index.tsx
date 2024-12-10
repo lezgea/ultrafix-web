@@ -75,7 +75,7 @@ export const FindTechnician: React.FC<IFindTechnicianProps> = (props) => {
                         />
                     </div>
                     <button
-                        // type="submit"
+                        type="button"
                         onClick={() => setStep(1)}
                         className="w-full h-[45px] max-w-[300px] font-regmed bg-primary text-white py-2 rounded-lg ring-2 ring-primary hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:outline-none focus:ring-2 focus:ring-primaryDark focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
                     >

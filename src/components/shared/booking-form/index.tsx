@@ -61,7 +61,7 @@ export const BookingForm: React.FC = () => {
         <>
             {step == 4 && confirmation && <Confirmation />}
             <div className="relative w-full flex items-center flex-col container mx-auto max-w-[1200px] py-20 space-y-10">
-                {!!step && !confirm && <Stepper step={step} />}
+                {!!step && !confirmation && <Stepper step={step} />}
                 {!step && <FindTechnician setStep={setStep} />}
                 {step == 1 && <ApplianceSelect setStep={setStep} />}
                 {step == 2 && <IssueSelect setStep={setStep} />}
