@@ -73,8 +73,8 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                 <div className='max-w-40'>
                                     <FormInput
                                         type='text'
-                                        name='state'
-                                        placeholder="State"
+                                        name='unit'
+                                        placeholder="Unit or Apt"
                                         register={register}
                                         errors={errors}
                                     />
@@ -90,15 +90,15 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                 />
                                 <FormInput
                                     type='text'
-                                    name='zipcode'
-                                    placeholder="Zip code"
+                                    name='state'
+                                    placeholder="State"
                                     register={register}
                                     errors={errors}
                                 />
                                 <FormInput
                                     type='text'
-                                    name='unit'
-                                    placeholder="Unit or Apt"
+                                    name='zipcode'
+                                    placeholder="Zip code"
                                     register={register}
                                     errors={errors}
                                 />
@@ -122,14 +122,14 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                 <FormInput
                                     type='text'
                                     name='firstname'
-                                    placeholder="Firstname"
+                                    placeholder="First name"
                                     register={register}
                                     errors={errors}
                                 />
                                 <FormInput
                                     type='text'
                                     name='lastname'
-                                    placeholder="Lastname"
+                                    placeholder="Last name"
                                     register={register}
                                     errors={errors}
                                 />
@@ -170,7 +170,7 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                             onClick={showModal}
                             className="w-full max-w-[300px] h-[45px] font-regmed bg-primary text-white py-2 rounded-lg ring-2 ring-primary hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:outline-none focus:ring-2 focus:ring-primaryDark focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
                         >
-                            Request Appointment
+                            Continue
                         </button>
                         <p className='text-gray-400'>Questions ? Call (888) 998-6263</p>
                     </div>

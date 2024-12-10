@@ -119,9 +119,9 @@ const ModalContent: React.FC<IModalContent> = (props) => {
 
                 <div className='flex flex-col items-center gap-3'>
                     <div className='bg-[#F3EFFA] border-2 border-[#B1A7C7] text-[#85799F] rounded-xl px-10 py-5 max-w-[80%]'>
-                        A technician will visit your location to inspect the appliance and assess the necessary repairs. They will provide a detailed quote based on their findings. If you choose to proceed with the repair, the $89 service call fee will be applied toward the total repair cost.
+                        A technician will visit your location to inspect the appliance and assess the necessary repairs. They will provide a detailed quote based on their findings. If you choose to proceed with the repair, the service call fee will be applied toward the total repair cost.
 
-                        If you decide not to move forward with the repair, you will only be responsible for the $89 service call fee.
+                        If you decide not to move forward with the repair, you will only be responsible for the service call fee.
                     </div>
 
                     <div className="flex justify-between items-center pt-3 select-none">
