@@ -27,6 +27,7 @@ const BRANDS = [
     { id: 8, label: 'Asko' },
     { id: 9, label: 'Subzero' },
     { id: 10, label: 'Maytag' },
+    { id: 11, label: 'Other' },
 ]
 
 const ISSUES = [
@@ -109,10 +110,19 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
                     </div> */}
 
                     {
-                        <div className='space-y-6'>
+                        <div className='space-y-6 flex flex-col items-center'>
                             <h3 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
                                 What’s is the brand of refrigerator ?
                             </h3>
+                            <div className="flex flex-col w-full max-w-[500px]">
+                                <FormInput
+                                    type='text'
+                                    name='name'
+                                    placeholder="Search your brand"
+                                    register={register}
+                                    errors={errors}
+                                />
+                            </div>
                             <div className="flex items-center justify-center flex-wrap gap-3 md:gap-5">
                                 {
                                     BRANDS?.map(brand =>
