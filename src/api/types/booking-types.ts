@@ -1,6 +1,6 @@
 
 export interface IZipCheckingRequest {
-    zip: string,
+    zip: string | number,
 }
 
 export interface IZipCheckingResponse {
@@ -20,6 +20,29 @@ export interface IZipCheckingResponse {
     description: string
 }
 
+
+export interface IService {
+    id: number,
+    text: string,
+}
+
+export interface IGetServicesResponse {
+    status: string,
+    data: {
+        residential: IService[],
+        commercial: IService[],
+    },
+    title: string,
+    description: string
+}
+
+
+export interface IAppliance {
+    service_id?: string | number,
+    type?: string,
+    brand?: string,
+    problem?: string,
+}
 
 
 

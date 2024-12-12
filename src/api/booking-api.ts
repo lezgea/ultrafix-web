@@ -1,12 +1,12 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import axiosBaseQuery from '@utils/axiosBaseQuery';
-import { IZipCheckingRequest, IZipCheckingResponse } from './types/booking-types';
+import { IGetServicesResponse, IZipCheckingRequest, IZipCheckingResponse } from './types/booking-types';
 
 
 export const bookingApi = createApi({
     reducerPath: 'bookingApi',
     baseQuery: axiosBaseQuery,
-    tagTypes: ['Blogs', 'BlogInfo'],
+    tagTypes: ['Services'],
     endpoints: (builder) => ({
         checkZip: builder.mutation<IZipCheckingResponse, IZipCheckingRequest>({
             query: (data) => ({
@@ -14,16 +14,16 @@ export const bookingApi = createApi({
                 method: 'POST',
                 data: data,
             }),
-            invalidatesTags: ['Blogs'],
+            invalidatesTags: ['Services'],
         }),
-        // getAllBlogs: builder.query<IBlogListResponse, IBlogListRequest>({
-        //     query: ({ skip, limit }) => ({
-        //         url: `/blog/posts`,
-        //         method: 'GET',
-        //         params: { skip: skip, limit: limit },
-        //     }),
-        //     providesTags: ['Blogs'],
-        // }),
+        getServices: builder.query<IGetServicesResponse, IZipCheckingRequest>({
+            query: ({ zip }) => ({
+                url: `/booking/services`,
+                method: 'GET',
+                params: { zip: zip },
+            }),
+            providesTags: ['Services'],
+        }),
         // getBlogInfo: builder.query<IBlogInfoResponse, IBlogInfoRequest>({
         //     query: ({ id }) => ({
         //         url: `/blog/posts/${id}`,
@@ -51,6 +51,7 @@ export const bookingApi = createApi({
 
 export const {
     useCheckZipMutation,
+    useGetServicesQuery,
     // useCreateBlogMutation,
     // useLazyGetAllBlogsQuery,
     // useGetBlogInfoQuery,
