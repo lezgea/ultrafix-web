@@ -6,6 +6,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import SectionLayout from '@components/layout/section-layout';
 import { useSelector } from 'react-redux';
 import { RootState } from '@store/store';
+import { SectionFooter } from '../section-footer';
 
 
 interface IBookingForm {
@@ -29,12 +30,13 @@ const validationSchema = Yup.object().shape({
 
 
 interface IContactInformationProps {
+    setStep: (step: number) => void,
     showModal: () => void,
 }
 
 
 export const ContactInformation: React.FC<IContactInformationProps> = (props) => {
-    let { showModal } = props;
+    let { setStep, showModal } = props;
 
     const { bookingData, brands } = useSelector((state: RootState) => state.booking);
 
@@ -175,16 +177,7 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                         </div>
                     </div>
 
-                    <div className='flex flex-col items-center gap-4'>
-                        <button
-                            // type="submit"
-                            onClick={showModal}
-                            className="w-full max-w-[300px] h-[45px] font-regmed bg-primary text-white py-2 rounded-lg ring-2 ring-primary hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:outline-none focus:ring-2 focus:ring-primaryDark focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
-                        >
-                            Continue
-                        </button>
-                        <p className='text-gray-400'>Questions ? Call (888) 998-6263</p>
-                    </div>
+                    <SectionFooter onGoBack={() => setStep(2)} onClick={showModal} />
                 </form>
             </div>
         </SectionLayout>

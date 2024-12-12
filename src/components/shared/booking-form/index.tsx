@@ -82,7 +82,7 @@ export const BookingForm: React.FC = () => {
                 {!step && <FindTechnician setStep={setStep} />}
                 {step == 1 && <ApplianceSelect setStep={setStep} />}
                 {step == 2 && <IssueSelect setStep={setStep} />}
-                {step == 3 && <ContactInformation showModal={() => setScheduleModal(true)} />}
+                {step == 3 && <ContactInformation setStep={setStep} showModal={() => setScheduleModal(true)} />}
             </div>
             <ScheduleModal
                 visible={scheduleModal}

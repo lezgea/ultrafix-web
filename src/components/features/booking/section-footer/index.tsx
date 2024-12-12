@@ -5,11 +5,12 @@ import { useSelector } from 'react-redux';
 
 interface ISectionFooterProps {
     isContinueDisabled?: boolean,
+    onGoBack?: () => void,
     onClick?: () => void,
 }
 
 export const SectionFooter: React.FC<ISectionFooterProps> = (props) => {
-    let { isContinueDisabled, onClick } = props;
+    let { isContinueDisabled, onGoBack, onClick } = props;
 
     const { } = useSelector((state: RootState) => state.booking);
 
@@ -25,7 +26,8 @@ export const SectionFooter: React.FC<ISectionFooterProps> = (props) => {
                 <div className="flex justify-end lg:flex lg:w-[40%] h-full gap-3">
                     <button
                         type="button"
-                        className="w-full h-[50px] max-w-[300px] font-regmed text-primaryDark py-2 rounded-lg hover:bg-primaryDark hover:text-white hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:outline-none focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
+                        onClick={onGoBack}
+                        className="w-full h-[50px] max-w-[300px] font-regmed text-primaryDark py-2 rounded-lg hover:bg-primaryDark hover:text-white focus:outline-none focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
                     >
                         Go Back
                     </button>
@@ -33,7 +35,7 @@ export const SectionFooter: React.FC<ISectionFooterProps> = (props) => {
                         type="button"
                         disabled={isContinueDisabled}
                         onClick={onClick}
-                        className="w-full h-[50px] max-w-[300px] font-regmed bg-primary text-white py-2 rounded-lg hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:outline-none focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
+                        className="w-full h-[50px] max-w-[300px] font-regmed bg-primary text-white py-2 rounded-lg hover:bg-primaryDark sfocus:outline-none focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
                     >
                         Continue
                     </button>

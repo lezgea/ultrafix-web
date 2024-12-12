@@ -104,6 +104,7 @@ export const ApplianceSelect: React.FC<IApplianceSelectProps> = (props) => {
                     }
                     <SectionFooter
                         isContinueDisabled={!bookingData.appliances.length}
+                        onGoBack={() => setStep(0)}
                         onClick={() => setStep(2)}
                     />
                 </div>

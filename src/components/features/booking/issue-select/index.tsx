@@ -83,29 +83,46 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
 
 
     const onSelectBrand = (brandId: number | string, applianceIndex: number) => {
-        let selectedAppliances = bookingData.appliances;
-        let applianceToUpdate = selectedAppliances[applianceIndex]
-        let isBrandExist = isBrandSelected(brandId, applianceIndex);
-
-        if (isBrandExist) {
-            // let newApps = selectedAppliances.filter(item => item.service_id !== applianceId);
-            // dispatch(setSelectedAppliances(newApps));
-            return;
-        } else {
-            // if (selectedAppliances?.length > 2) {
-            //     toast.warning('Appliance select limit exceeded!');
-            //     return;
-            // }
-            let updatedAppliance = { ...applianceToUpdate, brand: brandId };
-            dispatch(setSelectedAppliances((prevState: any) => [...prevState, updatedAppliance]));
-        }
+        const updatedAppliances = bookingData.appliances.map((appliance, index) => {
+            if (index === applianceIndex) {
+                return {
+                    ...appliance,
+                    brand: brandId,
+                };
+            }
+            return appliance;
+        });
+        dispatch(setSelectedAppliances(updatedAppliances));
     }
+
+
+    const onSelectIssue = (issueId: number | string, applianceIndex: number) => {
+        const updatedAppliances = bookingData.appliances.map((appliance, index) => {
+            if (index === applianceIndex) {
+                return {
+                    ...appliance,
+                    problem: issueId,
+                };
+            }
+            return appliance;
+        });
+        dispatch(setSelectedAppliances(updatedAppliances));
+    }
+
 
     const isBrandSelected = (brandId: number | string, applianceIndex: number) => {
         let selectedAppliances = bookingData.appliances;
-        let applianceToUpdate = selectedAppliances[applianceIndex]
-        let isBrandSelected = applianceToUpdate?.brand == brandId
+        let applianceToUpdate = selectedAppliances[applianceIndex];
+        let isBrandSelected = applianceToUpdate?.brand == brandId;
         return isBrandSelected;
+    }
+
+
+    const isIssueSelected = (issueId: number | string, applianceIndex: number) => {
+        let selectedAppliances = bookingData.appliances;
+        let applianceToUpdate = selectedAppliances[applianceIndex];
+        let isProblemSelected = applianceToUpdate?.problem == issueId;
+        return isProblemSelected;
     }
 
     // RTK Query mutation hook
@@ -128,23 +145,6 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
         <SectionLayout noYPadding>
             <div className="flex w-full justify-center space-y-10">
                 <form className="flex flex-col space-y-20 text-center items-center select-none min-w-[30%]" onSubmit={handleSubmit(onSubmit)}>
-                    {/* <div className='space-y-6'>
-                        <h2 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
-                            Is your refrigerator built-in ?
-                        </h2>
-                        <div className="flex items-center justify-center flex-wrap gap-3 md:gap-5">
-                            {
-                                BUILTIN_TYPES.map(type =>
-                                    <SelectButton
-                                        label={type.label}
-                                        selected={type?.id == selectedType}
-                                        onSelect={() => setSelectedType(type.id)}
-                                    />
-                                )
-                            }
-                        </div>
-                    </div> */}
-
                     {
                         bookingData?.appliances?.map((appliance, i) =>
                             <div key={appliance.service_id} className='flex flex-col gap-10'>
@@ -185,8 +185,8 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
                                                 <SelectButton
                                                     key={issue.id}
                                                     label={issue.label}
-                                                // selected={issue?.id == selectedIssue}
-                                                // onSelect={() => setSelectedIssue(issue.id)}
+                                                    selected={isIssueSelected(issue.id, i)}
+                                                    onSelect={() => onSelectIssue(issue.id, i)}
                                                 />
                                             )
                                         }
@@ -211,7 +211,7 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
                         </div>
                     </div>
 
-                    <SectionFooter onClick={() => setStep(3)} />
+                    <SectionFooter onGoBack={() => setStep(1)} onClick={() => setStep(3)} />
                 </form>
             </div>
         </SectionLayout>
