@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { bookingApi } from '@api/booking-api';
-import { IAppliance, IGetServicesResponse, IService, IZipCheckingResponse } from '@api/types/booking-types';
+import { IAppliance, IBrand, IGetBrandsResponse, IGetServicesResponse, IService, IZipCheckingResponse } from '@api/types/booking-types';
 
 
 interface IBookingState {
@@ -23,6 +23,7 @@ interface IBookingState {
         residential: IService[] | [],
         commercial: IService[] | [],
     },
+    brands: IBrand[] | [],
     loading: boolean,
     error?: string | boolean,
     success?: string | boolean,
@@ -49,6 +50,7 @@ const initialState: IBookingState = {
         residential: [],
         commercial: [],
     },
+    brands: [],
     loading: false,
     error: false,
     success: false,
@@ -59,7 +61,7 @@ const bookingSlice = createSlice({
     name: 'booking',
     initialState,
     reducers: {
-        setSelectedAppliances: (state, action: PayloadAction<IAppliance[]>) => {
+        setSelectedAppliances: (state, action: PayloadAction<any>) => {
             state.bookingData.appliances = action.payload
         }
     },
@@ -102,12 +104,35 @@ const bookingSlice = createSlice({
                 bookingApi.endpoints.getServices.matchFulfilled,
                 (state, action: PayloadAction<IGetServicesResponse>) => {
                     state.loading = false;
-                    console.log('----', action.payload)
                     state.services = action.payload?.data;
                 }
             )
             .addMatcher(
                 bookingApi.endpoints.getServices.matchRejected,
+                (state, action) => {
+                    state.loading = false;
+                    state.error = action.error?.message || 'Failed to fetch data';
+                }
+            );
+
+        // GET BRANDS QUERY
+        builder
+            .addMatcher(
+                bookingApi.endpoints.getBrands.matchPending,
+                (state) => {
+                    state.loading = true;
+                    state.error = false;
+                }
+            )
+            .addMatcher(
+                bookingApi.endpoints.getBrands.matchFulfilled,
+                (state, action: PayloadAction<any>) => {
+                    state.loading = false;
+                    state.brands = action.payload?.data;
+                }
+            )
+            .addMatcher(
+                bookingApi.endpoints.getBrands.matchRejected,
                 (state, action) => {
                     state.loading = false;
                     state.error = action.error?.message || 'Failed to fetch data';

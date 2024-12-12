@@ -38,95 +38,119 @@ export interface IGetServicesResponse {
 
 
 export interface IAppliance {
-    service_id?: string | number,
-    type?: string,
-    brand?: string,
-    problem?: string,
-}
-
-
-
-
-
-export interface IBlog {
-    id: number | string | null,
-    content: string,
-    created_at: string,
-    creator_id: number,
+    service_id: string | number,
+    type: string,
+    brand: string | number | null,
+    problem: string,
     title: string,
-    updated_at: string
 }
 
-export interface IBlogItem {
-    id: number | string | null,
-    cover: {
-        id: number,
-        name: string,
-        url: string,
-        mime_type: string,
-        size: number,
-        created_at: string,
-        type: string,
-    },
+
+export interface IBrand {
+    value: number | string,
     title: string,
-    content: string,
-    description: string,
-    content_short: string,
-    read_time: number,
-    active: number,
-    creator: {
-        id: number,
-        name: string
-    },
-    category: boolean,
-    created_at: string
+    label: string,
 }
 
-
-export interface IBlogCreateRequest {
-    cover: number | string | null,
-    title: string,
-    description?: string,
-    content: string,
-    read_time: number,
-}
-
-export interface IBlogCreateResponse {
-    data: IBlog,
-    description: string,
+export interface IGetBrandsResponse {
     status: string,
+    data: IBrand[],
     title: string,
+    description: string
 }
 
 
-export interface IBlogListRequest {
-    skip: number,
-    limit: number,
+
+
+
+// ---------------------------------
+
+export interface IBrandNEW {
+    id: number | string, // 12
+    title: string, // LG
 }
 
-export interface IBlogListResponse {
-    data: IBlogItem[],
+export interface IIssueNew {
+    id: number | string, // 123
+    title: string, // not cooling
+}
+
+export interface IServiceNEW {
+    id: number | string, // 1
+    title: string, // Refrigerator
+    type: string, // Residential or Commercial
+    fee: number | string, // $80
+    brands: IBrandNEW[],
+    issues: IIssueNew[],
+}
+
+export interface IGetBrandsResponseNEW {
     status: string,
-    count: number,
-    skip: number,
-    limit: number,
-}
-
-
-export interface IBlogInfoRequest {
-    id: number | string,
-}
-
-export interface IBlogInfoResponse {
-    status: string,
-    data: IBlogItem,
-}
-
-
-export interface IBlogUpdateRequest {
-    id: string,
+    data: IServiceNEW[],
     title: string,
-    description: string,
-    content: string,
-    read_time: number,
+    description: string
 }
+
+export interface IGetBrandsResponseNEW2 {
+    status: string,
+    data: [
+        {
+            id: number | string, // 1
+            title: string, // Refrigerator
+            type: string, // Residential or Commercial
+            fee: number | string, // $80
+            // max length should be 6 (the last one "Other")
+            brands: [
+                {
+                    id: number | string, // 12
+                    title: string, // LG
+                },
+                {
+                    id: number | string, // 22
+                    title: string, // Viking
+                },
+            ],
+            // max length should be 6 (the last one "Other")
+            issues: [
+                {
+                    id: number | string, // 123
+                    title: string, // not cooling
+                },
+                {
+                    id: number | string, // 123
+                    title: string, // noising
+                },
+            ]
+        },
+        {
+            id: number | string, // 2
+            title: string, // Washer
+            type: string, // Residential or Commercial
+            fee: number | string, // $80
+            brands: [
+                {
+                    id: number | string, // 12
+                    title: string, // LG
+                },
+                {
+                    id: number | string, // 22
+                    title: string, // Viking
+                },
+            ],
+            issues: [
+                {
+                    id: number | string, // 123
+                    title: string, // leaking
+                },
+                {
+                    id: number | string, // 123
+                    title: string, // other
+                },
+            ]
+        },
+    ],
+    title: string,
+    description: string
+}
+
+// ---------------------------------

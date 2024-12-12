@@ -24,34 +24,20 @@ export const bookingApi = createApi({
             }),
             providesTags: ['Services'],
         }),
-        // getBlogInfo: builder.query<IBlogInfoResponse, IBlogInfoRequest>({
-        //     query: ({ id }) => ({
-        //         url: `/blog/posts/${id}`,
-        //         method: 'GET',
-        //     }),
-        //     providesTags: ['BlogInfo'],
-        // }),
-        // updateBlog: builder.mutation<null, IBlogUpdateRequest>({
-        //     query: (data) => ({
-        //         url: `/blog/posts/${data.id}`,
-        //         method: 'PUT',
-        //         data: data,
-        //     }),
-        //     invalidatesTags: ['BlogInfo'],
-        // }),
-        // deleteBlog: builder.mutation<void, { id: number | string }>({
-        //     query: ({ id }) => ({
-        //         url: `/blog/posts/${id}`,
-        //         method: 'DELETE',
-        //     }),
-        //     invalidatesTags: ['Blogs'],
-        // }),
+        getBrands: builder.query<IGetServicesResponse, void>({
+            query: () => ({
+                url: `/booking/brands`,
+                method: 'GET',
+                // params: { zip: zip },
+            }),
+        }),
     }),
 });
 
 export const {
     useCheckZipMutation,
     useGetServicesQuery,
+    useGetBrandsQuery,
     // useCreateBlogMutation,
     // useLazyGetAllBlogsQuery,
     // useGetBlogInfoQuery,

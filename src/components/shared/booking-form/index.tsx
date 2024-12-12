@@ -84,34 +84,6 @@ export const BookingForm: React.FC = () => {
                 {step == 2 && <IssueSelect setStep={setStep} />}
                 {step == 3 && <ContactInformation showModal={() => setScheduleModal(true)} />}
             </div>
-            {
-                // !!step &&
-                // <div className="backdrop-blur-xl bg-white/10 w-full fixed bottom-0 z-30 h-[65px] select-none">
-                //     <div aria-label="Booking navigation" className="container w-full max-w-[1200px] mx-auto flex justify-between items-center px-5 md:px-10 xl:px-0 py-0 h-full space-x-5">
-                //         <div className="flex items-center cursor-pointer w-[100%] justify-between lg:w-[20%] lg:space-x-0">
-                //             {/* <Link href="/" passHref aria-label="UltraFix Logo">
-                //             <UltrafixLogo className="h-auto w-[160px]" />
-                //         </Link>
-                //         <div className="w-[60px] flex lg:hidden">
-                //             {
-                //                 isSidebarOpen
-                //                     ? <CloseIcon onClick={toggleSidebar} className="h-[30px] w-[70px]" data-testid="close-icon" />
-                //                     : <HamburgerIcon onClick={toggleSidebar} className="h-[30px] w-[70px]" data-testid="hamburger-icon" />
-                //             }
-                //         </div> */}
-                //         </div>
-
-                //         {/* <ul className="hidden lg:flex md:space-x-3 xl:space-x-10 items-center">
-                //         {navLinks}
-                //     </ul> */}
-
-                //         <div className="flex hidden items-center justify-end lg:flex lg:w-[20%] h-full">
-                //             {/* {phoneButton} */}
-                //             test
-                //         </div>
-                //     </div>
-                // </div>
-            }
             <ScheduleModal
                 visible={scheduleModal}
                 onConfirm={() => { setConfirmation(true); setStep(4) }}

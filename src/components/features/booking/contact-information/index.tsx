@@ -4,22 +4,27 @@ import { FormInput } from '@components/shared';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import SectionLayout from '@components/layout/section-layout';
+import { useSelector } from 'react-redux';
+import { RootState } from '@store/store';
 
 
 interface IBookingForm {
     name: string;
     phone: string;
     address: string;
+    city: string,
+    state: string,
+    zip: string | number,
     message?: string;
 }
 
 const validationSchema = Yup.object().shape({
-    name: Yup.string()
-        .required('Fullname is required'),
-    phone: Yup.string()
-        .required('Phone number is required'),
-    address: Yup.string()
-        .required('Address is required'),
+    // name: Yup.string()
+    //     .required('Fullname is required'),
+    // phone: Yup.string()
+    //     .required('Phone number is required'),
+    // address: Yup.string()
+    //     .required('Address is required'),
 });
 
 
@@ -31,10 +36,12 @@ interface IContactInformationProps {
 export const ContactInformation: React.FC<IContactInformationProps> = (props) => {
     let { showModal } = props;
 
+    const { bookingData, brands } = useSelector((state: RootState) => state.booking);
+
     const [priceAcknowledge, setPriceAcknowledge] = React.useState<boolean>(false);
 
-    const { register, handleSubmit, formState: { errors }, reset } = useForm<IBookingForm>({
-        resolver: yupResolver(validationSchema),
+    const { register, handleSubmit, formState: { errors }, setValue, reset } = useForm<IBookingForm>({
+        // resolver: yupResolver(validationSchema),
         mode: 'onBlur',
     });
 
@@ -49,6 +56,10 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
         //     toast.error(err.data?.message || 'An unexpected error occurred');
         // }
     };
+
+    React.useEffect(() => {
+        setValue('zip', bookingData?.zip)
+    }, [])
 
 
     return (
@@ -97,7 +108,7 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                 />
                                 <FormInput
                                     type='text'
-                                    name='zipcode'
+                                    name='zip'
                                     placeholder="Zip code"
                                     register={register}
                                     errors={errors}

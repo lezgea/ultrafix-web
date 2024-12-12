@@ -43,7 +43,6 @@ export const FindTechnician: React.FC<IFindTechnicianProps> = (props) => {
     const onSubmit: SubmitHandler<IBookingForm> = async (data) => {
         try {
             let response = await checkZip(data).unwrap();
-            console.log('#####', response)
             setStep(1);
         } catch (err: any) {
             console.error('Unknown error:', err);
