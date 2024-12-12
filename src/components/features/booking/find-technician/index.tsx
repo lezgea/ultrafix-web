@@ -29,8 +29,7 @@ interface IFindTechnicianProps {
 export const FindTechnician: React.FC<IFindTechnicianProps> = (props) => {
     let { setStep } = props;
 
-    const [terms, acceptTerms] = React.useState<boolean>(false);
-    const [notFound, setNotFound] = React.useState<boolean>(false);
+    const [message, setMessage] = React.useState<string>();
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm<IBookingForm>({
         // resolver: yupResolver(validationSchema),
@@ -49,7 +48,7 @@ export const FindTechnician: React.FC<IFindTechnicianProps> = (props) => {
         } catch (err: any) {
             console.error('Unknown error:', err);
             toast.error(err.data?.message || 'Unable to find a technician in your area');
-            setNotFound(true);
+            setMessage(err.data?.message || 'Sorry, we are not serving in your area')
         }
     };
 
@@ -80,8 +79,8 @@ export const FindTechnician: React.FC<IFindTechnicianProps> = (props) => {
                     <p className='text-gray-400'>Questions ? Call (888) 998-6263</p>
                 </form>
                 {
-                    notFound &&
-                    <div className='text-xl text-primaryDark font-medium pt-10'>Sorry, we are not serving in your area</div>
+                    !!message &&
+                    <div className='text-xl text-primaryDark font-medium pt-10'>{message}</div>
                 }
             </div>
         </SectionLayout>

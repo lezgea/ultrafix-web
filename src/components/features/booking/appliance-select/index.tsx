@@ -7,6 +7,7 @@ import { useContactUserMutation } from '@api/user-api';
 import { toast } from 'react-toastify';
 import SectionLayout from '@components/layout/section-layout';
 import { SelectButton } from '@components/shared/select-button';
+import { SectionFooter } from '../section-footer';
 
 
 
@@ -158,8 +159,12 @@ export const ApplianceSelect: React.FC<IApplianceSelectProps> = (props) => {
                         </button>
                         <p className='text-gray-400'>Questions ? Call (888) 998-6263</p>
                     </div>
+
+                    <SectionFooter />
                 </form>
             </div >
+
+            
         </SectionLayout >
 
     )

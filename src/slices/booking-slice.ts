@@ -1,12 +1,29 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IBlog, IBlogCreateResponse } from '@api/types/blog-types';
-import { blogsApi } from '@api/blogs-api';
 import { bookingApi } from '@api/booking-api';
 import { IZipCheckingResponse } from '@api/types/booking-types';
 
 
 interface IBookingState {
-    // blogs: IBlog | {},
+    bookingData: {
+        zip: string | number,
+        appliances: {
+            service_id: string | number,
+            type: string,
+            brand: string,
+            problem: string,
+        }[],
+        customer_name: string,
+        customer_phone: string | number,
+        customer_email: string,
+        address: string,
+        latitude: string | number | null,
+        longitude: string | number | null,
+        city: string,
+        state: string,
+        unit: string | number,
+        order_at: string,
+        time_slot: string | number,
+    },
     loading: boolean,
     error?: string | boolean,
     success?: string | boolean,
@@ -14,7 +31,21 @@ interface IBookingState {
 }
 
 const initialState: IBookingState = {
-    // blogs: {},
+    bookingData: {
+        zip: '',
+        appliances: [],
+        customer_name: '',
+        customer_phone: '',
+        customer_email: '',
+        address: '',
+        latitude: null,
+        longitude: null,
+        city: '',
+        state: '',
+        unit: '',
+        order_at: '',
+        time_slot: '',
+    },
     loading: false,
     error: false,
     success: false,
@@ -43,7 +74,9 @@ const bookingSlice = createSlice({
                 bookingApi.endpoints.checkZip.matchFulfilled,
                 (state, action: PayloadAction<IZipCheckingResponse>) => {
                     state.loading = false;
-                    // state.blogs = action.payload?.data;
+                    console.log('----', action.payload)
+                    state.bookingData.zip = action.payload?.data?.zip;
+                    state.bookingData.city = action.payload?.data?.branch?.city;
                 }
             )
             .addMatcher(
@@ -53,31 +86,6 @@ const bookingSlice = createSlice({
                     state.error = action.error?.message || 'Failed to fetch data';
                 }
             );
-
-        // // DELETE DATASET
-        // builder
-        //     .addMatcher(
-        //         datasetsApi.endpoints.deleteDataset.matchPending,
-        //         (state) => {
-        //             state.loading = true;
-        //         }
-        //     )
-        //     .addMatcher(
-        //         datasetsApi.endpoints.deleteDataset.matchFulfilled,
-        //         (state, action) => {
-        //             state.loading = false;
-        //             toast.success('Dataset has been deleted successfully');
-        //         }
-        //     )
-        //     .addMatcher(
-        //         datasetsApi.endpoints.deleteDataset.matchRejected,
-        //         (state, action) => {
-        //             state.loading = false;
-        //             state.error = action.error?.message || 'Failed to delete dataset';
-        //             toast.error('Unable to delete this dataset');
-        //         }
-        //     );
-
     },
 });
 
