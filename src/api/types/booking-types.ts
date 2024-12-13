@@ -93,64 +93,31 @@ export interface IGetBrandsResponseNEW {
 
 export interface IGetBrandsResponseNEW2 {
     status: string,
-    data: [
-        {
-            id: number | string, // 1
-            title: string, // Refrigerator
-            type: string, // Residential or Commercial
-            fee: number | string, // $80
-            // max length should be 6 (the last one "Other")
-            brands: [
-                {
-                    id: number | string, // 12
-                    title: string, // LG
-                },
-                {
-                    id: number | string, // 22
-                    title: string, // Viking
-                },
-            ],
-            // max length should be 6 (the last one "Other")
-            issues: [
-                {
-                    id: number | string, // 123
-                    title: string, // not cooling
-                },
-                {
-                    id: number | string, // 123
-                    title: string, // noising
-                },
-            ]
-        },
-        {
-            id: number | string, // 2
-            title: string, // Washer
-            type: string, // Residential or Commercial
-            fee: number | string, // $80
-            brands: [
-                {
-                    id: number | string, // 12
-                    title: string, // LG
-                },
-                {
-                    id: number | string, // 22
-                    title: string, // Viking
-                },
-            ],
-            issues: [
-                {
-                    id: number | string, // 123
-                    title: string, // leaking
-                },
-                {
-                    id: number | string, // 123
-                    title: string, // other
-                },
-            ]
-        },
-    ],
+    data: {
+        services: [
+            {
+                id: number | string, // 1
+                title: string, // Refrigerator
+                type: string, // Residential or Commercial
+                fee: number | string, // $80
+                // max length should be 6 (the last one "Other")
+                issues: [
+                    {
+                        id: number | string, // 123
+                        title: string, // not cooling
+                    },
+                    {
+                        id: number | string, // 123
+                        title: string, // noising
+                    },
+                ]
+            },
+        ],
+        total_fee: number | string, // $80
+    },
     title: string,
     description: string
 }
 
 // ---------------------------------
+
