@@ -54,6 +54,7 @@ const ServiceDetailPage = ({ params }: ServiceProps) => {
     const cityKey = `${state}_${city}` as keyof typeof CITIES;
     const cityData = CITIES[cityKey];
 
+
     const metadata: Metadata = {
         title: `Residential ${RESIDENTIAL_SERVICES[serviceKey].title} repair in ${cityData?.title}, ${cityData?.state}`,
         description: `Need ${RESIDENTIAL_SERVICES[serviceKey].title} repair in ${cityData?.title}-${cityData?.state}? Ultrafix® Offers Same-Day, Professional ${RESIDENTIAL_SERVICES[serviceKey].title} Repairs. Book Your Appointment Today!`,

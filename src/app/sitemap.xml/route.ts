@@ -8,31 +8,38 @@ import { COMMERCIAL_SERVICES_LIST, RESIDENCIAL_SERVICES_LIST } from 'constants/s
 export async function GET(req: NextRequest) {
     const sitemap = new SitemapStream({ hostname: 'https://ultrafix.com/' });
 
-    sitemap.write({ url: '/', lastmod: '2024-10-19', changefreq: 'weekly', priority: 1.0 });
-    sitemap.write({ url: '/appliance-services/', lastmod: '2024-10-19', changefreq: 'monthly', priority: 0.8 });
+    sitemap.write({ url: '/', lastmod: '2024-12-14', changefreq: 'weekly', priority: 1.0 });
+    sitemap.write({ url: '/blog', lastmod: '2024-12-14', changefreq: 'weekly', priority: 0.8 });
+    sitemap.write({ url: '/apply', lastmod: '2024-12-14', changefreq: 'weekly', priority: 0.7 });
+    sitemap.write({ url: '/faq', lastmod: '2024-12-14', changefreq: 'weekly', priority: 0.7 });
 
-    // const states = STATES_LIST.map(state => state.value.toLowerCase());
-    const states = Object.values(STATES)
+    const states = Object.values(STATES);
     const cities = Object.values(CITIES).map(city => city.value);
-    const residential_services = RESIDENCIAL_SERVICES_LIST.map(service => service.value);
-    const commercial_services = COMMERCIAL_SERVICES_LIST.map(service => service.value);
+    const residential_services = RESIDENCIAL_SERVICES_LIST.map(service => service.link);
+    const commercial_services = COMMERCIAL_SERVICES_LIST.map(service => service.link);
 
 
-    states.forEach((state, i) => {
+    states.forEach((state) => {
         state.forEach(city => {
+            sitemap.write({
+                url: `/appliance-repair/${city.stateShort.toLocaleLowerCase()}/${city.value}`,
+                lastmod: '2024-12-14',
+                changefreq: 'weekly',
+                priority: 0.7,
+            });
             residential_services.forEach(service => {
                 sitemap.write({
-                    url: `/appliance-repair/${city.stateShort.toLocaleLowerCase()}/${city.value}/residential/${service}/`,
+                    url: `/appliance-repair/${city.stateShort.toLocaleLowerCase()}/${city.value}/residential/${service}`,
                     lastmod: '2024-12-14',
-                    changefreq: 'monthly',
+                    changefreq: 'weekly',
                     priority: 0.7,
                 });
             });
             commercial_services.forEach(service => {
                 sitemap.write({
-                    url: `/appliance-repair/${city.stateShort.toLocaleLowerCase()}/${city.value}/commercial/${service}/`,
+                    url: `/appliance-repair/${city.stateShort.toLocaleLowerCase()}/${city.value}/commercial/${service}`,
                     lastmod: '2024-12-14',
-                    changefreq: 'monthly',
+                    changefreq: 'weekly',
                     priority: 0.7,
                 });
             });
@@ -43,7 +50,7 @@ export async function GET(req: NextRequest) {
         sitemap.write({
             url: `/appliance-services/residential/${service}/`,
             lastmod: '2024-12-14',
-            changefreq: 'monthly',
+            changefreq: 'weekly',
             priority: 0.8,
         });
     });
@@ -52,7 +59,7 @@ export async function GET(req: NextRequest) {
         sitemap.write({
             url: `/appliance-services/commercial/${service}/`,
             lastmod: '2024-12-14',
-            changefreq: 'monthly',
+            changefreq: 'weekly',
             priority: 0.8,
         });
     });
