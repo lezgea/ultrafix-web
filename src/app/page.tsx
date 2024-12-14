@@ -4,6 +4,7 @@ import PageLayout from '@components/layout/page-layout';
 import { AboutUsSection, BannerSection, BrandsSection, CommercialServicesSection, ContactSection, LocationsSection, LogosSection, ResidentialServicesSection, WhyUsSection } from '@components/features/home';
 import * as motion from "framer-motion/client"
 import { BlogSection } from '@components/features';
+import { STATES } from 'constants/locations';
 
 
 export const metadata: Metadata = {
