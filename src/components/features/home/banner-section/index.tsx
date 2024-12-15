@@ -4,6 +4,7 @@ import React from 'react';
 import SectionLayout from '@components/layout/section-layout';
 import Image from 'next/image';
 import * as motion from "framer-motion/client";
+import Link from 'next/link';
 
 
 export const BannerSection: React.FC = () => {
@@ -24,13 +25,15 @@ export const BannerSection: React.FC = () => {
                     {/* <span className='text-primary text-[3.5rem] leading-[3rem] lg:text-[4.5rem] lg:leading-[5.5rem]'>UltraFix®</span> */}
                 </h1>
                 <p className="text-xl max-w-[80%] md:max-w-full md:text-2xl font-light text-gray-500">Call now and book your service technician</p>
-                <button
-                    onClick={scrollToContact}
-                    className="hidden md:inline-flex w-auto text-center items-center px-10 py-3 lg:px-6 lg:py-[12px] text-xl text-white transition-all bg-primary rounded-lg sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
-                    aria-label="See our races"
-                >
-                    Book a Service
-                </button>
+                <Link href='/book'>
+                    <button
+                        // onClick={scrollToContact}
+                        className="hidden md:inline-flex w-auto text-center items-center px-10 py-3 lg:px-6 lg:py-[12px] text-xl text-white transition-all bg-primary rounded-lg sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
+                        aria-label="See our races"
+                    >
+                        Book a Service
+                    </button>
+                </Link>
             </div>
             <motion.div
                 initial={{ opacity: 0, x: -300 }}

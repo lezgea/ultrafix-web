@@ -83,13 +83,15 @@ const ResidentialContent: React.FC<IServiceBannerProps> = ({ service }) => {
                     className='hidden lg:flex z-0 h-[100px] w-[100px] rounded-full bg-gray-100 absolute top-[250px] left-[450px]'
                 ></motion.div>
                 <div className='space-y-4 z-10 mt-10 md:mt-0'>
-                    <button
-                        onClick={scrollToContact}
-                        className="inline-flex w-auto text-center items-center px-6 py-[10px] md:py-[12px] text-lg text-white transition-all bg-primary rounded-xl sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
-                        aria-label="See our races"
-                    >
-                        Book a Service
-                    </button>
+                    <Link href='/book'>
+                        <button
+                            // onClick={scrollToContact}
+                            className="inline-flex w-auto text-center items-center px-6 py-[10px] md:py-[12px] text-lg text-white transition-all bg-primary rounded-xl sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
+                            aria-label="See our races"
+                        >
+                            Book a Service
+                        </button>
+                    </Link>
                     {/* <p className='text-gray-600 text-lg md:text-xl'>Average price for residential {RESIDENTIAL_SERVICES[service].title.toLowerCase()} repair without parts</p>
                     <p className='text-primaryDark text-5xl font-medium'>$ {RESIDENTIAL_SERVICES[service].price}</p> */}
                 </div>
@@ -169,13 +171,15 @@ const CommercialContent: React.FC<IServiceBannerProps> = ({ service }) => {
                     className='hidden lg:flex z-0 h-[100px] w-[100px] rounded-full bg-gray-100 absolute top-[250px] left-[450px]'
                 ></motion.div>
                 <div className='space-y-4 z-10 mt-10 md:mt-0'>
-                    <button
-                        onClick={scrollToContact}
-                        className="inline-flex w-auto text-center items-center px-6 py-[10px] md:py-[12px] text-lg text-white transition-all bg-primary rounded-xl sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
-                        aria-label="See our races"
-                    >
-                        Book a Service
-                    </button>
+                    <Link href='/book'>
+                        <button
+                            // onClick={scrollToContact}
+                            className="inline-flex w-auto text-center items-center px-6 py-[10px] md:py-[12px] text-lg text-white transition-all bg-primary rounded-xl sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
+                            aria-label="See our races"
+                        >
+                            Book a Service
+                        </button>
+                    </Link>
                     {/* <p className='text-gray-600 text-lg md:text-xl'>Average price for {COMMERCIAL_SERVICES[service].title.toLowerCase()} repair without parts</p>
                     <p className='text-primaryDark text-5xl font-medium'>$ {COMMERCIAL_SERVICES[service].price}</p> */}
                 </div>
