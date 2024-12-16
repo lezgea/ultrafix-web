@@ -2,7 +2,6 @@ import withBundleAnalyzer from '@next/bundle-analyzer';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// Get the directory name of the current module
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -16,27 +15,25 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: '**', // Allows images from any hostname
+                hostname: '**',
             },
         ],
     },
-    webpack(config, { isServer, webpack }) {
-        if (isServer) {
-            config.plugins.push(
-                new webpack.DefinePlugin({
-                    self: {}, // Define `self` as an empty object during SSR
-                    document: {},
-                })
-            );
+    webpack(config, { isServer }) {
+        if (!isServer) {
+            // Fallback for client-side code only
+            config.resolve.fallback = {
+                fs: false,
+                path: false,
+                os: false,
+            };
         }
         config.module.rules.push({
             test: /\.svg$/,
             use: [
                 {
                     loader: '@svgr/webpack',
-                    options: {
-                        svgo: false, // Optional: Disable SVGO optimizations if necessary
-                    },
+                    options: { svgo: false },
                 },
             ],
         });
@@ -45,34 +42,17 @@ const nextConfig = {
     async headers() {
         return [
             {
-                // Apply to all routes
                 source: '/(.*)',
                 headers: [
-                    {
-                        key: 'Strict-Transport-Security',
-                        value: 'max-age=31536000; includeSubDomains; preload', // HSTS Header
-                    },
-                    {
-                        key: 'X-Content-Type-Options',
-                        value: 'nosniff', // Prevent MIME type sniffing
-                    },
-                    {
-                        key: 'X-Frame-Options',
-                        value: 'DENY', // Prevent clickjacking
-                    },
-                    {
-                        key: 'Referrer-Policy',
-                        value: 'strict-origin-when-cross-origin', // Set referrer policy
-                    },
-                    // {
-                    //     key: 'Content-Security-Policy',
-                    //     value: "style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none';", // Updated CSP
-                    // },
+                    { key: 'Strict-Transport-Security', value: 'max-age=31536000; includeSubDomains; preload' },
+                    { key: 'X-Content-Type-Options', value: 'nosniff' },
+                    { key: 'X-Frame-Options', value: 'DENY' },
+                    { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
                 ],
             },
         ];
     },
 };
 
-// Wrap your Next.js config with the bundle analyzer
 export default withBundleAnalyzer({ enabled: isAnalyze })(nextConfig);
+
