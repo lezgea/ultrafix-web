@@ -177,7 +177,7 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                         </div>
                     </div>
 
-                    <SectionFooter onGoBack={() => setStep(2)} onClick={showModal} />
+                    <SectionFooter showFee onGoBack={() => setStep(2)} onClick={showModal} />
                 </form>
             </div>
         </SectionLayout>
