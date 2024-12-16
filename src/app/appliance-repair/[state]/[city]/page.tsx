@@ -123,6 +123,12 @@ const LocationPage: React.FC<ILocationProps> = ({ params }) => {
     };
 
     React.useEffect(() => {
+
+        const metaRobots = document.createElement('meta');
+        metaRobots.name = 'robots';
+        metaRobots.content = 'index, follow';
+        document.head.appendChild(metaRobots);
+
         // Set document title
         document.title = metadata.title as string;
 
@@ -176,6 +182,7 @@ const LocationPage: React.FC<ILocationProps> = ({ params }) => {
 
         // Cleanup function to remove meta tags on component unmount
         return () => {
+            document.head.removeChild(metaRobots);
             document.head.removeChild(metaDescription);
             document.head.removeChild(metaKeywords);
             document.head.removeChild(metaOgTitle);
