@@ -31,8 +31,8 @@ export async function generateMetadata({ params }: ILocationProps) {
     const cityData = CITIES[cityKey];
 
     const title = cityData
-        ? `Appliance Repair Service in ${cityData.title}, ${cityData.state}`
-        : 'Appliance Repair Services';
+        ? `Appliance Repair Service in ${cityData.title}, ${cityData.state} | UltraFix®`
+        : 'Appliance Repair Services | UltraFix®';
     const description = cityData
         ? `UltraFix offers trusted appliance repair services in ${cityData.title}, ${cityData.state}. Fast, same-day repairs for refrigerators, washers, dryers, and more!`
         : 'UltraFix offers trusted appliance repair services across the United States.';
@@ -42,9 +42,36 @@ export async function generateMetadata({ params }: ILocationProps) {
         description,
         keywords: [
             'Appliance Repair',
+            `Appliance Repair in ${city}`,
+            `Appliance Repair in ${city} ${state}`,
+            `Best Appliance Repair in ${city}`,
+            `Best Appliance Repair in ${city} ${state}`,
             `${city} Appliance Repair`,
+            'appliance repair near me',
+            'appliance repair',
+            'appliance repair service',
+            'commercial appliance repair',
+            'repair appliances',
+            'service appliance repair',
+            'Appliance Repair',
+            'Local Appliance Repair',
+            'Emergency Appliance Repair',
             'Same Day Appliance Repair',
-            'Certified Technicians',
+            'Affordable Appliance Repair',
+            'Certified Appliance Technicians',
+            'Refrigerator Repair Houston',
+            'Dishwasher Repair Houston',
+            'Oven and Stove Repair',
+            'Microwave Repair',
+            'Freezer and Ice Maker Repair',
+            'Garbage Disposal Repair',
+            'Washer and Dryer Repair',
+            'Major Appliance Repair',
+            'Residential Appliance Repair',
+            'Commercial Appliance Repair',
+            'Houston Appliance Service',
+            'Best Appliance Repair in',
+            'Nearby Appliance Repair',
         ],
         openGraph: {
             title,
