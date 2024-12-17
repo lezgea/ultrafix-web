@@ -66,6 +66,16 @@ export async function generateMetadata({ params }: IServiceProps) {
             'Best Appliance Repair in',
             'Nearby Appliance Repair',
         ],
+        robots: {
+            index: true,
+            follow: true,
+            nocache: false,
+            googleBot: {
+                index: true,
+                follow: true,
+                noarchive: false,
+            },
+        },
         openGraph: {
             title,
             description,
