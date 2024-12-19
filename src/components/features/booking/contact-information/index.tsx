@@ -7,6 +7,7 @@ import SectionLayout from '@components/layout/section-layout';
 import { useSelector } from 'react-redux';
 import { RootState } from '@store/store';
 import { SectionFooter } from '../section-footer';
+import AddressAutocomplete from '@components/shared/address-autocomplete';
 
 
 interface IBookingForm {
@@ -60,7 +61,8 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
     };
 
     React.useEffect(() => {
-        setValue('zip', bookingData?.zip)
+        setValue('zip', bookingData?.zip);
+        setValue('address', bookingData?.address)
     }, [])
 
 
@@ -75,6 +77,8 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                         <div className="flex items-center justify-center flex-wrap gap-3 md:gap-4 max-w-[60%]">
                             <div className='flex w-full gap-4'>
                                 <div className='w-full'>
+                                    <AddressAutocomplete />
+
                                     <FormInput
                                         type='text'
                                         name='address'
@@ -116,13 +120,13 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                     errors={errors}
                                 />
                             </div>
-                            <FormInput
+                            {/* <FormInput
                                 type='text'
                                 name='address'
                                 placeholder="Address line 2 (optional)"
                                 register={register}
                                 errors={errors}
-                            />
+                            /> */}
                         </div>
                     </div>
 

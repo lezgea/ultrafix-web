@@ -71,6 +71,9 @@ const bookingSlice = createSlice({
     reducers: {
         setSelectedAppliances: (state, action: PayloadAction<any>) => {
             state.bookingData.appliances = action.payload
+        },
+        setBookingData: (state, action: PayloadAction<any>) => {
+            state.bookingData = action.payload
         }
     },
     extraReducers: (builder) => {
@@ -89,6 +92,7 @@ const bookingSlice = createSlice({
                     state.loading = false;
                     state.bookingData.zip = action.payload?.data?.zip;
                     state.bookingData.city = action.payload?.data?.branch?.city;
+                    state.bookingData.address = action.payload?.data?.branch?.address;
                 }
             )
             .addMatcher(
