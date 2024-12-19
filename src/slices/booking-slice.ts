@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { bookingApi } from '@api/booking-api';
-import { IAppliance, IBrand, IGetBrandsResponse, IGetSelectedServicesResponse, IGetServicesResponse, IService, IZipCheckingResponse } from '@api/types/booking-types';
+import { IAppliance, IBrand, IGetBrandsResponse, IGetSelectedServicesResponse, IGetServicesResponse, ISelectedService, IService, IZipCheckingResponse } from '@api/types/booking-types';
 
 
 interface IBookingState {
@@ -22,6 +22,10 @@ interface IBookingState {
     services: {
         residential: IService[] | [],
         commercial: IService[] | [],
+    },
+    serviceData: {
+        services: ISelectedService[],
+        total_fee: number,
     },
     brands: IBrand[] | [],
     loading: boolean,
@@ -49,6 +53,10 @@ const initialState: IBookingState = {
     services: {
         residential: [],
         commercial: [],
+    },
+    serviceData: {
+        services: [],
+        total_fee: 0,
     },
     brands: [],
     loading: false,
@@ -152,8 +160,7 @@ const bookingSlice = createSlice({
                 bookingApi.endpoints.getSelectedServices.matchFulfilled,
                 (state, action: PayloadAction<IGetSelectedServicesResponse>) => {
                     state.loading = false;
-                    // state.services = action.payload?.data;
-                    
+                    state.serviceData = action.payload?.data;
                 }
             )
             .addMatcher(

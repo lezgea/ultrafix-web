@@ -65,6 +65,11 @@ export interface IGetServicesResponse {
     description: string
 }
 
+export interface IGetBrandsRequest {
+    query?: string,
+    skip: string | number,
+    limit: string | number,
+}
 
 export interface IGetBrandsResponse {
     status: string,

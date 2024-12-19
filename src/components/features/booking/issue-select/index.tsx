@@ -11,7 +11,7 @@ import { SectionFooter } from '../section-footer';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { RootState } from '@store/store';
-import { useGetBrandsQuery, useGetServicesQuery } from '@api/booking-api';
+import { useGetServicesQuery, useLazyGetBrandsQuery } from '@api/booking-api';
 import { setSelectedAppliances } from '@slices/booking-slice';
 import { IAppliance } from '@api/types/booking-types';
 
@@ -71,10 +71,10 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
     let { setStep } = props;
 
     const dispatch = useDispatch();
-    const { bookingData, brands } = useSelector((state: RootState) => state.booking);
+    const { bookingData, brands, serviceData } = useSelector((state: RootState) => state.booking);
 
     // RTK Query mutation hook
-    const { data: brandsList, isLoading } = useGetBrandsQuery();
+    const [triggerGetBrands] = useLazyGetBrandsQuery();
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm<IBookingForm>({
         // resolver: yupResolver(validationSchema),
@@ -125,40 +125,47 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
         return isProblemSelected;
     }
 
-    // RTK Query mutation hook
-    // const [sendRequest, { isLoading, error }] = useContactUserMutation();
+    const onSearchBrand = async (e: any) => {
+        try {
+            triggerGetBrands({ query: e.target.value, skip: 0, limit: 6 }).unwrap();
+        } catch (err: any) {
+            console.log('Error: ', err)
+        }
+    }
 
-    const onSubmit: SubmitHandler<IBookingForm> = async (data) => {
-        // try {
-        //     await sendRequest(data).unwrap();
-        //     showEmailSent(true);
-        //     toast.success("Thank you for contacting us! We have received your message and will get back to you shortly.");
-        //     reset();
-        // } catch (err: any) {
-        //     console.error('Unknown error:', err);
-        //     toast.error(err.data?.message || 'An unexpected error occurred');
-        // }
-    };
+
+    React.useEffect(() => {
+        try {
+            triggerGetBrands({ query: '', skip: 0, limit: 6 }).unwrap();
+        } catch (err: any) {
+            console.log('Error: ', err)
+        }
+    }, [])
 
 
     return (
         <SectionLayout noYPadding>
             <div className="flex w-full justify-center space-y-10">
-                <form className="flex flex-col space-y-20 text-center items-center select-none min-w-[30%]" onSubmit={handleSubmit(onSubmit)}>
+                <div className="flex flex-col space-y-20 text-center items-center select-none min-w-[30%]">
                     {
-                        bookingData?.appliances?.map((appliance, i) =>
-                            <div key={appliance.service_id} className='flex flex-col gap-10'>
+                        serviceData?.services?.map((appliance, i) =>
+                            <div key={appliance.id} className='flex flex-col gap-10'>
                                 <div className='space-y-6 flex flex-col items-center'>
                                     <h3 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
                                         What’s is the brand of your <strong className='font-medium text-primary'>{appliance.type} {appliance.title}</strong> ?
                                     </h3>
                                     <div className="flex flex-col w-full max-w-[300px]">
-                                        <FormInput
+                                        {/* <FormInput
                                             type='text'
                                             name='name'
                                             placeholder="Search your brand"
                                             register={register}
                                             errors={errors}
+                                        /> */}
+                                        <input
+                                            placeholder="Search your brand"
+                                            onChange={onSearchBrand}
+                                            className={`w-full h-[50px] px-5 py-2 pr-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out transform`}
                                         />
                                     </div>
                                     <div className="flex items-center justify-center flex-wrap gap-3 md:gap-5">
@@ -181,12 +188,12 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
                                     </h4>
                                     <div className="flex items-center justify-center flex-wrap gap-3 md:gap-5">
                                         {
-                                            ISSUES?.map(issue =>
+                                            appliance.issues?.map(issue =>
                                                 <SelectButton
-                                                    key={issue.id}
+                                                    key={issue.value}
                                                     label={issue.label}
-                                                    selected={isIssueSelected(issue.id, i)}
-                                                    onSelect={() => onSelectIssue(issue.id, i)}
+                                                    selected={isIssueSelected(issue.value, i)}
+                                                    onSelect={() => onSelectIssue(issue.value, i)}
                                                 />
                                             )
                                         }
@@ -212,7 +219,7 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
                     </div>
 
                     <SectionFooter onGoBack={() => setStep(1)} onClick={() => setStep(3)} />
-                </form>
+                </div>
             </div>
         </SectionLayout>
 
