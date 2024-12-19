@@ -77,8 +77,7 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                         <div className="flex items-center justify-center flex-wrap gap-3 md:gap-4 max-w-[60%]">
                             <div className='flex w-full gap-4'>
                                 <div className='w-full'>
-                                    <AddressAutocomplete />
-
+                                    {/* <AddressAutocomplete /> */}
                                     <FormInput
                                         type='text'
                                         name='address'
