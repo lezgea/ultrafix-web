@@ -13,7 +13,7 @@ interface ISectionFooterProps {
 export const SectionFooter: React.FC<ISectionFooterProps> = (props) => {
     let { isContinueDisabled, showFee, onGoBack, onClick } = props;
 
-    const { } = useSelector((state: RootState) => state.booking);
+    const { serviceData } = useSelector((state: RootState) => state.booking);
 
 
     return (
@@ -24,7 +24,7 @@ export const SectionFooter: React.FC<ISectionFooterProps> = (props) => {
                     {
                         showFee &&
                         <>
-                            <div className='text-xl font-light'>Service Fee: <strong className='font-semi text-2xl'>$80</strong></div>
+                            <div className='text-xl font-light'>Service Fee: <strong className='font-semi text-2xl'>${serviceData?.total_fee}</strong></div>
                             <p className='text-gray-400 text-sm'>The service call fee will be applied towards the repair cost if you proceed with repairs</p>
                         </>
                     }

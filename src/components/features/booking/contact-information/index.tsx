@@ -38,7 +38,7 @@ interface IContactInformationProps {
 export const ContactInformation: React.FC<IContactInformationProps> = (props) => {
     let { setStep, showModal } = props;
 
-    const { bookingData, brands } = useSelector((state: RootState) => state.booking);
+    const { bookingData, serviceData } = useSelector((state: RootState) => state.booking);
 
     const [priceAcknowledge, setPriceAcknowledge] = React.useState<boolean>(false);
 

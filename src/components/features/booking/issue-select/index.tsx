@@ -1,48 +1,14 @@
 import React from 'react';
-import * as Yup from 'yup';
 import { FormInput } from '@components/shared';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { useContactUserMutation } from '@api/user-api';
-import { toast } from 'react-toastify';
+import { useForm } from 'react-hook-form';
 import SectionLayout from '@components/layout/section-layout';
 import { SelectButton } from '@components/shared/select-button';
 import { SectionFooter } from '../section-footer';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { RootState } from '@store/store';
-import { useGetServicesQuery, useLazyGetBrandsQuery } from '@api/booking-api';
+import { useLazyGetBrandsQuery } from '@api/booking-api';
 import { setSelectedAppliances } from '@slices/booking-slice';
-import { IAppliance } from '@api/types/booking-types';
-
-
-
-
-const BUILTIN_TYPES = [
-    { id: 1, label: 'Yes' },
-    { id: 2, label: 'No' },
-]
-
-const BRANDS = [
-    { id: 1, label: 'Samsung' },
-    { id: 2, label: 'LG' },
-    { id: 3, label: 'Kenmore' },
-    { id: 4, label: 'Viking' },
-    { id: 5, label: 'Dacor' },
-    { id: 6, label: 'Amana' },
-    { id: 7, label: 'U-line' },
-    { id: 8, label: 'Asko' },
-    { id: 9, label: 'Subzero' },
-    { id: 10, label: 'Maytag' },
-    { id: 11, label: 'Other' },
-]
-
-const ISSUES = [
-    { id: 1, label: 'Not cooling' },
-    { id: 2, label: 'Leaking' },
-    { id: 3, label: 'Noising' },
-    { id: 4, label: 'Other' },
-]
 
 
 interface IBookingForm {
@@ -51,16 +17,6 @@ interface IBookingForm {
     address: string;
     message?: string;
 }
-
-const validationSchema = Yup.object().shape({
-    // name: Yup.string()
-    //     .required('Fullname is required'),
-    // phone: Yup.string()
-    //     .required('Phone number is required'),
-    // address: Yup.string()
-    //     .required('Address is required'),
-});
-
 
 interface IIssueSelectProps {
     setStep: (step: number) => void,
@@ -155,13 +111,6 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
                                         What’s is the brand of your <strong className='font-medium text-primary'>{appliance.type} {appliance.title}</strong> ?
                                     </h3>
                                     <div className="flex flex-col w-full max-w-[300px]">
-                                        {/* <FormInput
-                                            type='text'
-                                            name='name'
-                                            placeholder="Search your brand"
-                                            register={register}
-                                            errors={errors}
-                                        /> */}
                                         <input
                                             placeholder="Search your brand"
                                             onChange={onSearchBrand}
