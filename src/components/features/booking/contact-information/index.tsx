@@ -1,38 +1,16 @@
 import React from 'react';
-import * as Yup from 'yup';
-import { FormInput } from '@components/shared';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { SubmitHandler, useForm } from 'react-hook-form';
 import SectionLayout from '@components/layout/section-layout';
 import { useSelector } from 'react-redux';
 import { RootState } from '@store/store';
 import { SectionFooter } from '../section-footer';
 import AddressAutocomplete from '@components/shared/address-autocomplete';
-
-
-interface IBookingForm {
-    name: string;
-    phone: string;
-    address: string;
-    city: string,
-    state: string,
-    zip: string | number,
-    message?: string;
-}
-
-const validationSchema = Yup.object().shape({
-    // name: Yup.string()
-    //     .required('Fullname is required'),
-    // phone: Yup.string()
-    //     .required('Phone number is required'),
-    // address: Yup.string()
-    //     .required('Address is required'),
-});
+import { SimpleInput } from '@components/shared/simple-input';
+import { setBookingData } from '@slices/booking-slice';
 
 
 interface IContactInformationProps {
     setStep: (step: number) => void,
-    showModal: () => void,
+    showModal: () => any,
 }
 
 
@@ -41,35 +19,11 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
 
     const { bookingData, serviceData } = useSelector((state: RootState) => state.booking);
 
-    const [priceAcknowledge, setPriceAcknowledge] = React.useState<boolean>(false);
-
-    const { register, handleSubmit, formState: { errors }, setValue, reset } = useForm<IBookingForm>({
-        // resolver: yupResolver(validationSchema),
-        mode: 'onBlur',
-    });
-
-    const onSubmit: SubmitHandler<IBookingForm> = async (data) => {
-        // try {
-        //     await sendRequest(data).unwrap();
-        //     showEmailSent(true);
-        //     toast.success("Thank you for contacting us! We have received your message and will get back to you shortly.");
-        //     reset();
-        // } catch (err: any) {
-        //     console.error('Unknown error:', err);
-        //     toast.error(err.data?.message || 'An unexpected error occurred');
-        // }
-    };
-
-    React.useEffect(() => {
-        setValue('zip', bookingData?.zip);
-        setValue('address', bookingData?.address)
-    }, [])
-
 
     return (
         <SectionLayout noYPadding>
             <div className="flex w-full justify-center space-y-20">
-                <form className="flex flex-col space-y-10 text-center items-center select-none min-w-[30%]" onSubmit={handleSubmit(onSubmit)}>
+                <div className="flex flex-col space-y-10 text-center items-center select-none min-w-[30%]">
                     <div className='flex flex-col items-center space-y-6'>
                         <h2 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
                             Service address
@@ -78,45 +32,45 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                             <div className='flex w-full gap-4'>
                                 <div className='w-full'>
                                     {/* <AddressAutocomplete /> */}
-                                    <FormInput
+                                    <SimpleInput
                                         type='text'
                                         name='address'
                                         placeholder="Address"
-                                        register={register}
-                                        errors={errors}
+                                        defaultValue={bookingData.address}
+                                        onChange={(e: any) => setBookingData({ address: e })}
                                     />
                                 </div>
                                 <div className='max-w-40'>
-                                    <FormInput
+                                    <SimpleInput
                                         type='text'
                                         name='unit'
                                         placeholder="Unit or Apt"
-                                        register={register}
-                                        errors={errors}
+                                        defaultValue={bookingData.unit}
+                                        onChange={(e: any) => setBookingData({ unit: e })}
                                     />
                                 </div>
                             </div>
                             <div className='flex w-full gap-4'>
-                                <FormInput
+                                <SimpleInput
                                     type='text'
                                     name='city'
                                     placeholder="City"
-                                    register={register}
-                                    errors={errors}
+                                    defaultValue={bookingData.city}
+                                    onChange={(e: any) => setBookingData({ city: e })}
                                 />
-                                <FormInput
+                                <SimpleInput
                                     type='text'
                                     name='state'
                                     placeholder="State"
-                                    register={register}
-                                    errors={errors}
+                                    defaultValue={bookingData.state}
+                                    onChange={(e: any) => setBookingData({ state: e })}
                                 />
-                                <FormInput
+                                <SimpleInput
                                     type='text'
                                     name='zip'
                                     placeholder="Zip code"
-                                    register={register}
-                                    errors={errors}
+                                    defaultValue={bookingData.zip}
+                                    onChange={(e: any) => setBookingData({ zip: e })}
                                 />
                             </div>
                             {/* <FormInput
@@ -129,59 +83,48 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                         </div>
                     </div>
 
-                    <div className='flex flex-col items-center space-y-6'>
+                    <div className='flex w-full flex-col items-center space-y-6'>
                         <h3 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
                             Contact Information
                         </h3>
                         <div className="flex items-center justify-center flex-wrap gap-3 md:gap-4 max-w-[60%]">
                             <div className='flex w-full gap-4'>
-                                <FormInput
+                                <SimpleInput
                                     type='text'
                                     name='firstname'
                                     placeholder="First name"
-                                    register={register}
-                                    errors={errors}
+                                    defaultValue={bookingData.firstname}
+                                    onChange={(e: any) => setBookingData({ firstname: e })}
                                 />
-                                <FormInput
+                                <SimpleInput
                                     type='text'
                                     name='lastname'
                                     placeholder="Last name"
-                                    register={register}
-                                    errors={errors}
+                                    defaultValue={bookingData.lastname}
+                                    onChange={(e: any) => setBookingData({ lastname: e })}
                                 />
                             </div>
                             <div className='flex w-full gap-4'>
-                                <FormInput
+                                <SimpleInput
                                     type='text'
-                                    name='email'
+                                    name='customer_email'
                                     placeholder="E-mail"
-                                    register={register}
-                                    errors={errors}
+                                    defaultValue={bookingData.customer_email}
+                                    onChange={(e: any) => setBookingData({ customer_email: e })}
                                 />
-                            </div>
-                            <div className='flex w-full gap-4'>
-                                <div className='w-40'>
-                                    <FormInput
-                                        type='text'
-                                        name='code'
-                                        placeholder="+1"
-                                        register={register}
-                                        errors={errors}
-                                    />
-                                </div>
-                                <FormInput
+                                <SimpleInput
                                     type='text'
-                                    name='phone'
+                                    name='customer_phone'
                                     placeholder="Phone"
-                                    register={register}
-                                    errors={errors}
+                                    defaultValue={bookingData.customer_phone}
+                                    onChange={(e: any) => setBookingData({ customer_phone: e })}
                                 />
                             </div>
                         </div>
                     </div>
 
                     <SectionFooter showFee onGoBack={() => setStep(2)} onClick={showModal} />
-                </form>
+                </div>
             </div>
         </SectionLayout>
 

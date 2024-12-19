@@ -7,7 +7,8 @@ interface IBookingState {
     bookingData: {
         zip: string | number,
         appliances: IAppliance[],
-        customer_name: string,
+        firstname: string,
+        lastname: string,
         customer_phone: string | number,
         customer_email: string,
         address: string,
@@ -38,7 +39,8 @@ const initialState: IBookingState = {
     bookingData: {
         zip: '',
         appliances: [],
-        customer_name: '',
+        firstname: '',
+        lastname: '',
         customer_phone: '',
         customer_email: '',
         address: '',
@@ -73,7 +75,7 @@ const bookingSlice = createSlice({
             state.bookingData.appliances = action.payload
         },
         setBookingData: (state, action: PayloadAction<any>) => {
-            state.bookingData = action.payload
+            state.bookingData = { ...state.bookingData, ...action.payload }
         }
     },
     extraReducers: (builder) => {
@@ -177,6 +179,6 @@ const bookingSlice = createSlice({
     },
 });
 
-export const { setSelectedAppliances } = bookingSlice.actions;
+export const { setSelectedAppliances, setBookingData } = bookingSlice.actions;
 
 export default bookingSlice.reducer;
