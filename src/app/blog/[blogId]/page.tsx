@@ -40,7 +40,7 @@ const BlogInfo: React.FC = () => {
                         src={blogInfo?.data?.cover?.url || ''}
                         width={1200} // Adjust width and height based on your layout
                         height={600}
-                        className="w-auto h-[250px] md:h-[600px] object-cover"
+                        className="w-full h-[250px] md:h-[600px] object-cover"
                         alt={"Blog banner"}
                         loading="lazy"
                         sizes="(max-width: 1200px) 100vw, 100vw"
