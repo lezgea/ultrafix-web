@@ -1,64 +1,97 @@
-"use client"
-
 import React from 'react';
 import PageLayout from '@components/layout/page-layout';
-import Image from 'next/image';
-import { useParams } from 'next/navigation';
-import { useGetBlogInfoQuery } from '@api/blogs-api';
-import Link from 'next/link';
-import SectionLayout from '@components/layout/section-layout';
+import BlogTracker from '@components/features/blog/blog-tracker';
 
 
+interface IBlogProps {
+    params: {
+        blogId: string | string[];
+    };
+}
 
-const BlogInfo: React.FC = () => {
+export async function generateMetadata({ params }: IBlogProps) {
+    let { blogId } = params;
 
-    const { blogId } = useParams();
-    const bId = Array.isArray(blogId) ? blogId[0] : blogId;
+    return {
+        title: "Blog | Appliance Repair Services | UltraFix®",
+        description: "Ultrafix® Provides Fast, Reliable Appliance Repair Services. Get Same-Day Repairs for All Major Brands. Satisfaction Guaranteed—call Now!",
+        keywords: [
+            'Blog',
+            'Apppliance Blog',
+            'Appliance Repair Blog',
+            'The best blog about appliance repair',
+            'The best appliance repair blog',
+            'Appliance Repair',
+            `Appliance Repair Service`,
+            'appliance repair near me',
+            'appliance repair',
+            'appliance repair service',
+            'repair appliances',
+            'service appliance repair',
+            'Appliance Repair',
+            'Local Appliance Repair',
+            'Emergency Appliance Repair',
+            'Same Day Appliance Repair',
+            'Affordable Appliance Repair',
+            'Certified Appliance Technicians',
+            'Refrigerator Repair Houston',
+            'Dishwasher Repair Houston',
+            'Oven and Stove Repair',
+            'Microwave Repair',
+            'Freezer and Ice Maker Repair',
+            'Garbage Disposal Repair',
+            'Washer and Dryer Repair',
+            'Major Appliance Repair',
+            'Residential Appliance Repair',
+            'Commercial Appliance Repair',
+            'Houston Appliance Service',
+            'Best Appliance Repair in',
+            'Nearby Appliance Repair',
+            'The number one Appliance Repair service in US',
+        ],
+        robots: {
+            index: true,
+            follow: true,
+            nocache: false,
+            googleBot: {
+                index: true,
+                follow: true,
+                noarchive: false,
+            },
+        },
+        openGraph: {
+            title: "Blog | Appliance Repair Services | UltraFix®",
+            description: "Ultrafix® Provides Fast, Reliable Appliance Repair Services. Get Same-Day Repairs for All Major Brands. Satisfaction Guaranteed—call Now!",
+            url: `https://ultrafix.com/blog/${blogId}`,
+            images: [
+                {
+                    url: `https://ultrafix.com/img/main_banner.webp`,
+                    width: 1200,
+                    height: 630,
+                    alt: `UltraFix Appliance Repair Service`,
+                },
+            ],
+            locale: 'en_US',
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: "Blog | Appliance Repair Services | UltraFix®",
+            description: "Ultrafix® Provides Fast, Reliable Appliance Repair Services. Get Same-Day Repairs for All Major Brands. Satisfaction Guaranteed—call Now!",
+            images: [`https://ultrafix.com/img/main_banner.webp`],
+        },
+        alternates: {
+            canonical: `https://ultrafix.com/blog/${blogId}`,
+        },
+    };
+}
 
-    const { data: blogInfo, error, isLoading, refetch } = useGetBlogInfoQuery({ id: bId }, { skip: !bId });
-
+const BlogInfo: React.FC<IBlogProps> = ({ params }) => {
+    let { blogId } = params;
 
     return (
-        <PageLayout title="The number one Appliance Repair service in US">
-            <SectionLayout noYPadding>
-                <div className='mt-[3rem] mb-5 space-y-5'>
-                    <nav className="text-sm flex justify-start items-center text-gray-600 space-x-3">
-                        <Link href="/" className="text-primary hover:text-primaryDark">Home Page</Link>
-                        <span className="text-lg">&gt;</span>
-                        <Link href={`/blog`} className="text-primary hover:text-primaryDark">Blog</Link>
-                        <span className="hidden md:flex text-lg">&gt;</span>
-                        <span className='hidden md:flex'>{blogInfo?.data?.title}</span>
-                    </nav>
-                    <h1 className="text-[1.7rem] md:text-[2.5rem] leading-normal font-semibold text-primaryDark">
-                        {blogInfo?.data?.title}
-                    </h1>
-                </div>
-            </SectionLayout>
-            <SectionLayout noYPadding>
-                <div className='relative overflow-hidden rounded-2xl'>
-                    <Image
-                        src={blogInfo?.data?.cover?.url || ''}
-                        width={1200} // Adjust width and height based on your layout
-                        height={600}
-                        className="w-full h-[250px] md:h-[600px] object-cover"
-                        alt={"Blog banner"}
-                        loading="lazy"
-                        sizes="(max-width: 1200px) 100vw, 100vw"
-                    />
-                </div>
-            </SectionLayout>
-            <SectionLayout noYPadding>
-                <div className="mt-10 mb-20" dangerouslySetInnerHTML={{ __html: blogInfo?.data?.content || '' }} />
-                {/* <div className='flex items-center justify-center mb-40'>
-                    <button
-                        // onClick={scrollToContact}
-                        className="inline-flex w-auto text-center items-center px-5 py-2 lg:px-6 lg:py-[12px] text-md lg:text-lg text-white transition-all bg-primary rounded-lg sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
-                        aria-label="See our races"
-                    >
-                        Book an Appointment
-                    </button>
-                </div> */}
-            </SectionLayout>
+        <PageLayout>
+            <BlogTracker blogId={blogId} />
         </PageLayout>
     );
 };
