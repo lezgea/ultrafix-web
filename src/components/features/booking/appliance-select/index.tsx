@@ -3,12 +3,11 @@ import SectionLayout from '@components/layout/section-layout';
 import { toast } from 'react-toastify';
 import { SelectButton } from '@components/shared/select-button';
 import { SectionFooter } from '../section-footer';
-import { useGetServicesQuery } from '@api/booking-api';
+import { useGetServicesQuery, useLazyGetSelectedServicesQuery } from '@api/booking-api';
 import { useSelector } from 'react-redux';
 import { RootState } from '@store/store';
 import { useDispatch } from 'react-redux';
 import { setSelectedAppliances } from '@slices/booking-slice';
-
 
 
 interface IApplianceSelectProps {
@@ -23,6 +22,7 @@ export const ApplianceSelect: React.FC<IApplianceSelectProps> = (props) => {
 
     // RTK Query mutation hook
     const { data: servicesList, isLoading } = useGetServicesQuery({ zip: bookingData?.zip });
+    const [triggerSelectedServices] = useLazyGetSelectedServicesQuery();
 
 
     const onSelectAppliance = (applianceId: number | string, type: string, title: string) => {
@@ -50,12 +50,23 @@ export const ApplianceSelect: React.FC<IApplianceSelectProps> = (props) => {
         }
     }
 
-
     const isSelected = (applianceId: number | string, type: string) => {
         let selectedAppliances = bookingData.appliances;
         let isApplianceSelected = selectedAppliances.some(item => (item.service_id == applianceId) && (item.type == type));
         return isApplianceSelected;
     }
+
+
+    React.useEffect(() => {
+        try {
+            triggerSelectedServices({
+                zip: bookingData?.zip,
+                appliances: bookingData?.appliances
+            }).unwrap();
+        } catch (err: any) {
+            console.log('Error: ', err)
+        }
+    }, [bookingData]);
 
 
     return (

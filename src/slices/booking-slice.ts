@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { bookingApi } from '@api/booking-api';
-import { IAppliance, IBrand, IGetBrandsResponse, IGetServicesResponse, IService, IZipCheckingResponse } from '@api/types/booking-types';
+import { IAppliance, IBrand, IGetBrandsResponse, IGetSelectedServicesResponse, IGetServicesResponse, IService, IZipCheckingResponse } from '@api/types/booking-types';
 
 
 interface IBookingState {
@@ -133,6 +133,31 @@ const bookingSlice = createSlice({
             )
             .addMatcher(
                 bookingApi.endpoints.getBrands.matchRejected,
+                (state, action) => {
+                    state.loading = false;
+                    state.error = action.error?.message || 'Failed to fetch data';
+                }
+            );
+
+        // GET SELECTED SERVICES QUERY
+        builder
+            .addMatcher(
+                bookingApi.endpoints.getSelectedServices.matchPending,
+                (state) => {
+                    state.loading = true;
+                    state.error = false;
+                }
+            )
+            .addMatcher(
+                bookingApi.endpoints.getSelectedServices.matchFulfilled,
+                (state, action: PayloadAction<IGetSelectedServicesResponse>) => {
+                    state.loading = false;
+                    // state.services = action.payload?.data;
+                    
+                }
+            )
+            .addMatcher(
+                bookingApi.endpoints.getSelectedServices.matchRejected,
                 (state, action) => {
                     state.loading = false;
                     state.error = action.error?.message || 'Failed to fetch data';

@@ -1,6 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import axiosBaseQuery from '@utils/axiosBaseQuery';
-import { IGetServicesResponse, IZipCheckingRequest, IZipCheckingResponse } from './types/booking-types';
+import { IGetSelectedServicesRequest, IGetSelectedServicesResponse, IGetServicesResponse, IZipCheckingRequest, IZipCheckingResponse } from './types/booking-types';
 
 
 export const bookingApi = createApi({
@@ -31,6 +31,14 @@ export const bookingApi = createApi({
                 // params: { zip: zip },
             }),
         }),
+        getSelectedServices: builder.query<IGetSelectedServicesResponse, IGetSelectedServicesRequest>({
+            query: ({ zip, appliances }) => ({
+                url: `/booking/selected-services`,
+                method: 'GET',
+                params: { zip: zip, appliances: appliances },
+            }),
+            // providesTags: ['Services'],
+        }),
     }),
 });
 
@@ -38,9 +46,5 @@ export const {
     useCheckZipMutation,
     useGetServicesQuery,
     useGetBrandsQuery,
-    // useCreateBlogMutation,
-    // useLazyGetAllBlogsQuery,
-    // useGetBlogInfoQuery,
-    // useUpdateBlogMutation,
-    // useDeleteBlogMutation,
+    useLazyGetSelectedServicesQuery,
 } = bookingApi;
