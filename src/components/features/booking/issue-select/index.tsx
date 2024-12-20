@@ -8,7 +8,8 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { RootState } from '@store/store';
 import { useLazyGetBrandsQuery } from '@api/booking-api';
-import { setSelectedAppliances } from '@slices/booking-slice';
+import { setBookingData, setSelectedAppliances } from '@slices/booking-slice';
+import { SimpleInput } from '@components/shared/simple-input';
 
 
 interface IBookingForm {
@@ -57,7 +58,21 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
             if (index === applianceIndex) {
                 return {
                     ...appliance,
-                    problem: issueId,
+                    issue: issueId,
+                };
+            }
+            return appliance;
+        });
+        dispatch(setSelectedAppliances(updatedAppliances));
+    }
+
+
+    const onChangeDescription = (description: string, applianceIndex: number) => {
+        const updatedAppliances = bookingData.appliances.map((appliance, index) => {
+            if (index === applianceIndex) {
+                return {
+                    ...appliance,
+                    problem: description,
                 };
             }
             return appliance;
@@ -77,7 +92,7 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
     const isIssueSelected = (issueId: number | string, applianceIndex: number) => {
         let selectedAppliances = bookingData.appliances;
         let applianceToUpdate = selectedAppliances[applianceIndex];
-        let isProblemSelected = applianceToUpdate?.problem == issueId;
+        let isProblemSelected = applianceToUpdate?.issue == issueId;
         return isProblemSelected;
     }
 
@@ -148,24 +163,24 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
                                         }
                                     </div>
                                 </div>
+
+                                <div className='space-y-6'>
+                                    <h5 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
+                                        Please, describe the issue in detail
+                                    </h5>
+                                    <div className="flex items-center justify-center flex-wrap gap-3 md:gap-5">
+                                        <SimpleInput
+                                            isTextarea
+                                            type='text'
+                                            name='problem'
+                                            placeholder="Describe the issue (optional)"
+                                            onChange={(e: any) => onChangeDescription(e, i)}
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         )
                     }
-                    <div className='space-y-6'>
-                        <h5 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
-                            Please, describe the issue in detail
-                        </h5>
-                        <div className="flex items-center justify-center flex-wrap gap-3 md:gap-5">
-                            <FormInput
-                                isTextarea
-                                type='text'
-                                name='fullname'
-                                placeholder="Describe the issue (optional)"
-                                register={register}
-                                errors={errors}
-                            />
-                        </div>
-                    </div>
 
                     <SectionFooter onGoBack={() => setStep(1)} onClick={() => setStep(3)} />
                 </div>

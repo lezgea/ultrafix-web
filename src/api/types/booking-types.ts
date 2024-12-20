@@ -4,6 +4,7 @@ export interface IAppliance {
     type: string,
     brand: string | number | null,
     problem: string,
+    issue: string | number,
     title: string,
 }
 

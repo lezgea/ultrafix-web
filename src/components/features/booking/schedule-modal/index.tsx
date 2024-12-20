@@ -1,9 +1,14 @@
+"use client";
+
 import React from 'react';
 import { STATES } from 'constants/locations';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CloseIcon } from '@assets/icons';
 import { DaySelect, Modal, TimeSelect } from '@components/shared';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { format, addDays } from "date-fns";
 
 
 interface IScheduleModalProps {
@@ -27,14 +32,6 @@ export const ScheduleModal: React.FC<IScheduleModalProps> = (props) => {
 }
 
 
-const DAYS = [
-    { id: 1, day: 4, weekDay: 'Wednesday', date: '4 Dec 2024' },
-    { id: 2, day: 5, weekDay: 'Thursday', date: '5 Dec 2024' },
-    { id: 3, day: 6, weekDay: 'Friday', date: '6 Dec 2024' },
-    { id: 4, day: 7, weekDay: 'Saturday', date: '7 Dec 2024' },
-    { id: 5, day: 8, weekDay: 'Sunday', date: '8 Dec 2024' },
-]
-
 const TIMES = [
     { id: 1, label: '8 am - 11 am' },
     { id: 2, label: '9 am - 12 pm' },
@@ -56,9 +53,19 @@ interface IModalContent {
 const ModalContent: React.FC<IModalContent> = (props) => {
     let { onConfirm, onClose } = props;
 
-    const [selectedDate, setSelectedDate] = React.useState<string>();
+    const [selectedDate, setSelectedDate] = React.useState(format(new Date(), "yyyy-MM-dd"));
+    const [customDate, setCustomDate] = React.useState<Date | null>(null);
+
     const [selectedDay, setSelectedDay] = React.useState<number>(1);
     const [selectedTime, setSelectedTime] = React.useState<number>(0);
+
+    const dates = Array.from({ length: 5 }, (_, i) => addDays(new Date(), i));
+
+    const handleDateClick = (date: Date) => {
+        setSelectedDate(format(date, "yyyy-MM-dd"));
+        // setSelectedDay(day.id);
+        // setSelectedDate(day.date)
+    };
 
     const onBook = () => {
         onConfirm();
@@ -78,12 +85,13 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                 <div className='flex flex-col items-center gap-4'>
                     <div className='flex gap-3'>
                         {
-                            DAYS.map(day =>
+                            dates.map((date, i) =>
                                 <DaySelect
-                                    key={day.id}
-                                    selected={day.id == selectedDay}
-                                    onSelect={() => { setSelectedDay(day.id); setSelectedDate(day.date) }}
-                                    {...day}
+                                    key={i}
+                                    selected={selectedDate === format(date, "yyyy-MM-dd")}
+                                    onSelect={() => handleDateClick(date)}
+                                    date={format(date, "dd")}
+                                    weekDay={format(date, "EEE")}
                                 />
                             )
                         }
@@ -99,7 +107,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                 </div>
                 <div className='flex flex-col items-center gap-5'>
                     <div>
-                        <h3 className='font-medium text-xl text-gray-400'>{DAYS[selectedDay - 1]?.weekDay}</h3>
+                        <h3 className='font-medium text-xl text-gray-400'>{format(selectedDate, "EEEE")}</h3>
                         <h4 className='font-regmed text-3xl'>{selectedDate}</h4>
                     </div>
                     <p className='text-gray-400'>Please select the arrival time that best fits your schedule</p>
