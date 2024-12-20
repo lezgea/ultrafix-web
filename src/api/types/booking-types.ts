@@ -32,6 +32,12 @@ export interface IIssue {
     label: string, // not cooling
 }
 
+export interface ISlot {
+    available: boolean,
+    label: string,
+    value: number | string,
+}
+
 
 
 
@@ -85,6 +91,23 @@ export interface IGetSelectedServicesRequest {
 }
 
 export interface IGetSelectedServicesResponse {
+    status: string,
+    data: {
+        services: ISelectedService[],
+        total_fee: number,
+    },
+    title: string,
+    description: string
+}
+
+
+export interface IGetTimeSlotsRequest {
+    zip: string | number,
+    date: string,
+    appliances: IAppliance[],
+}
+
+export interface IGetTimeSlotsResponse {
     status: string,
     data: {
         services: ISelectedService[],

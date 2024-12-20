@@ -9,6 +9,10 @@ import { DaySelect, Modal, TimeSelect } from '@components/shared';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { format, addDays } from "date-fns";
+import { useLazyGetTimeSlotsQuery } from '@api/booking-api';
+import { RootState } from '@store/store';
+import { useSelector } from 'react-redux';
+import { setBookingData } from '@slices/booking-slice';
 
 
 interface IScheduleModalProps {
@@ -53,24 +57,49 @@ interface IModalContent {
 const ModalContent: React.FC<IModalContent> = (props) => {
     let { onConfirm, onClose } = props;
 
+    const { bookingData, slots, serviceData } = useSelector((state: RootState) => state.booking);
+
+    const [triggerTimeSlots] = useLazyGetTimeSlotsQuery();
+
     const [selectedDate, setSelectedDate] = React.useState(format(new Date(), "yyyy-MM-dd"));
     const [customDate, setCustomDate] = React.useState<Date | null>(null);
 
     const [selectedDay, setSelectedDay] = React.useState<number>(1);
-    const [selectedTime, setSelectedTime] = React.useState<number>(0);
+    const [selectedTime, setSelectedTime] = React.useState<number | string>(0);
 
     const dates = Array.from({ length: 5 }, (_, i) => addDays(new Date(), i));
 
+
     const handleDateClick = (date: Date) => {
         setSelectedDate(format(date, "yyyy-MM-dd"));
-        // setSelectedDay(day.id);
-        // setSelectedDate(day.date)
+        setBookingData({ order_at: format(date, "yyyy-MM-dd") });
+        handleSlotClick(0);
     };
+
+
+    const handleSlotClick = (slot: number | string) => {
+        setSelectedTime(slot);
+        setBookingData({ time_slot: slot })
+    };
+
 
     const onBook = () => {
         onConfirm();
         onClose();
     }
+
+    React.useEffect(() => {
+        try {
+            triggerTimeSlots({
+                zip: bookingData.zip,
+                date: bookingData.order_at,
+                appliances: bookingData.appliances,
+            }).unwrap()
+        } catch (err: any) {
+            console.log('Error: ', err)
+        }
+    }, [selectedDate]);
+
 
 
     return (
@@ -106,18 +135,18 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                     </button>
                 </div>
                 <div className='flex flex-col items-center gap-5'>
-                    <div>
-                        <h3 className='font-medium text-xl text-gray-400'>{format(selectedDate, "EEEE")}</h3>
-                        <h4 className='font-regmed text-3xl'>{selectedDate}</h4>
+                    <div className='flex flex-col gap-1'>
+                        <h3 className='font-medium text-xl text-gray-700'>{format(bookingData?.order_at, "EEEE")}</h3>
+                        <h4 className='font-light text-3xl'>{bookingData?.order_at}</h4>
                     </div>
                     <p className='text-gray-400'>Please select the arrival time that best fits your schedule</p>
                     <div className='flex flex-wrap items-center justify-center gap-3 max-w-[80%]'>
                         {
-                            TIMES.map(time =>
+                            slots.map(time =>
                                 <TimeSelect
-                                    key={time.id}
-                                    selected={time.id == selectedTime}
-                                    onSelect={() => setSelectedTime(time.id)}
+                                    key={time.value}
+                                    selected={time.value == selectedTime}
+                                    onSelect={() => handleSlotClick(time.value)}
                                     {...time}
                                 />
                             )

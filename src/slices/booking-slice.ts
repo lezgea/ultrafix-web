@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { bookingApi } from '@api/booking-api';
-import { IAppliance, IBrand, IGetBrandsResponse, IGetSelectedServicesResponse, IGetServicesResponse, ISelectedService, IService, IZipCheckingResponse } from '@api/types/booking-types';
+import { IAppliance, IBrand, IGetBrandsResponse, IGetSelectedServicesResponse, IGetServicesResponse, ISelectedService, IService, ISlot, IZipCheckingResponse } from '@api/types/booking-types';
+import { format } from 'date-fns';
 
 
 interface IBookingState {
@@ -29,6 +30,7 @@ interface IBookingState {
         total_fee: number,
     },
     brands: IBrand[] | [],
+    slots: ISlot[] | [],
     loading: boolean,
     error?: string | boolean,
     success?: string | boolean,
@@ -49,7 +51,7 @@ const initialState: IBookingState = {
         city: '',
         state: '',
         unit: '',
-        order_at: '',
+        order_at: format(new Date(), "yyyy-MM-dd"),
         time_slot: '',
     },
     services: {
@@ -61,6 +63,7 @@ const initialState: IBookingState = {
         total_fee: 0,
     },
     brands: [],
+    slots: [],
     loading: false,
     error: false,
     success: false,
@@ -171,6 +174,30 @@ const bookingSlice = createSlice({
             )
             .addMatcher(
                 bookingApi.endpoints.getSelectedServices.matchRejected,
+                (state, action) => {
+                    state.loading = false;
+                    state.error = action.error?.message || 'Failed to fetch data';
+                }
+            );
+
+        // GET TIME SLOTS QUERY
+        builder
+            .addMatcher(
+                bookingApi.endpoints.getTimeSlots.matchPending,
+                (state) => {
+                    state.loading = true;
+                    state.error = false;
+                }
+            )
+            .addMatcher(
+                bookingApi.endpoints.getTimeSlots.matchFulfilled,
+                (state, action: PayloadAction<any>) => {
+                    state.loading = false;
+                    state.slots = action.payload?.data?.slots;
+                }
+            )
+            .addMatcher(
+                bookingApi.endpoints.getTimeSlots.matchRejected,
                 (state, action) => {
                     state.loading = false;
                     state.error = action.error?.message || 'Failed to fetch data';

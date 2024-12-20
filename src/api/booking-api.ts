@@ -1,6 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import axiosBaseQuery from '@utils/axiosBaseQuery';
-import { IGetBrandsRequest, IGetBrandsResponse, IGetSelectedServicesRequest, IGetSelectedServicesResponse, IGetServicesResponse, IZipCheckingRequest, IZipCheckingResponse } from './types/booking-types';
+import { IGetBrandsRequest, IGetBrandsResponse, IGetSelectedServicesRequest, IGetSelectedServicesResponse, IGetServicesResponse, IGetTimeSlotsRequest, IGetTimeSlotsResponse, IZipCheckingRequest, IZipCheckingResponse } from './types/booking-types';
 
 
 export const bookingApi = createApi({
@@ -39,6 +39,14 @@ export const bookingApi = createApi({
             }),
             // providesTags: ['Services'],
         }),
+        getTimeSlots: builder.query<IGetTimeSlotsResponse, IGetTimeSlotsRequest>({
+            query: ({ zip, date, appliances }) => ({
+                url: `/booking/schedule-days`,
+                method: 'GET',
+                params: { zip, date, appliances },
+            }),
+            // providesTags: ['Services'],
+        }),
     }),
 });
 
@@ -47,4 +55,5 @@ export const {
     useGetServicesQuery,
     useLazyGetBrandsQuery,
     useLazyGetSelectedServicesQuery,
+    useLazyGetTimeSlotsQuery,
 } = bookingApi;
