@@ -57,6 +57,23 @@ export const BookingForm: React.FC = () => {
     };
 
 
+    // React.useEffect(() => {
+    //     if (step > 0) {
+    //         window.location.hash = `#${step}`;
+    //     } else {
+    //         window.location.hash = ''; // Reset hash if step is 0
+    //     }
+    // }, [step]);
+
+    // React.useEffect(() => {
+    //     const hash = window.location.hash.replace('#', '');
+    //     const initialStep = parseInt(hash, 10);
+    //     if (!isNaN(initialStep) && initialStep >= 0) {
+    //         setStep(initialStep);
+    //     }
+    // }, []);
+
+
     return (
         <>
             {step == 4 && confirmation && <Confirmation />}
@@ -65,7 +82,7 @@ export const BookingForm: React.FC = () => {
                 {!step && <FindTechnician setStep={setStep} />}
                 {step == 1 && <ApplianceSelect setStep={setStep} />}
                 {step == 2 && <IssueSelect setStep={setStep} />}
-                {step == 3 && <ContactInformation showModal={() => setScheduleModal(true)} />}
+                {step == 3 && <ContactInformation setStep={setStep} showModal={() => setScheduleModal(true)} />}
             </div>
             <ScheduleModal
                 visible={scheduleModal}

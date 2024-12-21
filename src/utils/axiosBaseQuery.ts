@@ -11,7 +11,7 @@ interface AxiosBaseQueryArgs {
     onUploadProgress?: (progressEvent: AxiosProgressEvent) => void; // Add support for upload progress
 }
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_API_URL || 'https://ultrafix.pro/api/v1';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_API_URL || 'https://test.ultrafixappliance.com/api/v1';
 
 console.log('Base URL:', BASE_URL);
 
