@@ -1,6 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import axiosBaseQuery from '@utils/axiosBaseQuery';
-import { IGetBrandsRequest, IGetBrandsResponse, IGetSelectedServicesRequest, IGetSelectedServicesResponse, IGetServicesResponse, IGetTimeSlotsRequest, IGetTimeSlotsResponse, IZipCheckingRequest, IZipCheckingResponse } from './types/booking-types';
+import { IBookAppointmentRequest, IBookAppointmentResponse, IGetBrandsRequest, IGetBrandsResponse, IGetSelectedServicesRequest, IGetSelectedServicesResponse, IGetServicesResponse, IGetTimeSlotsRequest, IGetTimeSlotsResponse, IZipCheckingRequest, IZipCheckingResponse } from './types/booking-types';
 
 
 export const bookingApi = createApi({
@@ -47,6 +47,13 @@ export const bookingApi = createApi({
             }),
             // providesTags: ['Services'],
         }),
+        bookAppointment: builder.mutation<IBookAppointmentResponse, IBookAppointmentRequest>({
+            query: (data) => ({
+                url: `/booking/complete`,
+                method: 'POST',
+                data: data,
+            }),
+        }),
     }),
 });
 
@@ -56,4 +63,5 @@ export const {
     useLazyGetBrandsQuery,
     useLazyGetSelectedServicesQuery,
     useLazyGetTimeSlotsQuery,
+    useBookAppointmentMutation,
 } = bookingApi;

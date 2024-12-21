@@ -21,6 +21,7 @@ interface IBookingState {
         order_at: string,
         time_slot: string | number,
     },
+    selectedSlot: ISlot,
     services: {
         residential: IService[] | [],
         commercial: IService[] | [],
@@ -46,13 +47,17 @@ const initialState: IBookingState = {
         customer_phone: '',
         customer_email: '',
         address: '',
-        latitude: null,
-        longitude: null,
+        latitude: 40.4093,
+        longitude: 49.8671,
         city: '',
         state: '',
         unit: '',
         order_at: format(new Date(), "yyyy-MM-dd"),
         time_slot: '',
+    },
+    selectedSlot: {
+        label: '',
+        value: 0,
     },
     services: {
         residential: [],
@@ -79,7 +84,10 @@ const bookingSlice = createSlice({
         },
         setBookingData: (state, action: PayloadAction<any>) => {
             state.bookingData = { ...state.bookingData, ...action.payload }
-        }
+        },
+        setSelectedSlot: (state, action: PayloadAction<any>) => {
+            state.selectedSlot = { ...state.selectedSlot, ...action.payload }
+        },
     },
     extraReducers: (builder) => {
         // CHECK ZIP MUTATION
@@ -206,6 +214,10 @@ const bookingSlice = createSlice({
     },
 });
 
-export const { setSelectedAppliances, setBookingData } = bookingSlice.actions;
+export const {
+    setSelectedAppliances,
+    setBookingData,
+    setSelectedSlot,
+} = bookingSlice.actions;
 
 export default bookingSlice.reducer;

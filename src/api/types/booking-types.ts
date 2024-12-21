@@ -33,7 +33,7 @@ export interface IIssue {
 }
 
 export interface ISlot {
-    available: boolean,
+    available?: boolean,
     label: string,
     value: number | string,
 }
@@ -113,6 +113,32 @@ export interface IGetTimeSlotsResponse {
         services: ISelectedService[],
         total_fee: number,
     },
+    title: string,
+    description: string
+}
+
+
+// export type IBookAppointmentRequest = FormData
+
+export interface IBookAppointmentRequest {
+    zip: string | number,
+    appliances: IAppliance[],
+    firstname: string,
+    lastname: string,
+    customer_phone: string | number,
+    customer_email: string,
+    address: string,
+    latitude: string | number | null,
+    longitude: string | number | null,
+    city: string,
+    state: string,
+    unit: string | number,
+    order_at: string,
+    time_slot: string | number,
+}
+
+export interface IBookAppointmentResponse {
+    status: string,
     title: string,
     description: string
 }

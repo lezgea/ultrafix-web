@@ -6,6 +6,7 @@ import { SectionFooter } from '../section-footer';
 import AddressAutocomplete from '@components/shared/address-autocomplete';
 import { SimpleInput } from '@components/shared/simple-input';
 import { setBookingData } from '@slices/booking-slice';
+import { useDispatch } from 'react-redux';
 
 
 interface IContactInformationProps {
@@ -17,6 +18,7 @@ interface IContactInformationProps {
 export const ContactInformation: React.FC<IContactInformationProps> = (props) => {
     let { setStep, showModal } = props;
 
+    const dispatch = useDispatch();
     const { bookingData, serviceData } = useSelector((state: RootState) => state.booking);
 
 
@@ -37,7 +39,10 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                         name='address'
                                         placeholder="Address"
                                         defaultValue={bookingData.address}
-                                        onChange={(e: any) => setBookingData({ address: e })}
+                                        onChange={(e: any) => dispatch(setBookingData({ address: e.target.value }))}
+                                    />
+                                    <AddressAutocomplete
+                                        // className={`w-full h-[50px] px-5 py-2 pr-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out transform`}
                                     />
                                 </div>
                                 <div className='max-w-40'>
@@ -46,7 +51,7 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                         name='unit'
                                         placeholder="Unit or Apt"
                                         defaultValue={bookingData.unit}
-                                        onChange={(e: any) => setBookingData({ unit: e })}
+                                        onChange={(e: any) => dispatch(setBookingData({ unit: e.target.value }))}
                                     />
                                 </div>
                             </div>
@@ -56,21 +61,21 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                     name='city'
                                     placeholder="City"
                                     defaultValue={bookingData.city}
-                                    onChange={(e: any) => setBookingData({ city: e })}
+                                    onChange={(e: any) => dispatch(setBookingData({ city: e.target.value }))}
                                 />
                                 <SimpleInput
                                     type='text'
                                     name='state'
                                     placeholder="State"
                                     defaultValue={bookingData.state}
-                                    onChange={(e: any) => setBookingData({ state: e })}
+                                    onChange={(e: any) => dispatch(setBookingData({ state: e.target.value }))}
                                 />
                                 <SimpleInput
                                     type='text'
                                     name='zip'
                                     placeholder="Zip code"
                                     defaultValue={bookingData.zip}
-                                    onChange={(e: any) => setBookingData({ zip: e })}
+                                    onChange={(e: any) => dispatch(setBookingData({ zip: e.target.value }))}
                                 />
                             </div>
                             {/* <FormInput
@@ -94,14 +99,14 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                     name='firstname'
                                     placeholder="First name"
                                     defaultValue={bookingData.firstname}
-                                    onChange={(e: any) => setBookingData({ firstname: e })}
+                                    onChange={(e: any) => dispatch(setBookingData({ firstname: e.target.value }))}
                                 />
                                 <SimpleInput
                                     type='text'
                                     name='lastname'
                                     placeholder="Last name"
                                     defaultValue={bookingData.lastname}
-                                    onChange={(e: any) => setBookingData({ lastname: e })}
+                                    onChange={(e: any) => dispatch(setBookingData({ lastname: e.target.value }))}
                                 />
                             </div>
                             <div className='flex w-full gap-4'>
@@ -110,14 +115,14 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                     name='customer_email'
                                     placeholder="E-mail"
                                     defaultValue={bookingData.customer_email}
-                                    onChange={(e: any) => setBookingData({ customer_email: e })}
+                                    onChange={(e: any) => dispatch(setBookingData({ customer_email: e.target.value }))}
                                 />
                                 <SimpleInput
                                     type='text'
                                     name='customer_phone'
                                     placeholder="Phone"
                                     defaultValue={bookingData.customer_phone}
-                                    onChange={(e: any) => setBookingData({ customer_phone: e })}
+                                    onChange={(e: any) => dispatch(setBookingData({ customer_phone: e.target.value }))}
                                 />
                             </div>
                         </div>

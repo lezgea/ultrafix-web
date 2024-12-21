@@ -62,7 +62,6 @@ export const FindTechnician: React.FC<IFindTechnicianProps> = (props) => {
                         Find an UltraFix techinician in your area
                     </h2>
                     <div className="flex flex-col w-full max-w-[300px]">
-                        {/* <AddressAutocomplete /> */}
                         <FormInput
                             type='text'
                             name='zip'
