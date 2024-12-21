@@ -21,6 +21,15 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
     const dispatch = useDispatch();
     const { bookingData, serviceData } = useSelector((state: RootState) => state.booking);
 
+    const onChangeAddress = (address: string | undefined, coordinates: any) => {
+        dispatch(
+            setBookingData({
+                address: address,
+                latitude: coordinates.lat,
+                longitude: coordinates.lng,
+            })
+        )
+    }
 
     return (
         <SectionLayout noYPadding>
@@ -33,16 +42,9 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                         <div className="flex items-center justify-center flex-wrap gap-3 md:gap-4 max-w-[60%]">
                             <div className='flex w-full gap-4'>
                                 <div className='w-full'>
-                                    {/* <AddressAutocomplete /> */}
-                                    <SimpleInput
-                                        type='text'
-                                        name='address'
-                                        placeholder="Address"
-                                        defaultValue={bookingData.address}
-                                        onChange={(e: any) => dispatch(setBookingData({ address: e.target.value }))}
-                                    />
                                     <AddressAutocomplete
-                                        // className={`w-full h-[50px] px-5 py-2 pr-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out transform`}
+                                        defaultValue={' '}
+                                        onChange={onChangeAddress}
                                     />
                                 </div>
                                 <div className='max-w-40'>

@@ -59,7 +59,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
     const [selectedDay, setSelectedDay] = React.useState<number>(1);
     const [selectedTime, setSelectedTime] = React.useState<number | string>(0);
 
-    const dates = Array.from({ length: 5 }, (_, i) => addDays(new Date(), i));
+    const dates = Array.from({ length: 5 }, (_, i) => addDays(new Date(), i + 1));
 
 
     const handleDateClick = (date: Date) => {

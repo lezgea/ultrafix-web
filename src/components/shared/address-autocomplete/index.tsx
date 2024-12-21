@@ -4,10 +4,13 @@ import { useLoadScript, Autocomplete, Libraries } from "@react-google-maps/api";
 const libraries: Libraries = ["places"]; // Fix the typing issue
 
 interface IAddressAutocompleteProps {
-    
+    defaultValue: string,
+    onChange: (address: string | undefined, coordinates: any) => void,
 }
 
-const AddressAutocomplete: React.FC = () => {
+const AddressAutocomplete: React.FC<IAddressAutocompleteProps> = (props) => {
+    let { defaultValue, onChange } = props;
+
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: "AIzaSyBcApx-caHqz17EdCTr6fQxNz0edJwJvRE", // Replace with your API key
         libraries,
@@ -21,6 +24,7 @@ const AddressAutocomplete: React.FC = () => {
             console.log("Selected Place:", place);
             console.log("Address:", place.formatted_address);
             console.log("Coordinates:", place.geometry?.location?.toJSON());
+            onChange(place.formatted_address, place.geometry?.location?.toJSON())
         }
     };
 
@@ -36,6 +40,7 @@ const AddressAutocomplete: React.FC = () => {
                 <input
                     type="text"
                     placeholder="Enter your address"
+                    defaultValue={defaultValue}
                     className={`w-full h-[50px] px-5 py-2 pr-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out transform`}
                 />
             </Autocomplete>
