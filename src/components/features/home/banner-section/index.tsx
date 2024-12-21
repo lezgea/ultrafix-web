@@ -5,6 +5,7 @@ import SectionLayout from '@components/layout/section-layout';
 import Image from 'next/image';
 import * as motion from "framer-motion/client";
 import { STATES } from 'constants/locations';
+import Link from 'next/link';
 
 
 export const BannerSection: React.FC = () => {
