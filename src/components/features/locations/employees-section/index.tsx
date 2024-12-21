@@ -52,7 +52,7 @@ export const EmployeesSection: React.FC = () => {
         >
             <div className="flex items-center justify-center gap-7 py-5 md:gap-10 lg:gap-20 md:py-10">
                 {cityData?.employees.map(({ id, image, name }) => (
-                    <div className="flex flex-col items-center gap-3 md:gap-7">
+                    <div key={id} className="flex flex-col items-center gap-3 md:gap-7">
                         <Image
                             key={id}
                             src={image}

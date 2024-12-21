@@ -61,7 +61,7 @@ export const Header: React.FC = () => {
                         </Dropdown>
                         :
                         item.id === 'apply' ?
-                            <Link href="/apply" className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
+                            <Link href="/apply" title='Link for apply' className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
                                 {(item.id === selectedId) && (
                                     <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
                                 )}
@@ -70,7 +70,7 @@ export const Header: React.FC = () => {
                                 </div>
                             </Link>
                             : (item.id === 'faq' || item.id === 'blog') ?
-                                <Link href={`/${item.id}`} className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
+                                <Link href={`/${item.id}`} title='Link for Blog and FAQ' className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
                                     {(item.id === selectedId) && (
                                         <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
                                     )}

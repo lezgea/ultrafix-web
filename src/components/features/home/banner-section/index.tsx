@@ -4,7 +4,7 @@ import React from 'react';
 import SectionLayout from '@components/layout/section-layout';
 import Image from 'next/image';
 import * as motion from "framer-motion/client";
-import Link from 'next/link';
+import { STATES } from 'constants/locations';
 
 
 export const BannerSection: React.FC = () => {
@@ -15,6 +15,13 @@ export const BannerSection: React.FC = () => {
             section.scrollIntoView({ behavior: 'smooth' });
         }
     };
+
+    const states = Object.values(STATES)
+    // const cities = Object.values(CITIES).map(city => city.value);
+    // const residential_services = RESIDENCIAL_SERVICES_LIST.map(service => service.value);
+    // const commercial_services = COMMERCIAL_SERVICES_LIST.map(service => service.value);
+
+    console.log('@@@@@', states)
 
 
     return (
