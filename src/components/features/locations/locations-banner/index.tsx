@@ -48,15 +48,13 @@ export const LocationsBanner: React.FC<ILocationBannerProps> = () => {
                 <p className="text-xl md:text-2xl font-light md:max-w-[45%] text-gray-500">
                     UltraFix Appliance Repair services are a call away. We can be with you on the same day
                 </p>
-                <Link href='/book'>
-                    <button
-                        // onClick={scrollToContact}
-                        className="hidden md:inline-flex w-auto text-center items-center px-6 py-[10px] md:py-[12px] text-lg text-white transition-all bg-primary rounded-lg md:rounded-xl sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
-                        aria-label="See our races"
-                    >
-                        Book a Service
-                    </button>
-                </Link>
+                <button
+                    onClick={scrollToContact}
+                    className="hidden md:inline-flex w-auto text-center items-center px-6 py-[10px] md:py-[12px] text-lg text-white transition-all bg-primary rounded-lg md:rounded-xl sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
+                    aria-label="See our races"
+                >
+                    Book a Service
+                </button>
             </div>
 
             <motion.div

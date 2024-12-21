@@ -149,9 +149,12 @@ export const Header: React.FC = () => {
             </div>
 
             <div className='flex fixed md:hidden backdrop-blur-xl items-center bottom-[25px] left-[70px] right-[70px] z-50 rounded-full bg-[#0551A8] shadow-lg'>
-                <Link href='/book' className='w-full flex items-center pl-5 justify-center text-xl text-white font-medium h-[55px] rounded-full cursor-pointer hover:shadow-lg'>
+                <div
+                    onClick={() => handleScroll('contact')}
+                    className='w-full flex items-center pl-5 justify-center text-xl text-white font-medium h-[55px] rounded-full cursor-pointer hover:shadow-lg'
+                >
                     Book Now
-                </Link>
+                </div>
 
                 <a href={`tel:${cityData?.phone ? cityData.phone : '(888) 998-6263'}`} className="call-btn backdrop-blur-xl bg-primary">
                     <CallIcon className="w-[35px]" fill="white" />
