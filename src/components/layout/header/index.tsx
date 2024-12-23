@@ -40,7 +40,9 @@ export const Header: React.FC = () => {
     };
 
     const hideHeaderRoutes = React.useMemo(() => [`/admin/sign-in`, `/admin/blogs`, `/admin/blogs/create`, `/admin/blogs/update/[blogId]`], []);
+    const hideBookingRoutes = React.useMemo(() => [`/book`], []);
     const shouldHideHeader = hideHeaderRoutes.some(route => pathname.startsWith(route));
+    const shouldHideBookingButton = hideBookingRoutes.some(route => pathname.startsWith(route));
 
 
     const navLinks = React.useMemo(() => {
@@ -148,18 +150,21 @@ export const Header: React.FC = () => {
                 />
             </div>
 
-            <div className='flex fixed md:hidden backdrop-blur-xl items-center bottom-[25px] left-[70px] right-[70px] z-50 rounded-full bg-[#0551A8] shadow-lg'>
-                <div
-                    onClick={() => handleScroll('contact')}
-                    className='w-full flex items-center pl-5 justify-center text-xl text-white font-medium h-[55px] rounded-full cursor-pointer hover:shadow-lg'
-                >
-                    Book Now
-                </div>
+            {
+                !shouldHideBookingButton &&
+                <div className='flex fixed md:hidden backdrop-blur-xl items-center bottom-[25px] left-[70px] right-[70px] z-50 rounded-full bg-[#0551A8] shadow-lg'>
+                    <div
+                        onClick={() => handleScroll('contact')}
+                        className='w-full flex items-center pl-5 justify-center text-xl text-white font-medium h-[55px] rounded-full cursor-pointer'
+                    >
+                        Book Now
+                    </div>
 
-                <a href={`tel:${cityData?.phone ? cityData.phone : '(888) 998-6263'}`} className="call-btn backdrop-blur-xl bg-primary">
-                    <CallIcon className="w-[35px]" fill="white" />
-                </a>
-            </div>
+                    <a href={`tel:${cityData?.phone ? cityData.phone : '(888) 998-6263'}`} className="call-btn backdrop-blur-xl bg-primary">
+                        <CallIcon className="w-[35px]" fill="white" />
+                    </a>
+                </div>
+            }
         </>
     );
 };

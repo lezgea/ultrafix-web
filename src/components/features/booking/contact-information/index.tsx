@@ -130,7 +130,17 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                         </div>
                     </div>
 
-                    <SectionFooter showFee onGoBack={() => setStep(2)} onClick={showModal} />
+                    <SectionFooter
+                        isContinueDisabled={
+                            !bookingData.customer_phone &&
+                            !bookingData.customer_email &&
+                            !bookingData.lastname &&
+                            !bookingData.firstname &&
+                            !bookingData.zip &&
+                            !bookingData.state &&
+                            !bookingData.city
+                        }
+                        showFee onGoBack={() => setStep(2)} onClick={showModal} />
                 </div>
             </div>
         </SectionLayout>
