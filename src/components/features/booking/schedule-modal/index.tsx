@@ -12,7 +12,7 @@ import { format, addDays } from "date-fns";
 import { useBookAppointmentMutation, useLazyGetTimeSlotsQuery } from '@api/booking-api';
 import { RootState } from '@store/store';
 import { useSelector } from 'react-redux';
-import { setBookingData, setSelectedSlot } from '@slices/booking-slice';
+import { setBookingData, setSelectedBookingDate, setSelectedSlot } from '@slices/booking-slice';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 
@@ -46,7 +46,7 @@ interface IModalContent {
 const ModalContent: React.FC<IModalContent> = (props) => {
     let { onConfirm, onClose } = props;
 
-    const { bookingData, slots, serviceData } = useSelector((state: RootState) => state.booking);
+    const { bookingData, slots, serviceData, selectedBookingDate } = useSelector((state: RootState) => state.booking);
 
     const dispatch = useDispatch();
     const [triggerTimeSlots] = useLazyGetTimeSlotsQuery();
@@ -65,6 +65,10 @@ const ModalContent: React.FC<IModalContent> = (props) => {
     const handleDateClick = (date: Date) => {
         setSelectedDate(format(date, "yyyy-MM-dd"));
         dispatch(setBookingData({ order_at: format(date, "yyyy-MM-dd") }));
+        dispatch(setSelectedBookingDate({
+            date: format(date, "MMM dd, yyyy"),
+            weekDay: format(date, "EEEE")
+        }));
         handleSlotClick({ value: 0, label: '' });
     };
 
@@ -149,10 +153,13 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                     </button>
                 </div>
                 <div className='flex flex-col items-center gap-5'>
-                    <div className='flex flex-col gap-1'>
-                        <h3 className='font-medium text-xl text-gray-700'>{format(selectedDate, "EEEE")}</h3>
-                        <h4 className='font-light text-3xl'>{bookingData?.order_at}</h4>
-                    </div>
+                    {
+                        !!selectedBookingDate?.date &&
+                        <div className='flex flex-col gap-1'>
+                            <h3 className='font-medium text-xl text-gray-700'>{selectedBookingDate?.weekDay}</h3>
+                            <h4 className='font-light text-3xl'>{selectedBookingDate?.date}</h4>
+                        </div>
+                    }
                     <p className='text-gray-400'>Please select the arrival time that best fits your schedule</p>
                     <div className='flex flex-wrap items-center justify-center gap-3 max-w-[80%]'>
                         {

@@ -30,6 +30,10 @@ interface IBookingState {
         services: ISelectedService[],
         total_fee: number,
     },
+    selectedBookingDate: {
+        date: string,
+        weekDay: string,
+    },
     brands: IBrand[] | [],
     slots: ISlot[] | [],
     loading: boolean,
@@ -67,6 +71,10 @@ const initialState: IBookingState = {
         services: [],
         total_fee: 0,
     },
+    selectedBookingDate: {
+        date: '',
+        weekDay: '',
+    },
     brands: [],
     slots: [],
     loading: false,
@@ -87,6 +95,9 @@ const bookingSlice = createSlice({
         },
         setSelectedSlot: (state, action: PayloadAction<any>) => {
             state.selectedSlot = { ...state.selectedSlot, ...action.payload }
+        },
+        setSelectedBookingDate: (state, action: PayloadAction<any>) => {
+            state.selectedBookingDate = { ...state.selectedBookingDate, ...action.payload };
         },
     },
     extraReducers: (builder) => {
@@ -218,6 +229,7 @@ export const {
     setSelectedAppliances,
     setBookingData,
     setSelectedSlot,
+    setSelectedBookingDate,
 } = bookingSlice.actions;
 
 export default bookingSlice.reducer;

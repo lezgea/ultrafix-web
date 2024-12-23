@@ -174,7 +174,7 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
                                             type='text'
                                             name='problem'
                                             placeholder="Describe the issue (optional)"
-                                            onChange={(e: any) => onChangeDescription(e, i)}
+                                            onChange={(e: any) => onChangeDescription(e.target.value, i)}
                                         />
                                     </div>
                                 </div>

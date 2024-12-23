@@ -15,7 +15,7 @@ interface IConfirmationProps {
 export const Confirmation: React.FC<IConfirmationProps> = (props) => {
     let { } = props;
 
-    const { bookingData, serviceData, selectedSlot } = useSelector((state: RootState) => state.booking);
+    const { bookingData, serviceData, selectedSlot, selectedBookingDate } = useSelector((state: RootState) => state.booking);
 
     return (
         <SectionLayout>
@@ -54,10 +54,13 @@ export const Confirmation: React.FC<IConfirmationProps> = (props) => {
                     </div>
                     <div className='flex flex-col items-end justify-between bg-[#113064] text-white p-7 min-w-[150px]'>
                         <div className='flex flex-col space-y-5'>
-                            <div className='flex flex-col items-center'>
-                                <div className='font-medium'>{format(bookingData.order_at, "EEEE")}</div>
-                                <div className='text-xl font-light'>{bookingData.order_at}</div>
-                            </div>
+                            {
+                                !!selectedBookingDate &&
+                                <div className='flex flex-col items-center'>
+                                    <div className='font-medium'>{selectedBookingDate?.weekDay}</div>
+                                    <div className='text-xl font-light'>{selectedBookingDate?.date}</div>
+                                </div>
+                            }
                             <div className='bg-[#00A2FF] px-4 py-2 rounded-lg'>{selectedSlot.label}</div>
                         </div>
                         <div className='flex flex-col items-end'>
