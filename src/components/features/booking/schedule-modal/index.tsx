@@ -161,7 +161,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                         </div>
                     }
                     <p className='text-gray-400'>Please select the arrival time that best fits your schedule</p>
-                    <div className='flex flex-wrap items-center justify-center gap-3 max-w-[80%]'>
+                    <div className='flex flex-wrap items-center justify-center gap-3 md:max-w-[80%]'>
                         {
                             slots.map(time =>
                                 <TimeSelect
@@ -176,7 +176,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                 </div>
 
                 <div className='flex flex-col items-center gap-3'>
-                    <div className='bg-[#F3EFFA] border-2 border-[#B1A7C7] text-[#85799F] rounded-xl px-10 py-5 max-w-[80%]'>
+                    <div className='bg-[#F3EFFA] border-2 border-[#B1A7C7] text-[#85799F] rounded-xl px-10 py-5 md:max-w-[80%]'>
                         The <strong className='text-xl font-medium'>${serviceData?.total_fee}</strong> service call fee will be applied towards the repair cost if you proceed with repairs
                     </div>
                 </div>

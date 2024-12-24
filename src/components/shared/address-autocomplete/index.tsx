@@ -41,7 +41,7 @@ const AddressAutocomplete: React.FC<IAddressAutocompleteProps> = (props) => {
                     type="text"
                     placeholder="Enter your address"
                     defaultValue={defaultValue}
-                    className={`w-full h-[50px] px-5 py-2 pr-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out transform`}
+                    className={`w-full h-[50px] px-4 py-2 pr-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out transform`}
                 />
             </Autocomplete>
         </div>

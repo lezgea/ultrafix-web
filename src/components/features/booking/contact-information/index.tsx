@@ -34,30 +34,26 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
     return (
         <SectionLayout noYPadding>
             <div className="flex w-full justify-center space-y-20">
-                <div className="flex flex-col space-y-10 text-center items-center select-none min-w-[30%]">
+                <div className="flex flex-col space-y-10 text-center items-center select-none md:min-w-[30%]">
                     <div className='flex flex-col items-center space-y-6'>
                         <h2 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
                             Service address
                         </h2>
-                        <div className="flex items-center justify-center flex-wrap gap-3 md:gap-4 max-w-[60%]">
-                            <div className='flex w-full gap-4'>
-                                <div className='w-full'>
-                                    <AddressAutocomplete
-                                        defaultValue={' '}
-                                        onChange={onChangeAddress}
-                                    />
-                                </div>
-                                <div className='max-w-40'>
-                                    <SimpleInput
-                                        type='text'
-                                        name='unit'
-                                        placeholder="Unit or Apt"
-                                        defaultValue={bookingData.unit}
-                                        onChange={(e: any) => dispatch(setBookingData({ unit: e.target.value }))}
-                                    />
-                                </div>
+                        <div className="flex items-center justify-center flex-wrap gap-3 w-full md:gap-4 md:max-w-[60%]">
+                            <div className='w-full'>
+                                <AddressAutocomplete
+                                    defaultValue={''}
+                                    onChange={onChangeAddress}
+                                />
                             </div>
-                            <div className='flex w-full gap-4'>
+                            <div className='flex gap-3 md:gap-4 w-full'>
+                                <SimpleInput
+                                    type='text'
+                                    name='unit'
+                                    placeholder="Unit or Apt"
+                                    defaultValue={bookingData.unit}
+                                    onChange={(e: any) => dispatch(setBookingData({ unit: e.target.value }))}
+                                />
                                 <SimpleInput
                                     type='text'
                                     name='city'
@@ -65,6 +61,8 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                     defaultValue={bookingData.city}
                                     onChange={(e: any) => dispatch(setBookingData({ city: e.target.value }))}
                                 />
+                            </div>
+                            <div className='flex gap-3 md:gap-4 w-full'>
                                 <SimpleInput
                                     type='text'
                                     name='state'
@@ -80,13 +78,6 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                     onChange={(e: any) => dispatch(setBookingData({ zip: e.target.value }))}
                                 />
                             </div>
-                            {/* <FormInput
-                                type='text'
-                                name='address'
-                                placeholder="Address line 2 (optional)"
-                                register={register}
-                                errors={errors}
-                            /> */}
                         </div>
                     </div>
 
@@ -94,8 +85,8 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                         <h3 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
                             Contact Information
                         </h3>
-                        <div className="flex items-center justify-center flex-wrap gap-3 md:gap-4 max-w-[60%]">
-                            <div className='flex w-full gap-4'>
+                        <div className="flex items-center justify-center flex-wrap gap-3 w-full md:gap-4 md:max-w-[60%]">
+                            <div className='flex w-full gap-3 md:gap-4'>
                                 <SimpleInput
                                     type='text'
                                     name='firstname'
@@ -111,7 +102,7 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                     onChange={(e: any) => dispatch(setBookingData({ lastname: e.target.value }))}
                                 />
                             </div>
-                            <div className='flex w-full gap-4'>
+                            <div className='flex w-full gap-3 md:gap-4'>
                                 <SimpleInput
                                     type='text'
                                     name='customer_email'

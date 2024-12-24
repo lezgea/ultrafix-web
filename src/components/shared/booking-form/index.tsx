@@ -41,9 +41,6 @@ export const BookingForm: React.FC = () => {
         mode: 'onBlur',
     });
 
-    // RTK Query mutation hook
-    // const [sendRequest, { isLoading, error }] = useContactUserMutation();
-
     const onSubmit: SubmitHandler<IBookingForm> = async (data) => {
         try {
             // await sendRequest(data).unwrap();
@@ -55,23 +52,6 @@ export const BookingForm: React.FC = () => {
             toast.error(err.data?.message || 'An unexpected error occurred');
         }
     };
-
-
-    // React.useEffect(() => {
-    //     if (step > 0) {
-    //         window.location.hash = `#${step}`;
-    //     } else {
-    //         window.location.hash = ''; // Reset hash if step is 0
-    //     }
-    // }, [step]);
-
-    // React.useEffect(() => {
-    //     const hash = window.location.hash.replace('#', '');
-    //     const initialStep = parseInt(hash, 10);
-    //     if (!isNaN(initialStep) && initialStep >= 0) {
-    //         setStep(initialStep);
-    //     }
-    // }, []);
 
 
     return (

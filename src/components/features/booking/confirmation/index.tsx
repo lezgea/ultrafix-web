@@ -19,16 +19,16 @@ export const Confirmation: React.FC<IConfirmationProps> = (props) => {
 
     return (
         <SectionLayout>
-            <div className="flex flex-col w-full items-center justify-center space-y-5">
+            <div className="flex flex-col w-full items-center justify-center space-y-5 px-10">
                 <BlueCheckIcon className='w-[100px]' />
                 <div className='flex flex-col items-center'>
                     <h2 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
                         Your booking is confirmed, {bookingData?.firstname} !
                     </h2>
-                    <p className='text-gray-400'>We have sent your appointment details to your email</p>
+                    <p className='text-gray-400 text-center'>We have sent your appointment details to your email</p>
                 </div>
-                <div className="flex shadow bg-white rounded-2xl overflow-hidden">
-                    <div className='space-y-3 p-7 min-w-[500px]'>
+                <div className="flex flex-col md:flex-row shadow bg-white rounded-2xl overflow-hidden">
+                    <div className='space-y-3 p-7 md:min-w-[500px]'>
                         <div>
                             <div className='text-gray-400'>Address:</div>
                             <div className='text-primaryDark'>{bookingData?.address}</div>
@@ -52,7 +52,7 @@ export const Confirmation: React.FC<IConfirmationProps> = (props) => {
                             )
                         }
                     </div>
-                    <div className='flex flex-col items-end justify-between bg-[#113064] text-white p-7 min-w-[150px]'>
+                    <div className='flex md:flex-col items-end justify-between bg-[#113064] text-white p-7 min-w-[150px]'>
                         <div className='flex flex-col space-y-5'>
                             {
                                 !!selectedBookingDate &&

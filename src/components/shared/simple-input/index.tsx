@@ -50,7 +50,7 @@ export const SimpleInput: React.FC<ISimpleInputProps> = (props) => {
                             value={value}
                             defaultValue={defaultValue}
                             placeholder={placeholder}
-                            className={`w-full h-[200px] px-5 py-4 pr-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out transform`}
+                            className={`w-full h-[200px] px-4 py-4 pr-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out transform`}
                             style={inputStyle}
                             onChange={onChange}
                         />
@@ -61,7 +61,7 @@ export const SimpleInput: React.FC<ISimpleInputProps> = (props) => {
                             value={value}
                             defaultValue={defaultValue}
                             placeholder={placeholder}
-                            className={`w-full h-[50px] px-5 py-2 pr-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out transform`}
+                            className={`w-full h-[50px] px-4 py-2 pr-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out transform`}
                             style={inputStyle}
                             onChange={onChange}
                         />
