@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { bookingApi } from '@api/booking-api';
 import { IAppliance, IBrand, IGetBrandsResponse, IGetSelectedServicesResponse, IGetServicesResponse, ISelectedService, IService, ISlot, IZipCheckingResponse } from '@api/types/booking-types';
 import { format } from 'date-fns';
+import { toast } from 'react-toastify';
 
 
 interface IBookingState {
@@ -220,6 +221,31 @@ const bookingSlice = createSlice({
                 (state, action) => {
                     state.loading = false;
                     state.error = action.error?.message || 'Failed to fetch data';
+                }
+            );
+
+        // BOOK APPOINTMENT
+        builder
+            .addMatcher(
+                bookingApi.endpoints.bookAppointment.matchPending,
+                (state) => {
+                    state.loading = true;
+                    state.error = false;
+                }
+            )
+            .addMatcher(
+                bookingApi.endpoints.bookAppointment.matchFulfilled,
+                (state, action: PayloadAction<any>) => {
+                    state.loading = false;
+                    toast.success('Your booking is confirmed! We have sent your appointment details to your email!');
+                }
+            )
+            .addMatcher(
+                bookingApi.endpoints.bookAppointment.matchRejected,
+                (state, action: any) => {
+                    state.loading = false;
+                    state.error = action.error?.message || 'Failed to fetch data';
+                    toast.error(action?.payload.data?.message)
                 }
             );
     },

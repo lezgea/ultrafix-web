@@ -87,22 +87,22 @@ const ModalContent: React.FC<IModalContent> = (props) => {
 
     const onBook = async () => {
         try {
-            await bookAppointment(bookingData).then(() => {
+            let response = await bookAppointment(bookingData).unwrap();
+            if (response.status === 'success') {
                 onConfirm();
                 onClose();
-                toast.success('Your booking is confirmed! We have sent your appointment details to your email!');
-            });
+            }
         } catch (err: any) {
             console.error('Error: ', err);
-            toast.error(err?.message || 'Unable to book appointment');
+            // toast.error(err?.message || 'Unable to book appointment');
         }
     };
 
 
-    React.useEffect(() => {
-        if (!!dates[0])
-            setSelectedDate(format(new Date(), "yyyy-MM-dd"))
-    }, [dates]);
+    // React.useEffect(() => {
+    //     if (!!dates[0])
+    //         setSelectedDate(format(new Date(), "yyyy-MM-dd"))
+    // }, [dates]);
 
 
     React.useEffect(() => {
