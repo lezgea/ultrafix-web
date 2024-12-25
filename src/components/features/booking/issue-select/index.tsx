@@ -40,30 +40,56 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
 
 
     const onSelectBrand = (brandId: number | string, applianceIndex: number) => {
-        const updatedAppliances = bookingData.appliances.map((appliance, index) => {
-            if (index === applianceIndex) {
-                return {
-                    ...appliance,
-                    brand: brandId,
-                };
-            }
-            return appliance;
-        });
-        dispatch(setSelectedAppliances(updatedAppliances));
+        if (isBrandSelected(brandId, applianceIndex)) {
+            const updatedAppliances = bookingData.appliances.map((appliance, index) => {
+                if (index === applianceIndex) {
+                    return {
+                        ...appliance,
+                        brand: '',
+                    };
+                }
+                return appliance;
+            });
+            dispatch(setSelectedAppliances(updatedAppliances));
+        } else {
+            const updatedAppliances = bookingData.appliances.map((appliance, index) => {
+                if (index === applianceIndex) {
+                    return {
+                        ...appliance,
+                        brand: brandId,
+                    };
+                }
+                return appliance;
+            });
+            dispatch(setSelectedAppliances(updatedAppliances));
+        }
     }
 
 
     const onSelectIssue = (issueId: number | string, applianceIndex: number) => {
-        const updatedAppliances = bookingData.appliances.map((appliance, index) => {
-            if (index === applianceIndex) {
-                return {
-                    ...appliance,
-                    issue: issueId,
-                };
-            }
-            return appliance;
-        });
-        dispatch(setSelectedAppliances(updatedAppliances));
+        if (isIssueSelected(issueId, applianceIndex)) {
+            const updatedAppliances = bookingData.appliances.map((appliance, index) => {
+                if (index === applianceIndex) {
+                    return {
+                        ...appliance,
+                        issue: '',
+                    };
+                }
+                return appliance;
+            });
+            dispatch(setSelectedAppliances(updatedAppliances));
+        } else {
+            const updatedAppliances = bookingData.appliances.map((appliance, index) => {
+                if (index === applianceIndex) {
+                    return {
+                        ...appliance,
+                        issue: issueId,
+                    };
+                }
+                return appliance;
+            });
+            dispatch(setSelectedAppliances(updatedAppliances));
+        }
     }
 
 
