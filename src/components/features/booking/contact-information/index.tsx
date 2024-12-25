@@ -21,12 +21,15 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
     const dispatch = useDispatch();
     const { bookingData, serviceData } = useSelector((state: RootState) => state.booking);
 
-    const onChangeAddress = (address: string | undefined, coordinates: any) => {
+    const onChangeAddress = (address: string | undefined, all_data: any) => {
         dispatch(
             setBookingData({
                 address: address,
-                latitude: coordinates.lat,
-                longitude: coordinates.lng,
+                latitude: all_data.coordinates.lat,
+                longitude: all_data.coordinates.lng,
+                city: all_data.city,
+                state: all_data.state,
+                zip: all_data.zip,
             })
         )
     }
@@ -51,14 +54,14 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                     type='text'
                                     name='unit'
                                     placeholder="Unit or Apt"
-                                    defaultValue={bookingData.unit}
+                                    value={bookingData.unit}
                                     onChange={(e: any) => dispatch(setBookingData({ unit: e.target.value }))}
                                 />
                                 <SimpleInput
                                     type='text'
                                     name='city'
                                     placeholder="City"
-                                    defaultValue={bookingData.city}
+                                    value={bookingData.city}
                                     onChange={(e: any) => dispatch(setBookingData({ city: e.target.value }))}
                                 />
                             </div>
@@ -67,14 +70,14 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                     type='text'
                                     name='state'
                                     placeholder="State"
-                                    defaultValue={bookingData.state}
+                                    value={bookingData.state}
                                     onChange={(e: any) => dispatch(setBookingData({ state: e.target.value }))}
                                 />
                                 <SimpleInput
                                     type='text'
                                     name='zip'
                                     placeholder="Zip code"
-                                    defaultValue={bookingData.zip}
+                                    value={bookingData.zip}
                                     onChange={(e: any) => dispatch(setBookingData({ zip: e.target.value }))}
                                 />
                             </div>
@@ -91,14 +94,14 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                     type='text'
                                     name='firstname'
                                     placeholder="First name"
-                                    defaultValue={bookingData.firstname}
+                                    value={bookingData.firstname}
                                     onChange={(e: any) => dispatch(setBookingData({ firstname: e.target.value }))}
                                 />
                                 <SimpleInput
                                     type='text'
                                     name='lastname'
                                     placeholder="Last name"
-                                    defaultValue={bookingData.lastname}
+                                    value={bookingData.lastname}
                                     onChange={(e: any) => dispatch(setBookingData({ lastname: e.target.value }))}
                                 />
                             </div>
@@ -107,14 +110,14 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                     type='text'
                                     name='customer_email'
                                     placeholder="E-mail"
-                                    defaultValue={bookingData.customer_email}
+                                    value={bookingData.customer_email}
                                     onChange={(e: any) => dispatch(setBookingData({ customer_email: e.target.value }))}
                                 />
                                 <SimpleInput
                                     type='text'
                                     name='customer_phone'
                                     placeholder="Phone"
-                                    defaultValue={bookingData.customer_phone}
+                                    value={bookingData.customer_phone}
                                     onChange={(e: any) => dispatch(setBookingData({ customer_phone: e.target.value }))}
                                 />
                             </div>

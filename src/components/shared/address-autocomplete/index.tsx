@@ -5,7 +5,7 @@ const libraries: Libraries = ["places"]; // Fix the typing issue
 
 interface IAddressAutocompleteProps {
     defaultValue: string,
-    onChange: (address: string | undefined, coordinates: any) => void,
+    onChange: (address: string | undefined, all_data: any) => void,
 }
 
 const AddressAutocomplete: React.FC<IAddressAutocompleteProps> = (props) => {
@@ -22,11 +22,40 @@ const AddressAutocomplete: React.FC<IAddressAutocompleteProps> = (props) => {
         const place = autocompleteRef.current?.getPlace();
         if (place) {
             console.log("Selected Place:", place);
+
+            // Extract address components
+            const addressComponents = place.address_components || [];
+            let city, state, zip;
+
+            addressComponents.forEach((component) => {
+                const types = component.types;
+                if (types.includes("locality")) {
+                    city = component.long_name;
+                } else if (types.includes("administrative_area_level_1")) {
+                    state = component.short_name; // Use long_name for full state name
+                } else if (types.includes("postal_code")) {
+                    zip = component.long_name;
+                }
+            });
+
             console.log("Address:", place.formatted_address);
+            console.log("City:", city);
+            console.log("State:", state);
+            console.log("ZIP:", zip);
             console.log("Coordinates:", place.geometry?.location?.toJSON());
-            onChange(place.formatted_address, place.geometry?.location?.toJSON())
+
+            onChange(
+                place.formatted_address,
+                {
+                    coordinates: place.geometry?.location?.toJSON(),
+                    city,
+                    state,
+                    zip,
+                }
+            );
         }
     };
+
 
     if (!isLoaded) return <div>Loading...</div>;
     if (loadError) return <div>Error loading maps</div>;

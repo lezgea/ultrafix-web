@@ -2,8 +2,14 @@
 
 import React from 'react';
 import { Stepper } from '../stepper';
-import { ApplianceSelect, ContactInformation, FindTechnician, IssueSelect, ScheduleModal } from '@components/features/booking';
-import { Confirmation } from '@components/features/booking/confirmation';
+import {
+    ApplianceSelect,
+    Confirmation,
+    ContactInformation,
+    FindTechnician,
+    IssueSelect,
+    ScheduleModal,
+} from '@components/features/booking';
 
 
 export const BookingForm: React.FC = () => {
