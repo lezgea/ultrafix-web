@@ -1,57 +1,15 @@
 "use client";
 
 import React from 'react';
-import * as Yup from 'yup';
-import { FormInput } from '@components/shared';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { useContactUserMutation } from '@api/user-api';
-import { toast } from 'react-toastify';
-import SectionLayout from '@components/layout/section-layout';
 import { Stepper } from '../stepper';
 import { ApplianceSelect, ContactInformation, FindTechnician, IssueSelect, ScheduleModal } from '@components/features/booking';
 import { Confirmation } from '@components/features/booking/confirmation';
 
 
-interface IBookingForm {
-    name: string;
-    phone: string;
-    address: string;
-    message?: string;
-}
-
-const validationSchema = Yup.object().shape({
-    name: Yup.string()
-        .required('Fullname is required'),
-    phone: Yup.string()
-        .required('Phone number is required'),
-    address: Yup.string()
-        .required('Address is required'),
-});
-
-
 export const BookingForm: React.FC = () => {
-
     const [step, setStep] = React.useState<number>(0);
     const [scheduleModal, setScheduleModal] = React.useState<boolean>(false);
     const [confirmation, setConfirmation] = React.useState<boolean>(false);
-
-    const { register, handleSubmit, formState: { errors }, reset } = useForm<IBookingForm>({
-        resolver: yupResolver(validationSchema),
-        mode: 'onBlur',
-    });
-
-    const onSubmit: SubmitHandler<IBookingForm> = async (data) => {
-        try {
-            // await sendRequest(data).unwrap();
-            // showEmailSent(true);
-            toast.success("Thank you for contacting us! We have received your message and will get back to you shortly.");
-            reset();
-        } catch (err: any) {
-            console.error('Unknown error:', err);
-            toast.error(err.data?.message || 'An unexpected error occurred');
-        }
-    };
 
 
     return (
