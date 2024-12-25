@@ -29,9 +29,9 @@ const Step: React.FC<IStepProps> = ({ active, title, step }) => {
     return (
         <div className='flex items-center'>
             {step > 1 && <div className={`w-[100px] md:w-40 ${active ? 'h-0.5 md:h-1 bg-primaryLight' : 'h-0.5 bg-gray-200'}`} />}
-            <div className={`flex relative items-center justify-center rounded-full ${active ? 'w-5 h-5 bg-white' : 'w-3 h-3 md:w-4 md:h-4 bg-gray-200'}`} >
+            <div className={`flex relative items-center justify-center rounded-full ${active ? 'w-6 h-6 md:w-7 md:h-7 bg-white' : 'w-6 h-6 md:w-7 md:h-7 bg-gray-100'}`} >
                 {active && <BlueCheckIcon />}
-                <p className='absolute text-xs md:text-sm bottom-7 md:bottom-10 text-center min-w-[100px]'>{title}</p>
+                <p className='absolute text-[16px] bottom-9 md:bottom-10 text-center min-w-[120px]'>{title}</p>
             </div>
         </div>
     )
