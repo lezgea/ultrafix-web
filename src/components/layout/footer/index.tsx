@@ -18,7 +18,7 @@ export const Footer: React.FC = () => {
     const cityKey = `${state}_${city}` as keyof typeof CITIES;
     const cityData = CITIES[cityKey];
 
-    const hideHeaderRoutes = React.useMemo(() => ["/apply"], []);
+    const hideHeaderRoutes = React.useMemo(() => ["/book"], []);
     const shouldHideFooter = React.useMemo(() => hideHeaderRoutes.includes(pathname), [pathname]);
 
     const handleScroll = (sectionId: string) => {
@@ -28,7 +28,7 @@ export const Footer: React.FC = () => {
         }
     };
 
-    // if (shouldHideFooter) return null;
+    if (shouldHideFooter) return null;
 
     return (
         <footer className="bg-primaryDark" role="contentinfo">
