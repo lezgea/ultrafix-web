@@ -6,6 +6,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { useCheckZipMutation } from '@api/booking-api';
 import AddressAutocomplete from '@components/shared/address-autocomplete';
+import Link from 'next/link';
 
 
 interface IBookingForm {
@@ -59,7 +60,7 @@ export const FindTechnician: React.FC<IFindTechnicianProps> = (props) => {
             <div className="flex flex-col w-full items-center justify-center space-y-10">
                 <form className="flex flex-col items-center space-y-6 select-none min-w-[30%] text-center" onSubmit={handleSubmit(onSubmit)}>
                     <h2 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
-                        Find an UltraFix techinician in your area
+                        Find an UltraFix technician in your area
                     </h2>
                     <div className="flex flex-col w-full max-w-[300px]">
                         <FormInput
@@ -76,7 +77,14 @@ export const FindTechnician: React.FC<IFindTechnicianProps> = (props) => {
                     >
                         Continue
                     </button>
-                    <p className='text-gray-400'>Questions ? Call (888) 998-6263</p>
+                    <p className='text-gray-400'>Questions ? Call
+                        <Link
+                            href={`tel:(888) 998-6263`}
+                            className='text-primaryDark font-medium hover:underline cursor-pointer ml-2'
+                        >
+                            (888) 998-6263
+                        </Link>
+                    </p>
                 </form>
                 {
                     !!message &&

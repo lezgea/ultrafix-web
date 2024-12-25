@@ -32,7 +32,7 @@ export const SectionFooter: React.FC<ISectionFooterProps> = (props) => {
                     <button
                         type="button"
                         onClick={onGoBack}
-                        className="w-full h-[40px] px-3 md:h-[50px] max-w-[300px] font-regmed text-primaryDark py-2 rounded-lg hover:bg-primaryDark hover:text-white focus:outline-none focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
+                        className="w-full px-3 h-[50px] max-w-[300px] font-regmed text-primaryDark py-2 rounded-lg hover:bg-primaryDark hover:text-white focus:outline-none focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
                     >
                         Go Back
                     </button>
@@ -40,7 +40,7 @@ export const SectionFooter: React.FC<ISectionFooterProps> = (props) => {
                         type="button"
                         disabled={isContinueDisabled}
                         onClick={onClick}
-                        className="w-full h-[40px] px-3 md:h-[50px] max-w-[300px] font-regmed bg-primary text-white py-2 rounded-lg hover:bg-primaryDark sfocus:outline-none focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
+                        className="w-full px-3 h-[50px] max-w-[300px] font-regmed bg-primary text-white py-2 rounded-lg hover:bg-primaryDark sfocus:outline-none focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
                     >
                         Continue
                     </button>

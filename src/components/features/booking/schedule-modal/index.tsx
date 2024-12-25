@@ -53,13 +53,13 @@ const ModalContent: React.FC<IModalContent> = (props) => {
     const [bookAppointment] = useBookAppointmentMutation();
 
     const [isDatePickerVisible, setDatePickerVisible] = React.useState<boolean>(false);
-    const [selectedDate, setSelectedDate] = React.useState(format(new Date(), "yyyy-MM-dd"));
+    const [selectedDate, setSelectedDate] = React.useState<any>();
     const [customDate, setCustomDate] = React.useState<Date | null>(null);
 
     const [selectedDay, setSelectedDay] = React.useState<number>(1);
     const [selectedTime, setSelectedTime] = React.useState<number | string>(0);
 
-    const dates = Array.from({ length: 5 }, (_, i) => addDays(new Date(), i + 1));
+    const dates = Array.from({ length: 5 }, (_, i) => addDays(new Date(), i));
 
 
     const handleDateClick = (date: Date) => {
@@ -99,6 +99,11 @@ const ModalContent: React.FC<IModalContent> = (props) => {
     };
 
 
+    React.useEffect(() => {
+        if (!!dates[0])
+            setSelectedDate(format(new Date(), "yyyy-MM-dd"))
+    }, [dates]);
+
 
     React.useEffect(() => {
         try {
@@ -112,6 +117,9 @@ const ModalContent: React.FC<IModalContent> = (props) => {
         }
     }, [selectedDate]);
 
+
+    console.log('@@@@@', dates[0])
+    console.log('####', new Date())
 
 
     return (
@@ -189,7 +197,14 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                     >
                         Book Appointment
                     </button>
-                    <p className='text-gray-400'>Questions ? Call (888) 998-6263</p>
+                    <p className='text-gray-400'>Questions ? Call
+                        <Link
+                            href={`tel:(888) 998-6263`}
+                            className='text-primaryDark font-medium hover:underline cursor-pointer ml-2'
+                        >
+                            (888) 998-6263
+                        </Link>
+                    </p>
                 </div>
             </div>
         </div>
