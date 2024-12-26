@@ -149,7 +149,7 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
                             <div key={appliance.id} className='flex flex-col gap-10'>
                                 <div className='space-y-6 flex flex-col items-center'>
                                     <h3 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
-                                        What’s is the brand of your <strong className='font-medium text-primary'>{appliance.type} {appliance.title}</strong> ?
+                                        What’s the brand of your <strong className='font-medium text-primary'>{appliance.type} {appliance.title}</strong> ?
                                     </h3>
                                     <div className="flex flex-col w-full max-w-[300px]">
                                         <input
