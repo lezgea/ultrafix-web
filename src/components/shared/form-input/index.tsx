@@ -71,7 +71,7 @@ export const FormInput: React.FC<IFormInputProps> = (props) => {
             </div>
             {
                 errors[name] && (
-                    <p className="text-gray-400 text-sm mt-1">{(errors[name]?.message as string) || ''}</p>
+                    <p className="text-gray-400 text-sm text-start mt-1">{(errors[name]?.message as string) || ''}</p>
                 )
             }
         </div>

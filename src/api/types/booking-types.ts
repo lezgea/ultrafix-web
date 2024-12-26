@@ -121,20 +121,20 @@ export interface IGetTimeSlotsResponse {
 // export type IBookAppointmentRequest = FormData
 
 export interface IBookAppointmentRequest {
-    zip: string | number,
-    appliances: IAppliance[],
+    zip?: string | number,
+    appliances?: IAppliance[],
     firstname: string,
     lastname: string,
     customer_phone: string | number,
-    customer_email: string,
-    address: string,
-    latitude: string | number | null,
-    longitude: string | number | null,
-    city: string,
-    state: string,
-    unit: string | number,
-    order_at: string,
-    time_slot: string | number,
+    customer_email?: string,
+    address: string | undefined,
+    latitude?: string | number | null,
+    longitude?: string | number | null,
+    city?: string,
+    state?: string,
+    unit?: string | number,
+    order_at?: string,
+    time_slot?: string | number,
 }
 
 export interface IBookAppointmentResponse {
