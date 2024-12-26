@@ -46,6 +46,8 @@ interface IModalContent {
 const ModalContent: React.FC<IModalContent> = (props) => {
     let { onConfirm, onClose } = props;
 
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
     const { bookingData, slots, serviceData, selectedBookingDate } = useSelector((state: RootState) => state.booking);
 
     const dispatch = useDispatch();
@@ -110,6 +112,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
             triggerTimeSlots({
                 zip: bookingData.zip,
                 date: bookingData.order_at,
+                timezone: timezone,
                 appliances: bookingData.appliances,
             }).unwrap()
         } catch (err: any) {

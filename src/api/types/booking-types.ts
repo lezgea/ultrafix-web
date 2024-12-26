@@ -104,6 +104,7 @@ export interface IGetSelectedServicesResponse {
 export interface IGetTimeSlotsRequest {
     zip: string | number,
     date: string,
+    timezone: string,
     appliances: IAppliance[],
 }
 
