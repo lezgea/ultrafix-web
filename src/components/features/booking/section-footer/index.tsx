@@ -40,7 +40,7 @@ export const SectionFooter: React.FC<ISectionFooterProps> = (props) => {
                         type="button"
                         disabled={isContinueDisabled}
                         onClick={onClick}
-                        className="w-full px-3 h-[50px] max-w-[300px] font-regmed bg-primary text-white py-2 rounded-lg hover:bg-primaryDark sfocus:outline-none focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
+                        className="w-full px-3 h-[50px] max-w-[300px] font-regmed  bg-[#0551A8] hover:bg-primaryDark text-white py-2 rounded-lg focus:outline-none focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
                     >
                         Continue
                     </button>

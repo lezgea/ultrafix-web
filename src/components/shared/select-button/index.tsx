@@ -14,7 +14,7 @@ export const SelectButton: React.FC<ISelectButtonProps> = (props) => {
     return (
         <div
             onClick={onSelect}
-            className={`shadow rounded-full px-5 md:px-9 py-2.5 md:py-3.5 md:text-md text-gray-400 font-medium cursor-pointer ${selected ? 'bg-primary text-white' : 'border border-gray-50 hover:text-primaryDark hover:shadow-md'}`}
+            className={`shadow rounded-full px-5 md:px-9 py-2.5 md:py-3.5 md:text-md text-gray-400 font-medium cursor-pointer ${selected ? 'bg-[#0551A8] text-white' : 'border border-gray-50 hover:text-primaryDark hover:shadow-md'}`}
         >
             {label}
         </div>

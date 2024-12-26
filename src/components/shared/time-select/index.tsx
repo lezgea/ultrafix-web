@@ -24,7 +24,7 @@ export const TimeSelect: React.FC<ITimeSelectProps> = (props) => {
     return (
         <div
             onClick={onSelect}
-            className={`min-w-[150px] rounded-full px-4 py-2 text-md text-gray-400 font-medium cursor-pointer ${selected ? 'bg-primary text-white' : 'border border-gray-200 hover:text-primaryDark hover:shadow-md'}`}
+            className={`min-w-[150px] rounded-full px-4 py-2 text-md text-gray-400 font-medium cursor-pointer ${selected ? 'bg-[#0551A8] text-white' : 'border border-gray-200 hover:text-primaryDark hover:shadow-md'}`}
         >
             {label}
         </div>

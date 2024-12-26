@@ -145,7 +145,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                             )
                         }
                     </div>
-                    <p className='text-gray-500'>OR</p>
+                    {/* <p className='text-gray-500'>OR</p>
                     {
                         isDatePickerVisible &&
                         <div className='z-999'>
@@ -158,7 +158,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                         className="w-full max-w-[250px] h-[45px] font-regmed border-2 border-primary text-primary px-6 py-2 rounded-lg hover:shadow-lg hover:shadow-neutral-300 hover:bg-primary hover:text-white hover:-tranneutral-y-px focus:outline-none focus:ring-2 focus:ring-primaryDark focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
                     >
                         Select from Calendar
-                    </button>
+                    </button> */}
                 </div>
                 <div className='flex flex-col items-center gap-5'>
                     {
@@ -193,7 +193,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                     <button
                         disabled={!selectedTime}
                         onClick={onBook}
-                        className="w-full max-w-[300px] h-[45px] font-regmed bg-primary text-white px-6 py-2 rounded-lg ring-2 ring-primary hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:outline-none focus:ring-2 focus:ring-primaryDark focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
+                        className="w-full max-w-[300px] h-[45px] font-regmed bg-[#0551A8] hover:bg-primaryDark text-white px-6 py-2 rounded-lg hover:shadow-lg hover:shadow-neutral-300 hover:-tranneutral-y-px focus:outline-none focus:ring-2 focus:ring-primaryDark focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
                     >
                         Book Appointment
                     </button>
