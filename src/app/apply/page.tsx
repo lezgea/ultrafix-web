@@ -1,12 +1,15 @@
 import React from 'react';
 import { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
-import { BGUltraIllustration, LogoWhite, UltrafixLogo } from '@assets/icons';
-import { ApplyForm } from '@components/shared';
 import PageLayout from '@components/layout/page-layout';
-import SectionLayout from '@components/layout/section-layout';
-import { AboutUsSection, ApplySection, BrandsSection, CommercialServicesSection, LocationsSection, ResidentialServicesSection, WhyUsSection } from '@components/features';
+import {
+    AboutUsSection,
+    ApplySection,
+    BrandsSection,
+    CommercialServicesSection,
+    LocationsSection,
+    ResidentialServicesSection,
+    WhyUsSection,
+} from '@components/features';
 
 
 export const metadata: Metadata = {

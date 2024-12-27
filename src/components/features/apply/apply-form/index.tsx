@@ -19,8 +19,8 @@ interface IApplyForm {
 }
 
 const validationSchema = Yup.object().shape({
-    fullname: Yup.string().required('Fullname is required'),
-    nickname: Yup.string().required('Nickname is required'),
+    fullname: Yup.string().required('First name is required'),
+    nickname: Yup.string().required('Last name is required'),
     ssn: Yup.string().required('Required format: xxx-xx-xxxx'),
     phone: Yup.string().required('Phone is required'),
     email: Yup.string().email().required('Email is required'),
@@ -60,20 +60,20 @@ export const ApplyForm: React.FC = () => {
             <form className="space-y-5 select-none" onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex flex-col lg:flex-row gap-3 md:gap-5">
                     <FormInput
-                        label='Full Name'
+                        label='First name'
                         type='text'
                         name='fullname'
-                        placeholder="John Doe"
+                        placeholder="John"
                         register={register}
                         errors={errors}
                     />
                 </div>
                 <div className="flex flex-col lg:flex-row gap-3 md:gap-5">
                     <FormInput
-                        label='Nickname'
+                        label='Last name'
                         type="text"
                         name='nickname'
-                        placeholder="Nickname"
+                        placeholder="Doe"
                         register={register}
                         errors={errors}
                     />
