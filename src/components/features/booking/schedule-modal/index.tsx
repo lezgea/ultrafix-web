@@ -100,30 +100,27 @@ const ModalContent: React.FC<IModalContent> = (props) => {
         }
     };
 
-
-    // React.useEffect(() => {
-    //     if (!!dates[0])
-    //         setSelectedDate(format(new Date(), "yyyy-MM-dd"))
-    // }, [dates]);
+    React.useEffect(() => {
+        dispatch(setBookingData({ order_at: format(new Date(), "yyyy-MM-dd") }));
+    }, [])
 
 
     React.useEffect(() => {
         try {
-            triggerTimeSlots({
-                zip: bookingData.zip,
-                date: bookingData.order_at,
-                timezone: timezone,
-                appliances: bookingData.appliances,
-            }).unwrap()
+            if (!!bookingData.order_at) {
+                triggerTimeSlots({
+                    zip: bookingData.zip,
+                    date: bookingData.order_at,
+                    timezone: timezone,
+                    appliances: bookingData.appliances,
+                }).unwrap()
+            }
         } catch (err: any) {
             console.log('Error: ', err)
         }
-    }, [selectedDate]);
+    }, [bookingData.order_at]);
 
-
-    console.log('@@@@@', dates[0])
-    console.log('####', new Date())
-
+    console.log('@@@@@', bookingData.order_at)
 
     return (
         <div className="flex relative flex-col md:max-w-[80vw] md:min-w-[80vw] max-h-[90vh] rounded-lg overflow-scroll space-y-5 text-center">
@@ -140,7 +137,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                             dates.map((date, i) =>
                                 <DaySelect
                                     key={i}
-                                    selected={selectedDate === format(date, "yyyy-MM-dd")}
+                                    selected={bookingData.order_at === format(date, "yyyy-MM-dd")}
                                     onSelect={() => handleDateClick(date)}
                                     date={format(date, "dd")}
                                     weekDay={format(date, "EEE")}
@@ -171,7 +168,10 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                             <h4 className='font-light text-3xl'>{selectedBookingDate?.date}</h4>
                         </div>
                     }
-                    <p className='text-gray-400'>Please select the arrival time that best fits your schedule</p>
+                    {
+                        !!slots?.length &&
+                        <p className='text-gray-400'>Please select the arrival time that best fits your schedule</p>
+                    }
                     <div className='flex flex-wrap items-center justify-center gap-3 md:max-w-[80%]'>
                         {
                             slots.map(time =>

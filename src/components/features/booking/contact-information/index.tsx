@@ -17,6 +17,7 @@ import { IBookAppointmentRequest } from '@api/types/booking-types';
 interface IContactForm extends IBookAppointmentRequest {
     firstname: string;
     lastname: string;
+    customer_email: string;
     customer_phone: string;
     address: string;
 }
@@ -26,6 +27,8 @@ const validationSchema = Yup.object().shape({
         .required('First name is required'),
     lastname: Yup.string()
         .required('Last name is required'),
+    customer_email: Yup.string()
+        .required('E-mail address is required'),
     customer_phone: Yup.string()
         .required('Phone number is required'),
     address: Yup.string()
@@ -61,7 +64,6 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
 
     const onSubmit: SubmitHandler<IContactForm> = async (data) => {
         try {
-            console.log('@@@@', isSubmitted);
             dispatch(setBookingData({ ...data }));
             showModal();
         } catch (err: any) {
@@ -94,8 +96,6 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                     type='text'
                                     name='unit'
                                     placeholder="Unit or Apt"
-                                    // value={bookingData.unit}
-                                    // onChange={(e: any) => dispatch(setBookingData({ unit: e.target.value }))}
                                     register={register}
                                     errors={errors}
                                 />
@@ -103,8 +103,6 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                     type='text'
                                     name='city'
                                     placeholder="City"
-                                    // value={bookingData.city}
-                                    // onChange={(e: any) => dispatch(setBookingData({ city: e.target.value }))}
                                     register={register}
                                     errors={errors}
                                 />
@@ -114,8 +112,6 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                     type='text'
                                     name='state'
                                     placeholder="State"
-                                    // value={bookingData.state}
-                                    // onChange={(e: any) => dispatch(setBookingData({ state: e.target.value }))}
                                     register={register}
                                     errors={errors}
                                 />
@@ -123,8 +119,6 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                     type='text'
                                     name='zip'
                                     placeholder="Zip code"
-                                    // value={bookingData.zip}
-                                    // onChange={(e: any) => dispatch(setBookingData({ zip: e.target.value }))}
                                     register={register}
                                     errors={errors}
                                 />
@@ -142,8 +136,6 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                     type='text'
                                     name='firstname'
                                     placeholder="First name"
-                                    // value={bookingData.firstname}
-                                    // onChange={(e: any) => dispatch(setBookingData({ firstname: e.target.value }))}
                                     register={register}
                                     errors={errors}
                                 />
@@ -151,8 +143,6 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                     type='text'
                                     name='lastname'
                                     placeholder="Last name"
-                                    // value={bookingData.lastname}
-                                    // onChange={(e: any) => dispatch(setBookingData({ lastname: e.target.value }))}
                                     register={register}
                                     errors={errors}
                                 />
@@ -162,8 +152,6 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                     type='text'
                                     name='customer_email'
                                     placeholder="E-mail"
-                                    // value={bookingData.customer_email}
-                                    // onChange={(e: any) => dispatch(setBookingData({ customer_email: e.target.value }))}
                                     register={register}
                                     errors={errors}
                                 />
@@ -171,8 +159,6 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
                                     type='text'
                                     name='customer_phone'
                                     placeholder="Phone"
-                                    // value={bookingData.customer_phone}
-                                    // onChange={(e: any) => dispatch(setBookingData({ customer_phone: e.target.value }))}
                                     register={register}
                                     errors={errors}
                                 />

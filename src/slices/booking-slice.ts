@@ -216,9 +216,9 @@ const bookingSlice = createSlice({
             )
             .addMatcher(
                 bookingApi.endpoints.getTimeSlots.matchRejected,
-                (state, action) => {
+                (state, action: PayloadAction<any>) => {
                     state.loading = false;
-                    state.error = action.error?.message || 'Failed to fetch data';
+                    toast.error(action?.payload?.data?.message);
                 }
             );
 
