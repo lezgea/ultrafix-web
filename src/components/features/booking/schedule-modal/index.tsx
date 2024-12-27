@@ -96,7 +96,6 @@ const ModalContent: React.FC<IModalContent> = (props) => {
             }
         } catch (err: any) {
             console.error('Error: ', err);
-            // toast.error(err?.message || 'Unable to book appointment');
         }
     };
 
@@ -120,7 +119,6 @@ const ModalContent: React.FC<IModalContent> = (props) => {
         }
     }, [bookingData.order_at]);
 
-    console.log('@@@@@', bookingData.order_at)
 
     return (
         <div className="flex relative flex-col md:max-w-[80vw] md:min-w-[80vw] max-h-[90vh] rounded-lg overflow-scroll space-y-5 text-center">

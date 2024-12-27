@@ -1,14 +1,14 @@
-// app/sitemap.xml/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { SitemapStream, streamToPromise } from 'sitemap';
-import { CITIES, STATES, STATES_LIST } from 'constants/locations';
 import { COMMERCIAL_SERVICES_LIST, RESIDENCIAL_SERVICES_LIST } from 'constants/services';
+import { CITIES, STATES } from 'constants/locations';
 
 
 export async function GET(req: NextRequest) {
     const sitemap = new SitemapStream({ hostname: 'https://ultrafix.com/' });
 
     sitemap.write({ url: '/', lastmod: '2024-12-14', changefreq: 'weekly', priority: 1.0 });
+    sitemap.write({ url: '/book', lastmod: '2024-12-27', changefreq: 'weekly', priority: 0.8 });
     sitemap.write({ url: '/blog', lastmod: '2024-12-14', changefreq: 'weekly', priority: 0.8 });
     sitemap.write({ url: '/apply', lastmod: '2024-12-14', changefreq: 'weekly', priority: 0.7 });
     sitemap.write({ url: '/faq', lastmod: '2024-12-14', changefreq: 'weekly', priority: 0.7 });
