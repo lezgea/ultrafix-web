@@ -7,7 +7,7 @@ import { BookingForm } from '@components/shared/booking-form';
 
 
 export const metadata: Metadata = {
-    title: "UltraFix Appliance Repair LLC",
+    title: "Book Now | UltraFix Appliance Repair LLC",
     description: "Client satisfaction is at the forefront of our minds at UltraFix Appliance Repair Service. Our business model is built on respect, promptness, honesty, and taking pride in our work. When you choose us for your appliance repair, you learn how closely we hold to these values.",
     keywords: [
         'Appliance Repair Houston',
@@ -34,13 +34,13 @@ export const metadata: Metadata = {
         type: 'website',
         title: 'UltraFix Appliance Repair LLC',
         description: "Client satisfaction is at the forefront of our minds at UltraFix Appliance Repair Service. Our business model is built on respect, promptness, honesty, and taking pride in our work. When you choose us for your appliance repair, you learn how closely we hold to these values.",
-        url: `https://ultrafix.com/`,
+        url: `https://ultrafix.com`,
         images: [
             {
-                width: 800,
-                height: 600,
-                alt: 'UltraFix Appliance Repair',
-                url: `https://ultrafix.com/_next/image?url=%2Fassets%2Fmock_images%2Fabout_us_media.png&w=1920&q=75`,
+                url: `https://ultrafix.com/img/booking_banner.webp`,
+                width: 1200,
+                height: 630,
+                alt: `UltraFix Appliance Repair Service`,
             },
         ],
         locale: 'en_US',
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
         title: 'UltraFix Appliance Repair LLC',
         card: 'summary_large_image',
         description: "Client satisfaction is at the forefront of our minds at UltraFix Appliance Repair Service. Our business model is built on respect, promptness, honesty, and taking pride in our work. When you choose us for your appliance repair, you learn how closely we hold to these values.",
-        images: [`https://ultrafix.com/_next/image?url=%2Fassets%2Fmock_images%2Fabout_us_media.png&w=1920&q=75`],
+        images: [`https://ultrafix.com/img/booking_banner.webp`],
     },
     alternates: {
         canonical: `https://ultrafix.com/`,
