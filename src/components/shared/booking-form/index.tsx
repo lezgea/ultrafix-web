@@ -19,7 +19,7 @@ export const BookingForm: React.FC = () => {
 
 
     return (
-        <>
+        <div className='pb-40'>
             {step == 4 && confirmation && <Confirmation />}
             <div className="relative w-full flex items-center flex-col container mx-auto max-w-[1200px] py-20 space-y-10">
                 {!!step && !confirmation && <Stepper step={step} />}
@@ -29,10 +29,11 @@ export const BookingForm: React.FC = () => {
                 {step == 3 && <ContactInformation setStep={setStep} showModal={() => setScheduleModal(true)} />}
             </div>
             <ScheduleModal
-                visible={scheduleModal}
+                // visible={scheduleModal}
+                visible
                 onConfirm={() => { setConfirmation(true); setStep(4) }}
                 onClose={() => setScheduleModal(false)}
             />
-        </>
+        </div>
     )
 }
