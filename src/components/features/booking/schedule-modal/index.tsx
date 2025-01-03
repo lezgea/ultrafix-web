@@ -6,8 +6,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { CloseIcon } from '@assets/icons';
 import { DaySelect, Modal, TimeSelect } from '@components/shared';
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import { format, addDays } from "date-fns";
 import { useBookAppointmentMutation, useLazyGetTimeSlotsQuery } from '@api/booking-api';
 import { RootState } from '@store/store';
@@ -15,6 +13,7 @@ import { useSelector } from 'react-redux';
 import { setBookingData, setSelectedBookingDate, setSelectedSlot } from '@slices/booking-slice';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
+import { UlDayPicker } from '@components/shared/day-picker';
 
 
 interface IScheduleModalProps {
@@ -56,7 +55,6 @@ const ModalContent: React.FC<IModalContent> = (props) => {
 
     const [isDatePickerVisible, setDatePickerVisible] = React.useState<boolean>(false);
     const [selectedDate, setSelectedDate] = React.useState<any>();
-    const [customDate, setCustomDate] = React.useState<Date | null>(null);
 
     const [selectedDay, setSelectedDay] = React.useState<number>(1);
     const [selectedTime, setSelectedTime] = React.useState<number | string>(0);
@@ -84,6 +82,16 @@ const ModalContent: React.FC<IModalContent> = (props) => {
 
     const onClickSelectCalendar = () => {
         setDatePickerVisible(!isDatePickerVisible); // Toggle visibility
+    }
+
+    const onSelectDate = (date: Date) => {
+        setSelectedDate(format(date, "yyyy-MM-dd"));
+        dispatch(setBookingData({ order_at: format(date, "yyyy-MM-dd") }));
+        dispatch(setSelectedBookingDate({
+            date: format(date, "MMM dd, yyyy"),
+            weekDay: format(date, "EEEE")
+        }));
+        handleSlotClick({ value: 0, label: '' });
     }
 
 
@@ -143,20 +151,19 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                             )
                         }
                     </div>
-                    {/* <p className='text-gray-500'>OR</p>
-                    {
-                        isDatePickerVisible &&
-                        <div className='z-999'>
-                            <DatePicker onChange={(date) => console.log('@@@@', date)} />
-                        </div>
-                    }
+                    <p className='text-gray-500'>OR</p>
                     <button
-                        // type="submit"
+                        type='button'
                         onClick={onClickSelectCalendar}
-                        className="w-full max-w-[250px] h-[45px] font-regmed border-2 border-primary text-primary px-6 py-2 rounded-lg hover:shadow-lg hover:shadow-neutral-300 hover:bg-primary hover:text-white hover:-tranneutral-y-px focus:outline-none focus:ring-2 focus:ring-primaryDark focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
+                        className="w-full max-w-[250px] h-[45px] font-regmed border-2 border-primaryDark text-primaryDark px-6 py-2 rounded-lg hover:shadow-lg hover:shadow-neutral-300 hover:bg-primaryDark hover:text-white hover:-tranneutral-y-px focus:outline-none focus:ring-2 focus:ring-primaryDark focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
                     >
                         Select from Calendar
-                    </button> */}
+                    </button>
+                    <UlDayPicker
+                        visible={isDatePickerVisible}
+                        onClose={() => setDatePickerVisible(false)}
+                        onChangeDate={onSelectDate}
+                    />
                 </div>
                 <div className='flex flex-col items-center gap-5'>
                     {
