@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '@store/store';
 import { useDispatch } from 'react-redux';
 import { setSelectedAppliances } from '@slices/booking-slice';
+import { BrandsSelectSkeleton } from '@components/shared/skeletons';
 
 
 interface IApplianceSelectProps {
@@ -79,18 +80,22 @@ export const ApplianceSelect: React.FC<IApplianceSelectProps> = (props) => {
                             <h2 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
                                 Select <span className='text-primary'>residential</span> appliance to repair
                             </h2>
-                            <div className="flex items-center justify-center flex-wrap gap-3 md:gap-5">
-                                {
-                                    services?.residential?.map(appliance =>
-                                        <SelectButton
-                                            key={appliance.id}
-                                            label={appliance.text}
-                                            selected={isSelected(appliance.id, 'residential')}
-                                            onSelect={() => onSelectAppliance(appliance.id, 'residential', appliance.text)}
-                                        />
-                                    )
-                                }
-                            </div>
+                            {
+                                isLoading
+                                    ? <BrandsSelectSkeleton />
+                                    : <div className="flex items-center justify-center flex-wrap gap-3 md:gap-5">
+                                        {
+                                            services?.residential?.map(appliance =>
+                                                <SelectButton
+                                                    key={appliance.id}
+                                                    label={appliance.text}
+                                                    selected={isSelected(appliance.id, 'residential')}
+                                                    onSelect={() => onSelectAppliance(appliance.id, 'residential', appliance.text)}
+                                                />
+                                            )
+                                        }
+                                    </div>
+                            }
                         </div>
                     }
                     {
@@ -99,18 +104,22 @@ export const ApplianceSelect: React.FC<IApplianceSelectProps> = (props) => {
                             <h3 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
                                 Select <span className='text-primary'>commercial</span> appliance to repair
                             </h3>
-                            <div className="flex items-center justify-center flex-wrap gap-3 md:gap-5">
-                                {
-                                    services?.commercial?.map(appliance =>
-                                        <SelectButton
-                                            key={appliance.id}
-                                            label={appliance.text}
-                                            selected={isSelected(appliance.id, 'commercial')}
-                                            onSelect={() => onSelectAppliance(appliance.id, 'commercial', appliance.text)}
-                                        />
-                                    )
-                                }
-                            </div>
+                            {
+                                isLoading
+                                    ? <BrandsSelectSkeleton />
+                                    : <div className="flex items-center justify-center flex-wrap gap-3 md:gap-5">
+                                        {
+                                            services?.commercial?.map(appliance =>
+                                                <SelectButton
+                                                    key={appliance.id}
+                                                    label={appliance.text}
+                                                    selected={isSelected(appliance.id, 'commercial')}
+                                                    onSelect={() => onSelectAppliance(appliance.id, 'commercial', appliance.text)}
+                                                />
+                                            )
+                                        }
+                                    </div>
+                            }
                         </div>
                     }
                     <SectionFooter

@@ -14,6 +14,7 @@ import { setBookingData, setSelectedBookingDate, setSelectedSlot } from '@slices
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { UlDayPicker } from '@components/shared/day-picker';
+import { SlotsSkeleton } from '@components/shared/skeletons';
 
 
 interface IScheduleModalProps {
@@ -47,7 +48,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
 
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-    const { bookingData, slots, serviceData, selectedBookingDate } = useSelector((state: RootState) => state.booking);
+    const { bookingData, slots, serviceData, selectedBookingDate, loading } = useSelector((state: RootState) => state.booking);
 
     const dispatch = useDispatch();
     const [triggerTimeSlots] = useLazyGetTimeSlotsQuery();
@@ -177,18 +178,22 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                         !!slots?.length &&
                         <p className='text-gray-400'>Please select the arrival time that best fits your schedule</p>
                     }
-                    <div className='flex flex-wrap items-center justify-center gap-3 md:max-w-[80%]'>
-                        {
-                            slots.map(time =>
-                                <TimeSelect
-                                    key={time.value}
-                                    selected={time.value == selectedTime}
-                                    onSelect={() => handleSlotClick(time)}
-                                    {...time}
-                                />
-                            )
-                        }
-                    </div>
+                    {
+                        loading
+                            ? <SlotsSkeleton />
+                            : <div className='flex flex-wrap items-center justify-center gap-3 md:max-w-[80%]'>
+                                {
+                                    slots.map(time =>
+                                        <TimeSelect
+                                            key={time.value}
+                                            selected={time.value == selectedTime}
+                                            onSelect={() => handleSlotClick(time)}
+                                            {...time}
+                                        />
+                                    )
+                                }
+                            </div>
+                    }
                 </div>
 
                 <div className='flex flex-col items-center gap-3'>

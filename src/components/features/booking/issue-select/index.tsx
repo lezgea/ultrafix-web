@@ -10,6 +10,7 @@ import { RootState } from '@store/store';
 import { useLazyGetBrandsQuery } from '@api/booking-api';
 import { setBookingData, setSelectedAppliances } from '@slices/booking-slice';
 import { SimpleInput } from '@components/shared/simple-input';
+import { BrandsSelectSkeleton } from '@components/shared/skeletons';
 
 
 interface IBookingForm {
@@ -28,7 +29,7 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
     let { setStep } = props;
 
     const dispatch = useDispatch();
-    const { bookingData, brands, serviceData } = useSelector((state: RootState) => state.booking);
+    const { bookingData, brands, serviceData, loading } = useSelector((state: RootState) => state.booking);
 
     // RTK Query mutation hook
     const [triggerGetBrands] = useLazyGetBrandsQuery();
@@ -158,36 +159,44 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
                                             className={`w-full h-[50px] px-5 py-2 pr-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out transform`}
                                         />
                                     </div>
-                                    <div className="flex items-center justify-center flex-wrap gap-3 md:gap-5">
-                                        {
-                                            brands?.map((brand) =>
-                                                <SelectButton
-                                                    key={brand.value}
-                                                    label={brand.title}
-                                                    selected={isBrandSelected(brand.value, i)}
-                                                    onSelect={() => onSelectBrand(brand.value, i)}
-                                                />
-                                            )
-                                        }
-                                    </div>
+                                    {
+                                        loading
+                                            ? <BrandsSelectSkeleton />
+                                            : <div className="flex items-center justify-center flex-wrap gap-3 md:gap-5">
+                                                {
+                                                    brands?.map((brand) =>
+                                                        <SelectButton
+                                                            key={brand.value}
+                                                            label={brand.title}
+                                                            selected={isBrandSelected(brand.value, i)}
+                                                            onSelect={() => onSelectBrand(brand.value, i)}
+                                                        />
+                                                    )
+                                                }
+                                            </div>
+                                    }
                                 </div>
 
                                 <div className='space-y-6'>
                                     <h4 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
                                         Select the issue
                                     </h4>
-                                    <div className="flex items-center justify-center flex-wrap gap-3 md:gap-5">
-                                        {
-                                            appliance.issues?.map(issue =>
-                                                <SelectButton
-                                                    key={issue.value}
-                                                    label={issue.label}
-                                                    selected={isIssueSelected(issue.value, i)}
-                                                    onSelect={() => onSelectIssue(issue.value, i)}
-                                                />
-                                            )
-                                        }
-                                    </div>
+                                    {
+                                        loading
+                                            ? <BrandsSelectSkeleton />
+                                            : <div className="flex items-center justify-center flex-wrap gap-3 md:gap-5">
+                                                {
+                                                    appliance.issues?.map(issue =>
+                                                        <SelectButton
+                                                            key={issue.value}
+                                                            label={issue.label}
+                                                            selected={isIssueSelected(issue.value, i)}
+                                                            onSelect={() => onSelectIssue(issue.value, i)}
+                                                        />
+                                                    )
+                                                }
+                                            </div>
+                                    }
                                 </div>
 
                                 <div className='space-y-6'>
