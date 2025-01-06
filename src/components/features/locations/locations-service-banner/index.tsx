@@ -44,12 +44,12 @@ const ResidentialContent: React.FC<IServiceBannerProps> = ({ service }) => {
         <div className='w-full flex flex-col lg:flex-row py-10'>
             <div className='w-full relative flex flex-col text-center md:text-start justify-between md:py-20'>
                 <div className='space-y-2 md:space-y-4 z-10'>
-                    <h1 className='text-primaryDark text-4xl md:text-5xl font-medium space-y-2'>
-                        <p className="font-light text-5xl md:text-7xl text-[#c3c9d1]">Same-Day </p>
+                    <h1 className='text-primaryDark text-2xl md:text-5xl font-medium space-y-0 md:space-y-2'>
+                        <p className="font-light text-3xl md:text-7xl text-[#c3c9d1] mb-1">Same-Day </p>
                         <p><span className="text-primary">Residential</span> {RESIDENTIAL_SERVICES[serviceKey].title} </p>
                         <p>repair in <span className="text-primary">{cityData?.title}, {cityData?.stateShort}</span> </p>
                     </h1>
-                    <p className='text-gray-600 text-lg md:text-xl mb-10'>{RESIDENTIAL_SERVICES[service].subTitle}</p>
+                    <p className='text-gray-600 text-md md:text-xl mb-10'>{RESIDENTIAL_SERVICES[service].subTitle}</p>
                 </div>
                 <motion.div
                     initial={{ opacity: 0, scale: 0.1 }}
@@ -80,7 +80,7 @@ const ResidentialContent: React.FC<IServiceBannerProps> = ({ service }) => {
                     }}
                     className='hidden lg:flex z-0 h-[100px] w-[100px] rounded-full bg-gray-100 absolute top-[250px] left-[450px]'
                 ></motion.div>
-                <div className='space-y-4 z-10 mt-10 md:mt-0'>
+                <div className='space-y-4 z-10 mt-10 lg:mt-0'>
                     <Link
                         href='/book'
                         className="hidden md:inline-flex w-auto text-center items-center px-6 py-[10px] md:py-[12px] text-lg text-white transition-all bg-primary rounded-xl sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
@@ -135,12 +135,12 @@ const CommercialContent: React.FC<IServiceBannerProps> = ({ service }) => {
         <div className='w-full flex flex-col lg:flex-row py-10'>
             <div className='w-full relative flex flex-col text-center md:text-start justify-between md:py-20'>
                 <div className='space-y-2 md:space-y-4 z-10'>
-                    <h1 className='text-primaryDark text-4xl md:text-5xl font-medium space-y-2'>
-                        <p className="font-light text-5xl md:text-7xl text-[#c3c9d1]">Same-Day </p>
+                    <h1 className='text-primaryDark text-2xl md:text-5xl font-medium space-y-0 md:space-y-2'>
+                        <p className="font-light text-3xl md:text-7xl text-[#c3c9d1] mb-1">Same-Day </p>
                         <p><span className="text-primary">Commercial</span> {COMMERCIAL_SERVICES[serviceKey].title} </p>
                         <p>repair in <span className="text-primary">{cityData?.title}, {cityData?.stateShort}</span> </p>
                     </h1>
-                    <p className='text-gray-600 text-lg md:text-xl mb-10'>{COMMERCIAL_SERVICES[service].subTitle}</p>
+                    <p className='text-gray-600 text-md md:text-xl mb-10'>{COMMERCIAL_SERVICES[service].subTitle}</p>
                 </div>
                 <motion.div
                     initial={{ opacity: 0, scale: 0.1 }}
@@ -171,16 +171,16 @@ const CommercialContent: React.FC<IServiceBannerProps> = ({ service }) => {
                     }}
                     className='hidden lg:flex z-0 h-[100px] w-[100px] rounded-full bg-gray-100 absolute top-[250px] left-[450px]'
                 ></motion.div>
-                <div className='space-y-4 z-10 mt-10 md:mt-0'>
+                <div className='space-y-4 z-10 mt-10 lg:mt-0'>
                     <Link
                         href='/book'
-                        className="inline-flex w-auto text-center items-center px-6 py-[10px] md:py-[12px] text-lg text-white transition-all bg-primary rounded-xl sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
+                        className="hidden md:inline-flex w-auto text-center items-center px-6 py-[10px] md:py-[12px] text-lg text-white transition-all bg-primary rounded-xl sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
                         aria-label="See our races"
                     >
                         Book a Service
                     </Link>
-                    <p className='text-gray-600 text-lg md:text-xl'>Average price for {COMMERCIAL_SERVICES[service].title.toLowerCase()} repair without parts</p>
-                    <p className='text-primaryDark text-5xl font-medium'>$ {COMMERCIAL_SERVICES[service].price}</p>
+                    {/* <p className='text-gray-600 text-lg md:text-xl'>Average price for {COMMERCIAL_SERVICES[service].title.toLowerCase()} repair without parts</p>
+                    <p className='text-primaryDark text-5xl font-medium'>$ {COMMERCIAL_SERVICES[service].price}</p> */}
                 </div>
             </div>
             <motion.div
