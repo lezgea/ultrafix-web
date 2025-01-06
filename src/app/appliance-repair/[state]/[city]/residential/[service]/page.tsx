@@ -24,10 +24,10 @@ export async function generateMetadata({ params }: IServiceProps) {
 
 
     const title = cityData
-        ? `Residential ${RESIDENTIAL_SERVICES[serviceKey].title} Repair in ${cityData?.title}, ${cityData?.state} | UltraFix®`
+        ? `Residential ${RESIDENTIAL_SERVICES[serviceKey].title} Repair in ${cityData?.title}, ${cityData?.stateShort} | UltraFix®`
         : 'Residential Appliance Repair Services | UltraFix®';
     const description = cityData
-        ? `UltraFix offers trusted appliance repair services in ${cityData.title}, ${cityData.state}. Fast, same-day repairs for refrigerators, washers, dryers, and more!`
+        ? `UltraFix offers trusted ${RESIDENTIAL_SERVICES[serviceKey].title} repair services in ${cityData.title}, ${cityData.stateShort}. Fast, same-day repairs for refrigerators, washers, dryers, and more!`
         : 'UltraFix offers trusted appliance repair services across the United States.';
 
     return {

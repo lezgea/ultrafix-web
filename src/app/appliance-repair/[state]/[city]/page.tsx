@@ -31,10 +31,10 @@ export async function generateMetadata({ params }: ILocationProps) {
     const cityData = CITIES[cityKey];
 
     const title = cityData
-        ? `Appliance Repair Service in ${cityData.title}, ${cityData.state} | UltraFix®`
+        ? `Appliance Repair Service in ${cityData.title}, ${cityData.stateShort} | UltraFix®`
         : 'Appliance Repair Services | UltraFix®';
     const description = cityData
-        ? `UltraFix offers trusted appliance repair services in ${cityData.title}, ${cityData.state}. Fast, same-day repairs for refrigerators, washers, dryers, and more!`
+        ? `UltraFix offers trusted appliance repair services in ${cityData.title}, ${cityData.stateShort}. Fast, same-day repairs for refrigerators, washers, dryers, and more!`
         : 'UltraFix offers trusted appliance repair services across the United States.';
 
     return {
@@ -74,9 +74,9 @@ export async function generateMetadata({ params }: ILocationProps) {
             'Nearby Appliance Repair',
         ],
         robots: {
-            index: true,    
-            follow: true,     
-            nocache: false,  
+            index: true,
+            follow: true,
+            nocache: false,
             googleBot: {
                 index: true,
                 follow: true,
