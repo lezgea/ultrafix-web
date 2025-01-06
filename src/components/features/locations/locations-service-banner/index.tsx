@@ -88,8 +88,8 @@ const ResidentialContent: React.FC<IServiceBannerProps> = ({ service }) => {
                     >
                         Book a Service
                     </Link>
-                    <p className='text-gray-600 text-lg md:text-xl'>Average price for Residential {RESIDENTIAL_SERVICES[service].title.toLowerCase()} repair without parts</p>
-                    <p className='text-primaryDark text-5xl font-medium'>$ {RESIDENTIAL_SERVICES[service].price}</p>
+                    {/* <p className='text-gray-600 text-lg md:text-xl'>Average price for Residential {RESIDENTIAL_SERVICES[service].title.toLowerCase()} repair without parts</p>
+                    <p className='text-primaryDark text-5xl font-medium'>$ {RESIDENTIAL_SERVICES[service].price}</p> */}
                 </div>
             </div>
             <motion.div
