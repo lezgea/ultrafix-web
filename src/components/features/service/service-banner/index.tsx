@@ -46,7 +46,7 @@ const ResidentialContent: React.FC<IServiceBannerProps> = ({ service }) => {
         <div className='w-full flex flex-col lg:flex-row py-10'>
             <div className='w-full relative flex flex-col text-center md:text-start justify-between md:py-20'>
                 <div className='space-y-2 md:space-y-4 z-10'>
-                    <h1 className="text-[3.4rem] leading-[4rem] font-semibold text-primaryDark">
+                    <h1 className="text-[3rem] leading-[3.5rem] text-[3.4rem] leading-[4rem] font-semibold text-primaryDark">
                         Same-Day <span className='text-primary'>Residential {RESIDENTIAL_SERVICES[service].title}</span> Repair
                     </h1>
                     <p className='text-gray-600 text-lg md:text-xl mb-10'>{RESIDENTIAL_SERVICES[service].subTitle}</p>
@@ -130,7 +130,7 @@ const CommercialContent: React.FC<IServiceBannerProps> = ({ service }) => {
         <div className='w-full flex flex-col lg:flex-row py-10'>
             <div className='w-full relative flex flex-col text-center md:text-start justify-between md:py-20'>
                 <div className='space-y-2 md:space-y-4 z-10'>
-                    <h1 className="text-[3.4rem] leading-[4rem] font-semibold text-primaryDark">
+                    <h1 className="text-[3rem] leading-[3.5rem] text-[3.4rem] leading-[4rem] font-semibold text-primaryDark">
                         Same-Day <span className='text-primary'>Commercial {COMMERCIAL_SERVICES[service].title}</span> Repair
                     </h1>
                     <p className='text-gray-600 text-lg md:text-xl mb-10'>{COMMERCIAL_SERVICES[service].subTitle}</p>
