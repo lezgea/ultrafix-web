@@ -28,7 +28,6 @@ export const BannerSection: React.FC = () => {
             <div className="z-10 flex flex-col w-full space-y-5 md:absolute text-center md:text-end justify-end items-center md:items-end mt-10 md:mt-20">
                 <h1 className="text-[3rem] leading-[3.5rem] lg:text-[4rem] lg:leading-[5rem] lg:max-w-[60%] font-semibold text-primaryDark">
                     <span className='text-primary'>Same-Day</span> Appliance Repair Services
-                    {/* <span className='text-primary text-[3.5rem] leading-[3rem] lg:text-[4.5rem] lg:leading-[5.5rem]'>UltraFix®</span> */}
                 </h1>
                 <p className="text-xl max-w-[80%] md:max-w-full md:text-2xl font-light text-gray-500">Call now and book your service technician</p>
                 <Link
