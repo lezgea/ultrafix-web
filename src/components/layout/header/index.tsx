@@ -113,6 +113,19 @@ export const Header: React.FC = () => {
     const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
 
 
+    const [isCallButtonAvailable, setIsCallButtonAvailable] = React.useState(false);
+
+    React.useEffect(() => {
+        const now = new Date();
+        const currentHour = now.getHours();
+
+        // Disable call button between 10 AM (10) and 1 PM (13)
+        if (currentHour >= 9 && currentHour < 21) {
+            setIsCallButtonAvailable(true);
+        }
+    }, []);
+
+
     if (shouldHideHeader) return null;
 
     return (
@@ -155,14 +168,16 @@ export const Header: React.FC = () => {
                 <div className='flex fixed md:hidden backdrop-blur-xl items-center bottom-[25px] left-[70px] right-[70px] z-50 rounded-full bg-[#0551A8] shadow-lg'>
                     <Link
                         href='/book'
-                        className='w-full flex items-center pl-5 justify-center text-xl text-white font-medium h-[55px] rounded-full cursor-pointer'
+                        className={`w-full flex items-center ${isCallButtonAvailable && 'pl-5'} justify-center text-xl text-white font-medium h-[55px] rounded-full cursor-pointer`}
                     >
-                        Book Now
+                        Book Online
                     </Link>
-
-                    <a href={`tel:${cityData?.phone ? cityData.phone : '(888) 998-6263'}`} className="call-btn backdrop-blur-xl bg-primary">
-                        <CallIcon className="w-[35px]" fill="white" />
-                    </a>
+                    {
+                        isCallButtonAvailable &&
+                        <a href={`tel:${cityData?.phone ? cityData.phone : '(888) 998-6263'}`} className="call-btn backdrop-blur-xl bg-primary">
+                            <CallIcon className="w-[35px]" fill="white" />
+                        </a>
+                    }
                 </div>
             }
         </>
