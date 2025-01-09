@@ -8,3 +8,4 @@ export * from './map-section';
 export * from './locations-section';
 export * from './residential-services-section';
 export * from './commercial-services-section';
+export * from './reviews-section';

@@ -1,6 +1,6 @@
 import React from 'react';
 import PageLayout from '@components/layout/page-layout';
-import { AboutUsSection, BannerSection, BrandsSection, CommercialServicesSection, ContactSection, LocationsSection, LogosSection, ResidentialServicesSection, WhyUsSection } from '@components/features/home';
+import { AboutUsSection, BannerSection, BrandsSection, CommercialServicesSection, ContactSection, LocationsSection, LogosSection, ResidentialServicesSection, ReviewsSection, WhyUsSection } from '@components/features/home';
 import * as motion from "framer-motion/client"
 import { BlogSection } from '@components/features';
 
@@ -89,6 +89,7 @@ const Home: React.FC = () => {
             </motion.div>
             <ResidentialServicesSection />
             <CommercialServicesSection />
+            <ReviewsSection />
             <ContactSection />
             {/* <LocationsSection /> */}
             <AboutUsSection />
