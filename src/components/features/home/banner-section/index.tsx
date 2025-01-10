@@ -1,37 +1,59 @@
-"use client"
+"use client";
 
-import React from 'react';
-import SectionLayout from '@components/layout/section-layout';
-import Image from 'next/image';
+import React from "react";
+import SectionLayout from "@components/layout/section-layout";
+import Image from "next/image";
 import * as motion from "framer-motion/client";
-import { STATES } from 'constants/locations';
-import Link from 'next/link';
+import { STATES } from "constants/locations";
+import Link from "next/link";
 
 
 export const BannerSection: React.FC = () => {
-
     const scrollToContact = () => {
-        const section = document.getElementById('contact');
+        const section = document.getElementById("contact");
         if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
+            section.scrollIntoView({ behavior: "smooth" });
         }
     };
 
-    const states = Object.values(STATES)
-    // const cities = Object.values(CITIES).map(city => city.value);
-    // const residential_services = RESIDENCIAL_SERVICES_LIST.map(service => service.value);
-    // const commercial_services = COMMERCIAL_SERVICES_LIST.map(service => service.value);
+    const gtag_report_conversion = (url?: string) => {
+        const callback = () => {
+            if (typeof url !== "undefined") {
+                window.location.href = url;
+            }
+        };
 
+        if (typeof window?.gtag === "function") {
+            window?.gtag("event", "conversion", {
+                send_to: "AW-16752527414/04JgCNu4woIaELaQnbQ-",
+                event_callback: callback,
+            });
+        }
+        return false;
+    };
+
+    const handleConversion = (url: string) => {
+        gtag_report_conversion(url);
+    };
+
+    const states = Object.values(STATES);
 
     return (
         <SectionLayout noYPadding>
             <div className="z-10 flex flex-col w-full space-y-5 md:absolute text-center md:text-end justify-end items-center md:items-end mt-10 md:mt-20">
                 <h1 className="text-[3rem] leading-[3.5rem] lg:text-[4rem] lg:leading-[5rem] lg:max-w-[60%] font-semibold text-primaryDark">
-                    <span className='text-primary'>Same-Day</span> Appliance Repair Services
+                    <span className="text-primary">Same-Day</span> Appliance Repair Services
                 </h1>
-                <p className="text-xl max-w-[80%] md:max-w-full md:text-2xl font-light text-gray-500">Call now and book your service technician</p>
+                <p className="text-xl max-w-[80%] md:max-w-full md:text-2xl font-light text-gray-500">
+                    Call now and book your service technician
+                </p>
                 <Link
-                    href='/book'
+                    href="/book"
+                    passHref
+                    onClick={(e) => {
+                        e.preventDefault(); // Prevent default navigation
+                        handleConversion("/book"); // Call the conversion tracking function
+                    }}
                     className="hidden md:inline-flex w-auto text-center items-center px-10 py-3 lg:px-6 lg:py-[12px] text-xl text-white transition-all bg-primary rounded-lg sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
                     aria-label="See our races"
                 >
@@ -51,10 +73,10 @@ export const BannerSection: React.FC = () => {
                     className="w-auto -mt-[50px] md:mt-[50px] lg:h-[700px]"
                     alt="UltraFix Car Image"
                     loading="lazy"
-                    // placeholder="blur"
                     sizes="(max-width: 1200px) 100vw, (min-width: 1200px) 1000px"
                 />
             </motion.div>
         </SectionLayout>
-    )
+    );
 };
+

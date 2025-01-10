@@ -23,6 +23,38 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16752527414"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-16752527414');
+            `,
+          }}
+        />
+
+        {/* Conversion tracking script */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              function gtag_report_conversion(url) {
+                var callback = function () {
+                  if (typeof(url) != 'undefined') {
+                    window.location = url;
+                  }
+                };
+                gtag('event', 'conversion', {
+                  'send_to': 'AW-16752527414/04JgCNu4woIaELaQnbQ-',
+                  'event_callback': callback
+                });
+                return false;
+              }
+            `,
+          }}
+        />
+
         {/* Link to the favicon */}
         <link rel="icon" href="/favicon.ico" />
         {/* <link rel="preload" href="/img/houston_car.webp" as="image" /> */}
