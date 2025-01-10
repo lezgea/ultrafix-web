@@ -50,10 +50,10 @@ export const BannerSection: React.FC = () => {
                 <Link
                     href="/book"
                     passHref
-                    onClick={(e) => {
-                        e.preventDefault(); // Prevent default navigation
-                        handleConversion("/book"); // Call the conversion tracking function
-                    }}
+                    // onClick={(e) => {
+                    //     e.preventDefault(); // Prevent default navigation
+                    //     handleConversion("/book"); // Call the conversion tracking function
+                    // }}
                     className="hidden md:inline-flex w-auto text-center items-center px-10 py-3 lg:px-6 lg:py-[12px] text-xl text-white transition-all bg-primary rounded-lg sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
                     aria-label="See our races"
                 >

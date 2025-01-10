@@ -95,12 +95,28 @@ const ModalContent: React.FC<IModalContent> = (props) => {
         handleSlotClick({ value: 0, label: '' });
     }
 
+    const gtag_report_conversion = (url?: string) => {
+        const callback = () => {
+            if (typeof url !== "undefined") {
+                window.location.href = url;
+            }
+        };
+
+        if (typeof window?.gtag === "function") {
+            window?.gtag("event", "conversion", {
+                send_to: "AW-16752527414/04JgCNu4woIaELaQnbQ-",
+                event_callback: callback,
+            });
+        }
+        return false;
+    };
 
     const onBook = async () => {
         try {
             let response = await bookAppointment(bookingData).unwrap();
             if (response.status === 'success') {
                 onConfirm();
+                gtag_report_conversion("/book");
                 onClose();
             }
         } catch (err: any) {
