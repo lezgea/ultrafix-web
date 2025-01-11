@@ -6,7 +6,7 @@ import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { CarouselProps } from 'react-responsive-carousel';
-import { REVIEWS } from 'constants/reviews';
+import { REVIEWS, REVIEWS_MOB } from 'constants/reviews';
 import { StarsIcon } from '@assets/icons';
 import Link from 'next/link';
 
@@ -24,8 +24,8 @@ export const ReviewsSection: React.FC = () => {
     }, []);
 
     const carouselProps: Partial<CarouselProps> = {
-        showIndicators: false,
-        showArrows: true,
+        showIndicators: true,
+        showArrows: false,
         autoPlay: true,
         showThumbs: false,
         transitionTime: 1000,
@@ -40,20 +40,51 @@ export const ReviewsSection: React.FC = () => {
             description="Our pledge is to establish lasting relationships with our customers by exceeding their expectations and gaining their trust through exceptional performance by each member of our service team. We have been providing top service!"
         >
             {isMounted && (
-                <div className="rounded-3xl overflow-hidden">
+                <div className="hidden md:flex md:flex-col rounded-3xl overflow-hidden">
                     <Carousel {...(carouselProps as CarouselProps)}>
                         {REVIEWS.map((review, i) => (
                             <div key={i} className='flex justify-center p-5 gap-8'>
                                 {
                                     review.items.map((item, j) =>
-                                        <div key={j} className='flex flex-col shadow-lg max-w-[32%] rounded-xl p-4 text-start gap-2'>
+                                        <div key={j} className='flex flex-col shadow-lg max-w-[32%] rounded-xl p-4 text-start gap-2 mb-10'>
                                             <div className='flex flex-col gap-2'>
                                                 <Image
                                                     src={item.userAvatar || '/'}
                                                     alt={item.userName}
                                                     width={40}
                                                     height={40}
-                                                    className='bg-primary text-white min-w-[60px] min-h-[60px] max-w-[60px] max-h-[60px] rounded-full flex items-center justify-center text-lg'
+                                                    className='text-white min-w-[60px] min-h-[60px] max-w-[60px] max-h-[60px] rounded-full flex items-center justify-center text-lg'
+                                                />
+                                                <div className='flex flex-col items-start justify-start text-start gap-2'>
+                                                    <div className='font-medium text-md'>{item.userName}</div>
+                                                    <StarsIcon className="w-[90px] h-[15px]" />
+                                                </div>
+                                            </div>
+                                            <div className='truncate-text-4 text-[13px]'>{item.description}</div>
+                                        </div>
+                                    )
+                                }
+                            </div>
+                        ))}
+                    </Carousel>
+                </div>
+            )}
+
+            {isMounted && (
+                <div className="flex flex-col md:hidden rounded-3xl overflow-hidden">
+                    <Carousel {...(carouselProps as CarouselProps)}>
+                        {REVIEWS_MOB.map((review, i) => (
+                            <div key={i} className='flex justify-center p-2 gap-4'>
+                                {
+                                    review.items.map((item, j) =>
+                                        <div key={j} className='flex flex-col shadow-lg rounded-xl p-4 text-start gap-2 mb-10'>
+                                            <div className='flex flex-col gap-2'>
+                                                <Image
+                                                    src={item.userAvatar || '/'}
+                                                    alt={item.userName}
+                                                    width={40}
+                                                    height={40}
+                                                    className='text-white min-w-[60px] min-h-[60px] max-w-[60px] max-h-[60px] rounded-full flex items-center justify-center text-lg'
                                                 />
                                                 <div className='flex flex-col items-start justify-start text-start gap-2'>
                                                     <div className='font-medium text-md'>{item.userName}</div>

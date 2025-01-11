@@ -246,3 +246,29 @@ body {
         transform: scale(1);
     }
 }
+
+
+/* Style for the indicator dots */
+.control-dots .dot {
+    background-color: #b1b1b1 !important;
+    /* Default color for inactive dots */
+    min-width: 35px !important;
+    /* Customize the size */
+    height: 6px !important;
+    border-radius: 5px !important;
+    /* Make it round */
+    transition: background-color 0.3s ease;
+    box-shadow: none !important;
+}
+
+/* Style for the selected (active) dot */
+.control-dots .dot.selected {
+    background-color: #2b7de2;
+    /* Color for active dot */
+}
+
+/* Optional: Adjust spacing between dots */
+.control-dots {
+    bottom: 20px;
+    /* Adjust position */
+}
