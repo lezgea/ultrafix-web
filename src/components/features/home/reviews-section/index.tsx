@@ -55,9 +55,6 @@ export const ReviewsSection: React.FC = () => {
                                                     height={40}
                                                     className='bg-primary text-white min-w-[60px] min-h-[60px] max-w-[60px] max-h-[60px] rounded-full flex items-center justify-center text-lg'
                                                 />
-                                                {/* <div >
-                                                    {item.userName.substring(0, 1)}
-                                                </div> */}
                                                 <div className='flex flex-col items-start justify-start text-start gap-2'>
                                                     <div className='font-medium text-md'>{item.userName}</div>
                                                     <StarsIcon className="w-[90px] h-[15px]" />
@@ -70,16 +67,6 @@ export const ReviewsSection: React.FC = () => {
                             </div>
                         ))}
                     </Carousel>
-                    {/* <div className='flex justify-center mt-10'>
-                        <Link
-                            href='https://www.google.com/search?q=ultrafix+appliance+repair&rlz=1C5OZZY_enCA1129CA1129&oq=ultrafix+applia&gs_lcrp=EgZjaHJvbWUqDggAEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIGCAEQRRg5MgcIAhAAGIAEMgcIAxAAGIAEMgcIBBAAGIAEMgYIBRBFGDwyBggGEEUYPTIGCAcQRRg80gEIODk3MGowajSoAgCwAgE&sourceid=chrome&ie=UTF-8#lrd=0x4f3d6d22598c85d9:0xcc23a0d79361e4cd,3,,,,'
-                            className="inline-flex w-auto text-center items-center px-10 py-3 lg:px-6 lg:py-[10px] text-xl text-white transition-all bg-primary rounded-lg sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
-                            aria-label="See Us on Google"
-                            target="_blank"
-                        >
-                            Write a Review
-                        </Link>
-                    </div> */}
                 </div>
             )}
         </SectionLayout>

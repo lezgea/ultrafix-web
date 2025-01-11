@@ -278,6 +278,12 @@ export default function RootLayout({
                 "ratingValue": "5",
                 "bestRating": "5"
               },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "reviewCount": "2549",
+                "bestRating": "5",
+              },
               "reviewBody": "UltraFix provided excellent service. The technician was professional, on time, and fixed our washer quickly. Highly recommended!"
             })
           }}
