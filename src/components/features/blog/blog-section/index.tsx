@@ -86,7 +86,7 @@ export const BlogSection: React.FC<IBlogSectionProps> = (props) => {
                         {blogsData?.data?.map(({ id, title, cover }) => (
                             <Link key={id} href={`/blog/${id}`} className='relative'>
                                 <Image
-                                    src={cover.url}
+                                    src={cover.url || "svg/noimg.svg"}
                                     width={1200}
                                     height={600}
                                     className="w-auto h-[250px] md:h-[600px] object-cover"
