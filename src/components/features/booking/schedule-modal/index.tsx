@@ -101,7 +101,6 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                 window.location.href = url;
             }
         };
-
         if (typeof window?.gtag === "function") {
             window?.gtag("event", "conversion", {
                 send_to: "AW-16752527414/04JgCNu4woIaELaQnbQ-",

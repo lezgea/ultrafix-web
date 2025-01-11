@@ -43,27 +43,34 @@ export const ReviewsSection: React.FC = () => {
                 <div className="rounded-3xl overflow-hidden">
                     <Carousel {...(carouselProps as CarouselProps)}>
                         {REVIEWS.map((review, i) => (
-                            <div key={i} className='flex justify-center p-5 gap-10'>
+                            <div key={i} className='flex justify-center p-5 gap-8'>
                                 {
                                     review.items.map((item, j) =>
-                                        <div key={j} className='flex flex-col shadow-lg max-w-[30%] rounded-xl p-4 text-start gap-2'>
-                                            <div className='flex'>
-                                                <div className='bg-primary text-white min-w-[40px] min-h-[40px] max-w-[40px] max-h-[40px] rounded-full flex items-center justify-center text-lg'>
+                                        <div key={j} className='flex flex-col shadow-lg max-w-[32%] rounded-xl p-4 text-start gap-2'>
+                                            <div className='flex flex-col gap-2'>
+                                                <Image
+                                                    src={item.userAvatar || '/'}
+                                                    alt={item.userName}
+                                                    width={40}
+                                                    height={40}
+                                                    className='bg-primary text-white min-w-[60px] min-h-[60px] max-w-[60px] max-h-[60px] rounded-full flex items-center justify-center text-lg'
+                                                />
+                                                {/* <div >
                                                     {item.userName.substring(0, 1)}
-                                                </div>
-                                                <div className='flex flex-col items-start justify-start text-start ml-3'>
+                                                </div> */}
+                                                <div className='flex flex-col items-start justify-start text-start gap-2'>
                                                     <div className='font-medium text-md'>{item.userName}</div>
                                                     <StarsIcon className="w-[90px] h-[15px]" />
                                                 </div>
                                             </div>
-                                            <div className='truncate-text text-sm'>{item.description}</div>
+                                            <div className='truncate-text-4 text-[13px]'>{item.description}</div>
                                         </div>
                                     )
                                 }
                             </div>
                         ))}
                     </Carousel>
-                    <div className='flex justify-center mt-10'>
+                    {/* <div className='flex justify-center mt-10'>
                         <Link
                             href='https://www.google.com/search?q=ultrafix+appliance+repair&rlz=1C5OZZY_enCA1129CA1129&oq=ultrafix+applia&gs_lcrp=EgZjaHJvbWUqDggAEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIGCAEQRRg5MgcIAhAAGIAEMgcIAxAAGIAEMgcIBBAAGIAEMgYIBRBFGDwyBggGEEUYPTIGCAcQRRg80gEIODk3MGowajSoAgCwAgE&sourceid=chrome&ie=UTF-8#lrd=0x4f3d6d22598c85d9:0xcc23a0d79361e4cd,3,,,,'
                             className="inline-flex w-auto text-center items-center px-10 py-3 lg:px-6 lg:py-[10px] text-xl text-white transition-all bg-primary rounded-lg sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
@@ -72,7 +79,7 @@ export const ReviewsSection: React.FC = () => {
                         >
                             Write a Review
                         </Link>
-                    </div>
+                    </div> */}
                 </div>
             )}
         </SectionLayout>

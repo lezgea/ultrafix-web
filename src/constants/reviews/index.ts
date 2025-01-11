@@ -3,53 +3,58 @@ export const REVIEWS = [
     {
         items: [
             {
-                userName: 'Meghan Bright',
-                userAvatar: null,
-                description: "They came out same day to fix our Whirlpool refrigerator. Paul was very friendly, had the necessary replacement parts on hand, and worked very quickly!",
+                userName: 'Page Clinton',
+                userAvatar: '/img/reviews/page_clinton.png',
+                description: "Orik came out and quickly solved the issue with my Samsung washing machine! Very impressed and he explained everything clearly so I knew exactly what was going on. Highly recommend Orik!",
             },
             {
-                userName: 'Xiao Shen',
-                userAvatar: null,
-                description: "UltraFix is quick in both response and action. The technician we had was Elmir. P. He's very knowledgeable about our GE washer and was able to run different tests to make the diagnosis and suggested the right solution. He came back in one week with replacement part and fixed it for us. Good to have the washer back! Thank you for the quality and quick service!",
+                userName: 'Michael Lockovich',
+                userAvatar: '/img/reviews/michael_lockovich.png',
+                description: "My Samsung Washers drain pump went bad! Elmir was very efficient and professional, same day service, very  punctual and had the replacement part on his truck. Priced very reasonable also!! I’ll be using these folks again!!",
             },
             {
-                userName: 'Chuck Arnold',
-                userAvatar: null,
-                description: "Paul was polite and quick on his repair. Ultrafix responded quickly to my needs. So far so good.",
+                userName: 'Britney Elsbury',
+                userAvatar: '/img/reviews/britney_elsbury.png',
+                description: "Elmir was friendly and made small talk. He arrived within the appointment timeframe. He was in and out in under a hour. He knew exactly how to fix my washer. It needed two circuit boards. Highly recommend.",
             },
         ]
     },
     {
         items: [
             {
-                userName: 'Thomas Bost',
-                userAvatar: null,
-                description: "Orik was excellent! He was very thorough and knowledgeable and very clearly explained what he was doing, what the problem was, and what to expect. He came back multiple times to be sure his assessment of the problem was correct rather than just guessing initially and potentially wasting us money. He was then able to fix the problem very quickly and our fridge is working great. He was also very courteous and responsive. I would absolutely request him as our technician again.",
+                userName: 'Katie Hite',
+                userAvatar: '/img/reviews/katie_hite.png',
+                description: "Orik completed our repairs. He arrived exactly when scheduled to do so. He was professional and finished his work quickly. I would recommend this company for repairs.",
             },
             {
-                userName: 'Dan Berty',
-                userAvatar: null,
-                description: "Elmir helped us with both our GE washer & dryer. He properly diagnosed & repaired both machines the 1st time very efficiently. He's also a very nice guy, i enjoyed getting to know him.",
+                userName: 'Rebecca Parsons',
+                userAvatar: '/img/reviews/rebecca_parsons.png',
+                description: "Elmir was so great. He was very thorough and made sure the problem was fixed before he left. Very professional and quick. Thank you!",
             },
             {
-                userName: 'Dennis Murage',
-                userAvatar: null,
-                description: "Paul  was good at fixing the Lg dryer, he had to come back because the first time he came out the issue required a part that he didn't have. When he came back the second time he was able to fix it quickly & his pricing was reasonable.",
+                userName: 'Kyle Meng',
+                userAvatar: '/img/reviews/kyle_meng.png',
+                description: "Paul was great. Very quick to identify the issue and was back with the correct parts to repair the washing machine",
             },
         ]
     },
     {
         items: [
             {
-                userName: 'William Molina',
-                userAvatar: null,
-                description: "First the customer service was real good. They scheduled me for the same day and orphan got on time. He verified my refrigerator found out what it was in 5 minutes. Unfortunately it is a better problem that what I thought. Orkhan gave a few options. He did a great job thank you very much",
+                userName: 'Troy Connor',
+                userAvatar: '/img/reviews/troy_connor.png',
+                description: "The company stood behind a difficult dishwasher repair. They sent Elmir out twice to troubleshoot the problems. They ended up needed to replace the motherboard and control panel again, but thy did it and the dishwasher works now.",
             },
             {
-                userName: 'Shannon Fuller',
-                userAvatar: null,
-                description: "We had a great experience! We own an AirBnB and we needed a very quick fix to our dishwasher. We read Google reviews and scheduled with UltraFix. Orik was there within a few hours on a Friday evening, he ordered our part, and was able to fix it by a Wednesday. I’ll definitely use them again!",
+                userName: 'Deanna Lee',
+                userAvatar: '/img/reviews/deanna_lee.png',
+                description: "My experience with Ultra Fix could not have been more seamless. I was able to make a next-day appointment after discovering an issue with our dryer. Orik, our technician, was professional, courteous, knowledgeable, and very efficient. He also helped me to navigate the process for getting a repair covered with our home warranty. Highly recommend!",
             },
+            {
+                userName: 'Brad Butcher',
+                userAvatar: '/img/reviews/brad_butcher.png',
+                description: "I had an excellent experience with UltraFix Appliance Repair. My technician was Elmir P., and he was awesome. First, he arrived within the time window quoted by the company, and I received a text message about 15 minutes before his arrival. Elmer was friendly and got right down to business. He diagnosed the problem within about 15-30 minutes, had the necessary part to fix it already with him, and within another 30 min or so, the job was complete. He was kind enough to vacuum out the insides of my dryer and the surrounding area. He also fixed the ducting to the vent, which wasn’t the problem, but could have become one. I was able to pay by check easily. Friendly, skilled, and efficient. And now, thanks to Elmir, my clothes won’t have to tumble endlessly in a cold dryer anymore.",
+            }
         ]
     },
 
