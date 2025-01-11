@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { SitemapStream, streamToPromise } from 'sitemap';
 import { COMMERCIAL_SERVICES_LIST, RESIDENCIAL_SERVICES_LIST } from 'constants/services';
 import { CITIES, STATES } from 'constants/locations';
+import { fetchAllBlogs } from '@utils/fetchAllBlogs';
 
 
 export async function GET(req: NextRequest) {
@@ -63,6 +64,19 @@ export async function GET(req: NextRequest) {
             priority: 0.8,
         });
     });
+
+    const blogs = await fetchAllBlogs(0, 100); // Adjust the skip and limit as needed
+
+    if (blogs?.data?.length) {
+        blogs.data.forEach((blog: any) => {
+            sitemap.write({
+                url: `/blog/${blog.id}`,
+                lastmod: blog.updatedAt || '2024-12-14',
+                changefreq: 'weekly',
+                priority: 0.8,
+            });
+        });
+    }
 
     sitemap.end();
 
