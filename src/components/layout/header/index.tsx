@@ -120,7 +120,7 @@ export const Header: React.FC = () => {
         const currentHour = now.getHours();
 
         // Disable call button between 10 AM (10) and 1 PM (13)
-        if (currentHour >= 7 && currentHour < 21) {
+        if (currentHour >= 6 && currentHour < 20) {
             setIsCallButtonAvailable(true);
         }
     }, []);
