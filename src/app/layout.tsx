@@ -278,13 +278,21 @@ export default function RootLayout({
                 "ratingValue": "5",
                 "bestRating": "5"
               },
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.9",
-                "reviewCount": "2549",
-                "bestRating": "5",
-              },
               "reviewBody": "UltraFix provided excellent service. The technician was professional, on time, and fixed our washer quickly. Highly recommended!"
+            })
+          }}
+        />
+
+        {/* Agregaterating Schema for Reviews */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "reviewCount": "2549",
+              "bestRating": "5"
             })
           }}
         />

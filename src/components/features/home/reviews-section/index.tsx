@@ -31,6 +31,8 @@ export const ReviewsSection: React.FC = () => {
         transitionTime: 1000,
         interval: 10000,
         infiniteLoop: true,
+        swipeable: true,
+        emulateTouch: true,
     };
 
     return (
@@ -43,10 +45,10 @@ export const ReviewsSection: React.FC = () => {
                 <div className="hidden md:flex md:flex-col rounded-3xl overflow-hidden">
                     <Carousel {...(carouselProps as CarouselProps)}>
                         {REVIEWS.map((review, i) => (
-                            <div key={i} className='flex justify-center p-5 gap-8'>
+                            <div key={i} className='flex justify-center p-5 gap-8 select-none'>
                                 {
                                     review.items.map((item, j) =>
-                                        <div key={j} className='flex flex-col shadow-lg max-w-[32%] rounded-xl p-4 text-start gap-2 mb-10'>
+                                        <div key={j} className='flex flex-col shadow-lg max-w-[32%] rounded-xl p-4 text-start gap-2 mb-10 cursor-pointer hover:shadow-xl'>
                                             <div className='flex flex-col gap-2'>
                                                 <Image
                                                     src={item.userAvatar || '/'}
