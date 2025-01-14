@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import PageLayout from '@components/layout/page-layout';
-import { AboutUsSection, BlogSection, BrandsSection, CommercialServicesSection, ContactSection, LocationsSection, ResidentialServicesSection, WhyUsSection } from '@components/features';
+import { AboutUsSection, BlogSection, BrandsSection, CommercialServicesSection, ContactSection, LocationsSection, ResidentialServicesSection, ReviewsSection, WhyUsSection } from '@components/features';
 
 
 export async function generateMetadata() {
@@ -89,6 +89,7 @@ const Blog: React.FC = () => {
             <BlogSection noYPadding={true} />
             <ResidentialServicesSection />
             <CommercialServicesSection />
+            <ReviewsSection />
             <ContactSection />
             {/* <LocationsSection /> */}
             <AboutUsSection />

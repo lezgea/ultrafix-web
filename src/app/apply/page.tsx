@@ -8,6 +8,7 @@ import {
     CommercialServicesSection,
     LocationsSection,
     ResidentialServicesSection,
+    ReviewsSection,
     WhyUsSection,
 } from '@components/features';
 
@@ -24,6 +25,7 @@ const Apply: React.FC = () => {
             {/* <LocationsSection /> */}
             <ResidentialServicesSection />
             <CommercialServicesSection />
+            <ReviewsSection />
             <AboutUsSection />
             <BrandsSection />
             <WhyUsSection />

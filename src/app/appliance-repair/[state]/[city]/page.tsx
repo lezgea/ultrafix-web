@@ -11,6 +11,7 @@ import {
     LocationsSection,
     LogosSection,
     ResidentialLocationServices,
+    ReviewsSection,
     WhyUsSection
 } from '@components/features';
 import * as motion from "framer-motion/client";
@@ -131,6 +132,7 @@ const LocationPage: React.FC<ILocationProps> = ({ params }) => {
                 </motion.div>
                 <ResidentialLocationServices />
                 <CommercialLocationServices />
+                <ReviewsSection />
                 <LocationsMap />
                 <LocationsSection />
                 <ContactSection />

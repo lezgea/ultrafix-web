@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import PageLayout from '@components/layout/page-layout';
-import { AboutUsSection, BrandsSection, CommercialServicesSection, FAQSection, LocationsSection, ResidentialServicesSection, WhyUsSection } from '@components/features';
+import { AboutUsSection, BrandsSection, CommercialServicesSection, FAQSection, LocationsSection, ResidentialServicesSection, ReviewsSection, WhyUsSection } from '@components/features';
 
 
 export const metadata: Metadata = {
@@ -16,6 +16,7 @@ const FAQ: React.FC = () => {
             {/* <LocationsSection /> */}
             <ResidentialServicesSection />
             <CommercialServicesSection />
+            <ReviewsSection />
             <AboutUsSection />
             <BrandsSection />
             <WhyUsSection />
