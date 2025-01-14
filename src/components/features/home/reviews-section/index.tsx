@@ -35,7 +35,7 @@ export const ReviewsSection: React.FC = () => {
 
     return (
         <SectionLayout
-            scrollId="about_us"
+            // scrollId="about_us"
             title="Reviews"
             description="Our pledge is to establish lasting relationships with our customers by exceeding their expectations and gaining their trust through exceptional performance by each member of our service team. We have been providing top service!"
         >
