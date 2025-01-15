@@ -20,7 +20,7 @@ const SectionLayout: FC<ISectionLayout> = ({
 
     return (
         <section id={scrollId} className={`w-full ${noYPadding ? '' : 'pt-20 md:py-20'} px-5 md:px-10`}>
-            <div className="relative w-full flex flex-col container mx-auto max-w-[1200px] space-y-10">
+            <div className="relative w-full flex flex-col container mx-auto max-w-[1200px] gap-10">
                 {
                     (!!title || !!description) &&
                     <div className='space-y-2'>
