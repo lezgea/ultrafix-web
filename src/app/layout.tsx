@@ -23,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Global site tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16752527414"></script>
         <script
           dangerouslySetInnerHTML={{

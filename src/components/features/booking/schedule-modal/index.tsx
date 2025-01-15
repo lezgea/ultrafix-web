@@ -1,8 +1,6 @@
 "use client";
 
 import React from 'react';
-import { STATES } from 'constants/locations';
-import Image from 'next/image';
 import Link from 'next/link';
 import { CloseIcon } from '@assets/icons';
 import { DaySelect, Modal, TimeSelect } from '@components/shared';
@@ -11,7 +9,6 @@ import { useBookAppointmentMutation, useLazyGetTimeSlotsQuery } from '@api/booki
 import { RootState } from '@store/store';
 import { useSelector } from 'react-redux';
 import { setBookingData, setSelectedBookingDate, setSelectedSlot } from '@slices/booking-slice';
-import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { UlDayPicker } from '@components/shared/day-picker';
 import { SlotsSkeleton } from '@components/shared/skeletons';
@@ -97,9 +94,9 @@ const ModalContent: React.FC<IModalContent> = (props) => {
 
     const gtag_report_conversion = (url?: string) => {
         const callback = () => {
-            if (typeof url !== "undefined") {
-                window.location.href = url;
-            }
+            // if (typeof url !== "undefined") {
+            //     window.location.href = url;
+            // }
         };
         if (typeof window?.gtag === "function") {
             window?.gtag("event", "conversion", {
@@ -115,13 +112,14 @@ const ModalContent: React.FC<IModalContent> = (props) => {
             let response = await bookAppointment(bookingData).unwrap();
             if (response.status === 'success') {
                 onConfirm();
-                gtag_report_conversion("/book");
+                gtag_report_conversion("https://ultrafix.com/book");
                 onClose();
             }
         } catch (err: any) {
             console.error('Error: ', err);
         }
     };
+
 
     React.useEffect(() => {
         dispatch(setBookingData({ order_at: format(new Date(), "yyyy-MM-dd") }));
