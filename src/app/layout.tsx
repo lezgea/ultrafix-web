@@ -283,7 +283,7 @@ export default function RootLayout({
           }}
         />
 
-        {/* Agregaterating Schema for Reviews */}
+        {/* Corrected AggregateRating Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -292,10 +292,16 @@ export default function RootLayout({
               "@type": "AggregateRating",
               "ratingValue": "4.9",
               "reviewCount": "2549",
-              "bestRating": "5"
-            })
+              "bestRating": "5",
+              "itemReviewed": {
+                "@type": "Service",
+                "name": "Appliance Repair – Same Day Service - Local Pros | UltraFix®",
+                "description": "Ultrafix® Provides Fast, Reliable Appliance Repair Services. Get Same-Day Repairs for All Major Brands. Satisfaction Guaranteed—call Now!",
+              },
+            }),
           }}
         />
+
 
         {/* Google Tag Manager */}
         <script
