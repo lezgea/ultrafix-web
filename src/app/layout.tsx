@@ -283,7 +283,7 @@ export default function RootLayout({
           }}
         />
 
-        {/* Corrected AggregateRating Schema */}
+        {/* AggregateRating Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
