@@ -9,6 +9,7 @@ import { CarouselProps } from 'react-responsive-carousel';
 import { REVIEWS, REVIEWS_MOB } from 'constants/reviews';
 import { StarsIcon } from '@assets/icons';
 import Link from 'next/link';
+import { ReviewModal } from '@components/shared/review-modal';
 
 // Dynamically import the Carousel to avoid SSR issues
 const Carousel = dynamic(() => import("react-responsive-carousel").then(mod => mod.Carousel), {
@@ -17,6 +18,7 @@ const Carousel = dynamic(() => import("react-responsive-carousel").then(mod => m
 
 export const ReviewsSection: React.FC = () => {
     const [isMounted, setIsMounted] = useState(false);
+    const [reviewModal, setReviewModal] = React.useState<{ visible: boolean, userName?: string, userAvatar?: string, description?: string }>({ visible: false });
 
     // This ensures the component only runs on the client
     useEffect(() => {
@@ -39,6 +41,7 @@ export const ReviewsSection: React.FC = () => {
         <SectionLayout
             // scrollId="about_us"
             title="Reviews"
+            noYPadding
             description="Our pledge is to establish lasting relationships with our customers by exceeding their expectations and gaining their trust through exceptional performance by each member of our service team. We have been providing top service!"
         >
             {isMounted && (
@@ -48,7 +51,16 @@ export const ReviewsSection: React.FC = () => {
                             <div key={i} className='flex justify-center p-5 gap-8 select-none'>
                                 {
                                     review.items.map((item, j) =>
-                                        <div key={j} className='flex flex-col shadow-lg max-w-[32%] rounded-xl p-4 text-start gap-2 mb-10 cursor-pointer hover:shadow-xl'>
+                                        <div
+                                            key={j}
+                                            className='flex flex-col shadow-lg max-w-[32%] rounded-xl p-4 text-start gap-2 mb-10 cursor-pointer hover:shadow-xl'
+                                            onClick={() => setReviewModal({
+                                                visible: true,
+                                                userAvatar: item.userAvatar,
+                                                userName: item.userName,
+                                                description: item.description,
+                                            })}
+                                        >
                                             <div className='flex flex-col gap-2'>
                                                 <Image
                                                     src={item.userAvatar || '/'}
@@ -79,7 +91,16 @@ export const ReviewsSection: React.FC = () => {
                             <div key={i} className='flex justify-center p-2 gap-4'>
                                 {
                                     review.items.map((item, j) =>
-                                        <div key={j} className='flex flex-col shadow-lg rounded-xl p-4 text-start gap-2 mb-10'>
+                                        <div
+                                            key={j}
+                                            className='flex flex-col shadow-lg rounded-xl p-4 text-start gap-2 mb-10'
+                                            onClick={() => setReviewModal({
+                                                visible: true,
+                                                userAvatar: item.userAvatar,
+                                                userName: item.userName,
+                                                description: item.description,
+                                            })}
+                                        >
                                             <div className='flex flex-col gap-2'>
                                                 <Image
                                                     src={item.userAvatar || '/'}
@@ -102,6 +123,16 @@ export const ReviewsSection: React.FC = () => {
                     </Carousel>
                 </div>
             )}
+
+            <ReviewModal
+                visible={reviewModal.visible}
+                content={{
+                    userName: reviewModal.userName || '',
+                    userAvatar: reviewModal.userAvatar || '',
+                    description: reviewModal.description || ''
+                }}
+                onClose={() => setReviewModal({ ...reviewModal, visible: false })}
+            />
         </SectionLayout>
     );
 };
