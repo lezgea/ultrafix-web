@@ -133,7 +133,7 @@ export const Header: React.FC = () => {
             <header className="backdrop-blur-xl bg-white/10 w-full fixed z-30 h-[65px] select-none">
                 <nav role="navigation" aria-label="Main navigation" className="container w-full max-w-[1200px] mx-auto flex justify-between items-center px-5 md:px-10 xl:px-0 py-0 h-full space-x-5">
                     <div className="flex items-center cursor-pointer w-[100%] justify-between lg:w-[20%] lg:space-x-0">
-                        <Link href="/" passHref aria-label="UltraFix Logo">
+                        <Link href="/" onClick={() => setSelectedId('')} passHref aria-label="UltraFix Logo">
                             <UltrafixLogo className="h-auto w-[160px]" />
                         </Link>
                         <div className="w-[60px] flex lg:hidden">

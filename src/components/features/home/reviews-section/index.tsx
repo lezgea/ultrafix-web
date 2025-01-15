@@ -1,14 +1,12 @@
 "use client";
 
 import SectionLayout from '@components/layout/section-layout';
-import { ABOUT_US_IMAGES } from 'constants/about-us';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { CarouselProps } from 'react-responsive-carousel';
 import { REVIEWS, REVIEWS_MOB } from 'constants/reviews';
 import { StarsIcon } from '@assets/icons';
-import Link from 'next/link';
 import { ReviewModal } from '@components/shared/review-modal';
 
 // Dynamically import the Carousel to avoid SSR issues
@@ -39,7 +37,6 @@ export const ReviewsSection: React.FC = () => {
 
     return (
         <SectionLayout
-            // scrollId="about_us"
             title="Reviews"
             description="Our pledge is to establish lasting relationships with our customers by exceeding their expectations and gaining their trust through exceptional performance by each member of our service team. We have been providing top service!"
         >
