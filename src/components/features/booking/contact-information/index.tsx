@@ -12,7 +12,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { IBookAppointmentRequest } from '@api/types/booking-types';
-import { useSearchParams } from 'next/navigation';
 
 
 interface IContactForm extends IBookAppointmentRequest {
@@ -54,13 +53,6 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
         mode: 'onBlur',
     });
 
-    const searchParams = useSearchParams();
-
-    const zip = searchParams.get("zip");
-    const lead_id = searchParams.get("lead_id");
-    const customer_name = searchParams.get("customer_name");
-    const customer_phone = searchParams.get("customer_phone");
-
     const onChangeAddress = (address: string | undefined, all_data: any) => {
         setValue('address', address || '');
         setValue('latitude', all_data.coordinates.lat);
@@ -79,15 +71,6 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
             toast.error(err.data?.message || 'An unexpected error occurred');
         }
     };
-
-    React.useEffect(() => {
-        setValue('zip', zip || '');
-        setValue('customer_phone', customer_phone || '');
-        dispatch(setBookingData({
-            zip: zip,
-            customer_phone: customer_phone,
-        }));
-    }, [searchParams])
 
 
     return (
