@@ -10,12 +10,50 @@ import {
     IssueSelect,
     ScheduleModal,
 } from '@components/features/booking';
+import { useSearchParams } from 'next/navigation';
+import { useDispatch } from 'react-redux';
+import { setSelectedAppliances } from '@slices/booking-slice';
 
 
 export const BookingForm: React.FC = () => {
     const [step, setStep] = React.useState<number>(0);
     const [scheduleModal, setScheduleModal] = React.useState<boolean>(false);
     const [confirmation, setConfirmation] = React.useState<boolean>(false);
+
+    const dispatch = useDispatch();
+
+    const searchParams = useSearchParams();
+
+    const zip = searchParams.get("zip");
+    const lead_id = searchParams.get("lead_id");
+    const customer_name = searchParams.get("customer_name");
+    const customer_phone = searchParams.get("customer_phone");
+    const appliances = searchParams.get("appliances");
+
+    console.log('@@@@', appliances)
+
+    React.useEffect(() => {
+        // Extract the appliances parameter
+        const appliancesParam = searchParams.get('appliances');
+        if (appliancesParam) {
+            // Manually parse the appliances query string
+            const decodedAppliances = decodeURIComponent(appliancesParam);
+            // You might need to parse it further if it's in a complex format
+            const appliancesArray = JSON.parse(decodedAppliances);
+
+            dispatch(setSelectedAppliances([
+                ...appliancesArray.map((item: any) => ({
+                    brand: '',
+                    problem: '',
+                    // service_id: applianceId,
+                    type: item.type,
+                    title: item.service_name,
+                }))
+            ]));
+        }
+
+        setStep(3)
+    }, [searchParams]);
 
 
     return (
