@@ -47,7 +47,10 @@ const ResidentialContent: React.FC<IServiceBannerProps> = ({ service }) => {
                     <h1 className="text-[3rem] leading-[3.5rem] text-[3.4rem] leading-[4rem] font-semibold text-primaryDark">
                         Same-Day <span className='text-primary'>{RESIDENTIAL_SERVICES[serviceKey].title} Repair</span> in {cityData?.title}, {cityData?.stateShort}
                     </h1>
-                    <p className='text-gray-600 text-lg md:text-xl mb-10'>{RESIDENTIAL_SERVICES[service].subTitle}</p>
+                    {/* <p className='text-gray-600 text-lg md:text-xl mb-10'>{RESIDENTIAL_SERVICES[service].subTitle}</p> */}
+                    <p className='text-gray-600 text-md md:text-lg mb-10'>
+                        {`UltraFix Appliance Repair in ${cityData.title}, ${cityData.stateShort} provides expert ${RESIDENTIAL_SERVICES[serviceKey].title} repair with same-day service, affordable pricing, and professional technicians. Call now for reliable service!`}
+                    </p>
                 </div>
 
                 <motion.div
@@ -137,7 +140,10 @@ const CommercialContent: React.FC<IServiceBannerProps> = ({ service }) => {
                     <h1 className="text-[3rem] leading-[3.5rem] text-[3.4rem] leading-[4rem] font-semibold text-primaryDark">
                         Same-Day <span className='text-primary'>{COMMERCIAL_SERVICES[serviceKey].title} Repair</span> in {cityData?.title}, {cityData?.stateShort}
                     </h1>
-                    <p className='text-gray-600 text-lg md:text-xl mb-10'>{COMMERCIAL_SERVICES[service].subTitle}</p>
+                    {/* <p className='text-gray-600 text-lg md:text-xl mb-10'>{COMMERCIAL_SERVICES[service].subTitle}</p> */}
+                    <p className='text-gray-600 text-md md:text-lg mb-10'>
+                        {`UltraFix Appliance Repair in ${cityData.title}, ${cityData.stateShort} provides expert ${COMMERCIAL_SERVICES[serviceKey].title} repair with same-day service, affordable pricing, and professional technicians. Call now for reliable service!`}
+                    </p>
                 </div>
                 <motion.div
                     initial={{ opacity: 0, scale: 0.1 }}

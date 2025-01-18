@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: IServiceProps) {
         ? `Commercial ${COMMERCIAL_SERVICES[serviceKey].title} Repair in ${cityData?.title}, ${cityData?.stateShort} | UltraFix®`
         : 'Commercial Appliance Repair Services | UltraFix®';
     const description = cityData
-        ? `UltraFix offers trusted ${COMMERCIAL_SERVICES[serviceKey].title} repair services in ${cityData.title}, ${cityData.stateShort}. Fast, same-day repairs for refrigerators, washers, dryers, and more!`
+        ? `UltraFix Appliance Repair in ${cityData.title}, ${cityData.stateShort} provides expert ${COMMERCIAL_SERVICES[serviceKey].title} repair with same-day service, affordable pricing, and professional technicians. Call now for reliable service!`
         : 'UltraFix offers trusted appliance repair services across the United States.';
 
     return {
