@@ -28,15 +28,6 @@ export const LocationsMap: React.FC = () => {
         setIsMounted(true);
     }, []);
 
-    const carouselProps: Partial<CarouselProps> = {
-        showIndicators: false,
-        showArrows: true,
-        autoPlay: true,
-        showThumbs: false,
-        transitionTime: 1000,
-        interval: 3000,
-        infiniteLoop: true,
-    };
 
     return (
         <SectionLayout
