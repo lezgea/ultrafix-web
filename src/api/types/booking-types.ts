@@ -76,6 +76,11 @@ export interface IGetBrandsRequest {
     query?: string,
     skip: string | number,
     limit: string | number,
+    zip?: string | number,
+    appliances?: {
+        service_id: string | number,
+        type: string,
+    }[],
 }
 
 export interface IGetBrandsResponse {

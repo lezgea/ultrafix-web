@@ -125,7 +125,13 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
 
     const onSearchBrand = async (e: any) => {
         try {
-            triggerGetBrands({ query: e.target.value, skip: 0, limit: 6 }).unwrap();
+            triggerGetBrands({
+                query: e.target.value,
+                skip: 0,
+                limit: 6,
+                zip: bookingData?.zip,
+                appliances: [...bookingData?.appliances?.map(item => ({ service_id: item.service_id, type: item.type }))]
+            }).unwrap();
         } catch (err: any) {
             console.log('Error: ', err)
         }
@@ -134,7 +140,13 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
 
     React.useEffect(() => {
         try {
-            triggerGetBrands({ query: '', skip: 0, limit: 6 }).unwrap();
+            triggerGetBrands({
+                query: '',
+                skip: 0,
+                limit: 6,
+                zip: bookingData?.zip,
+                appliances: [...bookingData?.appliances?.map(item => ({ service_id: item.service_id, type: item.type }))]
+            }).unwrap();
         } catch (err: any) {
             console.log('Error: ', err)
         }

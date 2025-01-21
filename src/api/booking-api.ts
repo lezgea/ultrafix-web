@@ -25,10 +25,10 @@ export const bookingApi = createApi({
             providesTags: ['Services'],
         }),
         getBrands: builder.query<IGetBrandsResponse, IGetBrandsRequest>({
-            query: ({ query, skip, limit }) => ({
+            query: (params) => ({
                 url: `/booking/brands`,
                 method: 'GET',
-                params: { query, skip, limit },
+                params: params,
             }),
         }),
         getSelectedServices: builder.query<IGetSelectedServicesResponse, IGetSelectedServicesRequest>({
