@@ -6,7 +6,6 @@ import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { CarouselProps } from 'react-responsive-carousel';
-import { WHY_US_IMAGES } from 'constants/why-us';
 import { useParams } from 'next/navigation';
 import { CITIES } from 'constants/locations';
 import { AnimatePresence, motion } from 'framer-motion';

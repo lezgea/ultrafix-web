@@ -6,7 +6,6 @@ import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { CarouselProps } from 'react-responsive-carousel';
-import { WHY_US_IMAGES } from 'constants/why-us';
 import { ExpandableInfoSection } from '@components/shared';
 import { FAQ_LIST } from 'constants/faq';
 
