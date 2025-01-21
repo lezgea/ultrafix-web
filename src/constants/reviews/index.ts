@@ -119,15 +119,6 @@ export const REVIEWS_MOB = [
     // {
     //     items: [
     //         {
-    //             userName: 'Brad Butcher',
-    //             userAvatar: '/img/reviews/brad_butcher.png',
-    //             description: "I had an excellent experience with UltraFix Appliance Repair. My technician was Elmir P., and he was awesome. First, he arrived within the time window quoted by the company, and I received a text message about 15 minutes before his arrival. Elmer was friendly and got right down to business. He diagnosed the problem within about 15-30 minutes, had the necessary part to fix it already with him, and within another 30 min or so, the job was complete. He was kind enough to vacuum out the insides of my dryer and the surrounding area. He also fixed the ducting to the vent, which wasn’t the problem, but could have become one. I was able to pay by check easily. Friendly, skilled, and efficient. And now, thanks to Elmir, my clothes won’t have to tumble endlessly in a cold dryer anymore.",
-    //         },
-    //     ]
-    // },
-    // {
-    //     items: [
-    //         {
     //             userName: 'Rebecca Parsons',
     //             userAvatar: '/img/reviews/rebecca_parsons.png',
     //             description: "Elmir was so great. He was very thorough and made sure the problem was fixed before he left. Very professional and quick. Thank you!",

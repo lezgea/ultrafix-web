@@ -69,6 +69,7 @@ import NYMapIcon from './ny_map.svg';
 import StoveIcon from './stove.svg';
 import RangeIcon from './range.svg';
 import BlueCheckIcon from './blue-check.svg';
+import Check3Icon from './check3.svg';
 
 
 export {
@@ -87,6 +88,7 @@ export {
     AppliancesIllustration,
 
     // icons
+    Check3Icon,
     BlueCheckIcon,
     StoveIcon,
     RangeIcon,

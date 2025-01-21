@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Stepper } from '../stepper';
 import {
     ApplianceSelect,
@@ -13,9 +13,10 @@ import {
 import { useSearchParams } from 'next/navigation';
 import { useDispatch } from 'react-redux';
 import { setSelectedAppliances } from '@slices/booking-slice';
+import { Loader } from '../loader';
 
 
-export const BookingForm: React.FC = () => {
+const BookingFormContent: React.FC = () => {
     const [step, setStep] = React.useState<number>(0);
     const [scheduleModal, setScheduleModal] = React.useState<boolean>(false);
     const [confirmation, setConfirmation] = React.useState<boolean>(false);
@@ -74,3 +75,14 @@ export const BookingForm: React.FC = () => {
         </div>
     )
 }
+
+
+const BookingForm: React.FC = () => {
+    return (
+        <Suspense fallback={<Loader />}>
+            <BookingFormContent />
+        </Suspense>
+    )
+}
+
+export default BookingForm;

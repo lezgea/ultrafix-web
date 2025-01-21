@@ -1,9 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import PageLayout from '@components/layout/page-layout';
-import { ContactSection } from '@components/features/home/contact-section';
-import { AboutUsSection, BrandsSection, CommercialServicesSection, LocationsSection, ResidentialServicesSection, WhyUsSection } from '@components/features';
-import { BookingForm } from '@components/shared/booking-form';
+import BookingForm from '@components/shared/booking-form';
 
 
 export const metadata: Metadata = {

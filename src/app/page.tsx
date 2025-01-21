@@ -93,9 +93,9 @@ const Home: React.FC = () => {
             <ContactSection />
             {/* <LocationsSection /> */}
             <AboutUsSection />
+            <WhyUsSection />
             <BrandsSection />
             <BlogSection hideCarousel />
-            <WhyUsSection />
         </PageLayout >
     );
 };
