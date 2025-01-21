@@ -17,3 +17,4 @@ export * from './text-editor';
 export * from './day-select';
 export * from './time-select';
 export * from './booking-form';
+export * from './lead-form';
