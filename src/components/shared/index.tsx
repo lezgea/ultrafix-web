@@ -18,3 +18,5 @@ export * from './day-select';
 export * from './time-select';
 export * from './booking-form';
 export * from './lead-form';
+export * from './text-blur-in';
+export * from './text-pull-up';

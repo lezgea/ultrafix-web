@@ -5,6 +5,7 @@ import SectionLayout from '@components/layout/section-layout';
 import { WHY_US } from 'constants/why-us';
 import React, { useState, useEffect } from 'react';
 import * as motion from "framer-motion/client";
+import { TextBlurIn, TextPullUp } from '@components/shared';
 
 
 export const WhyUsSection: React.FC = () => {
@@ -50,20 +51,36 @@ export const WhyUsSection: React.FC = () => {
             <div className="bg-gradient-to-r from-[#1F70DA] to-[#103C74] text-white py-[60px]">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
                     <div className='flex flex-col gap-1'>
-                        <h3 className="text-3xl font-bold">1,100,000+</h3>
-                        <p className="text-md font-medium text-[rgba(255,255,255,0.8)]">Appliances Repaired</p>
+                        <h3 className="text-3xl font-bold">
+                            <TextPullUp text={'1,100,000+'} />
+                        </h3>
+                        <p className="text-md font-medium text-[rgba(255,255,255,0.8)]">
+                            <TextBlurIn>Appliances Repaired</TextBlurIn>
+                        </p>
                     </div>
                     <div className='flex flex-col gap-1'>
-                        <h3 className="text-3xl font-bold">5.0 <span className='font-light'>star</span></h3>
-                        <p className="text-md font-medium text-[rgba(255,255,255,0.8)]">Google Rating</p>
+                        <h3 className="flex justify-center text-3xl font-bold gap-2">
+                            <TextPullUp text={'5.0'} /><TextPullUp text={'star'} />
+                        </h3>
+                        <p className="text-md font-medium text-[rgba(255,255,255,0.8)]">
+                            <TextBlurIn>Google Rating</TextBlurIn>
+                        </p>
                     </div>
                     <div className='flex flex-col gap-1'>
-                        <h3 className="text-3xl font-bold">65,780</h3>
-                        <p className="text-md font-medium text-[rgba(255,255,255,0.8)]">Google Reviews</p>
+                        <h3 className="text-3xl font-bold">
+                            <TextPullUp text={'65,780'} />
+                        </h3>
+                        <p className="text-md font-medium text-[rgba(255,255,255,0.8)]">
+                            <TextBlurIn>Google Reviews</TextBlurIn>
+                        </p>
                     </div>
                     <div className='flex flex-col gap-1'>
-                        <h3 className="text-3xl font-bold">82 <span className='font-light'>cities</span></h3>
-                        <p className="text-md font-medium text-[rgba(255,255,255,0.8)]">Across the USA</p>
+                        <h3 className="flex justify-center text-3xl font-bold gap-2">
+                            <TextPullUp text={'83'} /><TextPullUp text={'cities'} />
+                        </h3>
+                        <p className="text-md font-medium text-[rgba(255,255,255,0.8)]">
+                            <TextBlurIn>Across the USA</TextBlurIn>
+                        </p>
                     </div>
                 </div>
             </div>
