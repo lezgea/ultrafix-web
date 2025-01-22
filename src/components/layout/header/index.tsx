@@ -97,7 +97,7 @@ export const Header: React.FC = () => {
 
     const onDeal = () => {
         // window.location.href = `tel:${cityData?.phone ? cityData?.phone : '(888) 998-6263'}`;
-        window.location.href = '(832) 998-6280'
+        window.location.href = 'tel:(832) 998-6280'
     }
 
     const phoneButton = React.useMemo(() => (
@@ -178,7 +178,7 @@ export const Header: React.FC = () => {
                         isCallButtonAvailable &&
                         <a
                             // href={`tel:${cityData?.phone ? cityData.phone : '(888) 998-6263'}`}
-                            href='(832) 998-6280'
+                            href='tel:(832) 998-6280'
                             className="call-btn backdrop-blur-xl bg-primary"
                         >
                             <CallIcon className="w-[35px]" fill="white" />
