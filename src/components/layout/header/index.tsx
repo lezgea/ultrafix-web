@@ -96,7 +96,8 @@ export const Header: React.FC = () => {
 
 
     const onDeal = () => {
-        window.location.href = `tel:${cityData?.phone ? cityData?.phone : '(888) 998-6263'}`;
+        // window.location.href = `tel:${cityData?.phone ? cityData?.phone : '(888) 998-6263'}`;
+        window.location.href = '(832) 998-6280'
     }
 
     const phoneButton = React.useMemo(() => (
@@ -105,7 +106,8 @@ export const Header: React.FC = () => {
             className="hidden md:inline-flex w-auto text-center items-center px-4 py-2 text-white transition-all bg-primary rounded-lg sm:w-auto hover:text-white shadow-neutral-300 hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px focus:shadow-none"
             onClick={onDeal}
         >
-            {cityData?.phone ? cityData?.phone : '(888) 998-6263'}
+            {/* {cityData?.phone ? cityData?.phone : '(888) 998-6263'} */}
+            (832) 998-6280
         </button>
     ), [cityKey, pathname]);
 
@@ -174,7 +176,11 @@ export const Header: React.FC = () => {
                     </Link>
                     {
                         isCallButtonAvailable &&
-                        <a href={`tel:${cityData?.phone ? cityData.phone : '(888) 998-6263'}`} className="call-btn backdrop-blur-xl bg-primary">
+                        <a
+                            // href={`tel:${cityData?.phone ? cityData.phone : '(888) 998-6263'}`}
+                            href='(832) 998-6280'
+                            className="call-btn backdrop-blur-xl bg-primary"
+                        >
                             <CallIcon className="w-[35px]" fill="white" />
                         </a>
                     }
