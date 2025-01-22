@@ -54,33 +54,33 @@ export const WhyUsSection: React.FC = () => {
                         <h3 className="text-3xl font-bold">
                             <TextPullUp text={'1,100,000+'} />
                         </h3>
-                        <p className="text-md font-medium text-[rgba(255,255,255,0.8)]">
+                        <div className="text-md font-medium text-[rgba(255,255,255,0.8)]">
                             <TextBlurIn>Appliances Repaired</TextBlurIn>
-                        </p>
+                        </div>
                     </div>
                     <div className='flex flex-col gap-1'>
                         <h3 className="flex justify-center text-3xl font-bold gap-2">
                             <TextPullUp text={'5.0'} /><TextPullUp text={'star'} />
                         </h3>
-                        <p className="text-md font-medium text-[rgba(255,255,255,0.8)]">
+                        <div className="text-md font-medium text-[rgba(255,255,255,0.8)]">
                             <TextBlurIn>Google Rating</TextBlurIn>
-                        </p>
+                        </div>
                     </div>
                     <div className='flex flex-col gap-1'>
                         <h3 className="text-3xl font-bold">
                             <TextPullUp text={'65,780'} />
                         </h3>
-                        <p className="text-md font-medium text-[rgba(255,255,255,0.8)]">
+                        <div className="text-md font-medium text-[rgba(255,255,255,0.8)]">
                             <TextBlurIn>Google Reviews</TextBlurIn>
-                        </p>
+                        </div>
                     </div>
                     <div className='flex flex-col gap-1'>
                         <h3 className="flex justify-center text-3xl font-bold gap-2">
                             <TextPullUp text={'83'} /><TextPullUp text={'cities'} />
                         </h3>
-                        <p className="text-md font-medium text-[rgba(255,255,255,0.8)]">
+                        <div className="text-md font-medium text-[rgba(255,255,255,0.8)]">
                             <TextBlurIn>Across the USA</TextBlurIn>
-                        </p>
+                        </div>
                     </div>
                 </div>
             </div>
