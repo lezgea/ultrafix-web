@@ -294,15 +294,15 @@ export default function RootLayout({
               "ratingValue": "4.9",
               "reviewCount": "2549",
               "bestRating": "5",
+              "worstRating": "1",
               "itemReviewed": {
-                "@type": "Service",
-                "name": "Appliance Repair – Same Day Service - Local Pros | UltraFix®",
-                "description": "Ultrafix® Provides Fast, Reliable Appliance Repair Services. Get Same-Day Repairs for All Major Brands. Satisfaction Guaranteed—call Now!",
-              },
+                "@type": "LocalBusiness",
+                "name": "UltraFix® Appliance Repair Service",
+                "url": "https://ultrafix.com"
+              }
             }),
           }}
         />
-
 
         {/* Google Tag Manager */}
         <script
