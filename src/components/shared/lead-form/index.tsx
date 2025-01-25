@@ -1,16 +1,13 @@
 "use client";
 
 import React, { Suspense } from 'react';
-import { Stepper } from '../stepper';
 import {
-    ApplianceSelect,
     Confirmation,
     ContactInformation,
-    FindTechnician,
-    IssueSelect,
     ScheduleModal,
 } from '@components/features/booking';
 import { Loader } from '../loader';
+import { LeadContactInformation } from '@components/features/lead';
 
 
 const LeadFormContent: React.FC = () => {
@@ -21,13 +18,13 @@ const LeadFormContent: React.FC = () => {
 
     return (
         <div className='pb-40'>
-            {step == 4 && confirmation && <Confirmation />}
+            {confirmation && <Confirmation />}
             <div className="relative w-full flex items-center flex-col container mx-auto max-w-[1200px] py-20 space-y-10">
-                <ContactInformation setStep={setStep} showModal={() => setScheduleModal(true)} />
+                <LeadContactInformation showModal={() => setScheduleModal(true)} />
             </div>
             <ScheduleModal
                 visible={scheduleModal}
-                onConfirm={() => { setConfirmation(true); setStep(4) }}
+                onConfirm={() => setConfirmation(true)}
                 onClose={() => setScheduleModal(false)}
             />
         </div>

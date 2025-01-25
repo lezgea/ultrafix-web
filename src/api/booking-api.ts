@@ -1,6 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import axiosBaseQuery from '@utils/axiosBaseQuery';
-import { IBookAppointmentRequest, IBookAppointmentResponse, IGetBrandsRequest, IGetBrandsResponse, IGetSelectedServicesRequest, IGetSelectedServicesResponse, IGetServicesResponse, IGetTimeSlotsRequest, IGetTimeSlotsResponse, IZipCheckingRequest, IZipCheckingResponse } from './types/booking-types';
+import { IBookAppointmentRequest, IBookAppointmentResponse, ICompleteLeadRequest, ICompleteLeadResponse, IGetBrandsRequest, IGetBrandsResponse, IGetSelectedServicesRequest, IGetSelectedServicesResponse, IGetServicesResponse, IGetTimeSlotsRequest, IGetTimeSlotsResponse, IZipCheckingRequest, IZipCheckingResponse } from './types/booking-types';
 
 
 export const bookingApi = createApi({
@@ -54,6 +54,13 @@ export const bookingApi = createApi({
                 data: data,
             }),
         }),
+        completeLead: builder.mutation<ICompleteLeadResponse, ICompleteLeadRequest>({
+            query: (data) => ({
+                url: `/booking/complete-lead`,
+                method: 'POST',
+                data: data,
+            }),
+        }),
     }),
 });
 
@@ -64,4 +71,5 @@ export const {
     useLazyGetSelectedServicesQuery,
     useLazyGetTimeSlotsQuery,
     useBookAppointmentMutation,
+    useCompleteLeadMutation,
 } = bookingApi;

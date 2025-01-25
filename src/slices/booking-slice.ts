@@ -22,6 +22,21 @@ interface IBookingState {
         order_at: string,
         time_slot: string | number,
     },
+    leadData: {
+        lead_id: string | number,
+        zip: string | number,
+        firstname: string,
+        lastname: string,
+        customer_phone: string | number,
+        customer_email: string,
+        address: string,
+        latitude: string | number | null,
+        longitude: string | number | null,
+        city: string,
+        state: string,
+        unit: string | number,
+        time_slot: string | number,
+    },
     selectedSlot: ISlot,
     services: {
         residential: IService[] | [],
@@ -60,6 +75,21 @@ const initialState: IBookingState = {
         order_at: '',
         time_slot: '',
     },
+    leadData: {
+        lead_id: '',
+        zip: '',
+        firstname: '',
+        lastname: '',
+        customer_phone: '',
+        customer_email: '',
+        address: '',
+        latitude: null,
+        longitude: null,
+        city: '',
+        state: '',
+        unit: '',
+        time_slot: '',
+    },
     selectedSlot: {
         label: '',
         value: 0,
@@ -93,6 +123,9 @@ const bookingSlice = createSlice({
         },
         setBookingData: (state, action: PayloadAction<any>) => {
             state.bookingData = { ...state.bookingData, ...action.payload }
+        },
+        setLeadData: (state, action: PayloadAction<any>) => {
+            state.leadData = { ...state.leadData, ...action.payload }
         },
         setSelectedSlot: (state, action: PayloadAction<any>) => {
             state.selectedSlot = { ...state.selectedSlot, ...action.payload }
@@ -246,12 +279,38 @@ const bookingSlice = createSlice({
                     toast.error(action?.payload.data?.message)
                 }
             );
+
+        // COMPLETE LEAD
+        builder
+            .addMatcher(
+                bookingApi.endpoints.completeLead.matchPending,
+                (state) => {
+                    state.loading = true;
+                    state.error = false;
+                }
+            )
+            .addMatcher(
+                bookingApi.endpoints.completeLead.matchFulfilled,
+                (state, action: PayloadAction<any>) => {
+                    state.loading = false;
+                    toast.success('Your booking is confirmed! We have sent your appointment details to your email!');
+                }
+            )
+            .addMatcher(
+                bookingApi.endpoints.completeLead.matchRejected,
+                (state, action: any) => {
+                    state.loading = false;
+                    state.error = action.error?.message || 'Failed to fetch data';
+                    toast.error(action?.payload.data?.message)
+                }
+            );
     },
 });
 
 export const {
     setSelectedAppliances,
     setBookingData,
+    setLeadData,
     setSelectedSlot,
     setSelectedBookingDate,
 } = bookingSlice.actions;

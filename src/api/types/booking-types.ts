@@ -148,3 +148,27 @@ export interface IBookAppointmentResponse {
     title: string,
     description: string
 }
+
+
+
+export interface ICompleteLeadRequest {
+    zip?: string | number,
+    firstname: string,
+    lastname: string,
+    customer_phone: string | number,
+    customer_email?: string,
+    address: string | undefined,
+    latitude?: string | number | null,
+    longitude?: string | number | null,
+    city?: string,
+    state?: string,
+    unit?: string | number,
+    time_slot?: string | number,
+    lead_id?: string | number,
+}
+
+export interface ICompleteLeadResponse {
+    status: string,
+    title: string,
+    description: string
+}
