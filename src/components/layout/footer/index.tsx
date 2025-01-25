@@ -92,12 +92,13 @@ export const Footer: React.FC = () => {
                                         </Link>
                                         :
                                         <Link
-                                            href="https://www.google.com/maps?q=31602+Roldan+Ln,+Fulshear,+TX+77441"
+                                            href="https://www.google.com/maps/place/1718+N+Fry+Rd+APT+152,+Houston,+TX+77084,+USA/@29.7917586,-95.7193547,17z/data=!3m1!4b1!4m6!3m5!1s0x8640d891cb4ff4cb:0xc69b9f931a476413!8m2!3d29.7917586!4d-95.7167798!16s%2Fg%2F11sn00tcgd?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D"
+                                            // href="https://www.google.com/maps?q=31602+Roldan+Ln,+Fulshear,+TX+77441"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="hover:text-primary"
                                         >
-                                            31602 Roldan Ln, Fulshear, TX 77441
+                                            1718 N Fry Rd #152, Houston, TX 77084
                                         </Link>
                                 }
                             </li>

@@ -40,7 +40,7 @@ export const Header: React.FC = () => {
     };
 
     const hideHeaderRoutes = React.useMemo(() => [`/admin/sign-in`, `/admin/blogs`, `/admin/blogs/create`, `/admin/blogs/update/[blogId]`], []);
-    const hideBookingRoutes = React.useMemo(() => [`/book`], []);
+    const hideBookingRoutes = React.useMemo(() => [`/book`, '/lead'], []);
     const shouldHideHeader = hideHeaderRoutes.some(route => pathname.startsWith(route));
     const shouldHideBookingButton = hideBookingRoutes.some(route => pathname.startsWith(route));
 
