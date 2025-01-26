@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import SectionLayout from '@components/layout/section-layout';
 import { useSelector } from 'react-redux';
 import { RootState } from '@store/store';
 import AddressAutocomplete from '@components/shared/address-autocomplete';
-import { setBookingData } from '@slices/booking-slice';
+import { setLeadData } from '@slices/booking-slice';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { FormInput } from '@components/shared';
@@ -12,6 +12,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { ICompleteLeadRequest } from '@api/types/booking-types';
 import { LeadSectionFooter } from '../lead-section-footer';
+import { useSearchParams } from 'next/navigation';
 
 
 interface IContactForm extends ICompleteLeadRequest {
@@ -41,11 +42,18 @@ interface IContactInformationProps {
 }
 
 
-export const LeadContactInformation: React.FC<IContactInformationProps> = (props) => {
+const LeadContactInformationContent: React.FC<IContactInformationProps> = (props) => {
     let { showModal } = props;
 
+    const params = useSearchParams();
     const dispatch = useDispatch();
-    const { bookingData, serviceData } = useSelector((state: RootState) => state.booking);
+
+    const { leadData } = useSelector((state: RootState) => state.booking);
+
+    let zip = params.get('zip');
+    let total_fee = params.get('total_fee');
+    let lead_id = params.get('lead_id');
+
 
     const { register, handleSubmit, formState: { errors, isSubmitted }, reset, setValue } = useForm<IContactForm>({
         resolver: yupResolver(validationSchema),
@@ -63,13 +71,19 @@ export const LeadContactInformation: React.FC<IContactInformationProps> = (props
 
     const onSubmit: SubmitHandler<IContactForm> = async (data) => {
         try {
-            dispatch(setBookingData({ ...data }));
+            dispatch(setLeadData({ lead_id: lead_id, ...data }));
             showModal();
         } catch (err: any) {
             console.error('Unknown error:', err);
             toast.error(err.data?.message || 'An unexpected error occurred');
         }
     };
+
+
+    React.useEffect(() => {
+        if (!!zip)
+            setValue('zip', zip);
+    }, [zip])
 
 
     return (
@@ -166,16 +180,8 @@ export const LeadContactInformation: React.FC<IContactInformationProps> = (props
                     </div>
 
                     <LeadSectionFooter
-                        isContinueDisabled={
-                            !bookingData.customer_phone &&
-                            !bookingData.customer_email &&
-                            !bookingData.lastname &&
-                            !bookingData.firstname &&
-                            !bookingData.zip &&
-                            !bookingData.state &&
-                            !bookingData.city
-                        }
                         showFee
+                        totalFee={total_fee || ''}
                         onGoBack={() => { }}
                         onClick={handleSubmit(onSubmit)}
                     />
@@ -184,3 +190,14 @@ export const LeadContactInformation: React.FC<IContactInformationProps> = (props
         </SectionLayout >
     )
 }
+
+
+const LeadContactInformation: React.FC<IContactInformationProps> = (props) => {
+    return (
+        <Suspense>
+            <LeadContactInformationContent {...props} />
+        </Suspense>
+    )
+}
+
+export default LeadContactInformation;

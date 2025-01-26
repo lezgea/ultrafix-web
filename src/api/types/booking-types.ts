@@ -110,7 +110,7 @@ export interface IGetTimeSlotsRequest {
     zip: string | number,
     date: string,
     timezone: string,
-    appliances: IAppliance[],
+    appliances?: IAppliance[],
 }
 
 export interface IGetTimeSlotsResponse {

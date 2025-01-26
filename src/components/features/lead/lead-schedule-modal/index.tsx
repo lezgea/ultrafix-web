@@ -8,7 +8,7 @@ import { format, addDays } from "date-fns";
 import { useBookAppointmentMutation, useLazyGetTimeSlotsQuery } from '@api/booking-api';
 import { RootState } from '@store/store';
 import { useSelector } from 'react-redux';
-import { setBookingData, setSelectedBookingDate, setSelectedSlot } from '@slices/booking-slice';
+import { setBookingData, setLeadData, setSelectedBookingDate, setSelectedSlot } from '@slices/booking-slice';
 import { useDispatch } from 'react-redux';
 import { UlDayPicker } from '@components/shared/day-picker';
 import { SlotsSkeleton } from '@components/shared/skeletons';
@@ -45,7 +45,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
 
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-    const { bookingData, slots, serviceData, selectedBookingDate, loading } = useSelector((state: RootState) => state.booking);
+    const { leadData, slots, serviceData, selectedBookingDate, loading } = useSelector((state: RootState) => state.booking);
 
     const dispatch = useDispatch();
     const [triggerTimeSlots] = useLazyGetTimeSlotsQuery();
@@ -62,7 +62,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
 
     const handleDateClick = (date: Date) => {
         setSelectedDate(format(date, "yyyy-MM-dd"));
-        dispatch(setBookingData({ order_at: format(date, "yyyy-MM-dd") }));
+        dispatch(setLeadData({ order_at: format(date, "yyyy-MM-dd") }));
         dispatch(setSelectedBookingDate({
             date: format(date, "MMM dd, yyyy"),
             weekDay: format(date, "EEEE")
@@ -73,7 +73,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
 
     const handleSlotClick = ({ value, label }: { value: number | string, label: string }) => {
         setSelectedTime(value);
-        dispatch(setBookingData({ time_slot: value }))
+        dispatch(setLeadData({ time_slot: value }))
         dispatch(setSelectedSlot({ value, label }))
     };
 
@@ -82,9 +82,10 @@ const ModalContent: React.FC<IModalContent> = (props) => {
         setDatePickerVisible(!isDatePickerVisible); // Toggle visibility
     }
 
+
     const onSelectDate = (date: Date) => {
         setSelectedDate(format(date, "yyyy-MM-dd"));
-        dispatch(setBookingData({ order_at: format(date, "yyyy-MM-dd") }));
+        dispatch(setLeadData({ order_at: format(date, "yyyy-MM-dd") }));
         dispatch(setSelectedBookingDate({
             date: format(date, "MMM dd, yyyy"),
             weekDay: format(date, "EEEE")
@@ -92,6 +93,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
         handleSlotClick({ value: 0, label: '' });
     }
 
+    
     const gtag_report_conversion = (url?: string) => {
         const callback = () => {
             // if (typeof url !== "undefined") {
@@ -107,12 +109,13 @@ const ModalContent: React.FC<IModalContent> = (props) => {
         return false;
     };
 
+
     const onBook = async () => {
         try {
-            let response = await bookAppointment(bookingData).unwrap();
+            let response = await bookAppointment(leadData).unwrap();
             if (response.status === 'success') {
                 onConfirm();
-                gtag_report_conversion("https://ultrafix.com/book");
+                gtag_report_conversion("https://ultrafix.com/lead");
                 onClose();
             }
         } catch (err: any) {
@@ -128,18 +131,17 @@ const ModalContent: React.FC<IModalContent> = (props) => {
 
     React.useEffect(() => {
         try {
-            if (!!bookingData.order_at) {
+            if (!!leadData.order_at) {
                 triggerTimeSlots({
-                    zip: bookingData.zip,
-                    date: bookingData.order_at,
+                    zip: leadData.zip,
+                    date: leadData.order_at,
                     timezone: timezone,
-                    appliances: bookingData.appliances,
                 }).unwrap()
             }
         } catch (err: any) {
             console.log('Error: ', err)
         }
-    }, [bookingData.order_at]);
+    }, [leadData.order_at]);
 
 
     return (
@@ -157,7 +159,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                             dates.map((date, i) =>
                                 <DaySelect
                                     key={i}
-                                    selected={bookingData.order_at === format(date, "yyyy-MM-dd")}
+                                    selected={leadData.order_at === format(date, "yyyy-MM-dd")}
                                     onSelect={() => handleDateClick(date)}
                                     date={format(date, "dd")}
                                     weekDay={format(date, "EEE")}

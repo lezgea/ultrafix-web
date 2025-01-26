@@ -9,13 +9,14 @@ import { useSelector } from 'react-redux';
 
 interface ILeadSectionFooterProps {
     showFee?: boolean,
+    totalFee?: string,
     isContinueDisabled?: boolean,
     onGoBack?: () => void,
     onClick?: () => void,
 }
 
 export const LeadSectionFooter: React.FC<ILeadSectionFooterProps> = (props) => {
-    let { isContinueDisabled, showFee, onGoBack, onClick } = props;
+    let { isContinueDisabled, showFee, totalFee, onGoBack, onClick } = props;
 
     const dispatch = useDispatch();
     const { serviceData, bookingData } = useSelector((state: RootState) => state.booking);
@@ -54,7 +55,7 @@ export const LeadSectionFooter: React.FC<ILeadSectionFooterProps> = (props) => {
                         <div>
                             <p className='text-gray-400 text-sm text-start'>The service call fee will be applied towards the repair cost if you proceed with repairs</p>
                             <div className='flex items-center'>
-                                <div className='text-lg font-light'>Service Fee: <strong className='font-semi text-2xl'>${serviceData?.total_fee}</strong></div>
+                                <div className='text-lg font-light'>Service Fee: <strong className='font-semi text-2xl'>${serviceData?.total_fee || totalFee}</strong></div>
                             </div>
                         </div>
                     }
@@ -62,14 +63,6 @@ export const LeadSectionFooter: React.FC<ILeadSectionFooterProps> = (props) => {
                 <div className="flex justify-end w-full lg:flex lg:w-[40%] h-full gap-3">
                     <button
                         type="button"
-                        onClick={onGoBack}
-                        className="w-full px-3 h-[50px] max-w-[300px] font-regmed text-primaryDark py-2 rounded-lg hover:bg-primaryDark hover:text-white focus:outline-none focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
-                    >
-                        Go Back
-                    </button>
-                    <button
-                        type="button"
-                        disabled={isContinueDisabled}
                         onClick={onClick}
                         className="w-full px-3 h-[50px] max-w-[300px] font-regmed  bg-[#0551A8] hover:bg-primaryDark text-white py-2 rounded-lg focus:outline-none focus:shadow-none focus:bg-primaryDark transition duration-200 ease-in-out transform disabled:bg-gray-400 disabled:ring-gray-400 disabled:cursor-not-allowed"
                     >

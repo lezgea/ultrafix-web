@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { bookingApi } from '@api/booking-api';
-import { IAppliance, IBrand, IGetBrandsResponse, IGetSelectedServicesResponse, IGetServicesResponse, ISelectedService, IService, ISlot, IZipCheckingResponse } from '@api/types/booking-types';
-import { format } from 'date-fns';
+import { IAppliance, IBrand, IGetSelectedServicesResponse, IGetServicesResponse, ISelectedService, IService, ISlot, IZipCheckingResponse } from '@api/types/booking-types';
 import { toast } from 'react-toastify';
 
 
@@ -36,6 +35,7 @@ interface IBookingState {
         state: string,
         unit: string | number,
         time_slot: string | number,
+        order_at: string,
     },
     selectedSlot: ISlot,
     services: {
@@ -89,6 +89,7 @@ const initialState: IBookingState = {
         state: '',
         unit: '',
         time_slot: '',
+        order_at: '',
     },
     selectedSlot: {
         label: '',
