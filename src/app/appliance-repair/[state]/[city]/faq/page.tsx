@@ -102,9 +102,15 @@ export async function generateMetadata({ params }: IFaqProps) {
 }
 
 
-const FAQ: React.FC = () => {
+const FAQ: React.FC<IFaqProps> = ({ params }) => {
+    const { state, city } = params;
+
+    const cityKey = `${state}_${city}` as keyof typeof CITIES;
+    const cityData = CITIES[cityKey];
+
+
     return (
-        <PageLayout title="The number one Appliance Repair service in US">
+        <PageLayout title={`Appliance Repair Services in ${cityData?.title}, ${cityData?.stateShort} | UltraFix®`}>
             <LocationsFAQSection />
             {/* <LocationsSection /> */}
             <ResidentialServicesSection />
