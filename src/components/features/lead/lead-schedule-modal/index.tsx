@@ -5,10 +5,10 @@ import Link from 'next/link';
 import { CloseIcon } from '@assets/icons';
 import { DaySelect, Modal, TimeSelect } from '@components/shared';
 import { format, addDays } from "date-fns";
-import { useBookAppointmentMutation, useLazyGetTimeSlotsQuery } from '@api/booking-api';
+import { useCompleteLeadMutation, useLazyGetTimeSlotsQuery } from '@api/booking-api';
 import { RootState } from '@store/store';
 import { useSelector } from 'react-redux';
-import { setBookingData, setLeadData, setSelectedBookingDate, setSelectedSlot } from '@slices/booking-slice';
+import { setLeadData, setSelectedBookingDate, setSelectedSlot } from '@slices/booking-slice';
 import { useDispatch } from 'react-redux';
 import { UlDayPicker } from '@components/shared/day-picker';
 import { SlotsSkeleton } from '@components/shared/skeletons';
@@ -49,7 +49,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
 
     const dispatch = useDispatch();
     const [triggerTimeSlots] = useLazyGetTimeSlotsQuery();
-    const [bookAppointment] = useBookAppointmentMutation();
+    const [completeLead] = useCompleteLeadMutation();
 
     const [isDatePickerVisible, setDatePickerVisible] = React.useState<boolean>(false);
     const [selectedDate, setSelectedDate] = React.useState<any>();
@@ -93,7 +93,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
         handleSlotClick({ value: 0, label: '' });
     }
 
-    
+
     const gtag_report_conversion = (url?: string) => {
         const callback = () => {
             // if (typeof url !== "undefined") {
@@ -112,7 +112,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
 
     const onBook = async () => {
         try {
-            let response = await bookAppointment(leadData).unwrap();
+            let response = await completeLead(leadData).unwrap();
             if (response.status === 'success') {
                 onConfirm();
                 gtag_report_conversion("https://ultrafix.com/lead");
@@ -125,7 +125,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
 
 
     React.useEffect(() => {
-        dispatch(setBookingData({ order_at: format(new Date(), "yyyy-MM-dd") }));
+        dispatch(setLeadData({ order_at: format(new Date(), "yyyy-MM-dd") }));
     }, [])
 
 
