@@ -12,23 +12,30 @@ import { setLeadData, setSelectedBookingDate, setSelectedSlot } from '@slices/bo
 import { useDispatch } from 'react-redux';
 import { UlDayPicker } from '@components/shared/day-picker';
 import { SlotsSkeleton } from '@components/shared/skeletons';
+import { toast } from 'react-toastify';
 
 
 interface ILeadScheduleModalProps {
     leadId?: string,
+    totalFee?: string,
     visible: boolean,
     onClose: () => void,
     onConfirm: () => void,
 }
 
 export const LeadScheduleModal: React.FC<ILeadScheduleModalProps> = (props) => {
-    let { leadId, visible, onConfirm, onClose } = props;
+    let { leadId, totalFee, visible, onConfirm, onClose } = props;
 
     return (
         <Modal
             visible={visible}
             content={
-                <ModalContent leadId={leadId} onClose={onClose} onConfirm={onConfirm} />
+                <ModalContent
+                    leadId={leadId}
+                    totalFee={totalFee}
+                    onClose={onClose}
+                    onConfirm={onConfirm}
+                />
             }
             onClose={onClose}
         />
@@ -38,12 +45,13 @@ export const LeadScheduleModal: React.FC<ILeadScheduleModalProps> = (props) => {
 
 interface IModalContent {
     leadId?: string,
+    totalFee?: string,
     onConfirm: () => void,
     onClose: () => void,
 }
 
 const ModalContent: React.FC<IModalContent> = (props) => {
-    let { leadId, onConfirm, onClose } = props;
+    let { leadId, totalFee, onConfirm, onClose } = props;
 
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
@@ -119,6 +127,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                 onConfirm();
                 gtag_report_conversion("https://ultrafix.com/lead");
                 onClose();
+                toast.success('Your booking is confirmed!')
             }
         } catch (err: any) {
             console.error('Error: ', err);
@@ -216,7 +225,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
 
                 <div className='flex flex-col items-center gap-3'>
                     <div className='bg-[#F3EFFA] border-2 border-[#B1A7C7] text-[#85799F] rounded-xl px-10 py-5 md:max-w-[80%]'>
-                        The <strong className='text-xl font-medium'>${serviceData?.total_fee}</strong> service call fee will be applied towards the repair cost if you proceed with repairs
+                        The <strong className='text-xl font-medium'>${totalFee}</strong> service call fee will be applied towards the repair cost if you proceed with repairs
                     </div>
                 </div>
 
