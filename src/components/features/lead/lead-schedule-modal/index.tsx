@@ -15,19 +15,20 @@ import { SlotsSkeleton } from '@components/shared/skeletons';
 
 
 interface ILeadScheduleModalProps {
+    leadId?: string,
     visible: boolean,
     onClose: () => void,
     onConfirm: () => void,
 }
 
 export const LeadScheduleModal: React.FC<ILeadScheduleModalProps> = (props) => {
-    let { visible, onConfirm, onClose } = props;
+    let { leadId, visible, onConfirm, onClose } = props;
 
     return (
         <Modal
             visible={visible}
             content={
-                <ModalContent onClose={onClose} onConfirm={onConfirm} />
+                <ModalContent leadId={leadId} onClose={onClose} onConfirm={onConfirm} />
             }
             onClose={onClose}
         />
@@ -36,12 +37,13 @@ export const LeadScheduleModal: React.FC<ILeadScheduleModalProps> = (props) => {
 
 
 interface IModalContent {
+    leadId?: string,
     onConfirm: () => void,
     onClose: () => void,
 }
 
 const ModalContent: React.FC<IModalContent> = (props) => {
-    let { onConfirm, onClose } = props;
+    let { leadId, onConfirm, onClose } = props;
 
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
@@ -136,6 +138,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                     zip: leadData.zip,
                     date: leadData.order_at,
                     timezone: timezone,
+                    lead_id: leadId,
                 }).unwrap()
             }
         } catch (err: any) {

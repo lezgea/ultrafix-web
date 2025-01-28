@@ -107,6 +107,7 @@ export interface IGetSelectedServicesResponse {
 
 
 export interface IGetTimeSlotsRequest {
+    lead_id?: string,
     zip: string | number,
     date: string,
     timezone: string,

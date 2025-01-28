@@ -4,9 +4,14 @@ import React, { Suspense } from 'react';
 import { Loader } from '../loader';
 import { LeadConfirmation, LeadScheduleModal } from '@components/features/lead';
 import LeadContactInformation from '@components/features/lead/lead-contact-information';
+import { useSearchParams } from 'next/navigation';
 
 
 const LeadFormContent: React.FC = () => {
+    const params = useSearchParams();
+
+    let lead_id = params.get('lead_id');
+
     const [scheduleModal, setScheduleModal] = React.useState<boolean>(false);
     const [confirmation, setConfirmation] = React.useState<boolean>(false);
 
@@ -18,6 +23,7 @@ const LeadFormContent: React.FC = () => {
                 <LeadContactInformation showModal={() => setScheduleModal(true)} />
             </div>
             <LeadScheduleModal
+                leadId={lead_id || ''}
                 visible={scheduleModal}
                 onConfirm={() => setConfirmation(true)}
                 onClose={() => setScheduleModal(false)}
