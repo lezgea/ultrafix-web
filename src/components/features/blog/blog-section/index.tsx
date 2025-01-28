@@ -81,7 +81,7 @@ export const BlogSection: React.FC<IBlogSectionProps> = (props) => {
             title="UltraFix Info Hub"
             description="Discover helpful tips, expert advice, and the latest updates in the world of appliance repair on our blog. From troubleshooting common appliance issues to understanding when it’s time for professional service, we’re here to help you keep your home running smoothly. Explore practical guides, maintenance hacks, and industry insights tailored to save you time and money."
         >
-            {isLoading && <BlogsListSkeleton hideCarousel />}
+            {isLoading && <BlogsListSkeleton hideCarousel={hideCarousel} />}
 
             {!hideCarousel && isMounted && (
                 <div className="rounded-3xl overflow-hidden">

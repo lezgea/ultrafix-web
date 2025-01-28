@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useGetBlogInfoQuery } from '@api/blogs-api';
 import Link from 'next/link';
 import SectionLayout from '@components/layout/section-layout';
+import { BlogInfoSkeleton } from '@components/shared/skeletons';
 
 
 interface IBlogProps {
@@ -17,6 +18,20 @@ const BlogTracker: React.FC<IBlogProps> = ({ blogId }) => {
 
     const { data: blogInfo, error, isLoading, refetch } = useGetBlogInfoQuery({ id: bId }, { skip: !bId });
 
+
+    if (isLoading)
+        return (
+            <SectionLayout noYPadding>
+                <div className='my-[3rem] space-y-5'>
+                    <nav className="text-sm flex justify-start items-center text-gray-600 space-x-3 mb-10">
+                        <Link href="/" className="text-primary hover:text-primaryDark">Home Page</Link>
+                        <span className="text-lg">&gt;</span>
+                        <Link href={`/blog`} className="text-primary hover:text-primaryDark">Blog</Link>
+                    </nav>
+                    <BlogInfoSkeleton />
+                </div>
+            </SectionLayout>
+        )
 
     return (
         <>
