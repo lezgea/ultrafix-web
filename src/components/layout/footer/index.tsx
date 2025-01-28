@@ -18,7 +18,7 @@ export const Footer: React.FC = () => {
     const cityKey = `${state}_${city}` as keyof typeof CITIES;
     const cityData = CITIES[cityKey];
 
-    const hideHeaderRoutes = React.useMemo(() => ["/book"], []);
+    const hideHeaderRoutes = React.useMemo(() => ["/book", "/lead"], []);
     const shouldHideFooter = React.useMemo(() => hideHeaderRoutes.includes(pathname), [pathname]);
 
     const handleScroll = (sectionId: string) => {

@@ -2,3 +2,5 @@ export * from './skeleton';
 export * from './brands-select-skeleton';
 export * from './slots-skeleton';
 export * from './faqs-skeleton';
+export * from './blogs-list-skeleton';
+export * from './blog-info-skeleton';
