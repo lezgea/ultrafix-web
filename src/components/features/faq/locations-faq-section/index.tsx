@@ -4,6 +4,8 @@ import React, { Suspense } from 'react';
 import SectionLayout from '@components/layout/section-layout';
 import { ExpandableInfoSection } from '@components/shared';
 import { useLazyGetAllFaqsQuery } from '@api/faq-api';
+import { FAQ_LIST } from 'constants/faq';
+import { FaqsSkeleton } from '@components/shared/skeletons';
 
 
 interface ILocationFaqProps {
@@ -14,7 +16,7 @@ const LocationsFAQSectionContent: React.FC<ILocationFaqProps> = (props) => {
     let { location } = props;
 
     const [isMounted, setIsMounted] = React.useState(false);
-    const [triggerGetFaqs, { data: faqsData }] = useLazyGetAllFaqsQuery()
+    const [triggerGetFaqs, { data: faqsData, isLoading }] = useLazyGetAllFaqsQuery()
 
 
     async function getAllFaqs() {
@@ -31,7 +33,6 @@ const LocationsFAQSectionContent: React.FC<ILocationFaqProps> = (props) => {
             getAllFaqs();
     }, [location]);
 
-    console.log('@@@@', faqsData)
 
     return (
         <SectionLayout
@@ -40,13 +41,17 @@ const LocationsFAQSectionContent: React.FC<ILocationFaqProps> = (props) => {
         >
             <div className="rounded-3xl space-y-2">
                 {
-                    // FAQ_LIST.map(item =>
-                    //     <ExpandableInfoSection
-                    //         key={item.id}
-                    //         title={item.title}
-                    //         description={item.value}
-                    //     />
-                    // )
+                    isLoading &&
+                    <FaqsSkeleton />
+                }
+                {
+                    FAQ_LIST.map(item =>
+                        <ExpandableInfoSection
+                            key={item.id}
+                            title={item.title}
+                            description={item.value}
+                        />
+                    )
                 }
             </div>
         </SectionLayout>
