@@ -111,7 +111,7 @@ const FAQ: React.FC<IFaqProps> = ({ params }) => {
 
     return (
         <PageLayout title={`Appliance Repair Services in ${cityData?.title}, ${cityData?.stateShort} | UltraFix®`}>
-            <LocationsFAQSection />
+            <LocationsFAQSection location={`${cityData?.title}, ${cityData?.stateShort}`} />
             {/* <LocationsSection /> */}
             <ResidentialServicesSection />
             <CommercialServicesSection />

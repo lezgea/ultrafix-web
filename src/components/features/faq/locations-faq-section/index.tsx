@@ -3,15 +3,35 @@
 import React, { Suspense } from 'react';
 import SectionLayout from '@components/layout/section-layout';
 import { ExpandableInfoSection } from '@components/shared';
+import { useLazyGetAllFaqsQuery } from '@api/faq-api';
 
 
-const LocationsFAQSectionContent: React.FC = () => {
+interface ILocationFaqProps {
+    location: string,
+}
+
+const LocationsFAQSectionContent: React.FC<ILocationFaqProps> = (props) => {
+    let { location } = props;
+
     const [isMounted, setIsMounted] = React.useState(false);
+    const [triggerGetFaqs, { data: faqsData }] = useLazyGetAllFaqsQuery()
+
+
+    async function getAllFaqs() {
+        try {
+            await triggerGetFaqs({ city: location }).unwrap();
+        } catch (err: any) {
+            console.log('Error: ', err)
+        }
+    }
+
 
     React.useEffect(() => {
-        setIsMounted(true);
-    }, []);
+        if (location)
+            getAllFaqs();
+    }, [location]);
 
+    console.log('@@@@', faqsData)
 
     return (
         <SectionLayout
@@ -33,10 +53,10 @@ const LocationsFAQSectionContent: React.FC = () => {
     );
 };
 
-const LocationsFAQSection = () => {
+const LocationsFAQSection: React.FC<ILocationFaqProps> = (props) => {
     return (
         <Suspense>
-            <LocationsFAQSectionContent />
+            <LocationsFAQSectionContent {...props} />
         </Suspense>
     )
 }
