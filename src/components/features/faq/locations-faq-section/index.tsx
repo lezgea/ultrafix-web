@@ -45,11 +45,11 @@ const LocationsFAQSectionContent: React.FC<ILocationFaqProps> = (props) => {
                     <FaqsSkeleton />
                 }
                 {
-                    FAQ_LIST.map(item =>
+                    faqsData?.data?.map(item =>
                         <ExpandableInfoSection
                             key={item.id}
                             title={item.title}
-                            description={item.value}
+                            description={item.description}
                         />
                     )
                 }

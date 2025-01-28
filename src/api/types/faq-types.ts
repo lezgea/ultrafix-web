@@ -1,6 +1,8 @@
 
 export interface IFaq {
-
+    id: number | string,
+    title: string,
+    description: string,
 }
 
 export interface IFaqsListRequest {
@@ -8,5 +10,5 @@ export interface IFaqsListRequest {
 }
 
 export interface IFaqsListResponse {
-
+    data: IFaq[],
 }
