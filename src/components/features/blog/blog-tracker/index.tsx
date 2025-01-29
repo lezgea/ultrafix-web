@@ -63,16 +63,16 @@ const BlogTracker: React.FC<IBlogProps> = ({ blogId }) => {
                 </div>
             </SectionLayout>
             <SectionLayout noYPadding>
-                <div className="mt-10 mb-20" dangerouslySetInnerHTML={{ __html: blogInfo?.data?.content || '' }} />
-                {/* <div className='flex items-center justify-center mb-40'>
-                    <button
-                        // onClick={scrollToContact}
+                <div dangerouslySetInnerHTML={{ __html: blogInfo?.data?.content || '' }} />
+                <div className='flex items-center justify-center mb-40'>
+                    <Link
+                        href='/book'
                         className="inline-flex w-auto text-center items-center px-5 py-2 lg:px-6 lg:py-[12px] text-md lg:text-lg text-white transition-all bg-primary rounded-lg sm:w-auto hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px shadow-neutral-300 focus:shadow-none animate-button"
-                        aria-label="See our races"
+                        aria-label="Book an Appointment"
                     >
                         Book an Appointment
-                    </button>
-                </div> */}
+                    </Link>
+                </div>
             </SectionLayout>
         </>
     );
