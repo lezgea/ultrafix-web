@@ -2,14 +2,19 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { useParams, usePathname } from 'next/navigation';
+import { useParams, usePathname, useRouter } from 'next/navigation';
 import { CallIcon, CloseIcon, HamburgerIcon, UltrafixLogo } from '@assets/icons';
 import { Sidebar } from '../sidebar';
 import { CITIES } from 'constants/locations';
 import { Dropdown } from '@components/shared/dropdown';
 
 
-const NAV_ROUTES: { id: string; label: string }[] = [
+interface IRouteType {
+    id: string,
+    label: string,
+}
+
+const NAV_ROUTES: IRouteType[] = [
     { id: 'res_services', label: 'Residential' },
     { id: 'com_services', label: 'Commercial' },
     // { id: 'locations', label: 'Locations' },
@@ -26,6 +31,7 @@ export const Header: React.FC = () => {
     const [selectedId, setSelectedId] = React.useState<string>()
 
     const pathname = usePathname();
+    const router = useRouter();
     const { state, city } = useParams();
 
     const cityKey = `${state}_${city}` as keyof typeof CITIES;
@@ -45,51 +51,88 @@ export const Header: React.FC = () => {
     const shouldHideBookingButton = hideBookingRoutes.some(route => pathname.startsWith(route));
 
 
+    function onOpenFaq() {
+        if (pathname === `/appliance-repair/${state}/${city}`) {
+            router.push(`/appliance-repair/${state}/${city}/faq`);
+        } else {
+            router.push('/faq');
+        }
+        setSidebarOpen(false);
+    }
+
+
+    function renderItem(item: IRouteType) {
+        switch (item.id) {
+            case 'services':
+                return (
+                    <Dropdown content={<ServicesDropdownContent onClose={() => setSidebarOpen(false)} />}>
+                        <div className="relative flex items-center space-x-3 cursor-pointer">
+                            {
+                                (item.id === selectedId) &&
+                                <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
+                            }
+                            <div className={`text-xl md:text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                                {item.label}
+                            </div>
+                        </div>
+                    </Dropdown>
+                )
+            case 'apply':
+                return (
+                    <Link href="/apply" title='Link for apply' className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
+                        {
+                            (item.id === selectedId) &&
+                            <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
+                        }
+                        <div className={`text-xl md:text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                            {item.label}
+                        </div>
+                    </Link>
+                )
+            case 'faq':
+                return (
+                    <button onClick={onOpenFaq} title='Link for Blog and FAQ' className="relative flex items-center space-x-3 cursor-pointer">
+                        {
+                            (item.id === selectedId) &&
+                            <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
+                        }
+                        <div className={`text-xl md:text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                            {item.label}
+                        </div>
+                    </button>
+                )
+            case 'blog':
+                return (
+                    <Link href={`/${item.id}`} title='Link for Blog and FAQ' className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
+                        {
+                            (item.id === selectedId) &&
+                            <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
+                        }
+                        <div className={`text-xl md:text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                            {item.label}
+                        </div>
+                    </Link>
+                )
+            default:
+                return (
+                    <div className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
+                        {
+                            (item.id === selectedId) &&
+                            <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
+                        }
+                        <div className={`text-xl md:text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                            {item.label}
+                        </div>
+                    </div>
+                )
+        }
+    }
+
+
     const navLinks = React.useMemo(() => {
         return NAV_ROUTES.map((item, i) => (
             <li key={i} onClick={() => handleScroll(item.id)}>
-                {
-                    item.id === 'services'
-                        ?
-                        <Dropdown content={<ServicesDropdownContent onClose={() => setSidebarOpen(false)} />}>
-                            <div className="relative flex items-center space-x-3 cursor-pointer">
-                                {(item.id === selectedId) && (
-                                    <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
-                                )}
-                                <div className={`text-xl md:text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
-                                    {item.label}
-                                </div>
-                            </div>
-                        </Dropdown>
-                        :
-                        item.id === 'apply' ?
-                            <Link href="/apply" title='Link for apply' className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
-                                {(item.id === selectedId) && (
-                                    <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
-                                )}
-                                <div className={`text-xl md:text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
-                                    {item.label}
-                                </div>
-                            </Link>
-                            : (item.id === 'faq' || item.id === 'blog') ?
-                                <Link href={`/${item.id}`} title='Link for Blog and FAQ' className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
-                                    {(item.id === selectedId) && (
-                                        <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
-                                    )}
-                                    <div className={`text-xl md:text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
-                                        {item.label}
-                                    </div>
-                                </Link>
-                                :
-                                <div className="relative flex items-center space-x-3 cursor-pointer" onClick={() => setSidebarOpen(false)}>
-                                    {(item.id === selectedId) && (
-                                        <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
-                                    )}
-                                    <div className={`text-xl md:text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
-                                        {item.label}
-                                    </div>
-                                </div>
-                }
+                {renderItem(item)}
             </li>
         ));
     }, [selectedId]);
@@ -114,8 +157,8 @@ export const Header: React.FC = () => {
 
     const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
 
-
     const [isCallButtonAvailable, setIsCallButtonAvailable] = React.useState(false);
+
 
     React.useEffect(() => {
         const now = new Date();
@@ -146,11 +189,9 @@ export const Header: React.FC = () => {
                             }
                         </div>
                     </div>
-
                     <ul className="hidden lg:flex md:space-x-3 xl:space-x-10 items-center">
                         {navLinks}
                     </ul>
-
                     <div className="flex hidden items-center justify-end lg:flex lg:w-[20%] h-full">
                         {phoneButton}
                     </div>
