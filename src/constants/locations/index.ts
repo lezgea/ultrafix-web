@@ -70,7 +70,8 @@ export const CITIES = {
         phone: '(279) 300-3915',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/ca_sacramento_car.webp',
+        // carUrl: '/img/cars/ca_sacramento_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/ca_sacramento_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -89,7 +90,8 @@ export const CITIES = {
         phone: '(408) 239-4881',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/ca_san_jose_car.webp',
+        // carUrl: '/img/cars/ca_san_jose_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/ca_san_jose_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -108,7 +110,8 @@ export const CITIES = {
         phone: '(904) 565-5638',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/fl_jacksonville_car.webp',
+        // carUrl: '/img/cars/fl_jacksonville_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/fl_jacksonville_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -127,7 +130,8 @@ export const CITIES = {
         phone: '(305) 547-8157',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/fl_miami_car.webp',
+        // carUrl: '/img/cars/fl_miami_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/fl_miami_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -146,7 +150,8 @@ export const CITIES = {
         phone: '(689) 267-3141',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/fl_orlando_car.webp',
+        // carUrl: '/img/cars/fl_orlando_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/fl_orlando_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -165,7 +170,8 @@ export const CITIES = {
         phone: '(813) 400-1003',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/fl_tampa_car.webp',
+        // carUrl: '/img/cars/fl_tampa_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/fl_tampa_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -184,7 +190,8 @@ export const CITIES = {
         phone: '(470) 749-8889',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/ga_atlanta_car.webp',
+        // carUrl: '/img/cars/ga_atlanta_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/ga_atlanta_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -203,7 +210,8 @@ export const CITIES = {
         phone: '(224) 998-0811',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/il_glenview_car.webp',
+        // carUrl: '/img/cars/il_glenview_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/il_glenview_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -222,7 +230,8 @@ export const CITIES = {
         phone: '(331) 244-6442',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/il_naperville_car.webp',
+        // carUrl: '/img/cars/il_naperville_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/il_naperville_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -241,7 +250,8 @@ export const CITIES = {
         phone: '(857) 353-6048',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/ma_boston_car.webp',
+        // carUrl: '/img/cars/ma_boston_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/ma_boston_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -260,7 +270,8 @@ export const CITIES = {
         phone: '(410) 753-2277',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/md_baltimore_car.webp',
+        // carUrl: '/img/cars/md_baltimore_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/md_baltimore_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -279,7 +290,8 @@ export const CITIES = {
         phone: '(314) 219-1443',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/mo_st_louis_car.webp',
+        // carUrl: '/img/cars/mo_st_louis_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/mo_st_louis_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -298,7 +310,8 @@ export const CITIES = {
         phone: '(267) 888-2078',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/pa_philadelphia_car.webp',
+        // carUrl: '/img/cars/pa_philadelphia_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/pa_philadelphia_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -317,7 +330,8 @@ export const CITIES = {
         phone: '(412) 420-6315',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/pa_pittsburgh_car.webp',
+        // carUrl: '/img/cars/pa_pittsburgh_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/pa_pittsburgh_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -336,7 +350,8 @@ export const CITIES = {
         phone: '(724) 361-5170',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/pa_cranberry_car.webp',
+        // carUrl: '/img/cars/pa_cranberry_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/pa_cranberry_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -355,7 +370,8 @@ export const CITIES = {
         phone: '(737) 241-0883',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/tx_austin_car.webp',
+        // carUrl: '/img/cars/tx_austin_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/tx_austin_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -374,7 +390,8 @@ export const CITIES = {
         phone: '(972) 666-0299',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/tx_dallas_car.webp',
+        // carUrl: '/img/cars/tx_dallas_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/tx_dallas_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -393,7 +410,8 @@ export const CITIES = {
         phone: '(817) 200-7005',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/tx_fort_worth_car.webp',
+        // carUrl: '/img/cars/tx_fort_worth_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/tx_fort_worth_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -412,7 +430,8 @@ export const CITIES = {
         phone: '(713) 770-6055',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/tx_fulshear_car.webp',
+        // carUrl: '/img/cars/tx_fulshear_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/tx_fulshear_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -431,7 +450,8 @@ export const CITIES = {
         phone: '(832) 998-0886',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/tx_houston_car.webp',
+        // carUrl: '/img/cars/tx_houston_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/tx_houston_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -450,7 +470,8 @@ export const CITIES = {
         phone: '(469) 718-2442',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/tx_mckinney_car.webp',
+        // carUrl: '/img/cars/tx_mckinney_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/tx_mckinney_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -469,7 +490,8 @@ export const CITIES = {
         phone: '(346) 547-4511',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/tx_pearland_car.webp',
+        // carUrl: '/img/cars/tx_pearland_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/tx_pearland_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -488,7 +510,8 @@ export const CITIES = {
         phone: '(726) 216-7575',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/tx_san_antonio_car.webp',
+        // carUrl: '/img/cars/tx_san_antonio_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/tx_san_antonio_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -507,7 +530,8 @@ export const CITIES = {
         phone: '(346) 290-7544',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/tx_spring_car.webp',
+        // carUrl: '/img/cars/tx_spring_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/tx_spring_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -526,7 +550,8 @@ export const CITIES = {
         phone: '(832) 665-2998',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/tx_tomball_car.webp',
+        // carUrl: '/img/cars/tx_tomball_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/tx_tomball_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -545,7 +570,8 @@ export const CITIES = {
         phone: '(832) 665-2955',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/tx_sugar_land_car.webp',
+        // carUrl: '/img/cars/tx_sugar_land_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/tx_sugar_land_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -564,7 +590,8 @@ export const CITIES = {
         phone: '(832) 665-2936',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/tx_katy_car.webp',
+        // carUrl: '/img/cars/tx_katy_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/tx_katy_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -583,7 +610,8 @@ export const CITIES = {
         phone: '(936) 249-2540',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/tx_conroe_car.webp',
+        // carUrl: '/img/cars/tx_conroe_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/tx_conroe_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -602,7 +630,8 @@ export const CITIES = {
         phone: '(832) 665-2921',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/tx_cypress_car.webp',
+        // carUrl: '/img/cars/tx_cypress_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/tx_cypress_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -621,7 +650,8 @@ export const CITIES = {
         phone: '(832) 665-2925',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/tx_richmond_car.webp',
+        // carUrl: '/img/cars/tx_richmond_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/tx_richmond_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -640,7 +670,8 @@ export const CITIES = {
         phone: '(469) 613-3397',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/tx_irving_car.webp',
+        // carUrl: '/img/cars/tx_irving_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/tx_irving_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -659,7 +690,8 @@ export const CITIES = {
         phone: '(469) 353-2518',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/tx_richardson_car.webp',
+        // carUrl: '/img/cars/tx_richardson_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/tx_richardson_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -678,7 +710,8 @@ export const CITIES = {
         phone: '(571) 800-0980',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/va_alexandria_car.webp',
+        // carUrl: '/img/cars/va_alexandria_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/va_alexandria_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -697,7 +730,8 @@ export const CITIES = {
         phone: '(804) 486-6280',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/va_richmond_car.webp',
+        // carUrl: '/img/cars/va_richmond_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/va_richmond_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -716,7 +750,8 @@ export const CITIES = {
         phone: '(980) 301-9636',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/nc_charlotte_car.webp',
+        // carUrl: '/img/cars/nc_charlotte_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/nc_charlotte_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -735,7 +770,8 @@ export const CITIES = {
         phone: '(862) 343-5590',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/nj_livingston_car.webp',
+        // carUrl: '/img/cars/nj_livingston_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/nj_livingston_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },
@@ -754,7 +790,8 @@ export const CITIES = {
         phone: '(516) 452-9997',
         days: 'Monday - Sunday',
         hours: '07:00 am - 08:00 pm',
-        carUrl: '/img/cars/ny_hempstead_car.webp',
+        // carUrl: '/img/cars/ny_hempstead_car.webp',
+        carUrl: '/img/cars/main_car.webp',
         mapUrl: '/img/maps/ny_hempstead_map.webp',
         employees: [
             { id: 1, name: 'Aydin', image: '/img/employees/employee1.webp' },

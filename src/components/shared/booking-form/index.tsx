@@ -4,6 +4,7 @@ import React, { Suspense } from 'react';
 import { Stepper } from '../stepper';
 import {
     ApplianceSelect,
+    BookingInfoSidebar,
     Confirmation,
     ContactInformation,
     FindTechnician,
@@ -24,6 +25,8 @@ const BookingFormContent: React.FC = () => {
 
     return (
         <div className='pb-40'>
+            {/* <BookingInfoSidebar /> */}
+
             {step == 4 && confirmation && <Confirmation />}
             <div className="relative w-full flex items-center flex-col container mx-auto max-w-[1200px] py-20 space-y-10">
                 {!!step && !confirmation && <Stepper step={step} />}

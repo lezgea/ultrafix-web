@@ -24,6 +24,7 @@ const config: Config = {
         primaryExtra: '#EDF6F0',
         primaryLight: '#00A2FF',
         primary: '#2b7de2',
+        primaryMedium: '#0551A8',
         primaryDark: '#003168',
         customBlue: {
           50: '#ebf5ff',
