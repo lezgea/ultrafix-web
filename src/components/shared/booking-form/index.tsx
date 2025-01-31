@@ -25,7 +25,7 @@ const BookingFormContent: React.FC = () => {
 
     return (
         <div className='pb-40'>
-            {/* <BookingInfoSidebar /> */}
+            <BookingInfoSidebar />
 
             {step == 4 && confirmation && <Confirmation />}
             <div className="relative w-full flex items-center flex-col container mx-auto max-w-[1200px] py-20 space-y-10">
