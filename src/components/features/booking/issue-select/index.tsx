@@ -156,12 +156,12 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
     return (
         <SectionLayout noYPadding>
             <div className="flex w-full justify-center space-y-10">
-                <div className="flex flex-col space-y-20 text-center items-center select-none min-w-[30%]">
+                <div className="flex flex-col space-y-20 text-center items-center select-none max-w-[70%] min-w-[30%]">
                     {
                         serviceData?.services?.map((appliance, i) =>
                             <div key={appliance.id} className='flex flex-col gap-10'>
                                 <div className='space-y-6 flex flex-col items-center'>
-                                    <h3 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
+                                    <h3 className="text-[1.7rem] leading-[2.5rem] text-center font-semibold text-primaryDark">
                                         What’s the brand of your <strong className='font-medium text-primary'>{appliance.type} {appliance.title}</strong> ?
                                     </h3>
                                     <div className="flex flex-col w-full max-w-[300px]">
@@ -174,7 +174,7 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
                                     {
                                         loading
                                             ? <BrandsSelectSkeleton />
-                                            : <div className="flex items-center justify-center flex-wrap gap-3 md:gap-5">
+                                            : <div className="flex items-center justify-center flex-wrap gap-3">
                                                 {
                                                     brands?.map((brand) =>
                                                         <SelectButton
@@ -190,13 +190,13 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
                                 </div>
 
                                 <div className='space-y-6'>
-                                    <h4 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
+                                    <h4 className="text-[1.7rem] leading-[2.5rem] text-center font-semibold text-primaryDark">
                                         Select the issue
                                     </h4>
                                     {
                                         loading
                                             ? <BrandsSelectSkeleton />
-                                            : <div className="flex items-center justify-center flex-wrap gap-3 md:gap-5">
+                                            : <div className="flex items-center justify-center flex-wrap gap-3">
                                                 {
                                                     appliance.issues?.map(issue =>
                                                         <SelectButton
@@ -212,10 +212,10 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
                                 </div>
 
                                 <div className='space-y-6'>
-                                    <h5 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
+                                    <h5 className="text-[1.7rem] leading-[2.5rem] text-center font-semibold text-primaryDark">
                                         Please, describe the issue in detail
                                     </h5>
-                                    <div className="flex items-center justify-center flex-wrap gap-3 md:gap-5">
+                                    <div className="flex items-center justify-center flex-wrap gap-3">
                                         <SimpleInput
                                             isTextarea
                                             type='text'

@@ -16,16 +16,10 @@ export const BookingInfoSidebar: React.FC<IBookingInfoSidebar> = (props) => {
     const dispatch = useDispatch();
     const { bookingData, serviceData } = useSelector((state: RootState) => state.booking);
 
-    const onUnselectAppliance = (applianceId: number | string) => {
-        let selectedAppliances = bookingData.appliances;
-        let newApps = selectedAppliances.filter(item => item.service_id !== applianceId);
-        dispatch(setSelectedAppliances(newApps));
-    }
-
 
     return (
         <div>
-            <div className='fixed z-40 flex flex-col h-screen pt-[50px] pr-[20px] pb-[60px]'>
+            <div className='fixed z-40 flex flex-col h-screen pt-[50px] px-[20px] pb-[60px]'>
                 {/* <div className='absolute flex items-center justify-center text-sm text-white bg-primaryLight z-10 w-5 h-5 rounded-full right-0'>3</div> */}
                 {/* <button
                     type="button"
@@ -34,27 +28,79 @@ export const BookingInfoSidebar: React.FC<IBookingInfoSidebar> = (props) => {
                 >
                     Booking Info
                 </button> */}
-                <div className='bg-white border-2 border-secondary rounded-xl p-5 pl-6 min-w-[400px] -ml-2'>
-                    {
-                        !!bookingData.appliances?.length &&
-                        <div>
+                {
+                    !!bookingData.appliances?.length &&
+                    <div className='bg-gray-100 shadow rounded-xl p-5 pb-20 min-w-[300px] max-w-[300px] min-h-[400px]'>
+                        <div className='flex flex-col gap-2'>
                             <div className='flex items-center'>
-                                <div className='text-lg font-light'>Selected Services:</div>
+                                <div className='text-[14px] text-gray-400 font-regmed'>Booking Information</div>
                             </div>
-                            <div className='flex gap-2'>
+                            <div className='flex flex-wrap gap-2'>
                                 {bookingData.appliances.map(item =>
-                                    <div className='flex items-center shadow rounded-full px-4 py-1.5 md:text-md font-medium cursor-pointer bg-primaryDark text-white'>
-                                        <div className='flex flex-col items-start'>
-                                            <div className='text-sm'>{item.title}</div>
-                                            <div className='text-xs font-light -mt-1 text-primaryLight'>{item.type}</div>
+                                    <div className='flex flex-col w-full rounded-xl md:text-md font-medium cursor-pointer shadow overflow-hidden bg-white'>
+                                        <div className='flex w-full items-center justify-between bg-primaryDark px-3 py-1'>
+                                            <div className='flex flex-col items-start'>
+                                                <div className='text-white text-sm'>{item.title}</div>
+                                                <div className='text-xs font-light -mt-1 text-primaryLight'>{item.type}</div>
+                                            </div>
                                         </div>
-                                        <CloseIcon className="w-4 h-4 ml-2 stroke-[#fff]" onClick={() => onUnselectAppliance(item.service_id)} />
+                                        {
+                                            !!item.brand &&
+                                            <div className='flex flex-col px-3 pt-1.5 pb-2.5'>
+                                                <div className='pb-2'>
+                                                    <label className='text-gray-400 font-regmed text-[13px] leading-[13px]'>Brand</label>
+                                                    <p className='text-[15px] leading-[16px]'>{item.brand}</p>
+                                                </div>
+                                                {
+                                                    !!item.issue &&
+                                                    <div className='border-t'>
+                                                        <label className='text-gray-400 font-regmed text-[13px] leading-[13px]'>Issue</label>
+                                                        <p className='text-[15px] leading-[16px]'>{item.issue}</p>
+                                                    </div>
+                                                }
+                                            </div>
+                                        }
                                     </div>
                                 )}
                             </div>
+                            {
+                                !!bookingData?.address &&
+                                <div className='flex flex-col w-full rounded-xl md:text-md font-medium cursor-pointer shadow overflow-hidden px-3 pt-1.5 pb-2.5 bg-white'>
+                                    {
+                                        !!bookingData?.address &&
+                                        <div className='pb-2'>
+                                            <label className='text-gray-400 font-regmed text-[13px] leading-[13px]'>Address</label>
+                                            <p className='text-[15px] leading-[16px]'>{bookingData.address}, {bookingData.city}, {bookingData.state}, {bookingData.zip}</p>
+                                        </div>
+                                    }
+                                    {
+                                        !!bookingData?.firstname &&
+                                        <div className='border-t pb-2'>
+                                            <label className='text-gray-400 font-regmed text-[13px] leading-[13px]'>Fullname</label>
+                                            <p className='text-[15px] leading-[16px]'>{bookingData.firstname} {bookingData.lastname}</p>
+                                        </div>
+                                    }
+                                    {
+                                        !!bookingData?.customer_email &&
+                                        <div className='border-t pb-2'>
+                                            <label className='text-gray-400 font-regmed text-[13px] leading-[13px]'>Email</label>
+                                            <p className='text-[15px] leading-[16px]'>{bookingData.customer_email}</p>
+                                        </div>
+                                    }
+                                    {
+                                        !!bookingData?.customer_phone &&
+                                        <div className='border-t pb-2'>
+                                            <label className='text-gray-400 font-regmed text-[13px] leading-[13px]'>Phone</label>
+                                            <p className='text-[15px] leading-[16px]'>{bookingData.customer_phone}</p>
+                                        </div>
+                                    }
+                                </div>
+                            }
+
                         </div>
-                    }
-                </div>
+                    </div>
+                }
+
             </div>
 
 

@@ -73,17 +73,17 @@ export const ApplianceSelect: React.FC<IApplianceSelectProps> = (props) => {
     return (
         <SectionLayout noYPadding>
             <div className="flex w-full justify-center space-y-10">
-                <div className="flex flex-col space-y-20 text-center items-center select-none min-w-[30%]">
+                <div className="flex flex-col space-y-20 text-center items-center select-none max-w-[70%] min-w-[30%]">
                     {
                         !!services?.residential?.length &&
                         <div className='space-y-6'>
-                            <h2 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
+                            <h2 className="text-[1.7rem] leading-[2.5rem] text-center font-semibold text-primaryDark">
                                 Select <span className='text-primary'>residential</span> appliance to repair
                             </h2>
                             {
                                 isLoading
                                     ? <BrandsSelectSkeleton />
-                                    : <div className="flex items-center justify-center flex-wrap gap-3 md:gap-5">
+                                    : <div className="flex items-center justify-center flex-wrap gap-3">
                                         {
                                             services?.residential?.map(appliance =>
                                                 <SelectButton
@@ -101,13 +101,13 @@ export const ApplianceSelect: React.FC<IApplianceSelectProps> = (props) => {
                     {
                         !!services?.commercial?.length &&
                         <div className='space-y-6'>
-                            <h3 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
+                            <h3 className="text-[1.7rem] leading-[2.5rem] text-center font-semibold text-primaryDark ">
                                 Select <span className='text-primary'>commercial</span> appliance to repair
                             </h3>
                             {
                                 isLoading
                                     ? <BrandsSelectSkeleton />
-                                    : <div className="flex items-center justify-center flex-wrap gap-3 md:gap-5">
+                                    : <div className="flex items-center justify-center flex-wrap gap-3">
                                         {
                                             services?.commercial?.map(appliance =>
                                                 <SelectButton

@@ -143,9 +143,9 @@ const ModalContent: React.FC<IModalContent> = (props) => {
 
 
     return (
-        <div className="flex relative flex-col md:max-w-[80vw] md:min-w-[80vw] max-h-[90vh] rounded-lg overflow-scroll space-y-5 text-center">
-            <div className="z-50 backdrop-blur-xl flex items-center justify-center bg-white/60 absolute w-full py-2 md:py-3">
-                <h2 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
+        <div className="flex relative flex-col md:max-w-[65vw] md:min-w-[70%] max-h-[90vh] rounded-lg overflow-scroll space-y-5 text-center">
+            <div className="z-50 backdrop-blur-xl flex items-center justify-center bg-white/60 absolute w-full py-3 md:py-10">
+                <h2 className="text-[1.7rem] leading-[2.5rem] text-center font-semibold text-primaryDark">
                     Let us know your availability
                 </h2>
                 <div className="z-200 absolute top-5 right-5 cursor-pointer hover:text-primary" onClick={onClose}><CloseIcon /></div>

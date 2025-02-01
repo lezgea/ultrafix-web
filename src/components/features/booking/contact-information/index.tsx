@@ -73,6 +73,7 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
     };
 
 
+
     return (
         <SectionLayout noYPadding>
             <div className="flex w-full justify-center space-y-20">

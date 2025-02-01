@@ -59,7 +59,7 @@ export const FindTechnician: React.FC<IFindTechnicianProps> = (props) => {
             {/* <Stepper /> */}
             <div className="flex flex-col w-full items-center justify-center space-y-10">
                 <form className="flex flex-col items-center space-y-6 select-none min-w-[30%] text-center" onSubmit={handleSubmit(onSubmit)}>
-                    <h2 className="text-[1.7rem] leading-[2.5rem] md:text-[2rem] md:leading-[3.5rem] text-center font-semibold text-primaryDark">
+                    <h2 className="text-[1.7rem] leading-[2.5rem] text-center font-semibold text-primaryDark">
                         Find an UltraFix technician in your area
                     </h2>
                     <div className="flex flex-col w-full max-w-[300px]">
