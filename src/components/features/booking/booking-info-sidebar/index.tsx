@@ -20,15 +20,15 @@ export const BookingInfoSidebar: React.FC<IBookingInfoSidebar> = (props) => {
 
     return (
         <div>
-            {/* <div className='flex z-30 md:hidden fixed items-center h-screen'>
+            <div className='flex z-30 md:hidden fixed items-center justify-end h-screen -left-[60px] bg-red'>
                 <button
                     type="button"
-                    className="inline-flex w-auto text-center text-lg items-center px-5 pt-2 pb-5 text-white transition-all bg-primaryMedium rounded-lg sm:w-auto hover:bg-primaryDark shadow-neutral-300 hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px focus:shadow-none rotate-90"
+                    className="absolute left-0 inline-flex w-auto text-center text-lg items-center px-5 pt-2 pb-5 text-white transition-all bg-primaryMedium rounded-lg sm:w-auto hover:bg-primaryDark shadow-neutral-300 hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px focus:shadow-none rotate-90"
                     onClick={() => showInfoModal(true)}
                 >
                     Booking Info
                 </button>
-            </div> */}
+            </div>
 
             <div className='fixed z-20 flex flex-col h-screen pt-[50px] px-[20px] pb-[60px]'>
                 {
