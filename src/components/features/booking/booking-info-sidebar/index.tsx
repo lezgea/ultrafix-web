@@ -35,13 +35,6 @@ export const BookingInfoSidebar: React.FC<IBookingInfoSidebar> = (props) => {
                     !!bookingData.appliances?.length &&
                     <div className='hidden lg:flex backdrop-blur-xl bg-gray-400/10 shadow rounded-xl p-5 pb-20 min-w-[300px] max-w-[300px] min-h-[600px]'>
                         <div className='flex flex-col w-full gap-2'>
-                            {/* <button
-                                type="button"
-                                className="inline-flex w-auto text-center text-lg items-center px-5 py-2 text-white transition-all bg-primaryMedium rounded-lg sm:w-auto hover:bg-primaryDark shadow-neutral-300 hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px focus:shadow-none"
-                                onClick={() => { }}
-                            >
-                                Close
-                            </button> */}
                             <div className='flex items-center'>
                                 <div className='text-[14px] text-gray-400 font-regmed'>Booking Information</div>
                             </div>

@@ -272,3 +272,15 @@ body {
     bottom: 20px;
     /* Adjust position */
 }
+
+.brand-logo {
+    filter: grayscale(100%);
+    opacity: .5;
+    transition: filter 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.brand-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
