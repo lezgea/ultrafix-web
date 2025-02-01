@@ -40,7 +40,7 @@ const BookingFormContent: React.FC = () => {
                 onConfirm={() => { setConfirmation(true); setStep(4) }}
                 onClose={() => setScheduleModal(false)}
             />
-        </div>
+        </div >
     )
 }
 

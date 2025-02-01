@@ -19,19 +19,29 @@ export const BookingInfoSidebar: React.FC<IBookingInfoSidebar> = (props) => {
 
     return (
         <div>
-            <div className='fixed z-40 flex flex-col h-screen pt-[50px] px-[20px] pb-[60px]'>
+            <div className='flex md:hidden fixed items-center h-screen'>
                 {/* <div className='absolute flex items-center justify-center text-sm text-white bg-primaryLight z-10 w-5 h-5 rounded-full right-0'>3</div> */}
-                {/* <button
+                <button
                     type="button"
                     className="inline-flex -ml-14 w-auto text-center text-lg items-center px-5 pt-2 pb-5 text-white transition-all bg-primaryMedium rounded-lg sm:w-auto hover:bg-primaryDark shadow-neutral-300 hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px focus:shadow-none rotate-90"
                     onClick={() => { }}
                 >
                     Booking Info
-                </button> */}
+                </button>
+            </div>
+
+            <div className='fixed z-40 flex flex-col h-screen pt-[50px] px-[20px] pb-[60px]'>
                 {
                     !!bookingData.appliances?.length &&
-                    <div className='bg-gray-100 shadow rounded-xl p-5 pb-20 min-w-[300px] max-w-[300px] min-h-[400px]'>
+                    <div className='hidden lg:flex backdrop-blur-xl bg-gray-400/10 shadow rounded-xl p-5 pb-20 min-w-[300px] max-w-[300px] min-h-[400px]'>
                         <div className='flex flex-col gap-2'>
+                            {/* <button
+                                type="button"
+                                className="inline-flex w-auto text-center text-lg items-center px-5 py-2 text-white transition-all bg-primaryMedium rounded-lg sm:w-auto hover:bg-primaryDark shadow-neutral-300 hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px focus:shadow-none"
+                                onClick={() => { }}
+                            >
+                                Close
+                            </button> */}
                             <div className='flex items-center'>
                                 <div className='text-[14px] text-gray-400 font-regmed'>Booking Information</div>
                             </div>
