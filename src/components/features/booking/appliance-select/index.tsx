@@ -73,7 +73,7 @@ export const ApplianceSelect: React.FC<IApplianceSelectProps> = (props) => {
     return (
         <SectionLayout noYPadding>
             <div className="flex w-full justify-center space-y-10">
-                <div className="flex flex-col space-y-20 text-center items-center select-none max-w-[70%] min-w-[30%]">
+                <div className="flex flex-col space-y-20 text-center items-center select-none md:max-w-[70%] min-w-[30%]">
                     {
                         !!services?.residential?.length &&
                         <div className='space-y-6'>

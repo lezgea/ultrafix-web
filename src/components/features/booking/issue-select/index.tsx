@@ -156,7 +156,7 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
     return (
         <SectionLayout noYPadding>
             <div className="flex w-full justify-center space-y-10">
-                <div className="flex flex-col space-y-20 text-center items-center select-none max-w-[70%] min-w-[30%]">
+                <div className="flex flex-col space-y-20 text-center items-center select-none md:max-w-[70%] min-w-[30%]">
                     {
                         serviceData?.services?.map((appliance, i) =>
                             <div key={appliance.id} className='flex flex-col gap-10'>
