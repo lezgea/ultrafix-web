@@ -28,7 +28,10 @@ export const BRANDS_LIST = [
     { id: 10, label: 'KitchenAid', value: 'kitchenaid' },
     { id: 11, label: 'Thermador', value: 'thermador' },
     { id: 12, label: 'Samsung', value: 'samsung' },
-    { id: 13, label: 'GeAppliances', value: 'geappliances' },
-    { id: 14, label: 'Electrolux', value: 'elcetrolux' },
+    { id: 13, label: 'Ge', value: 'ge' },
+    { id: 14, label: 'Electrolux', value: 'electrolux' },
     { id: 15, label: 'Viking', value: 'viking' },
+    { id: 16, label: 'Subzero', value: 'subzero' },
+    { id: 17, label: 'Asko', value: 'asko' },
+    { id: 18, label: 'Scotsman', value: 'scotsman' },
 ]

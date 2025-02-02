@@ -133,7 +133,7 @@ const LocationPage: React.FC<ILocationProps> = ({ params }) => {
                 <ResidentialLocationServices />
                 <CommercialLocationServices />
                 <ReviewsSection />
-                <LocationsMap />
+                {/* <LocationsMap /> */}
                 <LocationsSection />
                 <ContactSection />
                 <EmployeesSection />

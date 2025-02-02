@@ -35,7 +35,7 @@ export const BrandsSection: React.FC = () => {
             scrollId="brands"
             title="Brands We Repair"
         >
-            <div className='flex flex-wrap items-center justify-center gap-7'>
+            <div className='flex flex-wrap items-center justify-center gap-7 pb-20'>
                 {
                     BRANDS_LIST.map(brand =>
                         <div key={brand.id}>
@@ -44,7 +44,7 @@ export const BrandsSection: React.FC = () => {
                                 width={100}
                                 alt={brand.label}
                                 src={`/img/brands/${brand.value}.jpg`}
-                                className='brand-logo w-full h-10'
+                                className='brand-logo w-full h-12'
                             />
                         </div>
                     )
