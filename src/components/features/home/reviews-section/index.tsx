@@ -8,6 +8,7 @@ import { CarouselProps } from 'react-responsive-carousel';
 import { REVIEWS, REVIEWS_MOB } from 'constants/reviews';
 import { StarsIcon } from '@assets/icons';
 import { ReviewModal } from '@components/shared/review-modal';
+import * as motion from "framer-motion/client"
 
 // Dynamically import the Carousel to avoid SSR issues
 const Carousel = dynamic(() => import("react-responsive-carousel").then(mod => mod.Carousel), {
@@ -48,7 +49,7 @@ export const ReviewsSection: React.FC = () => {
                             <div key={i} className='flex justify-center p-5 gap-8 select-none'>
                                 {
                                     review.items.map((item, j) =>
-                                        <div
+                                        <motion.div
                                             key={j}
                                             className='flex flex-col shadow-lg max-w-[32%] rounded-xl p-4 text-start gap-2 mb-10 cursor-pointer hover:shadow-xl'
                                             onClick={() => setReviewModal({
@@ -57,6 +58,10 @@ export const ReviewsSection: React.FC = () => {
                                                 userName: item.userName,
                                                 description: item.description,
                                             })}
+                                            initial={{ opacity: 0, x: -100 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            whileHover={{ scale: 1.1 }}
+                                            transition={{ duration: 0.3 }}
                                         >
                                             <div className='flex flex-col gap-2'>
                                                 <Image
@@ -72,7 +77,7 @@ export const ReviewsSection: React.FC = () => {
                                                 </div>
                                             </div>
                                             <div className='truncate-text-4 text-[13px]'>{item.description}</div>
-                                        </div>
+                                        </motion.div>
                                     )
                                 }
                             </div>
