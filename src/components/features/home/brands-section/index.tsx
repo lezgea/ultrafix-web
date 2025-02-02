@@ -37,13 +37,14 @@ export const BrandsSection: React.FC = () => {
             scrollId="brands"
             title="Brands We Repair"
         >
-            <div className='flex flex-wrap items-center justify-center gap-7 pb-20'>
+            <div className='flex flex-wrap items-center justify-center gap-7 pb-20 md:pb-10'>
                 {
                     BRANDS_LIST.map(brand =>
                         <motion.div
                             key={brand.id}
                             initial={{ opacity: 0, scale: 0 }}
                             whileInView={{ opacity: 1, scale: 1 }}
+                            whileHover={{ scale: 1.2 }}
                             transition={{
                                 duration: 0.4,
                                 scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
