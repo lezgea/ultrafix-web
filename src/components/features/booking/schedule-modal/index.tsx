@@ -134,6 +134,8 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                     date: bookingData.order_at,
                     timezone: timezone,
                     appliances: bookingData.appliances,
+                    latitude: bookingData.latitude,
+                    longitude: bookingData.longitude,
                 }).unwrap()
             }
         } catch (err: any) {

@@ -112,6 +112,8 @@ export interface IGetTimeSlotsRequest {
     date: string,
     timezone: string,
     appliances?: IAppliance[],
+    latitude?: string | number | null,
+    longitude?: string | number | null,
 }
 
 export interface IGetTimeSlotsResponse {

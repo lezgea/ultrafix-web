@@ -3,15 +3,15 @@
 import React from 'react';
 import Link from 'next/link';
 import { CloseIcon } from '@assets/icons';
-import { DaySelect, Modal, TimeSelect } from '@components/shared';
-import { format, addDays } from "date-fns";
-import { useCompleteLeadMutation, useLazyGetTimeSlotsQuery } from '@api/booking-api';
 import { RootState } from '@store/store';
 import { useSelector } from 'react-redux';
+import { format, addDays } from "date-fns";
+import { DaySelect, Modal, TimeSelect } from '@components/shared';
+import { useCompleteLeadMutation, useLazyGetTimeSlotsQuery } from '@api/booking-api';
 import { setLeadData, setSelectedBookingDate, setSelectedSlot } from '@slices/booking-slice';
-import { useDispatch } from 'react-redux';
-import { UlDayPicker } from '@components/shared/day-picker';
 import { SlotsSkeleton } from '@components/shared/skeletons';
+import { UlDayPicker } from '@components/shared/day-picker';
+import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
 
@@ -55,7 +55,7 @@ const ModalContent: React.FC<IModalContent> = (props) => {
 
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-    const { leadData, slots, serviceData, selectedBookingDate, loading } = useSelector((state: RootState) => state.booking);
+    const { leadData, slots, selectedBookingDate, loading } = useSelector((state: RootState) => state.booking);
 
     const dispatch = useDispatch();
     const [triggerTimeSlots] = useLazyGetTimeSlotsQuery();
@@ -64,7 +64,6 @@ const ModalContent: React.FC<IModalContent> = (props) => {
     const [isDatePickerVisible, setDatePickerVisible] = React.useState<boolean>(false);
     const [selectedDate, setSelectedDate] = React.useState<any>();
 
-    const [selectedDay, setSelectedDay] = React.useState<number>(1);
     const [selectedTime, setSelectedTime] = React.useState<number | string>(0);
 
     const dates = Array.from({ length: 5 }, (_, i) => addDays(new Date(), i));
@@ -148,6 +147,8 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                     date: leadData.order_at,
                     timezone: timezone,
                     lead_id: leadId,
+                    longitude: leadData.longitude,
+                    latitude: leadData.latitude,
                 }).unwrap()
             }
         } catch (err: any) {

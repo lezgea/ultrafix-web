@@ -40,10 +40,10 @@ export const bookingApi = createApi({
             // providesTags: ['Services'],
         }),
         getTimeSlots: builder.query<IGetTimeSlotsResponse, IGetTimeSlotsRequest>({
-            query: ({ zip, date, timezone, appliances, lead_id }) => ({
+            query: ({ zip, date, timezone, appliances, lead_id, latitude, longitude }) => ({
                 url: `/booking/schedule-days`,
                 method: 'GET',
-                params: { zip, date, timezone, appliances, lead_id },
+                params: { zip, date, timezone, appliances, lead_id, latitude, longitude },
             }),
             // providesTags: ['Services'],
         }),
