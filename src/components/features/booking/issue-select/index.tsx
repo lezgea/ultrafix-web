@@ -198,7 +198,7 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
                                             ? <BrandsSelectSkeleton />
                                             : <div className="flex items-center justify-center flex-wrap gap-3">
                                                 {
-                                                    appliance.issues?.map(issue =>
+                                                    appliance.issues?.slice(0, 5)?.map(issue =>
                                                         <SelectButton
                                                             key={issue.value}
                                                             label={issue.label}
