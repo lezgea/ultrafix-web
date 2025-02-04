@@ -122,7 +122,7 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
         let isProblemSelected = applianceToUpdate?.issue == issueId;
         return isProblemSelected;
     }
-    
+
 
     const onSearchBrand = async (e: any) => {
         try {
@@ -210,7 +210,7 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
                                     </h4>
                                     <div className="flex flex-col w-full max-w-[300px]">
                                         <input
-                                            placeholder="Search your brand"
+                                            placeholder="Search your issue"
                                             onChange={(e: any) => onSearchIssue(e, appliance.issues)}
                                             className={`w-full h-[50px] px-5 py-2 pr-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out transform`}
                                         />
