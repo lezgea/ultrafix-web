@@ -147,14 +147,16 @@ const ModalContent: React.FC<IModalContent> = (props) => {
     return (
         <div className="flex relative flex-col md:max-w-[65vw] md:min-w-[70%] max-h-[90vh] rounded-lg overflow-scroll space-y-5 text-center">
             <div className="z-50 backdrop-blur-xl flex items-center justify-center bg-white/60 absolute w-full py-3 md:py-10">
-                <h2 className="text-[1.7rem] leading-[2.5rem] text-center font-semibold text-primaryDark">
+                <h2 className="text-[1.2rem] md:text-[1.7rem] md:leading-[2.5rem] text-center font-semibold text-primaryDark mt-10 md:mt-0">
                     Let us know your availability
                 </h2>
-                <div className="z-200 absolute top-5 right-5 cursor-pointer hover:text-primary" onClick={onClose}><CloseIcon /></div>
+                <div className="z-200 absolute top-5 right-8 md:right-5 cursor-pointer hover:text-primary" onClick={onClose}>
+                    <CloseIcon className="stroke-gray-500 hover:stroke-primary" />
+                </div>
             </div>
             <div className="w-full flex flex-col items-center justify-center p-[50px] pt-[100px] gap-[40px]">
                 <div className='flex flex-col items-center gap-4'>
-                    <div className='flex gap-3'>
+                    <div className='flex gap-2 md:gap-3'>
                         {
                             dates.map((date, i) =>
                                 <DaySelect
