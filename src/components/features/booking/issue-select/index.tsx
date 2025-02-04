@@ -137,6 +137,20 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
         }
     }
 
+    const onSearchIssue = async (e: any, issues: any[]) => {
+        // try {
+        //     triggerGetBrands({
+        //         query: e.target.value,
+        //         skip: 0,
+        //         limit: 6,
+        //         zip: bookingData?.zip,
+        //         appliances: [...bookingData?.appliances?.map(item => ({ service_id: item.service_id, type: item.type }))]
+        //     }).unwrap();
+        // } catch (err: any) {
+        //     console.log('Error: ', err)
+        // }
+    }
+
 
     React.useEffect(() => {
         try {
@@ -193,6 +207,13 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
                                     <h4 className="text-[1.7rem] leading-[2.5rem] text-center font-semibold text-primaryDark">
                                         Select the issue
                                     </h4>
+                                    <div className="flex flex-col w-full max-w-[300px]">
+                                        <input
+                                            placeholder="Search your brand"
+                                            onChange={(e: any) => onSearchIssue(e, appliance.issues)}
+                                            className={`w-full h-[50px] px-5 py-2 pr-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out transform`}
+                                        />
+                                    </div>
                                     {
                                         loading
                                             ? <BrandsSelectSkeleton />
