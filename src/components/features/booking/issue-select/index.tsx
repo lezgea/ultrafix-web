@@ -122,6 +122,7 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
         let isProblemSelected = applianceToUpdate?.issue == issueId;
         return isProblemSelected;
     }
+    
 
     const onSearchBrand = async (e: any) => {
         try {
@@ -203,7 +204,7 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
                                     }
                                 </div>
 
-                                <div className='space-y-6'>
+                                <div className='space-y-6 flex flex-col items-center'>
                                     <h4 className="text-[1.7rem] leading-[2.5rem] text-center font-semibold text-primaryDark">
                                         Select the issue
                                     </h4>

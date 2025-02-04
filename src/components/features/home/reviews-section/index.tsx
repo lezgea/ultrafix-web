@@ -24,6 +24,7 @@ export const ReviewsSection: React.FC = () => {
         setIsMounted(true);
     }, []);
 
+
     const carouselProps: Partial<CarouselProps> = {
         showIndicators: true,
         showArrows: false,

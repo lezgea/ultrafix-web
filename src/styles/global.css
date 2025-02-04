@@ -21,6 +21,11 @@ body {
     overflow-x: hidden;
 }
 
+::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar in Webkit browsers */
+}
+
 .jvm-tooltip {
     display: block !important;
     position: absolute !important;

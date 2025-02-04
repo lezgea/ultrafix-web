@@ -11,9 +11,6 @@ import {
     IssueSelect,
     ScheduleModal,
 } from '@components/features/booking';
-import { useSearchParams } from 'next/navigation';
-import { useDispatch } from 'react-redux';
-import { setSelectedAppliances } from '@slices/booking-slice';
 import { Loader } from '../loader';
 
 
@@ -25,8 +22,7 @@ const BookingFormContent: React.FC = () => {
 
     return (
         <div className='pb-40'>
-            <BookingInfoSidebar />
-
+            {!!step && <BookingInfoSidebar />}
             {step == 4 && confirmation && <Confirmation />}
             <div className="relative w-full flex items-center flex-col container mx-auto max-w-[1200px] py-20 space-y-10">
                 {!!step && !confirmation && <Stepper step={step} />}
