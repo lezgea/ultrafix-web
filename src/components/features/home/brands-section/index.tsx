@@ -2,34 +2,30 @@
 
 import SectionLayout from '@components/layout/section-layout';
 import Image from 'next/image';
-import React, { useState, useEffect } from 'react';
-import dynamic from 'next/dynamic';
-import { CarouselProps } from 'react-responsive-carousel';
+import React from 'react';
 import { BRANDS, BRANDS_LIST, BRANDS_MOB } from 'constants/brands';
 import * as motion from "framer-motion/client"
+import { useLazyGetAllBrandsQuery } from '@api/brands-api';
 
-// Dynamically import the Carousel to avoid SSR issues
-const Carousel = dynamic(() => import("react-responsive-carousel").then(mod => mod.Carousel), {
-    ssr: false, // Disable server-side rendering for this component
-});
+
 
 export const BrandsSection: React.FC = () => {
-    const [isMounted, setIsMounted] = useState(false);
 
-    // This ensures the component only runs on the client
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
+    const [triggerGetBrands, { data: brands, isLoading }] = useLazyGetAllBrandsQuery();
 
-    const carouselProps: Partial<CarouselProps> = {
-        showIndicators: false,
-        showArrows: true,
-        autoPlay: true,
-        showThumbs: false,
-        transitionTime: 1000,
-        interval: 2000,
-        infiniteLoop: true,
-    };
+
+    async function getBrands() {
+        try {
+            triggerGetBrands({}).unwrap();
+        } catch (err: any) {
+            console.error('Unable to fetch brands list: ', err)
+        }
+    }
+
+
+    React.useEffect(() => {
+        getBrands();
+    }, [])
 
 
     return (
