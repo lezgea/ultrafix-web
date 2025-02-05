@@ -3,15 +3,29 @@
 import React from 'react';
 import SectionLayout from '@components/layout/section-layout';
 import { ExpandableInfoSection } from '@components/shared';
-import { FAQ_LIST } from 'constants/faq';
+import { useLazyGetAllFaqsQuery } from '@api/faq-api';
+import { FaqsSkeleton } from '@components/shared/skeletons';
 
 
 export const FAQSection: React.FC = () => {
-    const [isMounted, setIsMounted] = React.useState(false);
+
+    const [triggerGetFaqs, { data: faqsData, isLoading }] = useLazyGetAllFaqsQuery();
+
+
+    async function getAllFaqs() {
+        try {
+            await triggerGetFaqs({ city: 'main' }).unwrap();
+        } catch (err: any) {
+            console.log('Error: ', err)
+        }
+    }
+
 
     React.useEffect(() => {
-        setIsMounted(true);
-    }, []);
+        if (location)
+            getAllFaqs();
+    }, [location]);
+
 
 
     return (
@@ -21,11 +35,15 @@ export const FAQSection: React.FC = () => {
         >
             <div className="rounded-3xl space-y-2">
                 {
-                    FAQ_LIST.map(item =>
+                    isLoading &&
+                    <FaqsSkeleton />
+                }
+                {
+                    faqsData?.data?.map(item =>
                         <ExpandableInfoSection
                             key={item.id}
                             title={item.title}
-                            description={item.value}
+                            description={item.description}
                         />
                     )
                 }

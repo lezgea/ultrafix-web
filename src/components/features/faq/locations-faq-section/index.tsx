@@ -15,7 +15,6 @@ interface ILocationFaqProps {
 const LocationsFAQSectionContent: React.FC<ILocationFaqProps> = (props) => {
     let { location } = props;
 
-    const [isMounted, setIsMounted] = React.useState(false);
     const [triggerGetFaqs, { data: faqsData, isLoading }] = useLazyGetAllFaqsQuery()
 
 
