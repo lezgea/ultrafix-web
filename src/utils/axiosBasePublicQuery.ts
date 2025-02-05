@@ -11,9 +11,9 @@ interface AxiosBaseQueryArgs {
     onUploadProgress?: (progressEvent: AxiosProgressEvent) => void; // Add support for upload progress
 }
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_API_URL || 'https://ultrafix.pro/api/v1/public';
+const BASE_PUBLIC_URL = process.env.NEXT_PUBLIC_BASE_API_URL || 'https://ultrafix.pro/api/v1/public';
 
-console.log('Base URL:', BASE_URL);
+console.log('Base URL:', BASE_PUBLIC_URL);
 
 const axiosBasePublicQuery: BaseQueryFn<AxiosBaseQueryArgs, unknown, unknown> = async (
     { url, method, data, params, headers, onUploadProgress },
@@ -23,7 +23,7 @@ const axiosBasePublicQuery: BaseQueryFn<AxiosBaseQueryArgs, unknown, unknown> = 
     try {
         const token = Cookies.get('ultra-token');
         const result = await axios({
-            url: BASE_URL + url,
+            url: BASE_PUBLIC_URL + url,
             method,
             data: method !== 'GET' ? data : undefined,
             params: method === 'GET' ? params : undefined,
