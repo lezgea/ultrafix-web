@@ -37,28 +37,21 @@ export const LocationsMap: React.FC = () => {
         >
             {isMounted && (
                 <AnimatePresence mode="wait">
-                    <div className="relative flex flex-col md:flex-row items-center">
-                        <motion.div
-                            initial={{ opacity: 0, x: -200 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.3 }}
-                            className="rounded-3xl overflow-hidden"
-                        >
-                            <Image
-                                src={cityData?.mapUrl}
-                                width={1200} // Adjust width and height based on your layout
-                                height={400}
-                                className="w-full h-[600px] object-cover"
-                                alt={`${cityData?.title} location's map`}
-                                loading="lazy"
-                                sizes="(max-width: 1200px) 100vw, 1000px"
-                            />
-                        </motion.div>
+                    <div className="w-full relative flex flex-col md:flex-row items-center rounded-2xl shadow-xl overflow-hidden">
+                        <Image
+                            src={`/img/cities/${state}_${city}.jpeg`}
+                            width={800} // Adjust width and height based on your layout
+                            height={400}
+                            className="w-full object-cover"
+                            alt={`${cityData?.title} location's image`}
+                            loading="lazy"
+                            sizes="(max-width: 1200px) 80vw, 700px"
+                        />
                         <motion.div
                             initial={{ opacity: 0, x: 200 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.3 }}
-                            className="bg-white p-10 rounded-2xl shadow-2xl relative w-full -top-20 md:top-auto md:absolute md:-right-20 md:min-w-[400px] md:max-w-[400px] space-y-7"
+                            className="bg-white p-10 relative w-full min-w-[400px] space-y-7"
                         >
                             <div>
                                 <div className="text-xl font-light text-primaryDark">UltraFix Appliance Repair</div>
