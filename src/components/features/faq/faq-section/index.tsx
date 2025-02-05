@@ -22,9 +22,8 @@ export const FAQSection: React.FC = () => {
 
 
     React.useEffect(() => {
-        if (location)
-            getAllFaqs();
-    }, [location]);
+        getAllFaqs();
+    }, []);
 
 
 
