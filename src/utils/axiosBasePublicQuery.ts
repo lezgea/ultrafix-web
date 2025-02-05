@@ -11,11 +11,11 @@ interface AxiosBaseQueryArgs {
     onUploadProgress?: (progressEvent: AxiosProgressEvent) => void; // Add support for upload progress
 }
 
-const BASE_URL = process.env.NEXT_BASE_API_URL || 'https://ultrafix.pro/api/v1';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_API_URL || 'https://ultrafix.pro/api/v1/public';
 
 console.log('Base URL:', BASE_URL);
 
-const axiosBaseQuery: BaseQueryFn<AxiosBaseQueryArgs, unknown, unknown> = async (
+const axiosBasePublicQuery: BaseQueryFn<AxiosBaseQueryArgs, unknown, unknown> = async (
     { url, method, data, params, headers, onUploadProgress },
     api,
     extraOptions
@@ -48,4 +48,4 @@ const axiosBaseQuery: BaseQueryFn<AxiosBaseQueryArgs, unknown, unknown> = async 
     }
 };
 
-export default axiosBaseQuery;
+export default axiosBasePublicQuery;

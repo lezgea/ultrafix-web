@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_API_URL || 'https://ultrafix.pro/api/v1';
+const BASE_URL = process.env.NEXT_BASE_API_URL || 'https://ultrafix.pro/api/v1';
 
 export const fetchAllBlogs = async (skip = 0, limit = 100) => {
     try {
