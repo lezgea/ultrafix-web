@@ -42,7 +42,7 @@ export const LocationsMap: React.FC = () => {
                             src={`/img/cities/${state}_${city}.jpeg`}
                             width={800} // Adjust width and height based on your layout
                             height={400}
-                            className="w-full object-cover"
+                            className="w-full md:h-[400px] md:max-w-[60%] object-cover"
                             alt={`${cityData?.title} location's image`}
                             loading="lazy"
                             sizes="(max-width: 1200px) 80vw, 700px"
