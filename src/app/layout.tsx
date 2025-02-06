@@ -265,21 +265,54 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Review",
-              "itemReviewed": {
-                "@type": "LocalBusiness",
-                "name": "UltraFix Appliance Repair LLC"
+              "@type": "LocalBusiness",
+              "name": "UltraFix Appliance Repair LLC",
+              "url": "https://ultrafix.com",
+              "image": "https://ultrafix.com/svg/logo.svg",
+              "telephone": "+1-888-998-6263",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "1718 N Fry Rd #152",
+                "addressLocality": "Houston",
+                "addressRegion": "TX",
+                "postalCode": "77084",
+                "addressCountry": "US"
               },
-              "author": {
-                "@type": "Person",
-                "name": "John Doe"
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5.0",
+                "reviewCount": "2691"
               },
-              "reviewRating": {
-                "@type": "Rating",
-                "ratingValue": "5",
-                "bestRating": "5"
-              },
-              "reviewBody": "UltraFix provided excellent service. The technician was professional, on time, and fixed our washer quickly. Highly recommended!"
+              "review": [
+                {
+                  "@type": "Review",
+                  "author": {
+                    "@type": "Person",
+                    "name": "Michael Lockovich"
+                  },
+                  "datePublished": "2025-01-10",
+                  "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "5",
+                    "bestRating": "5"
+                  },
+                  "reviewBody": "My Samsung Washers drain pump went bad! Elmir was very efficient and professional, same day service, very punctual and had the replacement part on his truck. Priced very reasonable also!! I’ll be using these folks again!!"
+                },
+                {
+                  "@type": "Review",
+                  "author": {
+                    "@type": "Person",
+                    "name": "Troy Connor"
+                  },
+                  "datePublished": "2025-02-01",
+                  "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "5",
+                    "bestRating": "5"
+                  },
+                  "reviewBody": "The company stood behind a difficult dishwasher repair. They sent Elmir out twice to troubleshoot the problems. They ended up needed to replace the motherboard and control panel again, but thy did it and the dishwasher works now"
+                }
+              ]
             })
           }}
         />
@@ -337,18 +370,6 @@ export default function RootLayout({
             <Footer />
           </ToastProvider>
         </ReduxProvider>
-        {/* <script type="text/javascript" dangerouslySetInnerHTML={{
-          __html: `
-          var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-          (function(){
-          var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-          s1.async=true;
-          s1.src='https://embed.tawk.to/671fe2ee2480f5b4f59544a1/1iba8st7i';
-          s1.charset='UTF-8';
-          s1.setAttribute('crossorigin','*');
-          s0.parentNode.insertBefore(s1,s0);
-          })();
-        `}}></script> */}
       </body>
     </html>
   );
