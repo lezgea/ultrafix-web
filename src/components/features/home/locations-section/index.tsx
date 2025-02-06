@@ -35,7 +35,7 @@ export const LocationsSection: React.FC = () => {
                         statesList?.data?.map((item, i) =>
                             <MemoizedStateButton
                                 key={item.id}
-                                onClick={() => { setSelectedState(item.value); setShowCitiesModal(true) }}
+                                onClick={() => { setSelectedState(item.state_short); setShowCitiesModal(true) }}
                                 {...item}
                             />
                         )

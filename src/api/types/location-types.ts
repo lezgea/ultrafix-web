@@ -21,9 +21,9 @@ export interface ICity {
     id: number | string,
     name: string,
     state_short: string,
+    state_full: string,
     value: string,
-    icon: string
-
+    image: string
 }
 
 export interface ICitiesListRequest {
@@ -31,7 +31,7 @@ export interface ICitiesListRequest {
 }
 
 export interface ICitiesListResponse {
-    // data: ICity[],
+    data: ICity[],
 }
 
 

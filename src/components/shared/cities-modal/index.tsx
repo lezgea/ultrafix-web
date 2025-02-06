@@ -4,6 +4,7 @@ import { STATES } from 'constants/locations';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CloseIcon } from '@assets/icons';
+import { useLazyGetAllCitiesQuery } from '@api/location-api';
 
 
 interface ICitiesModalProps {
@@ -36,6 +37,22 @@ const ModalContent: React.FC<IModalContent> = (props) => {
     let { state, onClose } = props;
 
     const stateKey = state as keyof typeof STATES;
+    const [triggerGetCities, { data: citiesList, isLoading: isCitiesLoading }] = useLazyGetAllCitiesQuery();
+
+
+    async function getAllCitiesList() {
+        try {
+            await triggerGetCities({ state: state }).unwrap();
+        } catch (err: any) {
+            console.error('Unable to fetch cities list: ', err)
+        }
+    }
+
+
+    React.useEffect(() => {
+        if (state)
+            getAllCitiesList();
+    }, [state])
 
 
     return (
@@ -46,24 +63,24 @@ const ModalContent: React.FC<IModalContent> = (props) => {
             </div>
             <div className="w-full columns-2 lg:columns-3 p-7 pt-[50px] md:pt-[60px] md:p-7 overflow-y-scroll">
                 {
-                    STATES[stateKey].map((city) =>
+                    citiesList?.data?.map((city) =>
                         <Link
                             key={city.id}
-                            href={`/appliance-repair/${state.toLowerCase()}/${city.value}`}
+                            href={`/appliance-repair/${city.state_short.toLowerCase()}/${city.name.toLowerCase()}`}
                         >
                             <div className="relative rounded-xl md:rounded-2xl h-[100px] max-h-[100px] md:h-[200px] md:max-h-[200px] overflow-hidden mb-4 border border-gray-300">
                                 <div className="text-gray-500 cursor-pointer shadow-top-lg hover:shadow-lg group rounded-xl md:rounded-2xl overflow-hidden">
                                     <Image
-                                        src={city.img}
+                                        src={city.image || '/svg/no_img.svg'}
                                         width={300}
                                         height={200}
                                         className="w-full min-h-[100px] max-h-[100px] md:h-[200px] md:max-h-[200px] object-cover transition-transform duration-300 ease-in-out transform group-hover:scale-110 rounded-xl md:rounded-2xl border border-gray-100"
-                                        alt={`${city.title} Image`}
+                                        alt={`${city.name} Image`}
                                         // loading="lazy"
                                         sizes="(max-width: 1200px) 200px, (min-width: 1200px) 200px"
                                     />
                                     <div className="absolute z-60 flex items-center justify-center top-0 w-full h-full rounded-xl md:rounded-2xl py-5 bg-white/30 backdrop-blur-xl group-hover:backdrop-blur-none group-hover:bg-transparent text-lg md:text-xl font-semibold text-center text-white">
-                                        {city.title}
+                                        {city.name}
                                     </div>
                                 </div>
                             </div>
