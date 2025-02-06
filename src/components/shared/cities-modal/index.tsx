@@ -81,7 +81,6 @@ const ModalContent: React.FC<IModalContent> = (props) => {
                                     </div>
                                 </div>
                             </div>
-
                         </Link>
                     )
                 }
