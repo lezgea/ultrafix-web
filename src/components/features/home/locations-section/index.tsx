@@ -13,7 +13,8 @@ const MemoizedStateButton = React.memo(StateButton);
 
 
 export const LocationsSection: React.FC = () => {
-    const [selectedState, setSelectedState] = React.useState<string>('');
+    const [selectedStateShort, setSelectedStateShort] = React.useState<string>('');
+    const [selectedStateFull, setSelectedStateFull] = React.useState<string>('');
     const [showCitiesModal, setShowCitiesModal] = React.useState<boolean>(false);
 
     const { data: statesList, isLoading: statesLoading } = useGetAllStatesQuery()
@@ -35,14 +36,19 @@ export const LocationsSection: React.FC = () => {
                         statesList?.data?.map((item, i) =>
                             <MemoizedStateButton
                                 key={item.id}
-                                onClick={() => { setSelectedState(item.state_short); setShowCitiesModal(true) }}
+                                onClick={() => {
+                                    setSelectedStateShort(item.state_short);
+                                    setSelectedStateFull(item.name);
+                                    setShowCitiesModal(true)
+                                }}
                                 {...item}
                             />
                         )
                     }
                 </div>
                 <CitiesModal
-                    state={selectedState}
+                    stateShort={selectedStateShort}
+                    stateFull={selectedStateFull}
                     visible={showCitiesModal}
                     onClose={() => setShowCitiesModal(false)}
                 />
