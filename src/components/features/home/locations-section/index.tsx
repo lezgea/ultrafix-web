@@ -6,14 +6,18 @@ import SectionLayout from '@components/layout/section-layout';
 import { CITIES, STATES_LIST } from 'constants/locations';
 import { CitiesModal } from '@components/shared';
 import { StateButton } from '@components/shared/state-button';
+import { useGetAllStatesQuery } from '@api/location-api';
 
 
 const MemoizedStateButton = React.memo(StateButton);
 
 
 export const LocationsSection: React.FC = () => {
-    const [selectedState, setSelectedState] = React.useState<string>('');
+    const [selectedStateShort, setSelectedStateShort] = React.useState<string>('');
+    const [selectedStateFull, setSelectedStateFull] = React.useState<string>('');
     const [showCitiesModal, setShowCitiesModal] = React.useState<boolean>(false);
+
+    const { data: statesList, isLoading: statesLoading } = useGetAllStatesQuery()
 
     return (
         <SectionLayout
@@ -29,17 +33,22 @@ export const LocationsSection: React.FC = () => {
             >
                 <div className='flex flex-wrap gap-4 md:gap-5 items-center justify-center'>
                     {
-                        STATES_LIST.map((item, i) =>
+                        statesList?.data?.map((item, i) =>
                             <MemoizedStateButton
                                 key={item.id}
-                                onClick={() => { setSelectedState(item.value); setShowCitiesModal(true) }}
+                                onClick={() => {
+                                    setSelectedStateShort(item.state_short);
+                                    setSelectedStateFull(item.name);
+                                    setShowCitiesModal(true)
+                                }}
                                 {...item}
                             />
                         )
                     }
                 </div>
                 <CitiesModal
-                    state={selectedState}
+                    stateShort={selectedStateShort}
+                    stateFull={selectedStateFull}
                     visible={showCitiesModal}
                     onClose={() => setShowCitiesModal(false)}
                 />

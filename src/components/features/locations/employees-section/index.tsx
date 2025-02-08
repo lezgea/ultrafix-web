@@ -7,9 +7,15 @@ import { useParams } from 'next/navigation';
 import { CITIES } from 'constants/locations';
 import DateLib from '@utils/datelib';
 import { RESIDENTIAL_SERVICES } from 'constants/services';
+import { IEmployee } from '@api/types/location-types';
 
+interface IEmployeesSectionProps {
+    employees?: IEmployee[],
+}
 
-export const EmployeesSection: React.FC = () => {
+export const EmployeesSection: React.FC<IEmployeesSectionProps> = (props) => {
+    let { employees } = props;
+
     const [isMounted, setIsMounted] = useState(false);
 
     // This ensures the component only runs on the client
@@ -51,7 +57,7 @@ export const EmployeesSection: React.FC = () => {
             title={`The Best Employees of ${getMonth()}`}
         >
             <div className="flex items-center justify-center gap-7 py-5 md:gap-10 lg:gap-20 md:py-10">
-                {cityData?.employees.map(({ id, image, name }) => (
+                {employees?.map(({ id, image, name }) => (
                     <div key={id} className="flex flex-col items-center gap-3 md:gap-7">
                         <Image
                             key={id}

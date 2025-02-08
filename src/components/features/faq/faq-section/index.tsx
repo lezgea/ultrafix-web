@@ -26,7 +26,6 @@ export const FAQSection: React.FC = () => {
     }, []);
 
 
-
     return (
         <SectionLayout
             scrollId="faq"
