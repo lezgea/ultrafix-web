@@ -138,7 +138,7 @@ const LocationPage: React.FC<ILocationProps> = ({ params }) => {
     const cityKey = `${state}_${city}` as keyof typeof CITIES;
     const cityData = CITIES[cityKey];
 
-    // ✅ Metadata state variables
+    // Metadata state variables
     const [metaTitle, setMetaTitle] = React.useState("Appliance Repair Services | UltraFix®");
     const [metaDescription, setMetaDescription] = React.useState("UltraFix offers trusted appliance repair services.");
     const [metaKeywords, setMetaKeywords] = React.useState<string[]>([]);
