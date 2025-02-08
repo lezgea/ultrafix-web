@@ -26,7 +26,7 @@ export const locationApi = createApi({
         }),
         getCityInfo: builder.query<ICitiesInfoResponse, ICitiesInfoRequest>({
             query: ({ state, city }) => ({
-                url: `/locations/state/city`,
+                url: `/locations/city`,
                 method: 'GET',
                 params: { state: state, city: city }
             }),

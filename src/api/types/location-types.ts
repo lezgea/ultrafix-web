@@ -34,6 +34,25 @@ export interface ICitiesListResponse {
     data: ICity[],
 }
 
+export interface IEmployee {
+    id: number | string,
+    name: string,
+    image: string,
+}
+
+export interface ICityInfo {
+    id: number | string,
+    address: string,
+    employees: IEmployee[],
+    image: string,
+    phone: string,
+    review_url: string,
+    state_full: string,
+    state_short: string,
+    title: string,
+    value: string,
+    yelp_url: string,
+}
 
 export interface ICitiesInfoRequest {
     state: string,
@@ -41,5 +60,5 @@ export interface ICitiesInfoRequest {
 }
 
 export interface ICitiesInfoResponse {
-    // data: ICity[],
+    data: ICityInfo,
 }
