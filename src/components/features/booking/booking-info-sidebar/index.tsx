@@ -13,8 +13,6 @@ export const BookingInfoSidebar: React.FC<IBookingInfoSidebar> = (props) => {
     const dispatch = useDispatch();
     const { bookingData, serviceData } = useSelector((state: RootState) => state.booking);
 
-    console.log('@@@@@', serviceData?.services[0]?.fee)
-
     return (
         <div>
             {
@@ -68,7 +66,7 @@ export const BookingInfoSidebar: React.FC<IBookingInfoSidebar> = (props) => {
                                                         !!serviceData?.services[i]?.fee &&
                                                         <div className='border-t'>
                                                             <label className='text-gray-400 font-regmed text-[13px] leading-[13px]'>Fee</label>
-                                                            <p className='text-[15px] leading-[16px]'>{serviceData?.services[i]?.fee}</p>
+                                                            <p className='text-[15px] leading-[16px]'>${serviceData?.services[i]?.fee}</p>
                                                         </div>
                                                     }
                                                 </div>
@@ -169,7 +167,7 @@ export const BookingInfoSidebar: React.FC<IBookingInfoSidebar> = (props) => {
                                                         !!serviceData?.services[i]?.fee &&
                                                         <div className='border-t'>
                                                             <label className='text-gray-400 font-regmed text-[13px] leading-[13px]'>Fee</label>
-                                                            <p className='text-[15px] leading-[16px]'>{serviceData?.services[i]?.fee}</p>
+                                                            <p className='text-[15px] leading-[16px]'>${serviceData?.services[i]?.fee}</p>
                                                         </div>
                                                     }
                                                 </div>
