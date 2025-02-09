@@ -2,7 +2,7 @@ import React from 'react';
 import PageLayout from '@components/layout/page-layout';
 import SectionLayout from '@components/layout/section-layout';
 import { AboutUsSection, BrandsSection, CommercialLocationServices, ContactSection, LocationsSection, LocationsServiceBanner, ResidentialLocationServices, ReviewsSection, WhyUsSection } from '@components/features';
-import { CITIES, STATES } from 'constants/locations';
+import { CITIES } from 'constants/locations';
 import { COMMERCIAL_SERVICES } from 'constants/services';
 
 
@@ -14,19 +14,21 @@ interface IServiceProps {
     };
 }
 
+
+// `generateMetadata` for dynamic metadata
 export async function generateMetadata({ params }: IServiceProps) {
     const { state, city, service } = params;
 
     const serviceKey = service as keyof typeof COMMERCIAL_SERVICES;
-    const cityKey = `${state}_${city}` as keyof typeof CITIES;
-    const cityData = CITIES[cityKey];
 
+    const cityInfo = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/locations/city?state=${state}&city=${city}`)
+        .then((res) => res.json());
 
-    const title = cityData
-        ? `Commercial ${COMMERCIAL_SERVICES[serviceKey].title} Repair in ${cityData?.title}, ${cityData?.stateShort} | UltraFix®`
+    const title = cityInfo?.data
+        ? `Commercial ${COMMERCIAL_SERVICES[serviceKey].title} Repair in ${cityInfo?.data?.title}, ${cityInfo?.data?.state_short} | UltraFix®`
         : 'Commercial Appliance Repair Services | UltraFix®';
-    const description = cityData
-        ? `UltraFix Appliance Repair in ${cityData.title}, ${cityData.stateShort} provides expert ${COMMERCIAL_SERVICES[serviceKey].title} repair with same-day service, affordable pricing, and professional technicians. Call now for reliable service!`
+    const description = cityInfo?.data
+        ? `UltraFix Appliance Repair in ${cityInfo?.data?.title}, ${cityInfo?.data?.state_short} provides expert ${COMMERCIAL_SERVICES[serviceKey].title} repair with same-day service, affordable pricing, and professional technicians. Call now for reliable service!`
         : 'UltraFix offers trusted appliance repair services across the United States.';
 
     return {
@@ -34,13 +36,13 @@ export async function generateMetadata({ params }: IServiceProps) {
         description,
         keywords: [
             'Appliance Repair',
-            `Appliance Repair in ${city}`,
-            `Appliance Repair in ${city} ${state}`,
-            `Best Appliance Repair in ${city}`,
-            `Best Appliance Repair in ${city} ${state}`,
-            `Commercial ${COMMERCIAL_SERVICES[serviceKey].title} Repair in ${city}`,
+            `Appliance Repair in ${cityInfo?.data?.title}`,
+            `Appliance Repair in ${cityInfo?.data?.title} ${cityInfo?.data?.state_short}`,
+            `Best Appliance Repair in ${cityInfo?.data?.title}`,
+            `Best Appliance Repair in ${cityInfo?.data?.title} ${cityInfo?.data?.state_short}`,
+            `Commercial ${COMMERCIAL_SERVICES[serviceKey].title} Repair in ${cityInfo?.data?.title}`,
             ...COMMERCIAL_SERVICES[serviceKey].keywords,
-            `${city} Appliance Repair`,
+            `${cityInfo?.data?.title} Appliance Repair`,
             'appliance repair near me',
             'appliance repair',
             'appliance repair service',
@@ -85,7 +87,7 @@ export async function generateMetadata({ params }: IServiceProps) {
                     url: `https://ultrafix.com/img/cities/${state}_${city}.jpeg`,
                     width: 1200,
                     height: 630,
-                    alt: `Commercial ${COMMERCIAL_SERVICES[serviceKey].title} Repair Service in ${city}, ${state}`,
+                    alt: `Commercial ${COMMERCIAL_SERVICES[serviceKey].title} Repair Service in ${cityInfo?.data?.title}, ${cityInfo?.data?.state_short}`,
                 },
             ],
             locale: 'en_US',
@@ -105,11 +107,9 @@ export async function generateMetadata({ params }: IServiceProps) {
 
 
 const ServiceDetailPage: React.FC<IServiceProps> = ({ params }) => {
-    const { state, city, service } = params;
+    const { service } = params;
 
     const serviceKey = service as keyof typeof COMMERCIAL_SERVICES;
-    const cityKey = `${state}_${city}` as keyof typeof CITIES;
-    const cityData = CITIES[cityKey];
 
     return (
         <PageLayout>
