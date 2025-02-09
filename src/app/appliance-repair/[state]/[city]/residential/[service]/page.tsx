@@ -30,8 +30,9 @@ const ServiceDetailPage: React.FC<IServiceProps> = ({ params }) => {
     const [metaURL, setMetaURL] = React.useState(`https://ultrafix.com/appliance-repair/${state}/${city}/residential/${RESIDENTIAL_SERVICES[serviceKey].link}`);
     const [metaImage, setMetaImage] = React.useState(`https://ultrafix.com/img/cities/${state}_${city}.jpeg`);
 
-    const { data: cityInfo, isLoading: cityInfoLoading } = useGetCityInfoQuery({ state, city });
+    const { data: cityInfo, isLoading: cityInfoLoading } = useGetCityInfoQuery({ state: state as string, city: city as string });
 
+    console.log('@@@', cityInfo)
 
     React.useEffect(() => {
         if (cityInfo?.data) {
@@ -81,7 +82,7 @@ const ServiceDetailPage: React.FC<IServiceProps> = ({ params }) => {
             setMetaURL(`https://ultrafix.com/appliance-repair/${state_short.toLocaleLowerCase()}/${value}/residential/${RESIDENTIAL_SERVICES[serviceKey].link}`);
             setMetaImage(`https://ultrafix.com/img/cities/${state_short.toLocaleLowerCase()}_${value}.jpeg`);
         }
-    }, [cityInfo]);
+    }, []);
 
 
     return (
