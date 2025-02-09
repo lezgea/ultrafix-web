@@ -114,7 +114,7 @@ const ServiceDetailPage: React.FC<IServiceProps> = ({ params }) => {
 
     return (
         <PageLayout>
-            <LocationsServiceBanner type="commercial" service={serviceKey} />
+            <LocationsServiceBanner type="residential" service={serviceKey} />
             <SectionLayout noYPadding>
                 <p className='text-gray-500 text-md font-light'>{RESIDENTIAL_SERVICES[serviceKey].description}</p>
                 <div className='py-4 md:py-5 px-10 border border-1 border-[#ceb5d9] rounded-xl md:rounded-full text-center bg-[#FDFCFE]'>
