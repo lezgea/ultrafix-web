@@ -60,6 +60,15 @@ export const ContactInformation: React.FC<IContactInformationProps> = (props) =>
         setValue('city', all_data.city);
         setValue('state', all_data.state);
         setValue('zip', all_data.zip);
+        dispatch(setBookingData({
+            ...bookingData,
+            address: address,
+            latitude: all_data.coordinates.lat,
+            longitude: all_data.coordinates.lng,
+            city: all_data.city,
+            state: all_data.state,
+            zip: all_data.zip,
+        }));
     }
 
     const onSubmit: SubmitHandler<IContactForm> = async (data) => {

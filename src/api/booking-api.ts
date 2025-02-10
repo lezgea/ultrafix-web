@@ -1,6 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import axiosBaseQuery from '@utils/axiosBaseQuery';
-import { IBookAppointmentRequest, IBookAppointmentResponse, ICompleteLeadRequest, ICompleteLeadResponse, IGetBrandsRequest, IGetBrandsResponse, IGetSelectedServicesRequest, IGetSelectedServicesResponse, IGetServicesResponse, IGetTimeSlotsRequest, IGetTimeSlotsResponse, IZipCheckingRequest, IZipCheckingResponse } from './types/booking-types';
+import { IBookAppointmentRequest, IBookAppointmentResponse, ICompleteLeadRequest, ICompleteLeadResponse, IGetBrandsRequest, IGetBrandsResponse, IGetIssuesRequest, IGetIssuesResponse, IGetSelectedServicesRequest, IGetSelectedServicesResponse, IGetServicesResponse, IGetTimeSlotsRequest, IGetTimeSlotsResponse, IZipCheckingRequest, IZipCheckingResponse } from './types/booking-types';
 
 
 export const bookingApi = createApi({
@@ -27,6 +27,13 @@ export const bookingApi = createApi({
         getBrands: builder.query<IGetBrandsResponse, IGetBrandsRequest>({
             query: (params) => ({
                 url: `/booking/brands`,
+                method: 'GET',
+                params: params,
+            }),
+        }),
+        getIssues: builder.query<IGetIssuesResponse, IGetIssuesRequest>({
+            query: (params) => ({
+                url: `/booking/issues`,
                 method: 'GET',
                 params: params,
             }),
@@ -68,6 +75,7 @@ export const {
     useCheckZipMutation,
     useGetServicesQuery,
     useLazyGetBrandsQuery,
+    useLazyGetIssuesQuery,
     useLazyGetSelectedServicesQuery,
     useLazyGetTimeSlotsQuery,
     useBookAppointmentMutation,

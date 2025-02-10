@@ -7,7 +7,7 @@ import { SectionFooter } from '../section-footer';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { RootState } from '@store/store';
-import { useLazyGetBrandsQuery } from '@api/booking-api';
+import { useLazyGetBrandsQuery, useLazyGetIssuesQuery } from '@api/booking-api';
 import { setBookingData, setSelectedAppliances } from '@slices/booking-slice';
 import { SimpleInput } from '@components/shared/simple-input';
 import { BrandsSelectSkeleton } from '@components/shared/skeletons';
@@ -29,10 +29,11 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
     let { setStep } = props;
 
     const dispatch = useDispatch();
-    const { bookingData, brands, serviceData, loading } = useSelector((state: RootState) => state.booking);
+    const { bookingData, brands, issues, serviceData, loading } = useSelector((state: RootState) => state.booking);
 
-    // RTK Query mutation hook
-    const [triggerGetBrands] = useLazyGetBrandsQuery();
+    // RTK Query mutation hooks
+    const [triggerGetBrands, { isLoading: isBrandsLoading }] = useLazyGetBrandsQuery();
+    const [triggerGetIssues, { isLoading: isIssuesLoading }] = useLazyGetIssuesQuery();
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm<IBookingForm>({
         // resolver: yupResolver(validationSchema),
@@ -55,6 +56,16 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
         } else {
             const updatedAppliances = bookingData.appliances.map((appliance, index) => {
                 if (index === applianceIndex) {
+                    try {
+                        triggerGetIssues({
+                            query: '',
+                            skip: 0,
+                            limit: 6,
+                            service_id: appliance.service_id,
+                        }).unwrap();
+                    } catch (err: any) {
+                        console.log('Error: ', err)
+                    }
                     return {
                         ...appliance,
                         brand: brandId,
@@ -67,8 +78,8 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
     }
 
 
-    const onSelectIssue = (issueId: number | string, applianceIndex: number) => {
-        if (isIssueSelected(issueId, applianceIndex)) {
+    const onSelectIssue = (issueId: number | string, applianceIndex: number, issue: any) => {
+        if (isIssueSelected(issueId, applianceIndex, issue)) {
             const updatedAppliances = bookingData.appliances.map((appliance, index) => {
                 if (index === applianceIndex) {
                     return {
@@ -84,7 +95,7 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
                 if (index === applianceIndex) {
                     return {
                         ...appliance,
-                        issue: issueId,
+                        issue: issue,
                     };
                 }
                 return appliance;
@@ -116,10 +127,10 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
     }
 
 
-    const isIssueSelected = (issueId: number | string, applianceIndex: number) => {
+    const isIssueSelected = (issueId: number | string, applianceIndex: number, issue: any) => {
         let selectedAppliances = bookingData.appliances;
         let applianceToUpdate = selectedAppliances[applianceIndex];
-        let isProblemSelected = applianceToUpdate?.issue == issueId;
+        let isProblemSelected = applianceToUpdate?.issue == issue;
         return isProblemSelected;
     }
 
@@ -138,18 +149,17 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
         }
     }
 
-    const onSearchIssue = async (e: any, issues: any[]) => {
-        // try {
-        //     triggerGetBrands({
-        //         query: e.target.value,
-        //         skip: 0,
-        //         limit: 6,
-        //         zip: bookingData?.zip,
-        //         appliances: [...bookingData?.appliances?.map(item => ({ service_id: item.service_id, type: item.type }))]
-        //     }).unwrap();
-        // } catch (err: any) {
-        //     console.log('Error: ', err)
-        // }
+    const onSearchIssue = async (e: any, serviceId: any) => {
+        try {
+            triggerGetIssues({
+                query: e.target.value,
+                skip: 0,
+                limit: 6,
+                service_id: serviceId
+            }).unwrap();
+        } catch (err: any) {
+            console.log('Error: ', err)
+        }
     }
 
 
@@ -187,7 +197,7 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
                                         />
                                     </div>
                                     {
-                                        loading
+                                        isBrandsLoading
                                             ? <BrandsSelectSkeleton />
                                             : <div className="flex items-center justify-center flex-wrap gap-3">
                                                 {
@@ -211,21 +221,21 @@ export const IssueSelect: React.FC<IIssueSelectProps> = (props) => {
                                     <div className="flex flex-col w-full max-w-[300px]">
                                         <input
                                             placeholder="Search your issue"
-                                            onChange={(e: any) => onSearchIssue(e, appliance.issues)}
+                                            onChange={(e: any) => onSearchIssue(e, appliance.id)}
                                             className={`w-full h-[50px] px-5 py-2 pr-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out transform`}
                                         />
                                     </div>
                                     {
-                                        loading
+                                        isIssuesLoading
                                             ? <BrandsSelectSkeleton />
                                             : <div className="flex items-center justify-center flex-wrap gap-3">
                                                 {
-                                                    appliance.issues?.slice(0, 5)?.map(issue =>
+                                                    issues?.map((issue, j) =>
                                                         <SelectButton
-                                                            key={issue.value}
-                                                            label={issue.label}
-                                                            selected={isIssueSelected(issue.value, i)}
-                                                            onSelect={() => onSelectIssue(issue.value, i)}
+                                                            key={issue}
+                                                            label={issue}
+                                                            selected={isIssueSelected(j, i, issue)}
+                                                            onSelect={() => onSelectIssue(j, i, issue)}
                                                         />
                                                     )
                                                 }

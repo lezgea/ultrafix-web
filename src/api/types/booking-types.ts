@@ -14,6 +14,8 @@ export interface IBrand {
     label: string,
 }
 
+export type IssueType = string
+
 export interface ISelectedService {
     id: number | string, // 1
     title: string, // Refrigerator
@@ -86,6 +88,20 @@ export interface IGetBrandsRequest {
 export interface IGetBrandsResponse {
     status: string,
     data: IBrand[],
+    title: string,
+    description: string
+}
+
+export interface IGetIssuesRequest {
+    query?: string,
+    skip: string | number,
+    limit: string | number,
+    service_id?: string | number,
+}
+
+export interface IGetIssuesResponse {
+    status: string,
+    data: IssueType[],
     title: string,
     description: string
 }

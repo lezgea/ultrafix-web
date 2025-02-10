@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { bookingApi } from '@api/booking-api';
-import { IAppliance, IBrand, IGetSelectedServicesResponse, IGetServicesResponse, ISelectedService, IService, ISlot, IZipCheckingResponse } from '@api/types/booking-types';
+import { IAppliance, IBrand, IGetSelectedServicesResponse, IGetServicesResponse, ISelectedService, IService, ISlot, IssueType, IZipCheckingResponse } from '@api/types/booking-types';
 import { toast } from 'react-toastify';
 
 
@@ -50,6 +50,7 @@ interface IBookingState {
         date: string,
         weekDay: string,
     },
+    issues: IssueType[] | [],
     brands: IBrand[] | [],
     slots: ISlot[] | [],
     loading: boolean,
@@ -108,6 +109,7 @@ const initialState: IBookingState = {
         weekDay: '',
     },
     brands: [],
+    issues: [],
     slots: [],
     loading: false,
     error: false,
@@ -202,6 +204,30 @@ const bookingSlice = createSlice({
             )
             .addMatcher(
                 bookingApi.endpoints.getBrands.matchRejected,
+                (state, action) => {
+                    state.loading = false;
+                    state.error = action.error?.message || 'Failed to fetch data';
+                }
+            );
+
+        // GET ISSUES QUERY
+        builder
+            .addMatcher(
+                bookingApi.endpoints.getIssues.matchPending,
+                (state) => {
+                    state.loading = true;
+                    state.error = false;
+                }
+            )
+            .addMatcher(
+                bookingApi.endpoints.getIssues.matchFulfilled,
+                (state, action: PayloadAction<any>) => {
+                    state.loading = false;
+                    state.issues = action.payload?.data;
+                }
+            )
+            .addMatcher(
+                bookingApi.endpoints.getIssues.matchRejected,
                 (state, action) => {
                     state.loading = false;
                     state.error = action.error?.message || 'Failed to fetch data';

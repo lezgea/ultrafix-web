@@ -14,6 +14,7 @@ interface IFormInputProps {
     labelStyle?: React.CSSProperties;
     inputStyle?: React.CSSProperties;
     onClickIcon?: () => void;
+    onChange?: (val: any) => void;
 }
 
 export const FormInput: React.FC<IFormInputProps> = (props) => {
@@ -29,6 +30,7 @@ export const FormInput: React.FC<IFormInputProps> = (props) => {
         labelStyle,
         inputStyle,
         onClickIcon,
+        onChange,
     } = props;
 
     return (
