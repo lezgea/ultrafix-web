@@ -70,6 +70,7 @@ import StoveIcon from './stove.svg';
 import RangeIcon from './range.svg';
 import BlueCheckIcon from './blue-check.svg';
 import Check3Icon from './check3.svg';
+import ErrorIcon from './404.svg';
 
 
 export {
@@ -86,6 +87,7 @@ export {
     Failed,
     RaceFlag,
     AppliancesIllustration,
+    ErrorIcon,
 
     // icons
     Check3Icon,
