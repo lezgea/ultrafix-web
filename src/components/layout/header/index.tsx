@@ -45,10 +45,46 @@ export const Header: React.FC = () => {
         }
     };
 
-    const hideHeaderRoutes = React.useMemo(() => [`/admin/sign-in`, `/admin/blogs`, `/admin/blogs/create`, `/admin/blogs/update/[blogId]`], []);
-    const hideBookingRoutes = React.useMemo(() => [`/book`, '/lead'], []);
-    const shouldHideHeader = hideHeaderRoutes.some(route => pathname.startsWith(route));
+    const validRoutePatterns = new Set([
+        '/',
+        '/apply',
+        '/faq',
+        '/blog',
+        '/about_us',
+        '/res_services',
+        '/com_services',
+        '/book',
+        '/lead',
+    ]);
+
+    const dynamicRoutes = [
+        /^\/appliance-repair\/[^/]+\/[^/]+$/,          // Matches `/appliance-repair/state/city`
+        /^\/appliance-repair\/[^/]+\/[^/]+\/faq$/,     // Matches `/appliance-repair/state/city/faq`
+        /^\/appliance-repair\/[^/]+\/[^/]+\/commercial\/[^/]+$/,  // Matches `/appliance-repair/state/city/commercial/service`
+        /^\/appliance-repair\/[^/]+\/[^/]+\/residential\/[^/]+$/, // Matches `/appliance-repair/state/city/residential/service`
+        /^\/appliance-services\/commercial\/[^/]+$/,  // Matches `/appliance-services/commercial/service`
+        /^\/appliance-services\/residential\/[^/]+$/  // Matches `/appliance-services/residential/service`
+    ];
+
+
+    const hideHeaderRoutes = [
+        '/admin/sign-in',
+        '/admin/blogs',
+        '/admin/blogs/create',
+        '/admin/blogs/update/',
+    ];
+
+    const hideBookingRoutes = ['/book', '/lead'];
+
+    // Check if the current route is valid
+    const isValidRoute =
+        validRoutePatterns.has(pathname) ||
+        dynamicRoutes.some((pattern) => pattern.test(pathname));
+
+    // Hide header for invalid or restricted routes
+    const shouldHideHeader = !isValidRoute || hideHeaderRoutes.some(route => pathname.startsWith(route));
     const shouldHideBookingButton = hideBookingRoutes.some(route => pathname.startsWith(route));
+
 
 
     function onOpenFaq() {

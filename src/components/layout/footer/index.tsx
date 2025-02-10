@@ -18,8 +18,42 @@ export const Footer: React.FC = () => {
     const cityKey = `${state}_${city}` as keyof typeof CITIES;
     const cityData = CITIES[cityKey];
 
-    const hideHeaderRoutes = React.useMemo(() => ["/book", "/lead"], []);
-    const shouldHideFooter = React.useMemo(() => hideHeaderRoutes.includes(pathname), [pathname]);
+    const validRoutePatterns = new Set([
+        '/',
+        '/apply',
+        '/faq',
+        '/blog',
+        '/about_us',
+        '/res_services',
+        '/com_services',
+    ]);
+
+    const dynamicRoutes = [
+        /^\/appliance-repair\/[^/]+\/[^/]+$/,          // Matches `/appliance-repair/state/city`
+        /^\/appliance-repair\/[^/]+\/[^/]+\/faq$/,     // Matches `/appliance-repair/state/city/faq`
+        /^\/appliance-repair\/[^/]+\/[^/]+\/commercial\/[^/]+$/,  // Matches `/appliance-repair/state/city/commercial/service`
+        /^\/appliance-repair\/[^/]+\/[^/]+\/residential\/[^/]+$/, // Matches `/appliance-repair/state/city/residential/service`
+        /^\/appliance-services\/commercial\/[^/]+$/,  // Matches `/appliance-services/commercial/service`
+        /^\/appliance-services\/residential\/[^/]+$/  // Matches `/appliance-services/residential/service`
+    ];
+
+
+    const hideHeaderRoutes = [
+        '/admin/sign-in',
+        '/admin/blogs',
+        '/admin/blogs/create',
+        '/admin/blogs/update/',
+    ];
+
+
+    // Check if the current route is valid
+    const isValidRoute =
+        validRoutePatterns.has(pathname) ||
+        dynamicRoutes.some((pattern) => pattern.test(pathname));
+
+    // Hide header for invalid or restricted routes
+    const shouldHideFooter = !isValidRoute || hideHeaderRoutes.some(route => pathname.startsWith(route));
+
 
     const handleScroll = (sectionId: string) => {
         const section = document.getElementById(sectionId);
