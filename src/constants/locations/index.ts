@@ -10,6 +10,7 @@ export const STATES_LIST = [
     { id: 8, title: 'New York', value: 'NY' },
 ]
 
+
 export const STATES = {
     TX: [
         { id: 'TX1', state: 'Texas', stateShort: 'TX', title: 'Austin', value: 'austin', img: '/img/cities/tx_austin.jpeg' },

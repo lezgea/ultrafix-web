@@ -8,6 +8,7 @@ import { CITIES } from 'constants/locations';
 import DateLib from '@utils/datelib';
 import { RESIDENTIAL_SERVICES } from 'constants/services';
 import { IEmployee } from '@api/types/location-types';
+import { useGetCityInfoQuery } from '@api/location-api';
 
 interface IEmployeesSectionProps {
     employees?: IEmployee[],
@@ -16,15 +17,9 @@ interface IEmployeesSectionProps {
 export const EmployeesSection: React.FC<IEmployeesSectionProps> = (props) => {
     let { employees } = props;
 
-    const [isMounted, setIsMounted] = useState(false);
-
-    // This ensures the component only runs on the client
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
-
-
     const { state, city, service } = useParams();
+    const { data: cityInfo, isLoading: cityInfoLoading } = useGetCityInfoQuery({ state: state as string, city: city as string })
+
 
     const serviceKey = service as keyof typeof RESIDENTIAL_SERVICES;
     const cityKey = `${state}_${city}` as keyof typeof CITIES;
@@ -57,7 +52,7 @@ export const EmployeesSection: React.FC<IEmployeesSectionProps> = (props) => {
             title={`The Best Employees of ${getMonth()}`}
         >
             <div className="flex items-center justify-center gap-7 py-5 md:gap-10 lg:gap-20 md:py-10">
-                {employees?.map(({ id, image, name }) => (
+                {cityInfo?.data?.employees?.map(({ id, image, name }) => (
                     <div key={id} className="flex flex-col items-center gap-3 md:gap-7">
                         <Image
                             key={id}
