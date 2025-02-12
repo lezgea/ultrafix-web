@@ -44,7 +44,6 @@ export const bookingApi = createApi({
                 method: 'GET',
                 params: { zip: zip, appliances: appliances },
             }),
-            // providesTags: ['Services'],
         }),
         getTimeSlots: builder.query<IGetTimeSlotsResponse, IGetTimeSlotsRequest>({
             query: ({ zip, date, timezone, appliances, lead_id, latitude, longitude }) => ({
@@ -52,7 +51,6 @@ export const bookingApi = createApi({
                 method: 'GET',
                 params: { zip, date, timezone, appliances, lead_id, latitude, longitude },
             }),
-            // providesTags: ['Services'],
         }),
         bookAppointment: builder.mutation<IBookAppointmentResponse, IBookAppointmentRequest>({
             query: (data) => ({

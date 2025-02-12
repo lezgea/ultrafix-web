@@ -22,12 +22,15 @@ export const LocationsBanner: React.FC<ILocationBannerProps> = () => {
     return (
         <SectionLayout>
             <div className="z-10 flex flex-col w-full lg:absolute space-y-5 text-center items-center justify-center md:text-end md:justify-end md:items-end">
-                <h2 className="text-[3rem] leading-[3.5rem] md:text-[4rem] md:leading-[5rem] font-semibold text-primaryDark">
-                    <span className='text-primary'>Appliance</span> repair services
-                </h2>
-                <h3 className="text-[3rem] leading-[3.5rem] md:text-[4rem] md:leading-[4rem] lg:max-w-[60%] font-semibold text-primaryDark">
-                    in <span className='text-primary'>{cityInfo?.data.title}, {cityInfo?.data.state_short}</span>
-                </h3>
+                <>
+                    <h2 className="text-[3rem] leading-[3.5rem] md:text-[4rem] md:leading-[5rem] font-semibold text-primaryDark">
+                        <span className='text-primary'>Appliance</span> repair services
+                    </h2>
+                    <h3 className="text-[3rem] leading-[3.5rem] md:text-[4rem] md:leading-[4rem] lg:max-w-[60%] font-semibold text-primaryDark">
+                        in <span className='text-primary'>{cityInfo?.data.title}, {cityInfo?.data.state_short}</span>
+                    </h3>
+                </>
+
                 <p className="text-xl md:text-2xl font-light md:max-w-[45%] text-gray-500">
                     UltraFix Appliance Repair services are a call away. We can be with you on the same day
                 </p>

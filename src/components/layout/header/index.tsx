@@ -58,6 +58,7 @@ export const Header: React.FC = () => {
     ]);
 
     const dynamicRoutes = [
+        /^\/blog\/[^/]+\/[^/]+$/,
         /^\/appliance-repair\/[^/]+\/[^/]+$/,          // Matches `/appliance-repair/state/city`
         /^\/appliance-repair\/[^/]+\/[^/]+\/faq$/,     // Matches `/appliance-repair/state/city/faq`
         /^\/appliance-repair\/[^/]+\/[^/]+\/commercial\/[^/]+$/,  // Matches `/appliance-repair/state/city/commercial/service`

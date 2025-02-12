@@ -37,10 +37,10 @@ export async function generateMetadata({ params }: ILocationProps) {
     const cityInfo = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/locations/city?state=${state}&city=${city}`)
         .then((res) => res.json());
 
-    const title = cityData
+    const title = cityInfo?.data
         ? `Appliance Repair Service in ${cityInfo?.data?.title}, ${cityInfo?.data?.state_short} | UltraFix®`
         : 'Appliance Repair Services | UltraFix®';
-    const description = cityData
+    const description = cityInfo?.data
         ? `UltraFix offers trusted appliance repair services in ${cityInfo?.data?.title}, ${cityInfo?.data?.state_short}. Fast, same-day repairs for refrigerators, washers, dryers, and more!`
         : 'UltraFix offers trusted appliance repair services across the United States.';
 
