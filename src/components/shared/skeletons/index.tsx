@@ -4,3 +4,4 @@ export * from './slots-skeleton';
 export * from './faqs-skeleton';
 export * from './blogs-list-skeleton';
 export * from './blog-info-skeleton';
+export * from './locations-title-skeleton';
