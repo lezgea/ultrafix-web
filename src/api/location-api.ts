@@ -1,6 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import axiosBaseQuery from '@utils/axiosBaseQuery';
-import { ICitiesInfoRequest, ICitiesInfoResponse, ICitiesListRequest, ICitiesListResponse, IStatesListRequest, IStatesListResponse } from './types/location-types';
+import { ICitiesInfoRequest, ICitiesInfoResponse, ICitiesListRequest, ICitiesListResponse, ICitiesMinlistRequest, ICitiesMinlistResponse, IStatesListRequest, IStatesListResponse } from './types/location-types';
 import axiosBasePublicQuery from '@utils/axiosBasePublicQuery';
 
 
@@ -31,6 +31,13 @@ export const locationApi = createApi({
                 params: { state: state, city: city }
             }),
         }),
+        getCitiesMinlist: builder.query<ICitiesMinlistResponse, ICitiesMinlistRequest>({
+            query: ({ title, state }) => ({
+                url: `/cities/minlist`,
+                method: 'GET',
+                params: { titel: title, state: state }
+            }),
+        }),
     }),
 });
 
@@ -38,6 +45,7 @@ export const {
     useGetAllStatesQuery,
     useGetAllCitiesQuery,
     useGetCityInfoQuery,
+    useGetCitiesMinlistQuery,
     useLazyGetAllStatesQuery,
     useLazyGetAllCitiesQuery,
     useLazyGetCityInfoQuery,

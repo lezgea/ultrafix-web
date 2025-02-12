@@ -34,6 +34,28 @@ export interface ICitiesListResponse {
     data: ICity[],
 }
 
+
+// ----- Cities Minlist types
+
+export interface ICityMin {
+    id: number | string,
+    title: string,
+    value: string,
+    state: string,
+    stateShort: string
+}
+
+export interface ICitiesMinlistRequest {
+    title?: string,
+    state?: string,
+}
+
+export interface ICitiesMinlistResponse {
+    data: ICityMin[],
+}
+
+
+
 export interface IEmployee {
     id: number | string,
     name: string,
