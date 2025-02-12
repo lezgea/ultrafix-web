@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { CITIES } from 'constants/locations';
 import { FacebookIcon, InstagramIcon, LinkedinIcon, LogoWhite, YoutubeIcon } from '@assets/icons';
 import { PrivacyModal, TermsModal } from '@components/shared';
+import { useSelector } from 'react-redux';
+import { RootState } from '@store/store';
 
 
 export const Footer: React.FC = () => {
@@ -14,6 +16,8 @@ export const Footer: React.FC = () => {
     const { state, city } = useParams();
     const [showTerms, setShowTerms] = React.useState(false);
     const [showPrivacy, setShowPrivacy] = React.useState(false);
+
+    const { cityInfo } = useSelector((state: RootState) => state.location);
 
     const cityKey = `${state}_${city}` as keyof typeof CITIES;
     const cityData = CITIES[cityKey];
@@ -105,24 +109,24 @@ export const Footer: React.FC = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href={`tel:${cityData?.phone ? cityData?.phone : '(888) 998-6263'}`} className="hover:text-primary">
+                                <Link href={`tel:${cityInfo?.phone ? cityInfo?.phone : '(888) 998-6263'}`} className="hover:text-primary">
                                     <strong className='font-medium'>Phone:</strong>
                                     <span className='ml-2'>
-                                        {cityData?.phone ? cityData?.phone : '(888) 998-6263'}
+                                        {cityInfo?.phone ? cityInfo?.phone : '(888) 998-6263'}
                                     </span>
                                 </Link>
                             </li>
                             <li>
                                 {
-                                    cityData?.address
+                                    cityInfo?.address
                                         ?
                                         <Link
-                                            href={`https://www.google.com/maps?q=${encodeURIComponent(cityData.address)},${cityData.title},${cityData.state}`}
+                                            href={`https://www.google.com/maps?q=${encodeURIComponent(cityInfo.address)},${cityInfo.title},${cityInfo.state_full}`}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="hover:text-primary"
                                         >
-                                            {cityData.address}
+                                            {cityInfo.address}
                                         </Link>
                                         :
                                         <Link

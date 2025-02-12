@@ -7,6 +7,8 @@ import { CallIcon, CloseIcon, HamburgerIcon, UltrafixLogo } from '@assets/icons'
 import { Sidebar } from '../sidebar';
 import { CITIES } from 'constants/locations';
 import { Dropdown } from '@components/shared/dropdown';
+import { RootState } from '@store/store';
+import { useSelector } from 'react-redux';
 
 
 interface IRouteType {
@@ -33,6 +35,9 @@ export const Header: React.FC = () => {
     const pathname = usePathname();
     const router = useRouter();
     const { state, city } = useParams();
+
+    const { cityInfo } = useSelector((state: RootState) => state.location);
+
 
     const cityKey = `${state}_${city}` as keyof typeof CITIES;
     const cityData = CITIES[cityKey];
@@ -176,7 +181,7 @@ export const Header: React.FC = () => {
 
 
     const onDeal = () => {
-        window.location.href = `tel:${cityData?.phone ? cityData?.phone : '(888) 998-6263'}`;
+        window.location.href = `tel:${cityInfo?.phone ? cityInfo?.phone : '(888) 998-6263'}`;
         // window.location.href = 'tel:(832) 998-6280'
     }
 
@@ -186,10 +191,10 @@ export const Header: React.FC = () => {
             className="hidden md:inline-flex w-auto text-center items-center px-4 py-2 text-white transition-all bg-primary rounded-lg sm:w-auto hover:text-white shadow-neutral-300 hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px focus:shadow-none"
             onClick={onDeal}
         >
-            {cityData?.phone ? cityData?.phone : '(888) 998-6263'}
+            {cityInfo?.phone ? cityInfo?.phone : '(888) 998-6263'}
             {/* (832) 998-6280 */}
         </button>
-    ), [cityKey, pathname]);
+    ), [cityKey, pathname, cityInfo]);
 
 
     const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);

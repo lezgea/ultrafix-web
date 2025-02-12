@@ -17,7 +17,7 @@ interface ILocationBannerProps {
 
 export const LocationsBanner: React.FC<ILocationBannerProps> = () => {
     const { state, city, service } = useParams();
-    const { data: cityInfo, isLoading: cityInfoLoading } = useGetCityInfoQuery({ state: state as string, city: city as string })
+    const { data: cityInfo, isLoading: cityInfoLoading } = useGetCityInfoQuery({ state: state as string, city: city as string });
 
 
     return (

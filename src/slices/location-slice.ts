@@ -1,9 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IState } from '@api/types/location-types';
+import { ICitiesInfoResponse, ICityInfo, IState } from '@api/types/location-types';
+import { locationApi } from '@api/location-api';
 
 
 interface ILocationState {
     states: IState[],
+    cityInfo: ICityInfo,
     loading: boolean,
     error?: string | boolean,
     success?: string | boolean,
@@ -12,6 +14,19 @@ interface ILocationState {
 
 const initialState: ILocationState = {
     states: [],
+    cityInfo: {
+        id: 0,
+        address: '',
+        employees: [],
+        image: '',
+        phone: '',
+        review_url: '',
+        state_full: '',
+        state_short: '',
+        title: '',
+        value: '',
+        yelp_url: '',
+    },
     loading: false,
     error: false,
     success: false,
@@ -27,29 +42,29 @@ const locationSlice = createSlice({
         // },
     },
     extraReducers: (builder) => {
-        // CREATE FAQ MUTATION
-        // builder
-        //     .addMatcher(
-        //         blogsApi.endpoints.createBlog.matchPending,
-        //         (state) => {
-        //             state.loading = true;
-        //             state.error = false;
-        //         }
-        //     )
-        //     .addMatcher(
-        //         blogsApi.endpoints.createBlog.matchFulfilled,
-        //         (state, action: PayloadAction<IBlogCreateResponse>) => {
-        //             state.loading = false;
-        //             state.blogs = action.payload?.data;
-        //         }
-        //     )
-        //     .addMatcher(
-        //         blogsApi.endpoints.createBlog.matchRejected,
-        //         (state, action) => {
-        //             state.loading = false;
-        //             state.error = action.error?.message || 'Failed to fetch datasets';
-        //         }
-        //     );
+        // GET CITY INFO QUERY
+        builder
+            .addMatcher(
+                locationApi.endpoints.getCityInfo.matchPending,
+                (state) => {
+                    state.loading = true;
+                    state.error = false;
+                }
+            )
+            .addMatcher(
+                locationApi.endpoints.getCityInfo.matchFulfilled,
+                (state, action: PayloadAction<ICitiesInfoResponse>) => {
+                    state.loading = false;
+                    state.cityInfo = action.payload?.data;
+                }
+            )
+            .addMatcher(
+                locationApi.endpoints.getCityInfo.matchRejected,
+                (state, action) => {
+                    state.loading = false;
+                    state.error = action.error?.message || 'Failed to fetch datasets';
+                }
+            );
     },
 });
 
