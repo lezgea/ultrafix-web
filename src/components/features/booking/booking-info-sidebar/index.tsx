@@ -2,6 +2,7 @@ import React from 'react';
 import { RootState } from '@store/store';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
+import * as motion from "framer-motion/client"
 
 
 interface IBookingInfoSidebar { }
@@ -30,7 +31,12 @@ export const BookingInfoSidebar: React.FC<IBookingInfoSidebar> = (props) => {
             <div className='fixed z-20 flex flex-col h-screen pt-[50px] px-[20px] pb-[60px]'>
                 {
                     !!bookingData.appliances?.length &&
-                    <div className='hidden lg:flex backdrop-blur-xl bg-gray-400/10 shadow rounded-xl pt-5 px-5 min-w-[300px] max-w-[300px] max-h-[700px] overflow-scroll'>
+                    <motion.div
+                        initial={{ opacity: 0, x: -200 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className='hidden lg:flex backdrop-blur-xl bg-gray-400/10 shadow rounded-xl pt-5 px-5 min-w-[300px] max-w-[300px] max-h-[700px] overflow-scroll'
+                    >
                         <div className='flex flex-col w-full gap-2'>
                             <div className='flex items-center'>
                                 <div className='text-[14px] text-gray-400 font-regmed'>Booking Information</div>
@@ -38,7 +44,12 @@ export const BookingInfoSidebar: React.FC<IBookingInfoSidebar> = (props) => {
                             <div className='flex flex-col w-full gap-2'>
                                 {
                                     bookingData.appliances.map((item, i) =>
-                                        <div className='flex flex-col w-full rounded-xl md:text-md font-medium cursor-pointer shadow overflow-hidden bg-white'>
+                                        <motion.div
+                                            initial={{ opacity: 0, x: -200 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            transition={{ duration: 0.3 }}
+                                            className='flex flex-col w-full rounded-xl md:text-md font-medium cursor-pointer shadow overflow-hidden bg-white'
+                                        >
                                             <div className='flex w-full items-center justify-between bg-primaryDark px-3 py-1'>
                                                 <div className='flex flex-col items-start'>
                                                     <div className='text-white text-sm'>{item.title}</div>
@@ -71,7 +82,7 @@ export const BookingInfoSidebar: React.FC<IBookingInfoSidebar> = (props) => {
                                                     }
                                                 </div>
                                             }
-                                        </div>
+                                        </motion.div>
                                     )
                                 }
                             </div>
@@ -115,8 +126,7 @@ export const BookingInfoSidebar: React.FC<IBookingInfoSidebar> = (props) => {
                                 </div>
                             </div>
                         </div>
-
-                    </div>
+                    </motion.div>
                 }
             </div>
 
