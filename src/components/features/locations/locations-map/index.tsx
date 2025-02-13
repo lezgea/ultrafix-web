@@ -6,6 +6,7 @@ import React from 'react';
 import { useParams } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useGetCityInfoQuery } from '@api/location-api';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 
 export const LocationsMap: React.FC = () => {
@@ -13,6 +14,16 @@ export const LocationsMap: React.FC = () => {
 
     const { state, city, service } = useParams();
     const { data: cityInfo, isLoading: cityInfoLoading } = useGetCityInfoQuery({ state: state as string, city: city as string })
+
+    const containerStyle = {
+        width: '100%',
+        height: '400px'
+    };
+
+    const center = {
+        lat: 37.437041393899676,
+        lng: -4.191635586788259
+    };
 
     // This ensures the component only runs on the client
     React.useEffect(() => {
@@ -58,6 +69,17 @@ export const LocationsMap: React.FC = () => {
                     </div>
                 </AnimatePresence>
             )}
+            {/* <div className="w-full relative flex flex-col md:flex-row items-center rounded-2xl shadow-xl overflow-hidden">
+                <LoadScript googleMapsApiKey={"AIzaSyBcApx-caHqz17EdCTr6fQxNz0edJwJvRE"}>
+                    <GoogleMap
+                        mapContainerStyle={containerStyle}
+                        center={center}
+                        zoom={10}
+                    >
+                        <Marker position={center} />
+                    </GoogleMap>
+                </LoadScript>
+            </div> */}
         </SectionLayout>
     );
 };
