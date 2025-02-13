@@ -8,11 +8,11 @@ const TOP_SERVICES = [
         url: "https://www.google.com/search?q=ultrafix+appliance+repair",
         src: "/img/logos/ul-google.webp",
     },
-    // {
-    //     alt: "Best Business Bureau",
-    //     url: "https://www.bbb.org/us/tx/houston/profile/appliance-repair/ultrafix-appliance-repair-0915-90064027",
-    //     src: "/img/logos/ul-bbb.webp",
-    // },
+    {
+        alt: "Best Business Bureau",
+        url: "https://www.bbb.org/us/tx/houston/profile/appliance-repair/ultrafix-appliance-repair-0915-90064027",
+        src: "/img/logos/ul-bbb.webp",
+    },
     // {
     //     alt: "Best Pick Reports",
     //     url: "https://www.bestpickreports.com/appliance-repair/houston/ultrafix-appliance-repair",
