@@ -188,7 +188,7 @@ export const Header: React.FC = () => {
     const phoneButton = React.useMemo(() => (
         <button
             type="button"
-            className="hidden md:inline-flex w-auto text-center items-center px-4 py-2 text-white transition-all bg-primary rounded-lg sm:w-auto hover:text-white shadow-neutral-300 hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px focus:shadow-none"
+            className="hidden min-w-[160px] md:inline-flex w-auto text-center items-center justify-center px-4 py-2 text-white transition-all bg-primary rounded-lg sm:w-auto hover:text-white shadow-neutral-300 hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px focus:shadow-none"
             onClick={onDeal}
         >
             {cityInfo?.phone ? cityInfo?.phone : '(888) 998-6263'}
