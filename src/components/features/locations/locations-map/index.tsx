@@ -21,8 +21,10 @@ export const LocationsMap: React.FC = () => {
     };
 
     const center = {
-        lat: 37.437041393899676,
-        lng: -4.191635586788259,
+        // lat: 37.437041393899676,
+        // lng: -4.191635586788259,
+        lat: cityInfo?.data?.latitude || 37.437041393899676,
+        lng: cityInfo?.data?.longitude || -4.191635586788259,
     };
 
     // This ensures the component only runs on the client
@@ -69,7 +71,7 @@ export const LocationsMap: React.FC = () => {
                     </div>
                 </AnimatePresence>
             )}
-            {/* <div className="w-full relative flex flex-col md:flex-row items-center rounded-2xl shadow-xl overflow-hidden">
+            <div className="w-full relative flex flex-col md:flex-row items-center rounded-2xl shadow-xl overflow-hidden">
                 <LoadScript googleMapsApiKey={"AIzaSyBcApx-caHqz17EdCTr6fQxNz0edJwJvRE"}>
                     <GoogleMap
                         mapContainerStyle={containerStyle}
@@ -79,7 +81,7 @@ export const LocationsMap: React.FC = () => {
                         <Marker position={center} />
                     </GoogleMap>
                 </LoadScript>
-            </div> */}
+            </div>
         </SectionLayout>
     );
 };
