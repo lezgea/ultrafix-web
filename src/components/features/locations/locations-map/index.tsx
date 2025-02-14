@@ -22,7 +22,7 @@ export const LocationsMap: React.FC = () => {
 
     const center = {
         lat: 37.437041393899676,
-        lng: -4.191635586788259
+        lng: -4.191635586788259,
     };
 
     // This ensures the component only runs on the client

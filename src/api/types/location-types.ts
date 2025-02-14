@@ -71,6 +71,8 @@ export interface ICityInfo {
     review_url: string,
     state_full: string,
     state_short: string,
+    latitude?: number,
+    longitude?: number,
     title: string,
     value: string,
     yelp_url: string,
