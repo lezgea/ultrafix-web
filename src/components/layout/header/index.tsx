@@ -38,7 +38,6 @@ export const Header: React.FC = () => {
 
     const { cityInfo } = useSelector((state: RootState) => state.location);
 
-
     const cityKey = `${state}_${city}` as keyof typeof CITIES;
     const cityData = CITIES[cityKey];
 
@@ -72,7 +71,6 @@ export const Header: React.FC = () => {
         /^\/appliance-services\/residential\/[^/]+$/  // Matches `/appliance-services/residential/service`
     ];
 
-
     const hideHeaderRoutes = [
         '/admin/sign-in',
         '/admin/blogs',
@@ -90,7 +88,6 @@ export const Header: React.FC = () => {
     // Hide header for invalid or restricted routes
     const shouldHideHeader = !isValidRoute || hideHeaderRoutes.some(route => pathname.startsWith(route));
     const shouldHideBookingButton = hideBookingRoutes.some(route => pathname.startsWith(route));
-
 
 
     function onOpenFaq() {
@@ -112,7 +109,6 @@ export const Header: React.FC = () => {
         }
         setSidebarOpen(false);
     }
-
 
 
     function renderItem(item: IRouteType) {
@@ -230,7 +226,6 @@ export const Header: React.FC = () => {
     React.useEffect(() => {
         const now = new Date();
         const currentHour = now.getHours();
-
         // Disable call button between 10 AM (10) and 1 PM (13)
         if (currentHour >= 6 && currentHour < 20) {
             setIsCallButtonAvailable(true);

@@ -23,9 +23,9 @@ const SectionLayout: FC<ISectionLayout> = ({
             <div className="relative w-full flex flex-col container mx-auto max-w-[1200px] gap-10">
                 {
                     (!!title || !!description) &&
-                    <div className='space-y-2'>
+                    <div className='flex flex-col items-center space-y-2'>
                         {!!title && (
-                            <h2 className="text-[1.7rem] leading-[2.5rem] md:text-[2.5rem] md:leading-[4rem] text-center font-semibold text-primaryDark">
+                            <h2 className="md:max-w-[80%] text-[1.7rem] leading-[2.5rem] md:text-[2.5rem] md:leading-[4rem] text-center font-semibold text-primaryDark">
                                 {title}
                             </h2>
                         )}
