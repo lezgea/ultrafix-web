@@ -125,7 +125,6 @@ const LocationPage: React.FC<ILocationProps> = ({ params }) => {
         <>
             <PageLayout title={`Appliance Repair Service in ${capitalize(city)}, ${state.toUpperCase()} - Same-Day Service`}>
                 <AnimatePresence mode="wait">
-                    {/* <LocationsMap /> */}
                     <LocationsBanner />
                     <motion.div
                         initial={{ opacity: 0, x: 400 }}

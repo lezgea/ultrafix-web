@@ -103,6 +103,18 @@ export const Header: React.FC = () => {
     }
 
 
+    function onOpenServices(id: string) {
+        if (pathname === `/book` || pathname === `/lead`) {
+            router.push(`/`);
+            setTimeout(() => handleScroll(id), 500)
+        } else {
+            // router.push('/faq');
+        }
+        setSidebarOpen(false);
+    }
+
+
+
     function renderItem(item: IRouteType) {
         switch (item.id) {
             case 'services':
@@ -134,6 +146,19 @@ export const Header: React.FC = () => {
             case 'faq':
                 return (
                     <button onClick={onOpenFaq} title='Link for Blog and FAQ' className="relative flex items-center space-x-3 cursor-pointer">
+                        {
+                            (item.id === selectedId) &&
+                            <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />
+                        }
+                        <div className={`text-xl md:text-sm text-gray-600 hover:text-primary transition-all duration-200 ease-in-out ${item.id === selectedId ? 'font-medium' : ''}`}>
+                            {item.label}
+                        </div>
+                    </button>
+                )
+            case 'res_services':
+            case 'com_services':
+                return (
+                    <button onClick={() => onOpenServices(item.id)} title='Link for Blog and FAQ' className="relative flex items-center space-x-3 cursor-pointer">
                         {
                             (item.id === selectedId) &&
                             <div className="absolute left-0 w-[7px] h-[7px] rounded-full bg-primary" aria-hidden="true" />

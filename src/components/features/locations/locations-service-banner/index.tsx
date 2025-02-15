@@ -9,6 +9,7 @@ import { COMMERCIAL_SERVICES, RESIDENTIAL_SERVICES } from 'constants/services';
 import Link from 'next/link';
 import { useGetCityInfoQuery } from '@api/location-api';
 import { string } from 'yup';
+import { LocationsServiceTitleSkeleton } from '@components/shared/skeletons';
 
 
 interface IServiceBannerProps {
@@ -38,16 +39,22 @@ const ResidentialContent: React.FC<IServiceBannerProps> = ({ service }) => {
     return (
         <div className='w-full flex flex-col lg:flex-row py-10'>
             <div className='w-full relative flex flex-col text-center md:text-start justify-between md:py-20'>
-                <div className='space-y-2 md:space-y-4 z-10'>
-                    <h1 className="text-[3rem] leading-[3.5rem] text-[3.4rem] leading-[4rem] font-semibold text-primaryDark">
-                        Same-Day <span className='text-primary'>{RESIDENTIAL_SERVICES[serviceKey].title} Repair</span> in {cityInfo?.data?.title}, {cityInfo?.data?.state_short}
-                    </h1>
-                    {/* <p className='text-gray-600 text-lg md:text-xl mb-10'>{RESIDENTIAL_SERVICES[service].subTitle}</p> */}
-                    <p className='text-gray-600 text-md md:text-lg mb-10'>
-                        {`UltraFix Appliance Repair in ${cityInfo?.data?.title}, ${cityInfo?.data?.state_short} provides expert ${RESIDENTIAL_SERVICES[serviceKey].title} repair with same-day service, affordable pricing, and professional technicians. Call now for reliable service!`}
-                    </p>
-                </div>
 
+                {
+                    cityInfoLoading
+                        ?
+                        <LocationsServiceTitleSkeleton />
+                        :
+                        <div className='space-y-2 md:space-y-4 z-10'>
+                            <h1 className="text-[3rem] leading-[3.5rem] text-[3.4rem] leading-[4rem] font-semibold text-primaryDark">
+                                Same-Day <span className='text-primary'>{RESIDENTIAL_SERVICES[serviceKey].title} Repair</span> in {cityInfo?.data?.title}, {cityInfo?.data?.state_short}
+                            </h1>
+                            {/* <p className='text-gray-600 text-lg md:text-xl mb-10'>{RESIDENTIAL_SERVICES[service].subTitle}</p> */}
+                            <p className='text-gray-600 text-md md:text-lg mb-10'>
+                                {`UltraFix Appliance Repair in ${cityInfo?.data?.title}, ${cityInfo?.data?.state_short} provides expert ${RESIDENTIAL_SERVICES[serviceKey].title} repair with same-day service, affordable pricing, and professional technicians. Call now for reliable service!`}
+                            </p>
+                        </div>
+                }
                 <motion.div
                     initial={{ opacity: 0, scale: 0.1 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -108,7 +115,7 @@ const ResidentialContent: React.FC<IServiceBannerProps> = ({ service }) => {
                     sizes="(max-width: 1200px) 600px, (min-width: 1200px) 600px"
                 />
             </motion.div>
-        </div>
+        </div >
     )
 }
 
