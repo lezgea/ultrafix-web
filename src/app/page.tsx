@@ -79,7 +79,7 @@ export async function generateMetadata() {
 const Home: React.FC = () => {
     return (
         <PageLayout>
-            <BrandsSection />
+            {/* <BrandsSection /> */}
             <BannerSection />
             <motion.div
                 initial={{ opacity: 0, x: 400 }}
