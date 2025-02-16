@@ -35,7 +35,7 @@ export const BrandsSection: React.FC = () => {
         >
             <div className='flex flex-wrap items-center justify-center gap-7 pb-20 md:pb-10'>
                 {
-                    brands?.data?.map(brand =>
+                    brands?.data?.filter(item => !!item?.logo?.url).map(brand =>
                         <motion.div
                             key={brand.id}
                             initial={{ opacity: 0, scale: 0 }}
