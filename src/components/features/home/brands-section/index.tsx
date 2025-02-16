@@ -35,7 +35,7 @@ export const BrandsSection: React.FC = () => {
         >
             <div className='flex flex-wrap items-center justify-center gap-7 pb-20 md:pb-10'>
                 {
-                    BRANDS_LIST.map(brand =>
+                    brands?.data?.map(brand =>
                         <motion.div
                             key={brand.id}
                             initial={{ opacity: 0, scale: 0 }}
@@ -49,8 +49,8 @@ export const BrandsSection: React.FC = () => {
                             <Image
                                 height={50}
                                 width={100}
-                                alt={brand.label}
-                                src={`/img/brands/${brand.value}.jpg`}
+                                alt={brand.text}
+                                src={brand?.logo?.url || ''}
                                 className='brand-logo w-full h-12'
                             />
                         </motion.div>

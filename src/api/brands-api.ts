@@ -1,12 +1,12 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
-import axiosBaseQuery from '@utils/axiosBaseQuery';
 import { IFaqsListRequest, IFaqsListResponse } from './types/faq-types';
 import { IBrandsListRequest, IBrandsListResponse } from './types/brand-types';
+import axiosBasePublicQuery from '@utils/axiosBasePublicQuery';
 
 
 export const brandApi = createApi({
     reducerPath: 'brandApi',
-    baseQuery: axiosBaseQuery,
+    baseQuery: axiosBasePublicQuery,
     tagTypes: ['Brands'],
     endpoints: (builder) => ({
         getAllBrands: builder.query<IBrandsListResponse, IBrandsListRequest>({
