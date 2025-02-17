@@ -202,7 +202,7 @@ export const Header: React.FC = () => {
 
 
     const onDeal = () => {
-        window.location.href = `tel:${cityInfo?.phone ? cityInfo?.phone : '(888) 998-6263'}`;
+        window.location.href = `tel:${cityInfo.phone ? cityInfo.phone : '(888) 998-6263'}`;
         // window.location.href = 'tel:(832) 998-6280'
     }
 
@@ -212,7 +212,7 @@ export const Header: React.FC = () => {
             className="hidden min-w-[160px] md:inline-flex w-auto text-center items-center justify-center px-4 py-2 text-white transition-all bg-primary rounded-lg sm:w-auto hover:text-white shadow-neutral-300 hover:shadow-lg hover:shadow-neutral-300 hover:-translate-y-px focus:shadow-none"
             onClick={onDeal}
         >
-            {cityInfo?.phone ? cityInfo?.phone : '(888) 998-6263'}
+            {!!cityInfo.phone ? cityInfo.phone : '(888) 998-6263'}
             {/* (832) 998-6280 */}
         </button>
     ), [cityKey, pathname, cityInfo]);
@@ -280,7 +280,7 @@ export const Header: React.FC = () => {
                     {
                         isCallButtonAvailable &&
                         <a
-                            href={`tel:${cityData?.phone ? cityData.phone : '(888) 998-6263'}`}
+                            href={`tel:${cityInfo?.phone ? cityInfo.phone : '(888) 998-6263'}`}
                             // href='tel:(832) 998-6280'
                             className="call-btn backdrop-blur-xl bg-primary"
                         >
