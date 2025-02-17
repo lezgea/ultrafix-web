@@ -1,6 +1,6 @@
 import React from 'react';
 import PageLayout from '@components/layout/page-layout';
-import { AboutUsSection, BrandsSection, CommercialServicesSection, ResidentialServicesSection, ReviewsSection, WhyUsSection } from '@components/features';
+import { AboutUsSection, BrandsSection, CommercialLocationServices, CommercialServicesSection, ResidentialLocationServices, ResidentialServicesSection, ReviewsSection, WhyUsSection } from '@components/features';
 import LocationsFAQSection from '@components/features/faq/locations-faq-section';
 import { CITIES } from 'constants/locations';
 
@@ -113,8 +113,8 @@ const FAQ: React.FC<IFaqProps> = ({ params }) => {
         <PageLayout title={`Appliance Repair Services in ${cityData?.title}, ${cityData?.stateShort} | UltraFix®`}>
             <LocationsFAQSection location={`${cityData?.title}, ${cityData?.stateShort}`} />
             {/* <LocationsSection /> */}
-            <ResidentialServicesSection />
-            <CommercialServicesSection />
+            <ResidentialLocationServices />
+            <CommercialLocationServices />
             <ReviewsSection />
             <AboutUsSection />
             <BrandsSection />
