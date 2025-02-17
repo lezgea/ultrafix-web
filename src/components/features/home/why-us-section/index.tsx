@@ -6,6 +6,7 @@ import { WHY_US } from 'constants/why-us';
 import React, { useState, useEffect } from 'react';
 import * as motion from "framer-motion/client";
 import { TextBlurIn, TextPullUp } from '@components/shared';
+import Image from 'next/image';
 
 
 export const WhyUsSection: React.FC = () => {
@@ -24,7 +25,7 @@ export const WhyUsSection: React.FC = () => {
                 title="Why Us ?"
                 description="Client satisfaction is at the forefront of our minds at UltraFix Appliance Repair Service. Our business model is built on respect, promptness, honesty, and taking pride in our work. When you choose us for your appliance repair, you learn how closely we hold to these values."
             >
-                <div className="flex flex-wrap gap-4 md:gap-6 items-center justify-center">
+                <div className="flex flex-wrap gap-4 items-center justify-center mb-5">
                     {
                         WHY_US.map(item =>
                             <motion.div
@@ -32,17 +33,26 @@ export const WhyUsSection: React.FC = () => {
                                 initial={{ opacity: 0, x: -100 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.5 }}
-                                className='relative flex flex-col md:min-h-[320px] shadow-lg rounded-3xl p-7 text-start gap-2 cursor-pointer bg-white md:w-[32%]'
+                                className='relative flex flex-col lg:min-h-[280px] shadow-lg rounded-3xl text-center items-center gap-2 cursor-pointer bg-white lg:w-[22%] xl:w-[18%] overflow-hidden'
                             >
-                                <div className='relative w-20 h-20 bg-[#EEF2F7] rounded-full'>
-                                    <Check3Icon className='absolute w-[50px] h-[50px] mt-3 ml-7' />
+                                <div className='w-full relative flex justify-center'>
+                                    <Image
+                                        src="/svg/card_banner.svg"
+                                        alt="Card Banner"
+                                        width={300}
+                                        height={200}
+                                        className='w-full h-[150px] object-cover'
+                                    />
+                                    <h3 className='absolute text-xl md:text-lg text-white font-medium bottom-2'>
+                                        {item.title}
+                                    </h3>
                                 </div>
-                                <h3 className='text-2xl text-primaryDark font-medium mt-3'>
-                                    {item.title}
-                                </h3>
-                                <p className='text-sm text-[#606774]'>
-                                    {item.description}
-                                </p>
+
+                                <div className='flex flex-col gap-1 px-3 py-3 md:py-1'>
+                                    <p className='text-xs text-[#606774]'>
+                                        {item.description}
+                                    </p>
+                                </div>
                             </motion.div>
                         )
                     }

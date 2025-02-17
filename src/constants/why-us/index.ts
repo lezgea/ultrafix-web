@@ -2,7 +2,7 @@
 export const WHY_US = [
     {
         id: 1,
-        title: 'Qualified Technicians',
+        title: 'Qualified Techs',
         description: "Our team consists of highly trained and certified technicians who specialize in repairing a wide range of appliances. With years of experience and a commitment to excellence, we ensure your appliances are in safe hands."
     },
     {
