@@ -33,7 +33,7 @@ export const WhyUsSection: React.FC = () => {
                                 initial={{ opacity: 0, x: -100 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.5 }}
-                                className='relative flex flex-col lg:min-h-[280px] shadow-lg rounded-3xl text-center items-center gap-2 cursor-pointer bg-white lg:w-[22%] xl:w-[18%] overflow-hidden'
+                                className='relative flex flex-col lg:min-h-[300px] shadow-lg rounded-3xl text-center items-center gap-2 cursor-pointer bg-white lg:w-[22%] xl:w-[18%] overflow-hidden'
                             >
                                 <div className='w-full relative flex justify-center'>
                                     <Image
