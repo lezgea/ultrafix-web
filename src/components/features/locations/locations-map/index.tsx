@@ -71,7 +71,7 @@ export const LocationsMap: React.FC = () => {
                     </div>
                 </AnimatePresence>
             )}
-            <div className="w-full relative flex flex-col md:flex-row items-center rounded-2xl shadow-xl overflow-hidden">
+            {/* <div className="w-full relative flex flex-col md:flex-row items-center rounded-2xl shadow-xl overflow-hidden">
                 <LoadScript googleMapsApiKey={"AIzaSyBcApx-caHqz17EdCTr6fQxNz0edJwJvRE"}>
                     <GoogleMap
                         mapContainerStyle={containerStyle}
@@ -81,7 +81,7 @@ export const LocationsMap: React.FC = () => {
                         <Marker position={center} />
                     </GoogleMap>
                 </LoadScript>
-            </div>
+            </div> */}
         </SectionLayout>
     );
 };
