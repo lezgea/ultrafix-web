@@ -2,7 +2,6 @@ import React from 'react';
 import PageLayout from '@components/layout/page-layout';
 import { AboutUsSection, BrandsSection, CommercialLocationServices, CommercialServicesSection, ResidentialLocationServices, ResidentialServicesSection, ReviewsSection, WhyUsSection } from '@components/features';
 import LocationsFAQSection from '@components/features/faq/locations-faq-section';
-import { CITIES } from 'constants/locations';
 
 
 interface IFaqProps {
@@ -16,16 +15,9 @@ interface IFaqProps {
 export async function generateMetadata({ params }: IFaqProps) {
     const { state, city } = params;
 
-    const cityKey = `${state}_${city}` as keyof typeof CITIES;
-    const cityData = CITIES[cityKey];
 
-
-    const title = cityData
-        ? `Appliance Repair Services in ${cityData?.title}, ${cityData?.stateShort} | UltraFix®`
-        : 'Appliance Repair Services | UltraFix®';
-    const description = cityData
-        ? `UltraFix Appliance Repair in ${cityData.title}, ${cityData.stateShort} provides expert appliance repair with same-day service, affordable pricing, and professional technicians. Call now for reliable service!`
-        : 'UltraFix offers trusted appliance repair services across the United States.';
+    const title = 'Appliance Repair Services | UltraFix®';
+    const description = 'UltraFix offers trusted appliance repair services across the United States.';
 
     return {
         title,
@@ -105,13 +97,9 @@ export async function generateMetadata({ params }: IFaqProps) {
 const FAQ: React.FC<IFaqProps> = ({ params }) => {
     const { state, city } = params;
 
-    const cityKey = `${state}_${city}` as keyof typeof CITIES;
-    const cityData = CITIES[cityKey];
-
-
     return (
-        <PageLayout title={`Appliance Repair Services in ${cityData?.title}, ${cityData?.stateShort} | UltraFix®`}>
-            <LocationsFAQSection location={`${cityData?.title}, ${cityData?.stateShort}`} />
+        <PageLayout title={`Appliance Repair Services | UltraFix®`}>
+            <LocationsFAQSection />
             {/* <LocationsSection /> */}
             <ResidentialLocationServices />
             <CommercialLocationServices />

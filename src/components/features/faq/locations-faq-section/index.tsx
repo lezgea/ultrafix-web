@@ -4,23 +4,26 @@ import React, { Suspense } from 'react';
 import SectionLayout from '@components/layout/section-layout';
 import { ExpandableInfoSection } from '@components/shared';
 import { useLazyGetAllFaqsQuery } from '@api/faq-api';
-import { FAQ_LIST } from 'constants/faq';
 import { FaqsSkeleton } from '@components/shared/skeletons';
+import { useSelector } from 'react-redux';
+import { RootState } from '@store/store';
+import { useParams } from 'next/navigation';
+import { useGetCityInfoQuery } from '@api/location-api';
 
 
-interface ILocationFaqProps {
-    location: string,
-}
+interface ILocationFaqProps { }
 
 const LocationsFAQSectionContent: React.FC<ILocationFaqProps> = (props) => {
-    let { location } = props;
+    let { } = props;
 
+    const { state, city, service } = useParams();
+    const { data: cityInfo, isLoading: cityInfoLoading } = useGetCityInfoQuery({ state: state as string, city: city as string });
     const [triggerGetFaqs, { data: faqsData, isLoading }] = useLazyGetAllFaqsQuery()
 
 
     async function getAllFaqs() {
         try {
-            await triggerGetFaqs({ city: location }).unwrap();
+            await triggerGetFaqs({ city: `${cityInfo?.data?.title}, ${cityInfo?.data?.state_short}` }).unwrap();
         } catch (err: any) {
             console.log('Error: ', err)
         }
@@ -28,9 +31,9 @@ const LocationsFAQSectionContent: React.FC<ILocationFaqProps> = (props) => {
 
 
     React.useEffect(() => {
-        if (location)
+        if (!!cityInfo?.data?.title)
             getAllFaqs();
-    }, [location]);
+    }, [cityInfo?.data?.title]);
 
 
     return (
