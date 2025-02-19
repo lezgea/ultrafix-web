@@ -120,8 +120,8 @@ const ServiceDetailPage: React.FC<IServiceProps> = ({ params }) => {
                     <p className='text-gray-500 text-sm md:text-md text-[#a175b5]'>{COMMERCIAL_SERVICES[serviceKey].note}</p>
                 </div>
             </SectionLayout>
-            <ResidentialLocationServices />
             <CommercialLocationServices />
+            <ResidentialLocationServices />
             <ReviewsSection />
             <LocationsMap />
             {/* <LocationsSection /> */}
