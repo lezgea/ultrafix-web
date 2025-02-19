@@ -100,10 +100,76 @@ export const COMMERCIAL_SERVICES_LIST = [
         link: 'ice-machine-repair',
     },
     {
-        id: 10,
+        id: 3,
         title: 'Freezer',
         value: 'freezer',
         link: 'freezer-repair',
+    },
+    {
+        id: 4,
+        title: 'Wine Cooler',
+        value: 'wine_cooler',
+        link: 'wine-cooler-repair',
+    },
+    {
+        id: 5,
+        title: 'Oven',
+        value: 'oven',
+        link: 'oven-repair',
+    },
+    {
+        id: 6,
+        title: 'Range',
+        value: 'range',
+        link: 'range-repair',
+    },
+    {
+        id: 7,
+        title: 'Stove',
+        value: 'stove',
+        link: 'stove-repair',
+    },
+    {
+        id: 8,
+        title: 'Cooktop',
+        value: 'cooktop',
+        link: 'cooktop-repair',
+    },
+    {
+        id: 9,
+        title: 'Microwave',
+        value: 'microwave',
+        link: 'microwave-repair',
+    },
+    {
+        id: 10,
+        title: 'Vent Hood',
+        value: 'vent_hood',
+        link: 'vent-hood-repair',
+    },
+    {
+        id: 11,
+        title: 'Dishwasher',
+        value: 'dishwasher',
+        link: 'dishwasher-repair',
+    },
+    {
+        id: 12,
+        title: 'Washer',
+        value: 'washer',
+        link: 'washer-repair',
+    },
+    {
+        id: 13,
+        title: 'Dryer',
+        value: 'dryer',
+        link: 'dryer-repair',
+    },
+    {
+        id: 14,
+        title: 'Garbage Disposal',
+        value: 'garbage_disposal',
+        link: 'garbage-disposal-repair',
     },
 ];
 
