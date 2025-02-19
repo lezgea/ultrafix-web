@@ -55,30 +55,36 @@ export const RESIDENCIAL_SERVICES_LIST = [
     },
     {
         id: 10,
+        title: 'Warmer Drawer',
+        value: 'warmer_drawer',
+        link: 'warmer-drawer-repair',
+    },
+    {
+        id: 11,
         title: 'Vent Hood',
         value: 'vent_hood',
         link: 'vent-hood-repair',
     },
     {
-        id: 11,
+        id: 12,
         title: 'Dishwasher',
         value: 'dishwasher',
         link: 'dishwasher-repair',
     },
     {
-        id: 12,
+        id: 13,
         title: 'Washer',
         value: 'washer',
         link: 'washer-repair',
     },
     {
-        id: 13,
+        id: 14,
         title: 'Dryer',
         value: 'dryer',
         link: 'dryer-repair',
     },
     {
-        id: 14,
+        id: 15,
         title: 'Garbage Disposal',
         value: 'garbage_disposal',
         link: 'garbage-disposal-repair',
@@ -143,30 +149,36 @@ export const COMMERCIAL_SERVICES_LIST = [
     },
     {
         id: 10,
+        title: 'Warmer Drawer',
+        value: 'warmer_drawer',
+        link: 'warmer-drawer-repair',
+    },
+    {
+        id: 11,
         title: 'Vent Hood',
         value: 'vent_hood',
         link: 'vent-hood-repair',
     },
     {
-        id: 11,
+        id: 12,
         title: 'Dishwasher',
         value: 'dishwasher',
         link: 'dishwasher-repair',
     },
     {
-        id: 12,
+        id: 13,
         title: 'Washer',
         value: 'washer',
         link: 'washer-repair',
     },
     {
-        id: 13,
+        id: 14,
         title: 'Dryer',
         value: 'dryer',
         link: 'dryer-repair',
     },
     {
-        id: 14,
+        id: 15,
         title: 'Garbage Disposal',
         value: 'garbage_disposal',
         link: 'garbage-disposal-repair',
@@ -430,8 +442,32 @@ export const RESIDENTIAL_SERVICES = {
             'repair refrigerator freezer',
         ],
     },
-    "vent-hood-repair": {
+    "warmer-drawer-repair": {
         id: 11,
+        title: 'Warmer Drawer',
+        value: 'warmer_drawer',
+        link: 'warmer-drawer-repair',
+        price: '135 - 285',
+        subTitle: 'Keep your meals warm and ready to serve with UltraFix',
+        description:
+            "The expert technicians at UltraFix Appliance Repair Service know how to repair all types of warmer drawers, ensuring your " +
+            "appliance works efficiently and reliably. Whether it's a temperature issue, faulty controls, or other malfunctions, we can quickly " +
+            "diagnose and fix the problem. During routine maintenance or repairs, we identify potential issues before they escalate, saving you " +
+            "from costly repairs. You will always receive the lowest possible price quote before the repair begins, along with tips to keep your " +
+            "warmer drawer running smoothly. Schedule your warmer drawer repair service today by using the form below or calling us at (888) 998-6263.",
+        note:
+            'If we are unable to complete a freezer repair on the first visit, we can order part to get the job done.',
+        keywords: [
+            'warmer drawer repair',
+            'warmer drawer repair near me',
+            'commercial warmer drawer repair',
+            'warmer drawer repairs',
+            'warmer drawer repair services near me',
+            'repair warmer drawer',
+        ],
+    },
+    "vent-hood-repair": {
+        id: 12,
         title: 'Vent Hood',
         value: 'vent_hood',
         link: 'vent-hood-repair',
@@ -453,7 +489,7 @@ export const RESIDENTIAL_SERVICES = {
         ],
     },
     "garbage-disposal-repair": {
-        id: 12,
+        id: 13,
         title: 'Garbage Disposal',
         value: 'garbage_disposal',
         link: 'garbage-disposal-repair',
@@ -477,7 +513,7 @@ export const RESIDENTIAL_SERVICES = {
         ],
     },
     "stove-repair": {
-        id: 13,
+        id: 14,
         title: 'Stove',
         value: 'stove',
         link: 'stove-repair',
@@ -496,7 +532,7 @@ export const RESIDENTIAL_SERVICES = {
         ],
     },
     "range-repair": {
-        id: 14,
+        id: 15,
         title: 'Range',
         value: 'range',
         link: 'range-repair',
@@ -773,8 +809,32 @@ export const COMMERCIAL_SERVICES = {
             'repair refrigerator freezer',
         ],
     },
-    "vent-hood-repair": {
+    "warmer-drawer-repair": {
         id: 11,
+        title: 'Warmer Drawer',
+        value: 'warmer_drawer',
+        link: 'warmer-drawer-repair',
+        price: '135 - 285',
+        subTitle: 'Keep your meals warm and ready to serve with UltraFix',
+        description:
+            "The expert technicians at UltraFix Appliance Repair Service know how to repair all types of warmer drawers, ensuring your " +
+            "appliance works efficiently and reliably. Whether it's a temperature issue, faulty controls, or other malfunctions, we can quickly " +
+            "diagnose and fix the problem. During routine maintenance or repairs, we identify potential issues before they escalate, saving you " +
+            "from costly repairs. You will always receive the lowest possible price quote before the repair begins, along with tips to keep your " +
+            "warmer drawer running smoothly. Schedule your warmer drawer repair service today by using the form below or calling us at (888) 998-6263.",
+        note:
+            'If we are unable to complete a freezer repair on the first visit, we can order part to get the job done.',
+        keywords: [
+            'warmer drawer repair',
+            'warmer drawer repair near me',
+            'commercial warmer drawer repair',
+            'warmer drawer repairs',
+            'warmer drawer repair services near me',
+            'repair warmer drawer',
+        ],
+    },
+    "vent-hood-repair": {
+        id: 12,
         title: 'Vent Hood',
         value: 'vent_hood',
         link: 'vent-hood-repair',
@@ -796,7 +856,7 @@ export const COMMERCIAL_SERVICES = {
         ],
     },
     "garbage-disposal-repair": {
-        id: 12,
+        id: 13,
         title: 'Garbage Disposal',
         value: 'garbage_disposal',
         link: 'garbage-disposal-repair',
@@ -820,7 +880,7 @@ export const COMMERCIAL_SERVICES = {
         ],
     },
     "stove-repair": {
-        id: 13,
+        id: 14,
         title: 'Stove',
         value: 'stove',
         link: 'stove-repair',
@@ -839,7 +899,7 @@ export const COMMERCIAL_SERVICES = {
         ],
     },
     "range-repair": {
-        id: 14,
+        id: 15,
         title: 'Range',
         value: 'range',
         link: 'range-repair',

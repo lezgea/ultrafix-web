@@ -53,6 +53,7 @@ import WineCoolerIcon from './wine_cooler.svg';
 import FreezerIcon from './freezer.svg';
 import VentHoodIcon from './vent_hood.svg';
 import GarbageDisposalIcon from './garbage_disposal.svg';
+import WarmerDrawerIcon from './warmer_drawer.svg';
 import CallIcon from './call.svg';
 import LogoIcon from './logo-icon.svg';
 import FacebookIcon from './facebook.svg';
@@ -107,6 +108,7 @@ export {
     CallIcon,
     GarbageDisposalIcon,
     VentHoodIcon,
+    WarmerDrawerIcon,
     FreezerIcon,
     WineCoolerIcon,
     MicrowaveIcon,
