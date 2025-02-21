@@ -103,9 +103,9 @@ const ResidentialContent: React.FC<IServiceBannerProps> = ({ service }) => {
             >
                 <Image
                     src={`/img/services/residential/${RESIDENTIAL_SERVICES[service].value}.webp`}
-                    width={500}
-                    height={500}
-                    className="w-auto h-auto md:h-[600px] object-cover"
+                    width={400}
+                    height={400}
+                    className="w-auto h-auto md:h-[500px] object-cover"
                     alt={`${RESIDENTIAL_SERVICES[service].title} Image`}
                     loading="lazy"
                     sizes="(max-width: 1200px) 600px, (min-width: 1200px) 600px"
@@ -187,9 +187,9 @@ const CommercialContent: React.FC<IServiceBannerProps> = ({ service }) => {
             >
                 <Image
                     src={`/img/services/commercial/${COMMERCIAL_SERVICES[service].value}.webp`}
-                    width={300}
-                    height={300}
-                    className="w-auto h-auto md:h-[600px] object-cover"
+                    width={400}
+                    height={400}
+                    className="w-auto h-auto md:h-[500px] object-cover"
                     alt={`${COMMERCIAL_SERVICES[service].title} Image`}
                     loading="lazy"
                     sizes="(max-width: 1200px) 600px, (min-width: 1200px) 600px"

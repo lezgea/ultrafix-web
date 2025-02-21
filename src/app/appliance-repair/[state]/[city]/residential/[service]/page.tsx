@@ -26,8 +26,8 @@ export async function generateMetadata({ params }: IServiceProps) {
         .then((res) => res.json());
 
     const title = cityInfo?.data
-        ? `Residential ${RESIDENTIAL_SERVICES[serviceKey].title} Repair in ${cityInfo?.data?.title}, ${cityInfo?.data?.state_short} | UltraFix®`
-        : 'Residential Appliance Repair Services | UltraFix®';
+        ? `Residential ${RESIDENTIAL_SERVICES[serviceKey].title} Repair in ${cityInfo?.data?.title}, ${cityInfo?.data?.state_short} | Same-Day Service`
+        : 'Residential Appliance Repair Services | Same-Day Service';
     const description = cityInfo?.data
         ? `UltraFix Appliance Repair in ${cityInfo?.data?.title}, ${cityInfo?.data?.state_short} provides expert ${RESIDENTIAL_SERVICES[serviceKey].title} repair with same-day service, affordable pricing, and professional technicians. Call now for reliable service!`
         : 'UltraFix offers trusted appliance repair services across the United States.';
