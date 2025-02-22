@@ -26,7 +26,7 @@ const SectionLayout: FC<ISectionLayout> = ({
                     <div className='flex flex-col items-center space-y-2'>
                         {!!title && (
                             <h2 className="md:max-w-[80%] text-[1.7rem] leading-[2.5rem] md:text-[2.5rem] md:leading-[4rem] text-center font-semibold text-primaryDark">
-                                {title}
+                                <div dangerouslySetInnerHTML={{ __html: title }} />
                             </h2>
                         )}
                         {

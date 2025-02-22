@@ -21,8 +21,6 @@ export const BrandBanner: React.FC<IBrandBannerProps> = (props) => {
 
     const { data: brandInfo } = useGetBrandInfoQuery({ id: brandId as string });
 
-    console.log('@@@@@', brandInfo)
-
 
     return (
         <>

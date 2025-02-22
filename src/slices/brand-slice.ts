@@ -1,11 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IBrand } from '@api/types/booking-types';
 import { brandApi } from '@api/brands-api';
-import { IBrandInfoResponse } from '@api/types/brand-types';
+import { IBrand, IBrandInfoResponse } from '@api/types/brand-types';
 
 
 interface IBrandState {
-    brands: IBrand | {},
+    brandInfo: IBrand,
     loading: boolean,
     error?: string | boolean,
     success?: string | boolean,
@@ -13,7 +12,21 @@ interface IBrandState {
 }
 
 const initialState: IBrandState = {
-    brands: {},
+    brandInfo: {
+        id: 0,
+        text: '',
+        color: '',
+        sort: 0,
+        logo: {
+            id: 0,
+            name: '',
+            url: '',
+            mime_type: '',
+            size: 0,
+            created_at: '',
+            type: ''
+        }
+    },
     loading: false,
     error: false,
     success: false,
@@ -42,7 +55,7 @@ const brandSlice = createSlice({
                 brandApi.endpoints.getBrandInfo.matchFulfilled,
                 (state, action: PayloadAction<IBrandInfoResponse>) => {
                     state.loading = false;
-                    state.brands = action.payload?.data;
+                    state.brandInfo = action.payload?.data;
                 }
             )
             .addMatcher(
