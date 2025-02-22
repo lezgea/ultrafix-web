@@ -53,7 +53,7 @@ export const BrandsSection: React.FC = () => {
                                     width={100}
                                     alt={brand.text}
                                     src={brand?.logo?.url || ''}
-                                    className='brand-logo w-full h-12'
+                                    className='brand-logo w-full h-auto max-h-[40px] max-w-[150px]'
                                 />
                             </motion.div>
                         </Link>

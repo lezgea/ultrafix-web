@@ -27,7 +27,7 @@ export const BrandBanner: React.FC<IBrandBannerProps> = (props) => {
     return (
         <>
             <SectionLayout noYPadding>
-                <div className='w-full flex flex-col lg:flex-row py-10'>
+                <div className='w-full flex flex-col-reverse lg:flex-row py-10'>
                     <div className='w-full relative flex flex-col text-center md:text-start justify-between md:py-20'>
                         <div className='space-y-2 md:space-y-4 z-10'>
                             <h1 className="text-[3rem] leading-[3.5rem] text-[3.4rem] leading-[4rem] font-semibold text-primary">
@@ -72,8 +72,6 @@ export const BrandBanner: React.FC<IBrandBannerProps> = (props) => {
                             >
                                 Book a Service
                             </Link>
-                            {/* <p className='text-gray-600 text-lg md:text-xl'>Average price for residential {RESIDENTIAL_SERVICES[service].title.toLowerCase()} repair without parts</p>
-                    <p className='text-primaryDark text-5xl font-medium'>$ {RESIDENTIAL_SERVICES[service].price}</p> */}
                         </div>
                     </div>
                     <motion.div
@@ -83,13 +81,13 @@ export const BrandBanner: React.FC<IBrandBannerProps> = (props) => {
                             duration: 0.5,
                             ease: [0, 0.71, 0.2, 1.01]
                         }}
-                        className='w-full flex items-center justify-center -mr-[20px]'
+                        className='w-full flex items-center justify-center p-10 md:p-0 -mr-[30px]'
                     >
                         <Image
                             src={brandInfo?.data?.logo?.url || ''}
-                            width={400}
-                            height={400}
-                            className="w-auto h-auto min-w-[40vw] object-fit"
+                            width={600}
+                            height={600}
+                            className="w-auto h-auto md:max-w-[600px] md:max-h-[200px] object-fit"
                             alt={`${brandInfo?.data?.logo?.url}`}
                             loading="lazy"
                             sizes="(max-width: 1200px) 600px, (min-width: 1200px) 600px"
