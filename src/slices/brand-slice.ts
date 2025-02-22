@@ -1,9 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IBrand } from '@api/types/booking-types';
+import { brandApi } from '@api/brands-api';
+import { IBrandInfoResponse } from '@api/types/brand-types';
 
 
 interface IBrandState {
-    brands: IBrand[],
+    brands: IBrand | {},
     loading: boolean,
     error?: string | boolean,
     success?: string | boolean,
@@ -11,7 +13,7 @@ interface IBrandState {
 }
 
 const initialState: IBrandState = {
-    brands: [],
+    brands: {},
     loading: false,
     error: false,
     success: false,
@@ -27,29 +29,29 @@ const brandSlice = createSlice({
         // },
     },
     extraReducers: (builder) => {
-        // CREATE FAQ MUTATION
-        // builder
-        //     .addMatcher(
-        //         blogsApi.endpoints.createBlog.matchPending,
-        //         (state) => {
-        //             state.loading = true;
-        //             state.error = false;
-        //         }
-        //     )
-        //     .addMatcher(
-        //         blogsApi.endpoints.createBlog.matchFulfilled,
-        //         (state, action: PayloadAction<IBlogCreateResponse>) => {
-        //             state.loading = false;
-        //             state.blogs = action.payload?.data;
-        //         }
-        //     )
-        //     .addMatcher(
-        //         blogsApi.endpoints.createBlog.matchRejected,
-        //         (state, action) => {
-        //             state.loading = false;
-        //             state.error = action.error?.message || 'Failed to fetch datasets';
-        //         }
-        //     );
+        // BRAND INFO QUERY
+        builder
+            .addMatcher(
+                brandApi.endpoints.getBrandInfo.matchPending,
+                (state) => {
+                    state.loading = true;
+                    state.error = false;
+                }
+            )
+            .addMatcher(
+                brandApi.endpoints.getBrandInfo.matchFulfilled,
+                (state, action: PayloadAction<IBrandInfoResponse>) => {
+                    state.loading = false;
+                    state.brands = action.payload?.data;
+                }
+            )
+            .addMatcher(
+                brandApi.endpoints.getBrandInfo.matchRejected,
+                (state, action) => {
+                    state.loading = false;
+                    state.error = action.error?.message || 'Failed to fetch datasets';
+                }
+            );
     },
 });
 
