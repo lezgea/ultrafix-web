@@ -34,7 +34,7 @@ export const Header: React.FC = () => {
 
     const pathname = usePathname();
     const router = useRouter();
-    const { state, city, service } = useParams();
+    const { state, city, service, brandId } = useParams();
 
     const { cityInfo } = useSelector((state: RootState) => state.location);
 
@@ -67,6 +67,7 @@ export const Header: React.FC = () => {
         /^\/brand\/[^/]+\/[^/]+$/,
         /^\/blog\/[^/]+$/,                              // Matches `/blog/[blogId]`
         /^\/blog\/[^/]+\/[^/]+$/,
+        /^\/appliance-repair\/[^/]+\/[^/]+\/brand\/[^/]+$/,
         /^\/appliance-repair\/[^/]+\/[^/]+$/,          // Matches `/appliance-repair/state/city`
         /^\/appliance-repair\/[^/]+\/[^/]+\/faq$/,     // Matches `/appliance-repair/state/city/faq`
         /^\/appliance-repair\/[^/]+\/[^/]+\/commercial\/[^/]+$/,  // Matches `/appliance-repair/state/city/commercial/service`
@@ -108,6 +109,7 @@ export const Header: React.FC = () => {
         switch (pathname) {
             case `/appliance-repair/${state}/${city}`:
             case `/appliance-repair/${state}/${city}/faq`:
+            case `/appliance-repair/${state}/${city}/brand/${brandId}`:
             case `/appliance-repair/${state}/${city}/residential/${service}`:
             case `/appliance-repair/${state}/${city}/commercial/${service}`:
                 router.push(`/appliance-repair/${state}/${city}`);

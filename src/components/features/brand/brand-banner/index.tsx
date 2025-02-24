@@ -8,6 +8,7 @@ import React from 'react';
 import * as motion from "framer-motion/client"
 import { useParams } from 'next/navigation';
 import { useGetBrandInfoQuery } from '@api/brands-api';
+import { useGetCityInfoQuery } from '@api/location-api';
 
 
 interface IBrandBannerProps {
@@ -17,9 +18,20 @@ interface IBrandBannerProps {
 
 
 export const BrandBanner: React.FC<IBrandBannerProps> = (props) => {
-    let { brandId } = useParams();
+    let { brandId, state, city } = useParams();
 
     const { data: brandInfo } = useGetBrandInfoQuery({ id: brandId as string });
+    const { data: cityInfo, isLoading: cityInfoLoading } = useGetCityInfoQuery({ state: state as string, city: city as string });
+
+    const title = !!cityInfo?.data?.title
+        ?
+        <h1 className="text-[3rem] leading-[3.5rem] text-[3.4rem] leading-[4rem] font-semibold text-primary">
+            {brandInfo?.data?.text} <span className='text-primaryDark'>Appliance Repair Services in</span> {cityInfo?.data?.title}, {cityInfo?.data?.state_short}
+        </h1>
+        :
+        <h1 className="text-[3rem] leading-[3.5rem] text-[3.4rem] leading-[4rem] font-semibold text-primary">
+            {brandInfo?.data?.text} <span className='text-primaryDark'>Appliance Repair Services</span>
+        </h1>
 
 
     return (
@@ -28,9 +40,7 @@ export const BrandBanner: React.FC<IBrandBannerProps> = (props) => {
                 <div className='w-full flex flex-col-reverse lg:flex-row py-10'>
                     <div className='w-full relative flex flex-col text-center md:text-start justify-between md:py-20'>
                         <div className='space-y-2 md:space-y-4 z-10'>
-                            <h1 className="text-[3rem] leading-[3.5rem] text-[3.4rem] leading-[4rem] font-semibold text-primary">
-                                {brandInfo?.data?.text} <span className='text-primaryDark'>Appliance Repair Services</span>
-                            </h1>
+                            {title}
                             <p className='text-gray-600 text-lg md:text-xl mb-10'>We Will Make your Appliances Great Again!</p>
                         </div>
                         <motion.div

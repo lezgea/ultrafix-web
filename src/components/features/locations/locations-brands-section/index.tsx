@@ -7,12 +7,10 @@ import { BRANDS, BRANDS_LIST, BRANDS_MOB } from 'constants/brands';
 import * as motion from "framer-motion/client"
 import { useLazyGetAllBrandsQuery } from '@api/brands-api';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
 
 
 
-export const BrandsSection: React.FC = () => {
-    const { city, state } = useParams();
+export const LocationsBrandsSection: React.FC = () => {
 
     const [triggerGetBrands, { data: brands, isLoading }] = useLazyGetAllBrandsQuery();
 
@@ -39,7 +37,7 @@ export const BrandsSection: React.FC = () => {
             <div className='flex flex-wrap items-center justify-center gap-7 pb-20 md:pb-10'>
                 {
                     brands?.data?.filter(item => !!item?.logo?.url).map(brand =>
-                        <Link href={!!city ? `/appliance-repair/${state}/${city}/brand/${brand.id}` : `/brand/${brand.id}`}>
+                        <Link href={`/brand/${brand.id}`}>
                             <motion.div
                                 key={brand.id}
                                 initial={{ opacity: 0, scale: 0 }}
