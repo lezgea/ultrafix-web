@@ -55,9 +55,9 @@ export const RESIDENCIAL_SERVICES_LIST = [
     },
     {
         id: 10,
-        title: 'Warmer Drawer',
-        value: 'warmer_drawer',
-        link: 'warmer-drawer-repair',
+        title: 'Dryer',
+        value: 'dryer',
+        link: 'dryer-repair',
     },
     {
         id: 11,
@@ -79,9 +79,9 @@ export const RESIDENCIAL_SERVICES_LIST = [
     },
     {
         id: 14,
-        title: 'Dryer',
-        value: 'dryer',
-        link: 'dryer-repair',
+        title: 'Warmer Drawer',
+        value: 'warmer_drawer',
+        link: 'warmer-drawer-repair',
     },
     {
         id: 15,
@@ -149,9 +149,9 @@ export const COMMERCIAL_SERVICES_LIST = [
     },
     {
         id: 10,
-        title: 'Warmer Drawer',
-        value: 'warmer_drawer',
-        link: 'warmer-drawer-repair',
+        title: 'Dryer',
+        value: 'dryer',
+        link: 'dryer-repair',
     },
     {
         id: 11,
@@ -173,9 +173,9 @@ export const COMMERCIAL_SERVICES_LIST = [
     },
     {
         id: 14,
-        title: 'Dryer',
-        value: 'dryer',
-        link: 'dryer-repair',
+        title: 'Warmer Drawer',
+        value: 'warmer_drawer',
+        link: 'warmer-drawer-repair',
     },
     {
         id: 15,
