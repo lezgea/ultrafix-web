@@ -8,6 +8,7 @@ import * as motion from "framer-motion/client"
 import { useLazyGetAllBrandsQuery } from '@api/brands-api';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
+import { useGetCityInfoQuery } from '@api/location-api';
 
 
 
@@ -15,6 +16,11 @@ export const BrandsSection: React.FC = () => {
     const { city, state } = useParams();
 
     const [triggerGetBrands, { data: brands, isLoading }] = useLazyGetAllBrandsQuery();
+
+    const { data: cityInfo, isLoading: cityInfoLoading } = useGetCityInfoQuery(
+        { state: state as string, city: city as string },
+        { skip: !city && !state }
+    );
 
 
     async function getBrands() {
@@ -34,7 +40,7 @@ export const BrandsSection: React.FC = () => {
     return (
         <SectionLayout
             scrollId="brands"
-            title="Brands We Repair"
+            title={cityInfo?.data?.title ? `Popular Brands We Repair in ${cityInfo?.data?.title}, ${cityInfo?.data?.state_short}` : `Popular Brands We Repair`}
         >
             <div className='flex flex-wrap items-center justify-center gap-7 pb-20 md:pb-10'>
                 {
