@@ -15,12 +15,23 @@ export const fetchAllBlogs = async (skip = 0, limit = 100) => {
 };
 
 
-export const fetchCitiesMinlist = async (skip = 0, limit = 100) => {
+export const fetchCitiesMinlist = async (skip = 0, limit = 500) => {
     try {
         const response = await axios.get(`${BASE_PUBLIC_URL}/cities/minlist`, {});
         return response.data;
     } catch (error) {
         console.error('Error fetching cities:', error);
+        return null;
+    }
+};
+
+
+export const fetchBrandsList = async (skip = 0, limit = 100) => {
+    try {
+        const response = await axios.get(`${BASE_PUBLIC_URL}/brands`, {});
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching brands:', error);
         return null;
     }
 };

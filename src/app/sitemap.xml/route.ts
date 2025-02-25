@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { SitemapStream, streamToPromise } from 'sitemap';
 import { COMMERCIAL_SERVICES_LIST, RESIDENCIAL_SERVICES_LIST } from 'constants/services';
 import { CITIES, STATES } from 'constants/locations';
-import { fetchAllBlogs, fetchCitiesMinlist } from '@utils/fetchAdditionalData';
+import { fetchAllBlogs, fetchBrandsList, fetchCitiesMinlist } from '@utils/fetchAdditionalData';
 
 
 export async function GET(req: NextRequest) {
@@ -19,7 +19,8 @@ export async function GET(req: NextRequest) {
     const residential_services = RESIDENCIAL_SERVICES_LIST.map(service => service.link);
     const commercial_services = COMMERCIAL_SERVICES_LIST.map(service => service.link);
 
-    const cities = await fetchCitiesMinlist(); // Adjust the skip and limit as needed
+    const cities = await fetchCitiesMinlist();
+    const brands = await fetchBrandsList();
 
     if (cities?.data?.length) {
         cities.data.forEach((city: any) => {
@@ -72,9 +73,20 @@ export async function GET(req: NextRequest) {
         blogs.data.forEach((blog: any) => {
             sitemap.write({
                 url: `/blog/${blog.id}`,
-                lastmod: blog.updatedAt || '2025-02-11',
+                lastmod: blog.updatedAt || '2025-02-25',
                 changefreq: 'weekly',
                 priority: 0.8,
+            });
+        });
+    }
+
+    if (brands?.data?.length) {
+        brands.data.forEach((brand: any) => {
+            sitemap.write({
+                url: `/brand/${brand.id}`,
+                lastmod: '2025-02-25',
+                changefreq: 'weekly',
+                priority: 0.7,
             });
         });
     }
