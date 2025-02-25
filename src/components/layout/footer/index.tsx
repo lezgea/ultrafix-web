@@ -38,6 +38,7 @@ export const Footer: React.FC = () => {
         /^\/brand\/[^/]+\/[^/]+$/,
         /^\/blog\/[^/]+$/,                              // Matches `/blog/[blogId]`
         /^\/blog\/[^/]+\/[^/]+$/,
+        /^\/appliance-repair\/[^/]+\/[^/]+\/brand\/[^/]+$/,
         /^\/appliance-repair\/[^/]+\/[^/]+$/,          // Matches `/appliance-repair/state/city`
         /^\/appliance-repair\/[^/]+\/[^/]+\/faq$/,     // Matches `/appliance-repair/state/city/faq`
         /^\/appliance-repair\/[^/]+\/[^/]+\/commercial\/[^/]+$/,  // Matches `/appliance-repair/state/city/commercial/service`
