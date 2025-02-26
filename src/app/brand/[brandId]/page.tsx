@@ -99,7 +99,6 @@ interface IServiceProps {
 
 
 const BrandInfoPage: React.FC<IServiceProps> = ({ params }) => {
-    const { brandId } = params;
     // const serviceKey = service as keyof typeof RESIDENTIAL_SERVICES;
 
 

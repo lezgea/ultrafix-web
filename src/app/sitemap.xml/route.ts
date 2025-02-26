@@ -83,7 +83,7 @@ export async function GET(req: NextRequest) {
     if (brands?.data?.length) {
         brands.data.forEach((brand: any) => {
             sitemap.write({
-                url: `/brand/${brand.id}`,
+                url: `/brand/${brand.text.toLocaleLowerCase()}`,
                 lastmod: '2025-02-25',
                 changefreq: 'weekly',
                 priority: 0.7,
