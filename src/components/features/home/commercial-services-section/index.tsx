@@ -18,7 +18,7 @@ export const CommercialServicesSection: React.FC = () => {
     return (
         <SectionLayout
             scrollId="com_services"
-            title={brandInfo?.text ? `Our Commercial <span style="color:#2b7de2">${brandInfo?.text}</span> Services in ${cityInfo?.title}, ${cityInfo?.state_short}` : "Our Commercial Services"}
+            title={brandInfo?.text ? `Our Commercial <span style="color:#2b7de2">${brandInfo?.text}</span> Services` : "Our Commercial Services"}
             description="We have been providing top service! See just how our UltraFix Appliance Repair Service can better your life today!"
         >
             <div className='flex flex-wrap gap-5 md:gap-10 items-center justify-center'>
