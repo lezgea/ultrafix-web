@@ -45,7 +45,7 @@ export const BrandsSection: React.FC = () => {
             <div className='flex flex-wrap items-center justify-center gap-7 pb-20 md:pb-10'>
                 {
                     brands?.data?.filter(item => !!item?.logo?.url).map(brand =>
-                        <Link href={!!city ? `/appliance-repair/${state}/${city}/brand/${brand.text.toLocaleLowerCase()}` : `/brand/${brand.text.toLocaleLowerCase()}`}>
+                        <Link href={!!city ? `/appliance-repair/${state}/${city}/brand/${brand.id}` : `/brand/${brand.id}`}>
                             <motion.div
                                 key={brand.id}
                                 initial={{ opacity: 0, scale: 0 }}
