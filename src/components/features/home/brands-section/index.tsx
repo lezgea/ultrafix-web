@@ -3,7 +3,6 @@
 import SectionLayout from '@components/layout/section-layout';
 import Image from 'next/image';
 import React from 'react';
-import { BRANDS, BRANDS_LIST, BRANDS_MOB } from 'constants/brands';
 import * as motion from "framer-motion/client"
 import { useLazyGetAllBrandsQuery } from '@api/brands-api';
 import Link from 'next/link';
@@ -45,7 +44,7 @@ export const BrandsSection: React.FC = () => {
             <div className='flex flex-wrap items-center justify-center gap-7 pb-20 md:pb-10'>
                 {
                     brands?.data?.filter(item => !!item?.logo?.url).map(brand =>
-                        <Link href={!!city ? `/appliance-repair/${state}/${city}/brand/${brand.id}` : `/brand/${brand.id}`}>
+                        <Link href={!!city ? `/appliance-repair/${state}/${city}/brand/${brand.text.toLocaleLowerCase()}` : `/brand/${brand.text.toLocaleLowerCase()}`}>
                             <motion.div
                                 key={brand.id}
                                 initial={{ opacity: 0, scale: 0 }}
