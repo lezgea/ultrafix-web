@@ -9,6 +9,7 @@ import * as motion from "framer-motion/client"
 import { useParams } from 'next/navigation';
 import { useGetBrandInfoQuery } from '@api/brands-api';
 import { useGetCityInfoQuery } from '@api/location-api';
+import { BrandsTitleSkeleton } from '@components/shared/skeletons';
 
 
 interface IBrandBannerProps {
@@ -20,7 +21,7 @@ interface IBrandBannerProps {
 export const BrandBanner: React.FC<IBrandBannerProps> = (props) => {
     let { brandId, state, city } = useParams();
 
-    const { data: brandInfo } = useGetBrandInfoQuery({ id: brandId as string });
+    const { data: brandInfo, isLoading: brandInfoLoading } = useGetBrandInfoQuery({ id: brandId as string });
     const { data: cityInfo, isLoading: cityInfoLoading } = useGetCityInfoQuery({ state: state as string, city: city as string });
 
     const title = !!cityInfo?.data?.title
@@ -40,7 +41,11 @@ export const BrandBanner: React.FC<IBrandBannerProps> = (props) => {
                 <div className='w-full flex flex-col-reverse lg:flex-row py-10'>
                     <div className='w-full relative flex flex-col text-center md:text-start justify-between md:py-20'>
                         <div className='space-y-2 md:space-y-4 z-10'>
-                            {title}
+                            {
+                                brandInfoLoading
+                                    ? <BrandsTitleSkeleton />
+                                    : title
+                            }
                             <p className='text-gray-600 text-lg md:text-xl mb-10'>We Will Make your Appliances Great Again!</p>
                         </div>
                         <motion.div

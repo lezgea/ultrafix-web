@@ -1,8 +1,6 @@
 import React from 'react';
 import PageLayout from '@components/layout/page-layout';
-import SectionLayout from '@components/layout/section-layout';
-import { AboutUsSection, BrandsSection, CommercialServicesSection, ContactSection, LocationsSection, ResidentialServicesSection, ReviewsSection, ServiceBanner, WhyUsSection } from '@components/features';
-import { RESIDENTIAL_SERVICES } from 'constants/services';
+import { AboutUsSection, BrandsSection, CommercialServicesSection, ContactSection, ResidentialServicesSection, ReviewsSection, WhyUsSection } from '@components/features';
 import { BrandBanner } from '@components/features/brand';
 
 
