@@ -15,4 +15,4 @@ Allow: /public/
 
 # Sitemap location
 Sitemap: https://ultrafix.com/sitemap.xml
-Sitemap: https://ultrafix.com/sitemap-brands.xml
+Sitemap: https://ultrafix.com/sitemap-2.xml
