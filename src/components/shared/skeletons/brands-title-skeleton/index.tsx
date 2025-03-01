@@ -15,6 +15,5 @@ export const BrandsTitleSkeleton = () => {
                 <Skeleton width="60%" height="45px" className="rounded-3xl" />
             </div>
         </>
-
     )
 }
