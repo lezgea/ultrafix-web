@@ -31,9 +31,6 @@ interface ILocationProps {
 export async function generateMetadata({ params }: ILocationProps) {
     const { state, city } = params;
 
-    const cityKey = `${state}_${city}` as keyof typeof CITIES;
-    const cityData = CITIES[cityKey];
-
     const cityInfo = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/locations/city?state=${state}&city=${city}`)
         .then((res) => res.json());
 
