@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { SitemapStream, streamToPromise } from 'sitemap';
 import { COMMERCIAL_SERVICES_LIST, RESIDENCIAL_SERVICES_LIST } from 'constants/services';
-import { CITIES, STATES } from 'constants/locations';
-import { fetchAllBlogs, fetchBrandsList, fetchCitiesMinlist } from '@utils/fetchAdditionalData';
+import { fetchAllBlogs, fetchCitiesMinlist } from '@utils/fetchAdditionalData';
 
 
 export async function GET(req: NextRequest) {
@@ -14,13 +13,10 @@ export async function GET(req: NextRequest) {
     sitemap.write({ url: '/apply', lastmod: '2024-12-14', changefreq: 'weekly', priority: 0.7 });
     sitemap.write({ url: '/faq', lastmod: '2024-12-14', changefreq: 'weekly', priority: 0.7 });
 
-    const states = Object.values(STATES);
-    // const cities = Object.values(CITIES).map(city => city.value);
     const residential_services = RESIDENCIAL_SERVICES_LIST.map(service => service.link);
     const commercial_services = COMMERCIAL_SERVICES_LIST.map(service => service.link);
 
     const cities = await fetchCitiesMinlist();
-    const brands = await fetchBrandsList();
 
     if (cities?.data?.length) {
         cities.data.forEach((city: any) => {
@@ -30,16 +26,6 @@ export async function GET(req: NextRequest) {
                 changefreq: 'weekly',
                 priority: 0.8,
             });
-            if (brands?.data?.length) {
-                brands.data.forEach((brand: any) => {
-                    sitemap.write({
-                        url: `/appliance-repair/${city.stateShort.toLocaleLowerCase()}/${city.value}/brand/${brand.text.toLocaleLowerCase()}`,
-                        lastmod: '2025-02-27',
-                        changefreq: 'weekly',
-                        priority: 0.7,
-                    });
-                });
-            }
             residential_services.forEach(service => {
                 sitemap.write({
                     url: `/appliance-repair/${city.stateShort.toLocaleLowerCase()}/${city.value}/residential/${service}`,
@@ -86,17 +72,6 @@ export async function GET(req: NextRequest) {
                 lastmod: blog.updatedAt || '2025-02-25',
                 changefreq: 'weekly',
                 priority: 0.8,
-            });
-        });
-    }
-
-    if (brands?.data?.length) {
-        brands.data.forEach((brand: any) => {
-            sitemap.write({
-                url: `/brand/${brand.text.toLocaleLowerCase()}`,
-                lastmod: '2025-02-27',
-                changefreq: 'weekly',
-                priority: 0.7,
             });
         });
     }
