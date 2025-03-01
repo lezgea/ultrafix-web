@@ -6,6 +6,8 @@ import { fetchBrandsList, fetchCitiesMinlist } from '@utils/fetchAdditionalData'
 export async function GET(req: NextRequest) {
     const sitemap = new SitemapStream({ hostname: 'https://ultrafix.com/' });
 
+    sitemap.write({ url: '/', lastmod: '2025-02-28', changefreq: 'weekly', priority: 1.0 });
+
     const cities = await fetchCitiesMinlist();
     const brands = await fetchBrandsList();
 
@@ -15,7 +17,7 @@ export async function GET(req: NextRequest) {
                 url: `/brand/${brand.text.toLocaleLowerCase()}`,
                 lastmod: '2025-02-28',
                 changefreq: 'weekly',
-                priority: 1,
+                priority: 0.9,
             });
         });
     }
