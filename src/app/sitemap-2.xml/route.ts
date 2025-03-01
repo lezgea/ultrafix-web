@@ -10,7 +10,7 @@ export async function GET(req: NextRequest) {
     const brands = await fetchBrandsList();
 
     if (cities?.data?.length) {
-        cities.data.forEach((city: any) => {
+        cities.data.slice(0, 25000).forEach((city: any) => {
             if (brands?.data?.length) {
                 brands.data.forEach((brand: any) => {
                     sitemap.write({
