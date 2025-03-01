@@ -30,6 +30,16 @@ export async function GET(req: NextRequest) {
                 changefreq: 'weekly',
                 priority: 0.8,
             });
+            if (brands?.data?.length) {
+                brands.data.forEach((brand: any) => {
+                    sitemap.write({
+                        url: `/appliance-repair/${city.stateShort.toLocaleLowerCase()}/${city.value}/brand/${brand.text.toLocaleLowerCase()}`,
+                        lastmod: '2025-02-27',
+                        changefreq: 'weekly',
+                        priority: 0.7,
+                    });
+                });
+            }
             residential_services.forEach(service => {
                 sitemap.write({
                     url: `/appliance-repair/${city.stateShort.toLocaleLowerCase()}/${city.value}/residential/${service}`,
