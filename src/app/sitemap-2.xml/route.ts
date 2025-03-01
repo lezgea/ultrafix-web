@@ -9,29 +9,29 @@ export async function GET(req: NextRequest) {
     const cities = await fetchCitiesMinlist();
     const brands = await fetchBrandsList();
 
+    if (brands?.data?.length) {
+        brands.data.forEach((brand: any) => {
+            sitemap.write({
+                url: `/brand/${brand.text.toLocaleLowerCase()}`,
+                lastmod: '2025-02-28',
+                changefreq: 'weekly',
+                priority: 1,
+            });
+        });
+    }
+
     if (cities?.data?.length) {
         cities.data.slice(0, 25000).forEach((city: any) => {
             if (brands?.data?.length) {
                 brands.data.forEach((brand: any) => {
                     sitemap.write({
                         url: `/appliance-repair/${city.stateShort.toLocaleLowerCase()}/${city.value}/brand/${brand.text.toLocaleLowerCase()}`,
-                        lastmod: '2025-02-27',
+                        lastmod: '2025-02-28',
                         changefreq: 'weekly',
-                        priority: 0.7,
+                        priority: 0.8,
                     });
                 });
             }
-        });
-    }
-
-    if (brands?.data?.length) {
-        brands.data.forEach((brand: any) => {
-            sitemap.write({
-                url: `/brand/${brand.text.toLocaleLowerCase()}`,
-                lastmod: '2025-02-27',
-                changefreq: 'weekly',
-                priority: 0.7,
-            });
         });
     }
 
