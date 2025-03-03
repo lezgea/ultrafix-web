@@ -23,7 +23,7 @@ export async function GET(req: NextRequest) {
     }
 
     if (cities?.data?.length) {
-        cities.data.slice(0, 500).forEach((city: any) => {
+        cities.data.slice(0, 800).forEach((city: any) => {
             if (brands?.data?.length) {
                 brands.data.forEach((brand: any) => {
                     sitemap.write({
