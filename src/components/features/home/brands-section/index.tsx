@@ -63,13 +63,14 @@ export const BrandsSection: React.FC = () => {
 
     return (
         <SectionLayout
+            noYPadding
             scrollId="brands"
             title={cityInfo?.data?.title ? `Popular Brands We Repair in ${cityInfo?.data?.title}, ${cityInfo?.data?.state_short}` : `Popular Brands We Repair`}
         >
-            <div className='flex flex-wrap items-center justify-center gap-7 pb-20 md:pb-10'>
+            <div className='flex flex-wrap items-center justify-center gap-7'>
                 <Carousel {...(carouselProps as CarouselProps)}>
                     {[...Array(3)].map((item, i) => (
-                        <div key={i} className='flex flex-wrap justify-center px-[5%] md:px-[15%] gap-8 select-none pb-20'>
+                        <div key={i} className='flex flex-wrap justify-center px-[5%] md:px-[15%] lg:px-[20%] gap-8 select-none pb-20'>
                             {
                                 brands?.data?.filter(item => !!item?.logo?.url).slice(i * 8, (i + 1) * 8).map(brand =>
                                     <Link href={!!city ? `/appliance-repair/${state}/${city}/brand/${brand.text.toLocaleLowerCase()}` : `/brand/${brand.text.toLocaleLowerCase()}`}>

@@ -19,7 +19,7 @@ export const WhyUsSection: React.FC = () => {
 
 
     return (
-        <div className='bg-[#EEF2F7]'>
+        <div className='bg-[#EEF2F7] mb-20'>
             <SectionLayout
                 scrollId="why_us"
                 title="Why Us ?"
