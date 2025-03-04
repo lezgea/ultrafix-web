@@ -6,7 +6,7 @@ import React from 'react';
 import * as motion from "framer-motion/client"
 import { useLazyGetAllBrandsQuery } from '@api/brands-api';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { useGetCityInfoQuery } from '@api/location-api';
 import dynamic from 'next/dynamic';
 import { CarouselProps } from 'react-responsive-carousel';
@@ -20,6 +20,7 @@ const Carousel = dynamic(() => import("react-responsive-carousel").then(mod => m
 export const BrandsSection: React.FC = () => {
     const { city, state } = useParams();
 
+    const router = useRouter();
     const [isMounted, setIsMounted] = React.useState(false);
     const [triggerGetBrands, { data: brands, isLoading }] = useLazyGetAllBrandsQuery();
 
@@ -34,6 +35,15 @@ export const BrandsSection: React.FC = () => {
             triggerGetBrands({}).unwrap();
         } catch (err: any) {
             console.error('Unable to fetch brands list: ', err)
+        }
+    }
+
+
+    function onClickBrand(brand: any) {
+        if (city) {
+            router.push(`/appliance-repair/${state}/${city}/brand/${brand.text.toLocaleLowerCase()}`)
+        } else {
+            router.push(`/brand/${brand.text.toLocaleLowerCase()}`)
         }
     }
 
@@ -57,7 +67,7 @@ export const BrandsSection: React.FC = () => {
         interval: 10000,
         infiniteLoop: true,
         swipeable: true,
-        emulateTouch: true,
+        // emulateTouch: true,
     };
 
 
@@ -73,26 +83,25 @@ export const BrandsSection: React.FC = () => {
                         <div key={i} className='flex flex-wrap justify-center px-[5%] md:px-[15%] lg:px-[20%] gap-8 select-none pb-20'>
                             {
                                 brands?.data?.filter(item => !!item?.logo?.url).slice(i * 8, (i + 1) * 8).map(brand =>
-                                    <Link href={!!city ? `/appliance-repair/${state}/${city}/brand/${brand.text.toLocaleLowerCase()}` : `/brand/${brand.text.toLocaleLowerCase()}`}>
-                                        <motion.div
-                                            key={brand.id}
-                                            initial={{ opacity: 0, scale: 0 }}
-                                            whileInView={{ opacity: 1, scale: 1 }}
-                                            whileHover={{ scale: 1.2 }}
-                                            transition={{
-                                                duration: 0.4,
-                                                scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
-                                            }}
-                                        >
-                                            <Image
-                                                height={50}
-                                                width={100}
-                                                alt={brand.text}
-                                                src={brand?.logo?.url || ''}
-                                                className='brand-logo w-full h-auto max-h-[40px] max-w-[150px]'
-                                            />
-                                        </motion.div>
-                                    </Link>
+                                    <motion.div
+                                        key={brand.id}
+                                        initial={{ opacity: 0, scale: 0 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        whileHover={{ scale: 1.2 }}
+                                        transition={{
+                                            duration: 0.4,
+                                            scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
+                                        }}
+                                        onClick={() => onClickBrand(brand)}
+                                    >
+                                        <Image
+                                            height={50}
+                                            width={100}
+                                            alt={brand.text}
+                                            src={brand?.logo?.url || ''}
+                                            className='brand-logo w-full h-auto max-h-[40px] max-w-[150px]'
+                                        />
+                                    </motion.div>
                                 )
                             }
                         </div>

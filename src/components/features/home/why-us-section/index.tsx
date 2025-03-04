@@ -35,23 +35,22 @@ export const WhyUsSection: React.FC = () => {
                                 transition={{ duration: 0.5 }}
                                 className='relative flex flex-col lg:min-h-[300px] shadow-lg rounded-3xl text-center items-center gap-2 cursor-pointer bg-white lg:w-[22%] xl:w-[18%] overflow-hidden'
                             >
-                                <div className='w-full relative flex justify-center'>
+                                {/* <h3 className='text-xl md:text-lg font-medium bottom-2'>
+                                    {item.title}
+                                </h3> */}
+                                <div className='w-full relative flex justify-center mt-auto'>
                                     <Image
                                         src="/svg/card_banner.svg"
                                         alt="Card Banner"
                                         width={300}
                                         height={200}
-                                        className='w-full h-[150px] object-cover'
+                                        className='w-full h-[160px] object-cover'
                                     />
-                                    <h3 className='absolute text-xl md:text-lg text-white font-medium bottom-2'>
-                                        {item.title}
-                                    </h3>
-                                </div>
-
-                                <div className='flex flex-col gap-1 px-3 py-3 md:py-1'>
-                                    <p className='text-xs text-[#606774]'>
-                                        {item.description}
-                                    </p>
+                                    <div className='absolute flex flex-col gap-1 px-3 py-3'>
+                                        <p className='text-xs font-light text-white'>
+                                            {item.description}
+                                        </p>
+                                    </div>
                                 </div>
                             </motion.div>
                         )
