@@ -72,6 +72,11 @@ import RangeIcon from './range.svg';
 import BlueCheckIcon from './blue-check.svg';
 import Check3Icon from './check3.svg';
 import ErrorIcon from './404.svg';
+import DollarIcon from './dollar.svg';
+import ClockIcon from './clock.svg';
+import CalendarIcon from './Calendar.svg';
+import WarrantyIcon from './warranty.svg';
+import QualityIcon from './quality.svg';
 
 
 export {
@@ -91,6 +96,11 @@ export {
     ErrorIcon,
 
     // icons
+    DollarIcon,
+    ClockIcon,
+    CalendarIcon,
+    WarrantyIcon,
+    QualityIcon,
     Check3Icon,
     BlueCheckIcon,
     StoveIcon,

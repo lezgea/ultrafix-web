@@ -1,6 +1,5 @@
 "use client";
 
-import { Check3Icon, CheckIcon } from '@assets/icons';
 import SectionLayout from '@components/layout/section-layout';
 import { WHY_US } from 'constants/why-us';
 import React, { useState, useEffect } from 'react';
@@ -25,7 +24,7 @@ export const WhyUsSection: React.FC = () => {
                 title="Why Us ?"
                 description="Client satisfaction is at the forefront of our minds at UltraFix Appliance Repair Service. Our business model is built on respect, promptness, honesty, and taking pride in our work. When you choose us for your appliance repair, you learn how closely we hold to these values."
             >
-                <div className="flex flex-wrap gap-4 items-center justify-center mb-5">
+                <div className="flex flex-wrap gap-3 items-center justify-center mb-5 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
                     {
                         WHY_US.map(item =>
                             <motion.div
@@ -33,18 +32,26 @@ export const WhyUsSection: React.FC = () => {
                                 initial={{ opacity: 0, x: -100 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.5 }}
-                                className='relative flex flex-col lg:min-h-[300px] shadow-lg rounded-3xl text-center items-center gap-2 cursor-pointer bg-white lg:w-[22%] xl:w-[18%] overflow-hidden'
+                                className='relative flex flex-col shadow-lg rounded-3xl text-center items-center gap-2 cursor-pointer bg-white overflow-hidden'
                             >
-                                {/* <h3 className='text-xl md:text-lg font-medium bottom-2'>
-                                    {item.title}
-                                </h3> */}
-                                <div className='w-full relative flex justify-center mt-auto'>
+                                <div className='flex gap-3 items-center justify-center pt-5 pb-4'>
+                                    {item.icon}
+                                    <div className='text-start'>
+                                        <div className='text-xl font-medium text-primary'>
+                                            {item.title1}
+                                        </div>
+                                        <div className='text-lg leading-[1rem] font-light'>
+                                            {item.title2}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='w-full relative flex justify-center'>
                                     <Image
                                         src="/svg/card_banner.svg"
                                         alt="Card Banner"
                                         width={300}
                                         height={200}
-                                        className='w-full h-[160px] object-cover'
+                                        className='w-full h-[140px] object-cover'
                                     />
                                     <div className='absolute flex flex-col gap-1 px-3 py-3'>
                                         <p className='text-xs font-light text-white'>
