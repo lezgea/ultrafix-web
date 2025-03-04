@@ -32,7 +32,7 @@ export const LocationsBanner: React.FC<ILocationBannerProps> = () => {
                             <h2 className="text-[3rem] leading-[3.5rem] md:text-[4rem] md:leading-[5rem] font-semibold text-primaryDark">
                                 <span className='text-primary'>Appliance</span> repair services
                             </h2>
-                            <h3 className="text-[3rem] leading-[3.5rem] md:text-[4rem] md:leading-[4rem] lg:max-w-[60%] font-semibold text-primaryDark">
+                            <h3 className="text-[3rem] leading-[3.5rem] md:text-[4rem] md:leading-[3.5rem] lg:max-w-[70%] font-semibold text-primaryDark">
                                 in <span className='text-primary'>{cityInfo?.data.title}, {cityInfo?.data.state_short}</span>
                             </h3>
                         </>
@@ -62,7 +62,7 @@ export const LocationsBanner: React.FC<ILocationBannerProps> = () => {
                     src={'/img/cars/main_car.webp'}
                     width={700}
                     height={700}
-                    className="w-auto -mt-[50px] lg:-mt-0 lg:h-[700px]"
+                    className="w-auto -mt-[50px] lg:mt-10 lg:h-[700px]"
                     alt="UltraFix Car Image"
                     loading="lazy"
                     // placeholder="blur"

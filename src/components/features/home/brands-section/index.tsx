@@ -5,7 +5,6 @@ import Image from 'next/image';
 import React from 'react';
 import * as motion from "framer-motion/client"
 import { useLazyGetAllBrandsQuery } from '@api/brands-api';
-import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { useGetCityInfoQuery } from '@api/location-api';
 import dynamic from 'next/dynamic';
