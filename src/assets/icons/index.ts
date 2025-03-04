@@ -74,7 +74,7 @@ import Check3Icon from './check3.svg';
 import ErrorIcon from './404.svg';
 import DollarIcon from './dollar.svg';
 import ClockIcon from './clock.svg';
-import CalendarIcon from './Calendar.svg';
+import CalendarIcon from './calendar.svg';
 import WarrantyIcon from './warranty.svg';
 import QualityIcon from './quality.svg';
 
