@@ -72,7 +72,6 @@ export const BrandsSection: React.FC = () => {
 
     return (
         <SectionLayout
-            noYPadding
             scrollId="brands"
             title={cityInfo?.data?.title ? `Popular Brands We Repair in ${cityInfo?.data?.title}, ${cityInfo?.data?.state_short}` : `Popular Brands We Repair`}
         >

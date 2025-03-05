@@ -24,6 +24,7 @@ const NAV_ROUTES: IRouteType[] = [
     // { id: 'brands', label: 'Brands' },
     { id: 'faq', label: 'FAQ' },
     { id: 'blog', label: 'Blog' },
+    { id: 'brands', label: 'Brands' },
     { id: 'apply', label: 'Apply Now' },
 ];
 
