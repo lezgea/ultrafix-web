@@ -48,6 +48,8 @@ export interface ICityMin {
 export interface ICitiesMinlistRequest {
     title?: string,
     state?: string,
+    skip?: number,
+    limit?: number,
 }
 
 export interface ICitiesMinlistResponse {

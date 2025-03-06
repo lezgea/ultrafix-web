@@ -1,5 +1,4 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
-import axiosBaseQuery from '@utils/axiosBaseQuery';
 import { ICitiesInfoRequest, ICitiesInfoResponse, ICitiesListRequest, ICitiesListResponse, ICitiesMinlistRequest, ICitiesMinlistResponse, IStatesListRequest, IStatesListResponse } from './types/location-types';
 import axiosBasePublicQuery from '@utils/axiosBasePublicQuery';
 
@@ -35,7 +34,7 @@ export const locationApi = createApi({
             query: ({ title, state }) => ({
                 url: `/cities/minlist`,
                 method: 'GET',
-                params: { titel: title, state: state }
+                params: { title: title, state: state }
             }),
         }),
     }),

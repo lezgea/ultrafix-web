@@ -8,7 +8,7 @@ export async function GET(req: NextRequest) {
 
     sitemap.write({ url: '/', lastmod: '2025-03-06', changefreq: 'weekly', priority: 1.0 });
 
-    const cities = await fetchCitiesMinlist({ skip: 0, limit: 800 });
+    const cities = await fetchCitiesMinlist({ skip: 800, limit: 800 });
     const brands = await fetchBrandsList();
 
     if (brands?.data?.length) {

@@ -4,6 +4,7 @@ import axios from 'axios';
 const BASE_URL = process.env.NEXT_BASE_API_URL || 'https://ultrafix.pro/api/v1';
 const BASE_PUBLIC_URL = process.env.NEXT_PUBLIC_BASE_API_URL || 'https://ultrafix.pro/api/v1/public';
 
+
 export const fetchAllBlogs = async (skip = 0, limit = 100) => {
     try {
         const response = await axios.get(`${BASE_URL}/blog/posts`, { params: { skip, limit } });
@@ -15,9 +16,14 @@ export const fetchAllBlogs = async (skip = 0, limit = 100) => {
 };
 
 
-export const fetchCitiesMinlist = async (skip = 0, limit = 500) => {
+export const fetchCitiesMinlist = async ({ skip = 0, limit = 500 }) => {
     try {
-        const response = await axios.get(`${BASE_PUBLIC_URL}/cities/minlist`, {});
+        const response = await axios.get(`${BASE_PUBLIC_URL}/cities/minlist`, {
+            params: {
+                skip,
+                limit
+            }
+        });
         return response.data;
     } catch (error) {
         console.error('Error fetching cities:', error);
