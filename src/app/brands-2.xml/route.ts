@@ -8,7 +8,7 @@ export async function GET(req: NextRequest) {
 
     sitemap.write({ url: '/', lastmod: '2025-03-06', changefreq: 'weekly', priority: 1.0 });
 
-    const cities = await fetchCitiesMinlist({ skip: 800, limit: 800 });
+    const cities = await fetchCitiesMinlist({ skip: 500, limit: 500 });
     const brands = await fetchBrandsList();
 
     if (brands?.data?.length) {
@@ -23,7 +23,7 @@ export async function GET(req: NextRequest) {
     }
 
     if (cities?.data?.length) {
-        cities.forEach((city: any) => {
+        cities.data?.forEach((city: any) => {
             if (brands?.data?.length) {
                 brands.data.forEach((brand: any) => {
                     sitemap.write({
