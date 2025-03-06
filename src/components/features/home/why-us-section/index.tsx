@@ -26,21 +26,34 @@ export const WhyUsSection: React.FC = () => {
             >
                 <div className="flex flex-wrap gap-3 items-center justify-center mb-5 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
                     {
-                        WHY_US.map(item =>
+                        WHY_US.map((item, i) =>
                             <motion.div
                                 key={item.id}
-                                initial={{ opacity: 0, x: -100 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.5 }}
+                                initial={{ opacity: 1, scale: 0 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                transition={{
+                                    duration: 0.3,
+                                    scale: { type: "spring", visualDuration: 0.4, bounce: 0.2 },
+                                }}
                                 className='relative flex flex-col shadow-lg rounded-3xl text-center items-center gap-2 cursor-pointer bg-white overflow-hidden'
                             >
-                                <div className='flex gap-3 items-center justify-center pt-5 pb-4'>
-                                    {item.icon}
-                                    <div className='text-start'>
-                                        <div className='text-xl font-medium text-primary'>
+                                <div className='flex gap-3 items-center justify-center pt-5 pb-3'>
+                                    <motion.div
+                                        key={item.id}
+                                        initial={{ opacity: 1, scale: 0 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        transition={{
+                                            duration: 1,
+                                            scale: { type: "spring", visualDuration: 0.7, bounce: 0.5 },
+                                        }}
+                                    >
+                                        {item.icon}
+                                    </motion.div>
+                                    <div className='flex flex-col text-start gap-1'>
+                                        <div className='text-lg leading-[1rem] font-medium text-primary'>
                                             {item.title1}
                                         </div>
-                                        <div className='text-lg leading-[1rem] font-light'>
+                                        <div className='text-md leading-[1rem] font-light'>
                                             {item.title2}
                                         </div>
                                     </div>
