@@ -6,19 +6,34 @@ import { ServiceButton } from '@components/shared/service-button';
 import { COMMERCIAL_SERVICES_LIST } from 'constants/services';
 import { useSelector } from 'react-redux';
 import { RootState } from '@store/store';
+import { useParams, usePathname } from 'next/navigation';
 
 
 const MemoizedServiceButton = React.memo(ServiceButton);
 
 
 export const CommercialServicesSection: React.FC = () => {
+    const pathname = usePathname();
+    const { state, city, brandId } = useParams();
     const { brandInfo } = useSelector((state: RootState) => state.brand);
-    const { cityInfo } = useSelector((state: RootState) => state.location);
+
+
+    function getTitle() {
+        switch (pathname) {
+            case `/brand/${brandId}`:
+            case `/appliance-repair/${state}/${city}/brand/${brandId}`:
+                return `Our Commercial <span style="color:#2b7de2">${brandInfo?.text}</span> Services`
+            default:
+                return "Our Commercial Services"
+        }
+    }
+
+    let title = getTitle();
 
     return (
         <SectionLayout
             scrollId="com_services"
-            title={brandInfo?.text ? `Our Commercial <span style="color:#2b7de2">${brandInfo?.text}</span> Services` : "Our Commercial Services"}
+            title={title}
             description="We have been providing top service! See just how our UltraFix Appliance Repair Service can better your life today!"
         >
             <div className='flex flex-wrap gap-5 md:gap-10 items-center justify-center'>
