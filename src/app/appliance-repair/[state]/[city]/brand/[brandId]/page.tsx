@@ -1,6 +1,6 @@
 import React from 'react';
 import PageLayout from '@components/layout/page-layout';
-import { AboutUsSection, BrandsSection, CommercialLocationServices, ContactSection, EmployeesSection, LocationsMap, ResidentialLocationServices, ReviewsSection, WhyUsSection } from '@components/features';
+import { AboutUsSection, BlogSection, BrandsSection, CommercialLocationServices, ContactSection, EmployeesSection, LocationsMap, ResidentialLocationServices, ReviewsSection, WhyUsSection } from '@components/features';
 import { BrandBanner } from '@components/features/brand';
 
 
@@ -115,6 +115,7 @@ const BrandInfoPage: React.FC<IServiceProps> = ({ params }) => {
             <ContactSection />
             <EmployeesSection />
             <BrandsSection />
+            <BlogSection hideCarousel />
             <WhyUsSection />
             <AboutUsSection />
         </PageLayout >

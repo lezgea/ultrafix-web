@@ -2,6 +2,7 @@ import React from 'react';
 import PageLayout from '@components/layout/page-layout';
 import {
     AboutUsSection,
+    BlogSection,
     BrandsSection,
     CommercialLocationServices,
     ContactSection,
@@ -143,6 +144,7 @@ const LocationPage: React.FC<ILocationProps> = ({ params }) => {
                     <BrandsSection />
                     <WhyUsSection />
                     <AboutUsSection />
+                    <BlogSection hideCarousel />
                 </AnimatePresence>
             </PageLayout>
         </>

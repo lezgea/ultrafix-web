@@ -1,6 +1,6 @@
 import React from 'react';
 import PageLayout from '@components/layout/page-layout';
-import { AboutUsSection, BrandsSection, CommercialLocationServices, CommercialServicesSection, ResidentialLocationServices, ResidentialServicesSection, ReviewsSection, WhyUsSection } from '@components/features';
+import { AboutUsSection, BlogSection, BrandsSection, CommercialLocationServices, CommercialServicesSection, ResidentialLocationServices, ResidentialServicesSection, ReviewsSection, WhyUsSection } from '@components/features';
 import LocationsFAQSection from '@components/features/faq/locations-faq-section';
 
 
@@ -106,6 +106,7 @@ const FAQ: React.FC<IFaqProps> = ({ params }) => {
             <ReviewsSection />
             <AboutUsSection />
             <BrandsSection />
+            <BlogSection hideCarousel />
             <WhyUsSection />
         </PageLayout>
     );
