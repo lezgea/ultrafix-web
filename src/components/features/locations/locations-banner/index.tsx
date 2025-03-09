@@ -1,13 +1,14 @@
 "use client";
 
-import SectionLayout from '@components/layout/section-layout';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useParams } from 'next/navigation';
 import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import SectionLayout from '@components/layout/section-layout';
+import { useParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { useGetCityInfoQuery } from '@api/location-api';
 import { LocationsTitleSkeleton } from '@components/shared/skeletons';
+import { useLazyGetLocationServicesQuery } from '@api/services-api';
 
 
 interface ILocationBannerProps {
@@ -18,6 +19,22 @@ interface ILocationBannerProps {
 export const LocationsBanner: React.FC<ILocationBannerProps> = () => {
     const { state, city, service } = useParams();
     const { data: cityInfo, isLoading: cityInfoLoading } = useGetCityInfoQuery({ state: state as string, city: city as string });
+    const [triggerGetServices] = useLazyGetLocationServicesQuery();
+
+
+    async function getLocationServices() {
+        try {
+            await triggerGetServices({ location: cityInfo?.data.location_id || 2 }).unwrap();
+        } catch (err: any) {
+            console.log('Error while fetching location services: ', err)
+        }
+    }
+
+
+    React.useEffect(() => {
+        if (cityInfo?.data?.location_id)
+            getLocationServices();
+    }, [cityInfo?.data.location_id])
 
 
     return (

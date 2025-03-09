@@ -73,6 +73,7 @@ export interface ICityInfo {
     review_url: string,
     state_full: string,
     state_short: string,
+    location_id: number,
     latitude?: number | undefined,
     longitude?: number | undefined,
     title: string,

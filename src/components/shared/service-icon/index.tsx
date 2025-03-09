@@ -10,7 +10,7 @@ interface IServiceIconProps {
 export const ServiceIcon: React.FC<IServiceIconProps> = ({ value, className }) => {
     switch (value) {
         case 'refrigerator': return <RefrigeratorIcon className={className} />;
-        case 'ice_machine': return <IceMachineIcon className={className} />;
+        case 'ice-machine': return <IceMachineIcon className={className} />;
         case 'washer': return <WasherIcon className={className} />;
         case 'dryer': return <DryerIcon className={className} />;
         case 'dishwasher': return <DishwasherIcon className={className} />;
@@ -19,11 +19,11 @@ export const ServiceIcon: React.FC<IServiceIconProps> = ({ value, className }) =
         case 'range': return <RangeIcon className={className} />;
         case 'cooktop': return <CooktopIcon className={className} />;
         case 'microwave': return <MicrowaveIcon className={className} />;
-        case 'wine_cooler': return <WineCoolerIcon className={className} />;
+        case 'wine-cooler': return <WineCoolerIcon className={className} />;
         case 'freezer': return <FreezerIcon className={className} />;
-        case 'warmer_drawer': return <WarmerDrawerIcon className={className} />;
-        case 'vent_hood': return <VentHoodIcon className={className} />;
-        case 'garbage_disposal': return <GarbageDisposalIcon className={className} />;
+        case 'warmer-drawer': return <WarmerDrawerIcon className={className} />;
+        case 'vent-hood': return <VentHoodIcon className={className} />;
+        case 'garbage-disposal': return <GarbageDisposalIcon className={className} />;
         default: return null;
     }
 }

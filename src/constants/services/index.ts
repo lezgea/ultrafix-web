@@ -8,7 +8,7 @@ export const RESIDENCIAL_SERVICES_LIST = [
     {
         id: 2,
         title: 'Ice Machine',
-        value: 'ice_machine',
+        value: 'ice-machine',
         link: 'ice-machine-repair',
     },
     {
@@ -20,7 +20,7 @@ export const RESIDENCIAL_SERVICES_LIST = [
     {
         id: 4,
         title: 'Wine Cooler',
-        value: 'wine_cooler',
+        value: 'wine-cooler',
         link: 'wine-cooler-repair',
     },
     {
@@ -62,7 +62,7 @@ export const RESIDENCIAL_SERVICES_LIST = [
     {
         id: 11,
         title: 'Vent Hood',
-        value: 'vent_hood',
+        value: 'vent-hood',
         link: 'vent-hood-repair',
     },
     {
@@ -80,13 +80,13 @@ export const RESIDENCIAL_SERVICES_LIST = [
     {
         id: 14,
         title: 'Warmer Drawer',
-        value: 'warmer_drawer',
+        value: 'warmer-drawer',
         link: 'warmer-drawer-repair',
     },
     {
         id: 15,
         title: 'Garbage Disposal',
-        value: 'garbage_disposal',
+        value: 'garbage-disposal',
         link: 'garbage-disposal-repair',
     },
 ];
@@ -102,7 +102,7 @@ export const COMMERCIAL_SERVICES_LIST = [
     {
         id: 2,
         title: 'Ice Machine',
-        value: 'ice_machine',
+        value: 'ice-machine',
         link: 'ice-machine-repair',
     },
     {
@@ -114,7 +114,7 @@ export const COMMERCIAL_SERVICES_LIST = [
     {
         id: 4,
         title: 'Wine Cooler',
-        value: 'wine_cooler',
+        value: 'wine-cooler',
         link: 'wine-cooler-repair',
     },
     {
@@ -156,7 +156,7 @@ export const COMMERCIAL_SERVICES_LIST = [
     {
         id: 11,
         title: 'Vent Hood',
-        value: 'vent_hood',
+        value: 'vent-hood',
         link: 'vent-hood-repair',
     },
     {
@@ -174,13 +174,13 @@ export const COMMERCIAL_SERVICES_LIST = [
     {
         id: 14,
         title: 'Warmer Drawer',
-        value: 'warmer_drawer',
+        value: 'warmer-drawer',
         link: 'warmer-drawer-repair',
     },
     {
         id: 15,
         title: 'Garbage Disposal',
-        value: 'garbage_disposal',
+        value: 'garbage-disposal',
         link: 'garbage-disposal-repair',
     },
 ];
