@@ -5,6 +5,7 @@ import SectionLayout from '@components/layout/section-layout';
 import { RezLocationServiceButton } from '@components/shared';
 import { useSelector } from 'react-redux';
 import { RootState } from '@store/store';
+import { useLazyGetLocationServicesQuery } from '@api/services-api';
 
 
 const MemoizedLocationServiceButton = React.memo(RezLocationServiceButton)
@@ -15,9 +16,28 @@ export const ResidentialLocationServices: React.FC = () => {
     const { brandInfo } = useSelector((state: RootState) => state.brand);
     const { locationServices } = useSelector((state: RootState) => state.service);
 
+    const [triggerGetServices] = useLazyGetLocationServicesQuery();
+
+
+    async function getLocationServices() {
+        try {
+            await triggerGetServices({ location: cityInfo?.location_id || 2 }).unwrap();
+        } catch (err: any) {
+            console.log('Error while fetching location services: ', err)
+        }
+    }
+
+
     let title = brandInfo?.text
         ? `Residential <span style="color:#2b7de2">${brandInfo?.text}</span> Appliances We Repair in ${cityInfo?.title}, ${cityInfo?.state_short}`
         : `Residential Appliances We Repair in ${cityInfo?.title}, ${cityInfo?.state_short}`
+
+
+    React.useEffect(() => {
+        if (cityInfo?.location_id)
+            getLocationServices();
+    }, [cityInfo?.location_id]);
+
 
     return (
         <SectionLayout
