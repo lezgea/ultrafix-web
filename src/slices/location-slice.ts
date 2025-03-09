@@ -20,6 +20,7 @@ const initialState: ILocationState = {
         employees: [],
         image: '',
         phone: '',
+        location_id: 2,
         review_url: '',
         state_full: '',
         state_short: '',
