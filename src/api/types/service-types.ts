@@ -1,17 +1,25 @@
 
 export interface IService {
     id: number | string,
-    name: string,
-    state_short: string,
-    value: string,
-    icon: string
+    title: string,
+    slug: string,
+    icon: number,
+    icon_url?: string
 
 }
 
-export interface IStatesListRequest {
-    // city: string,
+
+// REQUEST TYPES
+
+export interface IGetLocationServicesRequest {
+    location: number,
 }
 
-export interface IStatesListResponse {
-    data: IService[],
+
+
+// RESPONSE TYPES
+
+export interface IGetLocationServicesResponse {
+    residential: IService[],
+    commercial: IService[],
 }
